@@ -1,0 +1,19 @@
+{
+  "name": "Fit Circuit Tracker",
+  "short_name": "FitTracker",
+  "description": "Tracker allenamenti circuit-based",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f5f7",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
