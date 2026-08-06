@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#7C3AED" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0A0B" media="(prefers-color-scheme: dark)">
+  <title>Fit Tracker · UI Sandbox (Fase 8)</title>
+
+  <!-- Ordine di caricamento: tokens (variables) → components (uso) → sandbox (chrome) -->
+  <link rel="stylesheet" href="./tokens.css">
+  <link rel="stylesheet" href="./components.css">
+  <link rel="stylesheet" href="./sandbox.css">
+</head>
+<body>
+  <div class="sb-app">
+
+    <!-- ================================================================
+         TOOLBAR — theme · viewport · debug · a11y · perf
+    ================================================================= -->
+    <header class="sb-topbar" role="banner">
+      <div class="sb-topbar__brand">
+        <span class="sb-topbar__brand-mark" aria-hidden="true">FT</span>
+        <span>Fit Tracker · UI Sandbox</span>
+        <span aria-hidden="true" style="color:var(--color-textSecondary);font-weight:var(--weight-medium);font-size:var(--type-small-size);margin-left:var(--space-8)">Fase 8</span>
+      </div>
+
+      <span class="sb-topbar__spacer"></span>
+
+      <!-- Theme picker -->
+      <div class="sb-group" role="group" aria-label="Tema">
+        <span class="sb-group__label">Tema</span>
+        <button type="button" class="sb-btn" data-theme-set="light">Light</button>
+        <button type="button" class="sb-btn" data-theme-set="dark">Dark</button>
+        <button type="button" class="sb-btn" data-theme-set="amoled">AMOLED</button>
+      </div>
+
+      <!-- Viewport selector -->
+      <div class="sb-group" role="group" aria-label="Viewport">
+        <span class="sb-group__label">Viewport</span>
+        <button type="button" class="sb-btn" data-viewport-set="360">360</button>
+        <button type="button" class="sb-btn" data-viewport-set="390">390</button>
+        <button type="button" class="sb-btn" data-viewport-set="430">430</button>
+        <button type="button" class="sb-btn" data-viewport-set="768">768</button>
+        <button type="button" class="sb-btn" data-viewport-set="1024">1024</button>
+        <button type="button" class="sb-btn" data-viewport-set="1440">1440</button>
+        <button type="button" class="sb-btn" data-viewport-set="fluid">Fluid</button>
+      </div>
+
+      <!-- Debug overlays -->
+      <div class="sb-group" role="group" aria-label="Debug overlays">
+        <span class="sb-group__label">Debug</span>
+        <button type="button" class="sb-btn" data-debug-toggle="padding"  aria-pressed="false">Padding</button>
+        <button type="button" class="sb-btn" data-debug-toggle="margin"   aria-pressed="false">Margin</button>
+        <button type="button" class="sb-btn" data-debug-toggle="grid"     aria-pressed="false">Grid</button>
+        <button type="button" class="sb-btn" data-debug-toggle="safe"     aria-pressed="false">Safe Area</button>
+        <button type="button" class="sb-btn" data-debug-toggle="touch"    aria-pressed="false">Touch</button>
+        <button type="button" class="sb-btn" data-debug-toggle="baseline" aria-pressed="false">Baseline</button>
+      </div>
+
+      <!-- A11y overlays -->
+      <div class="sb-group" role="group" aria-label="Accessibilità">
+        <span class="sb-group__label">A11y</span>
+        <button type="button" class="sb-btn" data-a11y-toggle="contrast" aria-pressed="false">Contrasto</button>
+        <button type="button" class="sb-btn" data-a11y-toggle="aria"     aria-pressed="false">ARIA</button>
+        <button type="button" class="sb-btn" data-a11y-toggle="focus"    aria-pressed="false">Focus</button>
+        <button type="button" class="sb-btn" data-a11y-toggle="keyboard" aria-pressed="false">Keyboard</button>
+      </div>
+
+      <!-- Performance -->
+      <div class="sb-group" role="group" aria-label="Performance">
+        <span class="sb-group__label">Perf</span>
+        <button type="button" class="sb-btn" data-perf-toggle aria-pressed="false">HUD</button>
+      </div>
+    </header>
+
+    <!-- ================================================================
+         SIDEBAR — indice sezioni
+    ================================================================= -->
+    <aside class="sb-aside" role="navigation" aria-label="Sezioni sandbox">
+      <p class="sb-aside__title">Sezioni</p>
+      <nav id="sb-aside-nav" class="sb-aside__nav">
+        <!-- popolato da sandbox.js -->
+      </nav>
+    </aside>
+
+    <!-- ================================================================
+         MAIN — viewport simulator + sezioni componenti
+    ================================================================= -->
+    <main class="sb-main" role="main">
+      <div id="sb-viewport" class="sb-viewport" data-viewport="390">
+        <div class="sb-viewport__ruler">
+          <span>Viewport simulato</span>
+          <span id="sb-viewport-label">390px</span>
+        </div>
+        <div id="sb-viewport-body">
+          <!-- popolato da sandbox.js -->
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ==================================================================
+       PERFORMANCE HUD (fisso in basso a destra, visibile con Perf ON)
+  =================================================================== -->
+  <aside id="sb-perf" class="sb-perfHud" aria-label="Performance HUD">
+    <div class="sb-perfHud__row"><span class="sb-perfHud__label">render</span><span class="sb-perfHud__val" data-perf="render">0 ms</span></div>
+    <div class="sb-perfHud__row"><span class="sb-perfHud__label">count</span><span  class="sb-perfHud__val" data-perf="count">0</span></div>
+    <div class="sb-perfHud__row"><span class="sb-perfHud__label">FPS</span><span    class="sb-perfHud__val" data-perf="fps">0</span></div>
+    <div class="sb-perfHud__row"><span class="sb-perfHud__label">DOM</span><span    class="sb-perfHud__val" data-perf="dom">0</span></div>
+  </aside>
+
+  <script src="./components.js" defer></script>
+  <script src="./sandbox.js"    defer></script>
+</body>
+</html>

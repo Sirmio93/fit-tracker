@@ -1,0 +1,1041 @@
+/* ==========================================================================
+   components.css — Fit Tracker PWA Component Library (Fase 8)
+   Ogni componente consuma esclusivamente variabili da tokens.css.
+   Nessun valore grafico hardcoded (colori, size, radius, ombre, timing).
+   Prefisso .c- per Component; .is-<stato> per stati; .c-<name>--<variant>.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Base / reset locale (limitato al contesto sandbox — non tocca l'app reale).
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+.c-surface {
+  background: var(--color-surface);
+  color: var(--color-textPrimary);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — c-btn
+   Varianti: primary | secondary | ghost | danger
+   Taglie:   sm | md (default) | lg
+   Stati:    :hover :active :focus-visible :disabled .is-loading .is-pressed
+   -------------------------------------------------------------------------- */
+.c-btn {
+  --_bg:      var(--color-primary);
+  --_bg-h:    var(--color-primaryHover);
+  --_fg:      var(--color-textOnPrimary);
+  --_border:  transparent;
+  --_h:       var(--touch-recommended);
+  --_px:      var(--space-24);
+  --_fs:      var(--type-body-size);
+  --_fw:      var(--weight-semibold);
+  --_r:       var(--radius-large);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: var(--_h);
+  min-width: var(--touch-minimum);
+  padding: 0 var(--_px);
+  border: 1px solid var(--_border);
+  border-radius: var(--_r);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-primary);
+  font-size: var(--_fs);
+  font-weight: var(--_fw);
+  line-height: 1;
+  letter-spacing: var(--track-normal);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default);
+}
+.c-btn:hover:not(:disabled):not(.is-loading) { background: var(--_bg-h); }
+.c-btn:active:not(:disabled):not(.is-loading),
+.c-btn.is-pressed                            { transform: scale(0.97); }
+.c-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+.c-btn:disabled, .c-btn.is-disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* Variante — secondary (viola pieno tonale) */
+.c-btn--secondary {
+  --_bg:     var(--color-secondary);
+  --_bg-h:   var(--color-primary);
+  --_fg:     var(--color-textOnPrimary);
+}
+/* Variante — ghost (trasparente, testo primary, border sottile) */
+.c-btn--ghost {
+  --_bg:     transparent;
+  --_bg-h:   color-mix(in srgb, var(--color-primary) calc(var(--opacity-hover) * 100%), transparent);
+  --_fg:     var(--color-primary);
+  --_border: var(--color-border);
+}
+.c-btn--ghost:active:not(:disabled) {
+  background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-pressed) * 100%), transparent);
+}
+/* Variante — danger */
+.c-btn--danger {
+  --_bg:     var(--color-error);
+  --_bg-h:   color-mix(in srgb, var(--color-error) 85%, black);
+  --_fg:     var(--color-textOnPrimary);
+}
+/* Variante — floating (CTA sospeso con ombra tint viola) */
+.c-btn--floating { box-shadow: var(--shadow-floating); }
+
+/* Taglie */
+.c-btn--sm {
+  --_h:  var(--touch-minimum);
+  --_px: var(--space-16);
+  --_fs: var(--type-caption-size);
+}
+.c-btn--lg {
+  --_h:  var(--touch-fab);
+  --_px: var(--space-32);
+  --_fs: var(--type-title-size);
+}
+
+/* Icona-only (quadrato, no label) */
+.c-btn--icon {
+  --_px: 0;
+  width: var(--_h);
+  padding: 0;
+}
+
+/* Stato loading — spinner al posto della label */
+.c-btn.is-loading { color: transparent; pointer-events: none; position: relative; }
+.c-btn.is-loading::after {
+  content: '';
+  position: absolute;
+  width: var(--icon-medium);
+  height: var(--icon-medium);
+  border: 2px solid color-mix(in srgb, var(--color-textOnPrimary) 40%, transparent);
+  border-top-color: var(--color-textOnPrimary);
+  border-radius: var(--radius-pill);
+  animation: c-spin var(--duration-slow) linear infinite;
+}
+@keyframes c-spin { to { transform: rotate(360deg); } }
+
+/* FAB — variante circolare */
+.c-fab {
+  width: var(--touch-fab);
+  height: var(--touch-fab);
+  border-radius: var(--radius-fab);
+  background: var(--color-primary);
+  color: var(--color-textOnPrimary);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-floating);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--curve-default);
+}
+.c-fab:hover  { background: var(--color-primaryHover); }
+.c-fab:active { transform: scale(0.94); }
+
+/* --------------------------------------------------------------------------
+   Cards — c-card e varianti
+   -------------------------------------------------------------------------- */
+.c-card {
+  background: var(--color-surface);
+  color: var(--color-textPrimary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background   var(--duration-fast) var(--curve-default),
+    border-color var(--duration-fast) var(--curve-default),
+    box-shadow   var(--duration-fast) var(--curve-default);
+}
+.c-card.is-interactive { cursor: pointer; }
+.c-card.is-interactive:hover { box-shadow: var(--shadow-md); }
+.c-card.is-interactive:active { background: var(--color-surfaceActive); }
+.c-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+
+.c-card__eyebrow {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-line);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+.c-card__title {
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-line);
+  font-weight: var(--type-h3-weight);
+  letter-spacing: var(--type-h3-track);
+  color: var(--color-textPrimary);
+  margin: 0;
+}
+.c-card__body {
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
+  color: var(--color-textSecondary);
+  margin: 0;
+}
+.c-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+/* Variante — Hero (gradient full-bleed) */
+.c-card--hero {
+  background: var(--gradient-primary);
+  color: var(--color-textOnPrimary);
+  border: none;
+  padding: var(--space-24);
+  box-shadow: var(--shadow-floating);
+}
+.c-card--hero .c-card__title,
+.c-card--hero .c-card__body,
+.c-card--hero .c-card__eyebrow { color: var(--color-textOnPrimary); }
+.c-card--hero .c-card__eyebrow { opacity: 0.85; }
+
+/* Variante — Workout attivo (gradient viola→magenta) */
+.c-card--workout {
+  background: var(--gradient-workout);
+  color: var(--color-textOnPrimary);
+  border: none;
+  padding: var(--space-24);
+  box-shadow: var(--shadow-floating);
+}
+.c-card--workout * { color: var(--color-textOnPrimary); }
+
+/* Variante — Statistic (KPI grande) */
+.c-card--statistic .c-card__value {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-h1-size);
+  line-height: var(--type-h1-line);
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-track);
+  color: var(--color-textPrimary);
+}
+.c-card--statistic .c-card__delta { color: var(--color-success); font-size: var(--type-caption-size); }
+.c-card--statistic .c-card__delta.is-negative { color: var(--color-error); }
+
+/* Variante — Record (celebrazione) */
+.c-card--record {
+  background: var(--gradient-record);
+  color: var(--color-textOnPrimary);
+  border: none;
+  padding: var(--space-24);
+  box-shadow: var(--shadow-lg);
+}
+.c-card--record * { color: var(--color-textOnPrimary); }
+
+/* Variante — Goal (progress bar) */
+.c-card--goal .c-progressBar {
+  width: 100%;
+  height: var(--space-8);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.c-card--goal .c-progressBar__fill {
+  height: 100%;
+  background: var(--gradient-success);
+  border-radius: var(--radius-pill);
+  transition: width var(--duration-slow) var(--curve-default);
+}
+
+/* Variante — History (row compatta) */
+.c-card--history {
+  flex-direction: row;
+  align-items: center;
+  padding: var(--space-12) var(--space-16);
+  gap: var(--space-16);
+}
+.c-card--history .c-card__meta {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+}
+
+/* Variante — Empty */
+.c-card--empty {
+  align-items: center;
+  text-align: center;
+  padding: var(--space-32) var(--space-24);
+  border-style: dashed;
+  color: var(--color-textSecondary);
+}
+.c-card--empty .c-card__icon {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+  color: var(--color-textDisabled);
+}
+
+/* Variante — Loading (skeleton) */
+.c-card--loading .c-skeleton {
+  height: var(--space-16);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  position: relative;
+}
+.c-card--loading .c-skeleton::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-textPrimary) 8%, transparent) 50%,
+    transparent 100%);
+  animation: c-shimmer var(--duration-extraSlow) var(--curve-default) infinite;
+}
+@keyframes c-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%);  }
+}
+
+/* Variante — Exercise Card */
+.c-card--exercise .c-card__set {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: var(--space-12);
+  align-items: center;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-divider);
+}
+.c-card--exercise .c-card__set:first-of-type { border-top: none; }
+.c-card--exercise .c-card__set__num {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-textSecondary);
+  font-size: var(--type-caption-size);
+  min-width: var(--space-24);
+}
+.c-card--exercise .c-card__set__val {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+}
+
+/* --------------------------------------------------------------------------
+   Navigation — Bottom Nav / Tab Bar / Segmented / Header / Toolbar
+   -------------------------------------------------------------------------- */
+.c-bottomNav {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  background: var(--color-glass);
+  backdrop-filter: blur(var(--blur-navigation));
+  -webkit-backdrop-filter: blur(var(--blur-navigation));
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-8) calc(var(--space-4) + var(--safe-bottom));
+  z-index: var(--z-navigation);
+  box-shadow: var(--shadow-glass);
+}
+.c-bottomNav__item {
+  flex: 1;
+  min-height: var(--touch-recommended);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: transparent;
+  border: none;
+  color: var(--color-textSecondary);
+  font-family: var(--font-primary);
+  font-size: var(--type-small-size);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--curve-default);
+}
+.c-bottomNav__item .c-icon { width: var(--icon-medium); height: var(--icon-medium); }
+.c-bottomNav__item.is-active { color: var(--color-primary); }
+.c-bottomNav__item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent) inset;
+  border-radius: var(--radius-small);
+}
+
+/* Tab Bar (per contenuti secondari) */
+.c-tabBar {
+  display: flex;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  padding: 0 var(--space-16);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.c-tabBar::-webkit-scrollbar { display: none; }
+.c-tabBar__tab {
+  flex: 0 0 auto;
+  min-height: var(--touch-minimum);
+  padding: var(--space-8) var(--space-16);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--color-textSecondary);
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--curve-default),
+              border-color var(--duration-fast) var(--curve-default);
+}
+.c-tabBar__tab.is-active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Segmented Control */
+.c-segmented {
+  display: inline-flex;
+  padding: var(--space-4);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-pill);
+  gap: var(--space-4);
+}
+.c-segmented__seg {
+  min-height: var(--touch-minimum);
+  padding: 0 var(--space-16);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  color: var(--color-textSecondary);
+  font-family: var(--font-primary);
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--curve-default),
+              color      var(--duration-fast) var(--curve-default);
+}
+.c-segmented__seg.is-active {
+  background: var(--color-surface);
+  color: var(--color-textPrimary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Header (top bar app) */
+.c-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  padding-top: calc(var(--space-16) + var(--safe-top));
+  background: var(--color-glass);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  border-bottom: 1px solid var(--color-border);
+  z-index: var(--z-sticky);
+}
+.c-header__title {
+  font-size: var(--type-title-size);
+  line-height: var(--type-title-line);
+  font-weight: var(--type-title-weight);
+  margin: 0;
+  color: var(--color-textPrimary);
+}
+.c-header__subtitle {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+  margin: 0;
+}
+
+/* Toolbar (barra azioni inline) */
+.c-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+/* --------------------------------------------------------------------------
+   Workout components
+   -------------------------------------------------------------------------- */
+
+/* Weight Picker / Reps Picker (stepper con display centrale) */
+.c-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+.c-picker__btn {
+  width: var(--touch-minimum);
+  height: var(--touch-minimum);
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--color-surfaceActive);
+  color: var(--color-textPrimary);
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--curve-default);
+}
+.c-picker__btn:hover  { background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-hover) * 100%), var(--color-surfaceActive)); }
+.c-picker__btn:active { background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-pressed) * 100%), var(--color-surfaceActive)); }
+.c-picker__value {
+  min-width: var(--space-64);
+  text-align: center;
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-h3-size);
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+}
+.c-picker__unit {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+  margin-left: var(--space-4);
+}
+
+/* Floating Timer (chip fissa in basso quando timer attivo) */
+.c-floatingTimer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-20);
+  background: var(--color-surfaceElevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-sticky);
+}
+.c-floatingTimer__time {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-h3-size);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+}
+.c-floatingTimer__label {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+}
+
+/* Progress Ring (SVG donut) */
+.c-progressRing { display: inline-block; }
+.c-progressRing__track { stroke: var(--color-surfaceActive); }
+.c-progressRing__fill  { stroke: var(--color-primary); transition: stroke-dashoffset var(--duration-slow) var(--curve-default); }
+.c-progressRing__label {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  fill: var(--color-textPrimary);
+  font-size: var(--type-h3-size);
+  font-weight: var(--weight-bold);
+  text-anchor: middle;
+}
+
+/* Next Exercise preview */
+.c-nextExercise {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-surfaceElevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+.c-nextExercise__eyebrow {
+  font-size: var(--type-small-size);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+}
+.c-nextExercise__title {
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+}
+
+/* Workout Header (grande, con azioni) */
+.c-workoutHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-24);
+  background: var(--gradient-workout);
+  color: var(--color-textOnPrimary);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-floating);
+}
+.c-workoutHeader * { color: var(--color-textOnPrimary); }
+.c-workoutHeader__title {
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-line);
+  font-weight: var(--type-h2-weight);
+  margin: 0;
+}
+
+/* Complete Button (CTA finale) */
+.c-completeBtn {
+  width: 100%;
+  min-height: var(--touch-fab);
+  padding: var(--space-16) var(--space-32);
+  background: var(--gradient-success);
+  color: var(--color-textOnPrimary);
+  border: none;
+  border-radius: var(--radius-large);
+  font-family: var(--font-primary);
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-fast) var(--curve-default);
+}
+.c-completeBtn:active { transform: scale(0.98); }
+
+/* Rest Screen preview (overlay pieno) */
+.c-restScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-24);
+  padding: var(--space-48) var(--space-24);
+  background: var(--color-overlay);
+  color: var(--color-textOnPrimary);
+  border-radius: var(--radius-large);
+  min-height: var(--space-80);
+}
+.c-restScreen__time {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-display-size);
+  line-height: var(--type-display-line);
+  font-weight: var(--type-display-weight);
+  letter-spacing: var(--type-display-track);
+  color: var(--color-textOnPrimary);
+}
+.c-restScreen__label {
+  font-size: var(--type-title-size);
+  color: var(--color-textOnPrimary);
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   Feedback — Toast, Dialog, Bottom Sheet, Snackbar, Banner, States
+   -------------------------------------------------------------------------- */
+.c-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-toast);
+  animation: c-toast-in var(--duration-normal) var(--curve-default);
+}
+.c-toast--success { border-color: var(--color-success); }
+.c-toast--error   { border-color: var(--color-error);   }
+.c-toast--info    { border-color: var(--color-info);    }
+.c-toast__icon    { color: var(--color-primary); flex: 0 0 auto; }
+.c-toast--success .c-toast__icon { color: var(--color-success); }
+.c-toast--error   .c-toast__icon { color: var(--color-error);   }
+.c-toast--info    .c-toast__icon { color: var(--color-info);    }
+@keyframes c-toast-in {
+  from { opacity: 0; transform: translateY(var(--space-12)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Dialog (modale conferma) */
+.c-dialog {
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  border-radius: var(--radius-dialog);
+  padding: var(--space-24);
+  box-shadow: var(--shadow-xl);
+  max-width: var(--bp-mobile);
+  width: 100%;
+  z-index: var(--z-dialog);
+  animation: c-dialog-in var(--duration-normal) var(--curve-default);
+}
+.c-dialog__title  { font-size: var(--type-title-size); font-weight: var(--weight-semibold); margin: 0 0 var(--space-8); }
+.c-dialog__body   { font-size: var(--type-body-size); color: var(--color-textSecondary); margin: 0 0 var(--space-24); }
+.c-dialog__actions { display: flex; justify-content: flex-end; gap: var(--space-8); }
+@keyframes c-dialog-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Bottom Sheet */
+.c-bottomSheet {
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  border-radius: var(--radius-bottomSheet) var(--radius-bottomSheet) 0 0;
+  padding: var(--space-20) var(--space-24) calc(var(--space-24) + var(--safe-bottom));
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-sheet);
+  animation: c-sheet-in var(--duration-slow) var(--curve-default);
+}
+.c-bottomSheet__handle {
+  width: var(--space-40);
+  height: var(--space-4);
+  background: var(--color-divider);
+  border-radius: var(--radius-pill);
+  margin: 0 auto var(--space-16);
+}
+.c-bottomSheet__title { font-size: var(--type-title-size); font-weight: var(--weight-semibold); margin: 0 0 var(--space-16); }
+@keyframes c-sheet-in {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* Snackbar (con action) */
+.c-snackbar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-textPrimary);
+  color: var(--color-background);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-toast);
+}
+.c-snackbar__action {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-caption-size);
+  cursor: pointer;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-small);
+  min-height: var(--touch-minimum);
+}
+
+/* Banner (persistente in-page) */
+.c-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-radius: var(--radius-large);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.c-banner--info    { border-color: var(--color-info);    background: color-mix(in srgb, var(--color-info)    12%, var(--color-surface)); }
+.c-banner--warning { border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 12%, var(--color-surface)); }
+.c-banner--error   { border-color: var(--color-error);   background: color-mix(in srgb, var(--color-error)   12%, var(--color-surface)); }
+.c-banner--success { border-color: var(--color-success); background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface)); }
+.c-banner__icon    { flex: 0 0 auto; color: var(--color-primary); }
+.c-banner--info    .c-banner__icon { color: var(--color-info); }
+.c-banner--warning .c-banner__icon { color: var(--color-warning); }
+.c-banner--error   .c-banner__icon { color: var(--color-error); }
+.c-banner--success .c-banner__icon { color: var(--color-success); }
+.c-banner__title { font-weight: var(--weight-semibold); margin: 0 0 var(--space-4); }
+.c-banner__body  { font-size: var(--type-caption-size); color: var(--color-textSecondary); margin: 0; }
+
+/* States: empty / error / success */
+.c-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-16);
+  padding: var(--space-48) var(--space-24);
+  color: var(--color-textSecondary);
+}
+.c-state__icon {
+  width: var(--space-64);
+  height: var(--space-64);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surfaceActive);
+  color: var(--color-textSecondary);
+}
+.c-state--error   .c-state__icon { background: color-mix(in srgb, var(--color-error)   16%, transparent); color: var(--color-error); }
+.c-state--success .c-state__icon { background: color-mix(in srgb, var(--color-success) 16%, transparent); color: var(--color-success); }
+.c-state__title { font-size: var(--type-title-size); font-weight: var(--weight-semibold); color: var(--color-textPrimary); margin: 0; }
+.c-state__body  { font-size: var(--type-body-size); margin: 0; max-width: 40ch; }
+
+/* --------------------------------------------------------------------------
+   Charts (SVG inline, derivati dai token)
+   -------------------------------------------------------------------------- */
+.c-chart {
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.c-chart__title {
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  margin: 0 0 var(--space-12);
+}
+.c-chart__svg { display: block; width: 100%; height: auto; }
+.c-chart .c-chart__axis      { stroke: var(--color-divider); }
+.c-chart .c-chart__grid      { stroke: var(--color-divider); stroke-dasharray: 2 4; }
+.c-chart .c-chart__line      { stroke: var(--color-primary); stroke-width: 2; fill: none; }
+.c-chart .c-chart--area .c-chart__area  { fill: var(--color-primary); fill-opacity: var(--opacity-focus); }
+.c-chart .c-chart__bar       { fill: var(--color-primary); }
+.c-chart .c-chart__bar--alt  { fill: var(--color-secondary); }
+.c-chart .c-chart__label     { fill: var(--color-textSecondary); font-size: var(--type-small-size); font-family: var(--font-numeric); font-variant-numeric: tabular-nums; }
+.c-chart .c-chart__dot       { fill: var(--color-primary); }
+
+/* Heatmap */
+.c-heatmap { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-4); }
+.c-heatmap__cell {
+  aspect-ratio: 1;
+  border-radius: var(--radius-small);
+  background: var(--color-surfaceActive);
+}
+.c-heatmap__cell[data-level="1"] { background: color-mix(in srgb, var(--color-primary) 20%, var(--color-surfaceActive)); }
+.c-heatmap__cell[data-level="2"] { background: color-mix(in srgb, var(--color-primary) 40%, var(--color-surfaceActive)); }
+.c-heatmap__cell[data-level="3"] { background: color-mix(in srgb, var(--color-primary) 65%, var(--color-surfaceActive)); }
+.c-heatmap__cell[data-level="4"] { background: var(--color-primary); }
+
+/* --------------------------------------------------------------------------
+   Profile — Avatar, ProfileHeader, AchievementBadge, SettingsRow, Switch
+   -------------------------------------------------------------------------- */
+.c-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-48);
+  height: var(--space-48);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-primary);
+  color: var(--color-textOnPrimary);
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-bold);
+  overflow: hidden;
+  border: 2px solid var(--color-surface);
+}
+.c-avatar--sm { width: var(--space-32); height: var(--space-32); font-size: var(--type-caption-size); }
+.c-avatar--lg { width: var(--space-80); height: var(--space-80); font-size: var(--type-h3-size); }
+.c-avatar--xl { width: var(--space-96); height: var(--space-96); font-size: var(--type-h2-size); }
+
+.c-profileHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+.c-profileHeader__name {
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+  color: var(--color-textPrimary);
+}
+.c-profileHeader__meta {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+  margin: 0;
+}
+
+.c-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-pill);
+  background: var(--color-surfaceActive);
+  color: var(--color-textPrimary);
+  font-size: var(--type-small-size);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+}
+.c-badge--success { background: color-mix(in srgb, var(--color-success) 16%, transparent); color: var(--color-success); }
+.c-badge--warning { background: color-mix(in srgb, var(--color-warning) 16%, transparent); color: var(--color-warning); }
+.c-badge--error   { background: color-mix(in srgb, var(--color-error)   16%, transparent); color: var(--color-error); }
+.c-badge--info    { background: color-mix(in srgb, var(--color-info)    16%, transparent); color: var(--color-info); }
+
+.c-achievement {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  min-width: var(--space-96);
+  text-align: center;
+}
+.c-achievement__icon {
+  width: var(--space-56);
+  height: var(--space-56);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-record);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-textOnPrimary);
+  font-size: var(--type-h3-size);
+  font-weight: var(--weight-bold);
+}
+.c-achievement__title { font-size: var(--type-caption-size); font-weight: var(--weight-semibold); color: var(--color-textPrimary); }
+.c-achievement__meta  { font-size: var(--type-small-size);  color: var(--color-textSecondary); }
+
+.c-settingsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  min-height: var(--touch-recommended);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-divider);
+}
+.c-settingsRow:first-child { border-top: none; }
+.c-settingsRow__label   { font-size: var(--type-body-size); color: var(--color-textPrimary); }
+.c-settingsRow__meta    { font-size: var(--type-caption-size); color: var(--color-textSecondary); }
+
+/* Switch (preference toggle) */
+.c-switch {
+  position: relative;
+  width: calc(var(--space-40) + var(--space-8));
+  height: var(--space-24);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--curve-default);
+  flex: 0 0 auto;
+}
+.c-switch__thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: calc(var(--space-24) - 4px);
+  height: calc(var(--space-24) - 4px);
+  background: var(--color-surface);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--curve-default);
+}
+.c-switch.is-on { background: var(--color-primary); }
+.c-switch.is-on .c-switch__thumb { transform: translateX(var(--space-24)); }
+.c-switch:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Gestures preview (visualizzatori inerti)
+   -------------------------------------------------------------------------- */
+.c-gesturePreview {
+  position: relative;
+  min-height: var(--space-96);
+  padding: var(--space-24);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  color: var(--color-textSecondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--type-caption-size);
+  overflow: hidden;
+}
+.c-gesturePreview__hint {
+  position: absolute;
+  top: var(--space-8); left: var(--space-8);
+  font-size: var(--type-small-size);
+  color: var(--color-textDisabled);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+}
+.c-gestureDot {
+  width: var(--space-40);
+  height: var(--space-40);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+.c-gesturePreview--swipe .c-gestureDot { animation: c-swipe var(--duration-extraSlow) var(--curve-default) infinite; }
+@keyframes c-swipe {
+  0%   { transform: translateX(calc(-1 * var(--space-64))); }
+  50%  { transform: translateX(var(--space-64)); }
+  100% { transform: translateX(calc(-1 * var(--space-64))); }
+}
+.c-gesturePreview--longPress .c-gestureDot { animation: c-longPress var(--gesture-longPress) var(--curve-default) infinite; }
+@keyframes c-longPress {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.4); }
+}
+.c-gesturePreview--pressed .c-gestureDot { animation: c-press var(--duration-normal) var(--curve-default) infinite alternate; }
+@keyframes c-press {
+  from { transform: scale(1); }
+  to   { transform: scale(0.85); }
+}
+.c-gesturePreview--drag .c-gestureDot { animation: c-drag var(--duration-slow) var(--curve-default) infinite alternate; }
+@keyframes c-drag {
+  from { transform: translate(calc(-1 * var(--space-24)), 0); }
+  to   { transform: translate(var(--space-24), calc(-1 * var(--space-8))); }
+}
+
+/* --------------------------------------------------------------------------
+   Animation showcase (fade / slide / scale)
+   -------------------------------------------------------------------------- */
+.c-animPreview {
+  position: relative;
+  min-height: var(--space-96);
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.c-animPreview__box {
+  width: var(--space-56);
+  height: var(--space-56);
+  border-radius: var(--radius-large);
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-md);
+}
+.c-animPreview--fade  .c-animPreview__box { animation: c-fade  var(--duration-slow) var(--curve-default) infinite alternate; }
+.c-animPreview--slide .c-animPreview__box { animation: c-slide var(--duration-slow) var(--curve-default) infinite alternate; }
+.c-animPreview--scale .c-animPreview__box { animation: c-scale var(--duration-slow) var(--curve-default) infinite alternate; }
+@keyframes c-fade  { from { opacity: 0.2; } to { opacity: 1; } }
+@keyframes c-slide { from { transform: translateY(calc(-1 * var(--space-24))); } to { transform: translateY(var(--space-24)); } }
+@keyframes c-scale { from { transform: scale(0.7); }              to { transform: scale(1.05); } }
+
+/* --------------------------------------------------------------------------
+   Utility layout (solo strutturali — nessun valore grafico)
+   -------------------------------------------------------------------------- */
+.c-stack       { display: flex; flex-direction: column; gap: var(--space-16); }
+.c-stack--sm   { gap: var(--space-8); }
+.c-stack--lg   { gap: var(--space-24); }
+.c-row         { display: flex; align-items: center; gap: var(--space-12); flex-wrap: wrap; }
+.c-row--nowrap { flex-wrap: nowrap; }
+.c-grow        { flex: 1; min-width: 0; }

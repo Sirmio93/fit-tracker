@@ -1,0 +1,22 @@
+/* ==========================================================================
+   components/index.css — punto di ingresso unico della libreria UI.
+   Solo @import, nessun ruleset. L'ordine è significativo: prima i token,
+   poi shared, poi le categorie in ordine di dipendenza logica.
+   ========================================================================== */
+
+/* Foundation — tokens e utilità strutturali */
+@import "./Foundation/tokens.css";
+@import "./Foundation/typography.css";
+@import "./Foundation/utilities.css";
+
+/* Shared — icone, badge, presenter host */
+@import "./Shared/shared.css";
+
+/* Componenti (categorie) */
+@import "./Buttons/buttons.css";
+@import "./Cards/cards.css";
+@import "./Navigation/navigation.css";
+@import "./Workout/workout.css";
+@import "./Charts/charts.css";
+@import "./Feedback/feedback.css";
+@import "./Profile/profile.css";

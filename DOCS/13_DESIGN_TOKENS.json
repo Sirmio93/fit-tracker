@@ -1,0 +1,247 @@
+{
+  "$meta": {
+    "name": "Fit Tracker PWA — Design Tokens",
+    "version": "1.1.0",
+    "phase": "Fase 7 (v1.0.0) + estensione AMOLED per Fase 8 (v1.1.0)",
+    "sources": [
+      "DOCS/10_NEW_DESIGN.md (Blueprint v2)",
+      "DOCS/11_HI_FI_MOCKUPS.md",
+      "DOCS/12_COMPONENT_TREE.md"
+    ],
+    "description": "Unica fonte della verità per tutti i valori grafici del progetto. Ogni componente deve consumare esclusivamente questi token: nessun valore hardcoded è ammesso.",
+    "themeStrategy": "I token colore espongono coppie {light, dark}. Il tema attivo seleziona la variante corretta in fase di applicazione (CSS custom properties o mapping JS)."
+  },
+
+  "colors": {
+    "background":       { "light": "#F5F5F7",  "dark": "#0A0A0B" },
+    "surface":          { "light": "#FFFFFF",  "dark": "#141416" },
+    "surfaceElevated":  { "light": "#FFFFFF",  "dark": "#1C1C1F" },
+    "surfaceActive":    { "light": "#EDEDF0",  "dark": "#242428" },
+
+    "primary":          { "light": "#7C3AED",  "dark": "#8B5CF6" },
+    "primaryHover":     { "light": "#6D28D9",  "dark": "#7C3AED" },
+    "secondary":        { "light": "#5B21B6",  "dark": "#A78BFA" },
+
+    "success":          { "light": "#059669",  "dark": "#10B981" },
+    "warning":          { "light": "#D97706",  "dark": "#F59E0B" },
+    "error":            { "light": "#DC2626",  "dark": "#EF4444" },
+    "info":             { "light": "#2563EB",  "dark": "#3B82F6" },
+
+    "textPrimary":      { "light": "#0A0A0B",  "dark": "#F5F5F7" },
+    "textSecondary":    { "light": "#5A5A62",  "dark": "#A1A1AA" },
+    "textDisabled":     { "light": "#B4B4BA",  "dark": "#52525B" },
+
+    "border":           { "light": "#E4E4E7",  "dark": "#2A2A2E" },
+    "divider":          { "light": "#EEEEEF",  "dark": "#1F1F22" },
+
+    "overlay":          { "light": "rgba(0,0,0,0.50)", "dark": "rgba(0,0,0,0.70)" },
+    "glass":            { "light": "rgba(255,255,255,0.72)", "dark": "rgba(20,20,22,0.72)" },
+
+    "gradientPrimary": {
+      "value": "linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)",
+      "description": "Hero e CTA dominanti. Uso limitato: max un elemento visibile per schermata."
+    },
+    "gradientWorkout": {
+      "value": "linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)",
+      "description": "Sessione attiva / allenamento in corso. Solo su banner WorkoutExecScreen e OpenSessionsBanner."
+    },
+    "gradientSuccess": {
+      "value": "linear-gradient(135deg, #059669 0%, #10B981 100%)",
+      "description": "Completamento sessione, achievement, PR confermato."
+    },
+    "gradientRecord": {
+      "value": "linear-gradient(135deg, #F59E0B 0%, #DC2626 100%)",
+      "description": "Personal Record raggiunto. Uso eccezionale (max 1 istanza)."
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "primary": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "mono":    "'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace",
+      "numeric": "Inter, sans-serif"
+    },
+
+    "display": { "fontSize": "56px", "lineHeight": "64px", "fontWeight": 700, "letterSpacing": "-0.02em" },
+    "h1":      { "fontSize": "40px", "lineHeight": "48px", "fontWeight": 700, "letterSpacing": "-0.015em" },
+    "h2":      { "fontSize": "32px", "lineHeight": "40px", "fontWeight": 700, "letterSpacing": "-0.01em" },
+    "h3":      { "fontSize": "24px", "lineHeight": "32px", "fontWeight": 600, "letterSpacing": "-0.005em" },
+    "title":   { "fontSize": "20px", "lineHeight": "28px", "fontWeight": 600, "letterSpacing": "0" },
+    "body":    { "fontSize": "16px", "lineHeight": "24px", "fontWeight": 500, "letterSpacing": "0" },
+    "caption": { "fontSize": "14px", "lineHeight": "20px", "fontWeight": 400, "letterSpacing": "0" },
+    "small":   { "fontSize": "12px", "lineHeight": "16px", "fontWeight": 400, "letterSpacing": "0.01em" },
+
+    "fontWeights": {
+      "regular":  400,
+      "medium":   500,
+      "semibold": 600,
+      "bold":     700
+    },
+
+    "lineHeight": {
+      "tight":   1.1,
+      "snug":    1.25,
+      "normal":  1.5,
+      "relaxed": 1.6
+    },
+
+    "letterSpacing": {
+      "tight":  "-0.02em",
+      "normal": "0",
+      "wide":   "0.02em"
+    }
+  },
+
+  "spacing": {
+    "4":  "4px",
+    "8":  "8px",
+    "12": "12px",
+    "16": "16px",
+    "20": "20px",
+    "24": "24px",
+    "32": "32px",
+    "40": "40px",
+    "48": "48px",
+    "56": "56px",
+    "64": "64px",
+    "80": "80px",
+    "96": "96px"
+  },
+
+  "radius": {
+    "small":        "8px",
+    "medium":       "12px",
+    "large":        "16px",
+    "xl":           "24px",
+    "pill":         "999px",
+    "fab":          "999px",
+    "card":         "16px",
+    "dialog":       "16px",
+    "bottomSheet":  "24px"
+  },
+
+  "shadow": {
+    "none":     "none",
+    "sm":       "0 1px 2px rgba(0,0,0,0.06)",
+    "md":       "0 4px 12px rgba(0,0,0,0.08)",
+    "lg":       "0 10px 24px rgba(0,0,0,0.12)",
+    "xl":       "0 20px 48px rgba(0,0,0,0.16)",
+    "glass":    "0 8px 32px rgba(0,0,0,0.12)",
+    "floating": "0 12px 40px rgba(124,58,237,0.24)"
+  },
+
+  "elevation": {
+    "0": { "zIndex": 0, "shadow": "none",                              "usage": "In-flow, nessuna elevazione." },
+    "1": { "zIndex": 1, "shadow": "0 1px 2px rgba(0,0,0,0.06)",        "usage": "Card statica, list row selezionata." },
+    "2": { "zIndex": 2, "shadow": "0 4px 12px rgba(0,0,0,0.08)",       "usage": "Card interattiva, hover state." },
+    "3": { "zIndex": 3, "shadow": "0 10px 24px rgba(0,0,0,0.12)",      "usage": "Bottom sheet, sticky bar." },
+    "4": { "zIndex": 4, "shadow": "0 20px 48px rgba(0,0,0,0.16)",      "usage": "Dialog, popover." },
+    "5": { "zIndex": 5, "shadow": "0 32px 80px rgba(0,0,0,0.20)",      "usage": "Timer overlay, fullscreen sub-view." }
+  },
+
+  "animation": {
+    "fast":         "120ms",
+    "normal":       "200ms",
+    "slow":         "320ms",
+    "extraSlow":    "500ms",
+
+    "curveDefault": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+    "curveEaseOut": "cubic-bezier(0.0, 0.0, 0.2, 1)",
+    "curveSpring":  "cubic-bezier(0.34, 1.56, 0.64, 1)",
+    "curveSharp":   "cubic-bezier(0.4, 0.0, 0.6, 1)"
+  },
+
+  "opacity": {
+    "disabled": 0.40,
+    "overlay":  0.50,
+    "hover":    0.08,
+    "pressed":  0.12,
+    "focus":    0.24
+  },
+
+  "blur": {
+    "glass":      "20px",
+    "navigation": "24px",
+    "dialog":     "40px",
+    "sheet":      "24px",
+    "overlay":    "8px"
+  },
+
+  "breakpoints": {
+    "mobileSmall": "360px",
+    "mobile":      "390px",
+    "mobileLarge": "430px",
+    "tablet":      "768px",
+    "desktop":     "1024px",
+    "wide":        "1440px"
+  },
+
+  "safeArea": {
+    "top":        "env(safe-area-inset-top)",
+    "bottom":     "env(safe-area-inset-bottom)",
+    "horizontal": "env(safe-area-inset-left, 0) env(safe-area-inset-right, 0)"
+  },
+
+  "icons": {
+    "small":  "16px",
+    "medium": "20px",
+    "large":  "24px",
+    "xl":     "32px"
+  },
+
+  "touchTarget": {
+    "minimum":     "44px",
+    "recommended": "48px",
+    "fab":         "56px",
+    "button":      "44px"
+  },
+
+  "zIndex": {
+    "base":       0,
+    "dropdown":   100,
+    "sticky":     200,
+    "navigation": 300,
+    "sheet":      400,
+    "dialog":     500,
+    "toast":      600,
+    "tooltip":    700,
+    "overlay":    800
+  },
+
+  "timing": {
+    "toast":     "4000ms",
+    "tooltip":   "200ms",
+    "dialog":    "200ms",
+    "snackbar":  "5000ms",
+    "animation": "200ms"
+  },
+
+  "gesture": {
+    "swipeThreshold": "40px",
+    "longPress":      "500ms",
+    "doubleTap":      "300ms",
+    "dragThreshold":  "8px"
+  },
+
+  "$themeExtensions": {
+    "description": "Temi derivati. Ognuno estende un tema base (light|dark) e sovrascrive solo le voci esplicitate. Nessun valore grafico può essere definito esclusivamente nel CSS: se un tema richiede un nuovo tono, va aggiunto qui.",
+    "amoled": {
+      "description": "Tema pure-black per display OLED. Massimo contrasto e minimo consumo energetico. Applicato con [data-theme=\"amoled\"]. Eredita da 'dark' e sovrascrive solo le superfici e i layer traslucidi. Il resto (primary, textPrimary, gradienti, success/warning/error, ecc.) resta invariato rispetto a 'dark'.",
+      "extends": "dark",
+      "overrides": {
+        "colors": {
+          "background":      "#000000",
+          "surface":         "#0A0A0A",
+          "surfaceElevated": "#141414",
+          "surfaceActive":   "#1F1F1F",
+          "border":          "#1F1F22",
+          "divider":         "#141416",
+          "overlay":         "rgba(0,0,0,0.85)",
+          "glass":           "rgba(10,10,10,0.72)"
+        }
+      }
+    }
+  },
+
+  "$deprecated": {}
+}

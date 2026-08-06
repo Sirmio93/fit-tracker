@@ -6,27 +6,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Fit Circuit Tracker</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./components/index.css">
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#7C3AED">
 </head>
 
 <body>
     <div class="app">
-        <div class="top">
-            <div class="between">
-                <div class="brand">
-                    <div class="logo">FT</div>
-                    <div>
-                        <h1>Fit Circuit Tracker</h1>
-                        <p class="sub">Scheda → settimana → giorno → esecuzione</p>
-                    </div>
-                </div><button id="themeBtn" aria-label="Cambia tema chiaro/scuro">Tema</button>
-            </div>
-        </div>
         <main id="view"></main>
     </div>
-    <nav id="bottomNav" class="bottomNav" aria-label="Navigazione principale"></nav>
+    <div id="fabRoot"></div>
+    <div id="historyOverlayRoot" aria-hidden="true"></div>
+    <div id="restOverlayRoot" aria-hidden="true"></div>
+    <div id="bottomNavRoot"></div>
+    <div id="toastRoot" aria-live="polite" aria-atomic="true"></div>
     <input id="fileImport" type="file" accept="application/json" class="hidden">
+    <script type="module" src="./components/bootstrap.js"></script>
     <script src="./app.js" defer></script>
 </body>
 

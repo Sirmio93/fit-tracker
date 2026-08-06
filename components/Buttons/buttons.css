@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Buttons/buttons.css
+   Button · IconButton · Fab. Solo Design Tokens.
+   Prefisso: .c-btn / .c-fab. Stati: :hover :active :focus-visible :disabled
+   .is-loading .is-pressed.
+   ========================================================================== */
+
+/* ---- Button ---------------------------------------------------------------- */
+.c-btn {
+  --_bg:      var(--color-primary);
+  --_bg-h:    var(--color-primaryHover);
+  --_fg:      var(--color-textOnPrimary);
+  --_border:  transparent;
+  --_h:       var(--touch-recommended);
+  --_px:      var(--space-24);
+  --_fs:      var(--type-body-size);
+  --_fw:      var(--weight-semibold);
+  --_r:       var(--radius-large);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: var(--_h);
+  min-width: var(--touch-minimum);
+  padding: 0 var(--_px);
+  border: 1px solid var(--_border);
+  border-radius: var(--_r);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-primary);
+  font-size: var(--_fs);
+  font-weight: var(--_fw);
+  line-height: 1;
+  letter-spacing: var(--track-normal);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default);
+}
+.c-btn:hover:not(:disabled):not(.is-loading) { background: var(--_bg-h); }
+.c-btn:active:not(:disabled):not(.is-loading),
+.c-btn.is-pressed                            { transform: scale(0.97); }
+.c-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+.c-btn:disabled, .c-btn.is-disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* Varianti */
+.c-btn--primary   { /* default */ }
+.c-btn--secondary {
+  --_bg:     var(--color-secondary);
+  --_bg-h:   var(--color-primary);
+  --_fg:     var(--color-textOnPrimary);
+}
+.c-btn--ghost {
+  --_bg:     transparent;
+  --_bg-h:   color-mix(in srgb, var(--color-primary) calc(var(--opacity-hover) * 100%), transparent);
+  --_fg:     var(--color-primary);
+  --_border: var(--color-border);
+}
+.c-btn--ghost:active:not(:disabled):not(.is-loading) {
+  background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-pressed) * 100%), transparent);
+}
+.c-btn--danger {
+  --_bg:     var(--color-error);
+  --_bg-h:   color-mix(in srgb, var(--color-error) 85%, black);
+  --_fg:     var(--color-textOnPrimary);
+}
+
+/* Modificatori */
+.c-btn--floating { box-shadow: var(--shadow-floating); }
+.c-btn--full     { width: 100%; }
+
+/* Taglie */
+.c-btn--sm {
+  --_h:  var(--touch-minimum);
+  --_px: var(--space-16);
+  --_fs: var(--type-caption-size);
+}
+.c-btn--lg {
+  --_h:  var(--touch-fab);
+  --_px: var(--space-32);
+  --_fs: var(--type-title-size);
+}
+
+/* Icon-only */
+.c-btn--icon {
+  --_px: 0;
+  width: var(--_h);
+  padding: 0;
+  gap: 0;
+}
+
+/* Loading */
+.c-btn.is-loading { color: transparent; pointer-events: none; position: relative; }
+.c-btn.is-loading > * { visibility: hidden; }
+.c-btn.is-loading::after {
+  content: '';
+  position: absolute;
+  width: var(--icon-medium);
+  height: var(--icon-medium);
+  border: 2px solid color-mix(in srgb, var(--color-textOnPrimary) 40%, transparent);
+  border-top-color: var(--color-textOnPrimary);
+  border-radius: var(--radius-pill);
+  animation: c-btn-spin var(--duration-slow) linear infinite;
+}
+.c-btn--ghost.is-loading::after {
+  border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border-top-color: var(--color-primary);
+}
+@keyframes c-btn-spin { to { transform: rotate(360deg); } }
+
+/* ---- Fab ------------------------------------------------------------------- */
+.c-fab {
+  width: var(--touch-fab);
+  height: var(--touch-fab);
+  border-radius: var(--radius-fab);
+  background: var(--color-primary);
+  color: var(--color-textOnPrimary);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  box-shadow: var(--shadow-floating);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default);
+}
+.c-fab:hover:not(:disabled)  { background: var(--color-primaryHover); }
+.c-fab:active:not(:disabled) { transform: scale(0.94); }
+.c-fab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent), var(--shadow-floating);
+}
+.c-fab:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+
+.c-fab--secondary { background: var(--color-secondary); }
+.c-fab--secondary:hover:not(:disabled) { background: var(--color-primary); }
+
+.c-fab--extended {
+  width: auto;
+  padding: 0 var(--space-24);
+  border-radius: var(--radius-fab);
+}
+.c-fab__text {
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+}

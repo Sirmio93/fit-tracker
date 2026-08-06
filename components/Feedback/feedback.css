@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Feedback/feedback.css
+   Dialog · BottomSheet · Toast · Snackbar · Banner · Skeleton · States.
+   Solo Design Tokens. Le animazioni usano solo opacity + transform.
+   ========================================================================== */
+
+/* ---- Toast ----------------------------------------------------------------- */
+.c-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-toast);
+  animation: c-toast-in var(--duration-normal) var(--curve-default);
+}
+.c-toast--success { border-color: var(--color-success); }
+.c-toast--error   { border-color: var(--color-error);   }
+.c-toast--info    { border-color: var(--color-info);    }
+.c-toast__icon    { color: var(--color-primary); flex: 0 0 auto; display: inline-flex; }
+.c-toast--success .c-toast__icon { color: var(--color-success); }
+.c-toast--error   .c-toast__icon { color: var(--color-error);   }
+.c-toast--info    .c-toast__icon { color: var(--color-info);    }
+.c-toast__message { font-size: var(--type-body-size); }
+@keyframes c-toast-in {
+  from { opacity: 0; transform: translateY(var(--space-12)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Dialog ---------------------------------------------------------------- */
+.c-dialog {
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  border-radius: var(--radius-dialog);
+  padding: var(--space-24);
+  box-shadow: var(--shadow-xl);
+  max-width: var(--bp-mobile);
+  width: 100%;
+  z-index: var(--z-dialog);
+  animation: c-dialog-in var(--duration-normal) var(--curve-default);
+}
+.c-dialog__title {
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-semibold);
+  margin: 0 0 var(--space-8);
+  color: var(--color-textPrimary);
+}
+.c-dialog__body {
+  font-size: var(--type-body-size);
+  color: var(--color-textSecondary);
+  margin: 0 0 var(--space-24);
+}
+.c-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+.c-dialog--danger  { border-top: 4px solid var(--color-error); }
+.c-dialog--success { border-top: 4px solid var(--color-success); }
+@keyframes c-dialog-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---- BottomSheet ----------------------------------------------------------- */
+.c-bottomSheet {
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  border-radius: var(--radius-bottomSheet) var(--radius-bottomSheet) 0 0;
+  padding: var(--space-20) var(--space-24) calc(var(--space-24) + var(--safe-bottom));
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-sheet);
+  animation: c-sheet-in var(--duration-slow) var(--curve-default);
+  transition: transform var(--duration-fast) var(--curve-default);
+  touch-action: none;
+}
+.c-bottomSheet__handle {
+  width: var(--space-40);
+  height: var(--space-4);
+  background: var(--color-divider);
+  border-radius: var(--radius-pill);
+  margin: 0 auto var(--space-16);
+  cursor: grab;
+}
+.c-bottomSheet__handle:active { cursor: grabbing; }
+.c-bottomSheet__title {
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-semibold);
+  margin: 0 0 var(--space-16);
+  color: var(--color-textPrimary);
+}
+.c-bottomSheet__body { display: flex; flex-direction: column; gap: var(--space-12); }
+@keyframes c-sheet-in {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* ---- Snackbar -------------------------------------------------------------- */
+.c-snackbar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-textPrimary);
+  color: var(--color-background);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-toast);
+  animation: c-toast-in var(--duration-normal) var(--curve-default);
+}
+.c-snackbar__message { font-size: var(--type-body-size); }
+.c-snackbar__action {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-caption-size);
+  cursor: pointer;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-small);
+  min-height: var(--touch-minimum);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+}
+.c-snackbar__action:hover  { background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-hover) * 100%), transparent); }
+.c-snackbar__action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+
+/* ---- Banner ---------------------------------------------------------------- */
+.c-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-radius: var(--radius-large);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.c-banner--info    { border-color: var(--color-info);    background: color-mix(in srgb, var(--color-info)    12%, var(--color-surface)); }
+.c-banner--warning { border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 12%, var(--color-surface)); }
+.c-banner--error   { border-color: var(--color-error);   background: color-mix(in srgb, var(--color-error)   12%, var(--color-surface)); }
+.c-banner--success { border-color: var(--color-success); background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface)); }
+.c-banner__icon    { flex: 0 0 auto; color: var(--color-primary); display: inline-flex; }
+.c-banner--info    .c-banner__icon { color: var(--color-info); }
+.c-banner--warning .c-banner__icon { color: var(--color-warning); }
+.c-banner--error   .c-banner__icon { color: var(--color-error); }
+.c-banner--success .c-banner__icon { color: var(--color-success); }
+.c-banner__title   { font-weight: var(--weight-semibold); margin: 0 0 var(--space-4); font-size: var(--type-body-size); color: var(--color-textPrimary); }
+.c-banner__body    { font-size: var(--type-caption-size); color: var(--color-textSecondary); margin: 0; }
+.c-banner__actions { display: inline-flex; gap: var(--space-8); }
+
+/* ---- Skeleton (block) ------------------------------------------------------ */
+.c-skeletonBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.c-skeleton, .c-skeleton--line {
+  height: var(--space-16);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  position: relative;
+}
+.c-skeleton::after, .c-skeleton--line::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-textPrimary) 8%, transparent) 50%,
+    transparent 100%);
+  animation: c-skeleton-shimmer var(--duration-extraSlow) var(--curve-default) infinite;
+}
+@keyframes c-skeleton-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%);  }
+}
+
+/* ---- States (empty/error/success full-panel) ------------------------------ */
+.c-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-16);
+  padding: var(--space-48) var(--space-24);
+  color: var(--color-textSecondary);
+}
+.c-state__icon {
+  width: var(--space-64);
+  height: var(--space-64);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surfaceActive);
+  color: var(--color-textSecondary);
+}
+.c-state--error   .c-state__icon { background: color-mix(in srgb, var(--color-error)   16%, transparent); color: var(--color-error); }
+.c-state--success .c-state__icon { background: color-mix(in srgb, var(--color-success) 16%, transparent); color: var(--color-success); }
+.c-state__title {
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+  margin: 0;
+}
+.c-state__body {
+  font-size: var(--type-body-size);
+  margin: 0;
+  max-width: 40ch;
+}
+.c-state__actions {
+  display: inline-flex;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}

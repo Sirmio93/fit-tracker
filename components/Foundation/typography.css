@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Foundation/typography.css
+   Classi tipografiche consumer-facing per applicare direttamente uno scalino
+   di tipo. Consumano esclusivamente le variabili --type-* di tokens.css.
+   ========================================================================== */
+
+.t-display  { font-size: var(--type-display-size);  line-height: var(--type-display-line);  font-weight: var(--type-display-weight);  letter-spacing: var(--type-display-track); }
+.t-h1       { font-size: var(--type-h1-size);       line-height: var(--type-h1-line);       font-weight: var(--type-h1-weight);       letter-spacing: var(--type-h1-track); }
+.t-h2       { font-size: var(--type-h2-size);       line-height: var(--type-h2-line);       font-weight: var(--type-h2-weight);       letter-spacing: var(--type-h2-track); }
+.t-h3       { font-size: var(--type-h3-size);       line-height: var(--type-h3-line);       font-weight: var(--type-h3-weight);       letter-spacing: var(--type-h3-track); }
+.t-title    { font-size: var(--type-title-size);    line-height: var(--type-title-line);    font-weight: var(--type-title-weight);    letter-spacing: var(--type-title-track); }
+.t-body     { font-size: var(--type-body-size);     line-height: var(--type-body-line);     font-weight: var(--type-body-weight);     letter-spacing: var(--type-body-track); }
+.t-caption  { font-size: var(--type-caption-size);  line-height: var(--type-caption-line);  font-weight: var(--type-caption-weight);  letter-spacing: var(--type-caption-track); }
+.t-small    { font-size: var(--type-small-size);    line-height: var(--type-small-line);    font-weight: var(--type-small-weight);    letter-spacing: var(--type-small-track); }
+
+.t-mono     { font-family: var(--font-mono); }
+.t-numeric  { font-family: var(--font-numeric); font-variant-numeric: tabular-nums; }
+
+.t-primary   { color: var(--color-textPrimary); }
+.t-secondary { color: var(--color-textSecondary); }
+.t-disabled  { color: var(--color-textDisabled); }
+.t-onPrimary { color: var(--color-textOnPrimary); }
+
+.t-eyebrow  { font-size: var(--type-small-size); line-height: var(--type-small-line); font-weight: var(--weight-semibold); letter-spacing: var(--track-wide); text-transform: uppercase; color: var(--color-textSecondary); }

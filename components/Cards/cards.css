@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Cards/cards.css
+   Card base + varianti (hero, workout, statistic, history, record, goal,
+   empty, loading, exercise). Solo Design Tokens.
+   ========================================================================== */
+
+/* ---- Base ------------------------------------------------------------------ */
+.c-card {
+  background: var(--color-surface);
+  color: var(--color-textPrimary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background   var(--duration-fast) var(--curve-default),
+    border-color var(--duration-fast) var(--curve-default),
+    box-shadow   var(--duration-fast) var(--curve-default);
+}
+.c-card.is-interactive { cursor: pointer; }
+.c-card.is-interactive:hover  { box-shadow: var(--shadow-md); }
+.c-card.is-interactive:active { background: var(--color-surfaceActive); }
+.c-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+
+.c-card__eyebrow {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-line);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+.c-card__title {
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-line);
+  font-weight: var(--type-h3-weight);
+  letter-spacing: var(--type-h3-track);
+  color: var(--color-textPrimary);
+  margin: 0;
+}
+.c-card__body {
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
+  color: var(--color-textSecondary);
+  margin: 0;
+}
+.c-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+/* ---- Hero ------------------------------------------------------------------ */
+.c-card--hero {
+  background: var(--gradient-primary);
+  color: var(--color-textOnPrimary);
+  border: none;
+  padding: var(--space-24);
+  box-shadow: var(--shadow-floating);
+}
+.c-card--hero .c-card__title,
+.c-card--hero .c-card__body,
+.c-card--hero .c-card__eyebrow { color: var(--color-textOnPrimary); }
+.c-card--hero .c-card__eyebrow { opacity: 0.85; }
+
+/* ---- Workout attivo -------------------------------------------------------- */
+.c-card--workout {
+  background: var(--gradient-workout);
+  color: var(--color-textOnPrimary);
+  border: none;
+  padding: var(--space-24);
+  box-shadow: var(--shadow-floating);
+}
+.c-card--workout .c-card__title,
+.c-card--workout .c-card__body,
+.c-card--workout .c-card__eyebrow { color: var(--color-textOnPrimary); }
+
+/* ---- Statistic ------------------------------------------------------------- */
+.c-card--statistic .c-card__value {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-h1-size);
+  line-height: var(--type-h1-line);
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-track);
+  color: var(--color-textPrimary);
+}
+.c-card--statistic .c-card__unit {
+  font-size: var(--type-body-size);
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-medium);
+  margin-left: var(--space-4);
+}
+.c-card--statistic .c-card__delta {
+  color: var(--color-success);
+  font-size: var(--type-caption-size);
+}
+.c-card--statistic .c-card__delta.is-negative { color: var(--color-error); }
+
+/* ---- Record ---------------------------------------------------------------- */
+.c-card--record {
+  background: var(--gradient-record);
+  color: var(--color-textOnPrimary);
+  border: none;
+  padding: var(--space-24);
+  box-shadow: var(--shadow-lg);
+}
+.c-card--record .c-card__title,
+.c-card--record .c-card__body,
+.c-card--record .c-card__eyebrow { color: var(--color-textOnPrimary); }
+
+/* ---- Goal ------------------------------------------------------------------ */
+.c-card--goal .c-progressBar {
+  width: 100%;
+  height: var(--space-8);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.c-card--goal .c-progressBar__fill {
+  height: 100%;
+  background: var(--gradient-success);
+  border-radius: var(--radius-pill);
+  transition: width var(--duration-slow) var(--curve-default);
+}
+
+/* ---- History (row compatta) ------------------------------------------------ */
+.c-card--history {
+  flex-direction: row;
+  align-items: center;
+  padding: var(--space-12) var(--space-16);
+  gap: var(--space-16);
+}
+.c-card__historyTitle {
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+}
+.c-card__meta {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+}
+
+/* ---- Empty ----------------------------------------------------------------- */
+.c-card--empty {
+  align-items: center;
+  text-align: center;
+  padding: var(--space-32) var(--space-24);
+  border-style: dashed;
+  color: var(--color-textSecondary);
+}
+.c-card--empty .c-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+  color: var(--color-textDisabled);
+}
+.c-card__emptyTitle {
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+}
+
+/* ---- Loading (skeleton shimmer) ------------------------------------------- */
+.c-card--loading .c-skeleton {
+  height: var(--space-16);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  position: relative;
+}
+.c-card--loading .c-skeleton::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-textPrimary) 8%, transparent) 50%,
+    transparent 100%);
+  animation: c-card-shimmer var(--duration-extraSlow) var(--curve-default) infinite;
+}
+@keyframes c-card-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%);  }
+}
+
+/* ---- Exercise (set list) --------------------------------------------------- */
+.c-card--exercise .c-card__set {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: var(--space-12);
+  align-items: center;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-divider);
+}
+.c-card--exercise .c-card__set:first-of-type { border-top: none; }
+.c-card--exercise .c-card__set__num {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-textSecondary);
+  font-size: var(--type-caption-size);
+  min-width: var(--space-24);
+}
+.c-card--exercise .c-card__set__val {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+}

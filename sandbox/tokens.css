@@ -1,0 +1,305 @@
+/* ==========================================================================
+   tokens.css — Fit Tracker PWA
+   Generato dai Design Tokens v1.1.0 (DOCS/13_DESIGN_TOKENS.json).
+   Unica fonte della verità per tutti i valori grafici.
+   NESSUN valore hardcoded in questo file al di fuori della derivazione JSON.
+   Riordinare/rinominare qui richiede prima l'aggiornamento del JSON.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   :root — token theme-agnostic (typografia, spacing, radius, shadow, motion,
+           opacity, blur, breakpoints, safe area, icons, touch, z, timing,
+           gesture, font).
+   -------------------------------------------------------------------------- */
+:root {
+  /* Font families */
+  --font-primary: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --font-numeric: Inter, sans-serif;
+
+  /* Type scale — display */
+  --type-display-size:    56px;
+  --type-display-line:    64px;
+  --type-display-weight:  700;
+  --type-display-track:   -0.02em;
+
+  /* Type scale — h1 */
+  --type-h1-size:    40px;
+  --type-h1-line:    48px;
+  --type-h1-weight:  700;
+  --type-h1-track:   -0.015em;
+
+  /* Type scale — h2 */
+  --type-h2-size:    32px;
+  --type-h2-line:    40px;
+  --type-h2-weight:  700;
+  --type-h2-track:   -0.01em;
+
+  /* Type scale — h3 */
+  --type-h3-size:    24px;
+  --type-h3-line:    32px;
+  --type-h3-weight:  600;
+  --type-h3-track:   -0.005em;
+
+  /* Type scale — title */
+  --type-title-size:    20px;
+  --type-title-line:    28px;
+  --type-title-weight:  600;
+  --type-title-track:   0;
+
+  /* Type scale — body */
+  --type-body-size:    16px;
+  --type-body-line:    24px;
+  --type-body-weight:  500;
+  --type-body-track:   0;
+
+  /* Type scale — caption */
+  --type-caption-size:    14px;
+  --type-caption-line:    20px;
+  --type-caption-weight:  400;
+  --type-caption-track:   0;
+
+  /* Type scale — small */
+  --type-small-size:    12px;
+  --type-small-line:    16px;
+  --type-small-weight:  400;
+  --type-small-track:   0.01em;
+
+  /* Font weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Line height ratios */
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.6;
+
+  /* Letter spacing */
+  --track-tight:  -0.02em;
+  --track-normal: 0;
+  --track-wide:   0.02em;
+
+  /* Spacing scale (13 step) */
+  --space-4:  4px;
+  --space-8:  8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+
+  /* Radius primitivi + alias semantici */
+  --radius-small:       8px;
+  --radius-medium:      12px;
+  --radius-large:       16px;
+  --radius-xl:          24px;
+  --radius-pill:        999px;
+  --radius-fab:         999px;
+  --radius-card:        16px;
+  --radius-dialog:      16px;
+  --radius-bottomSheet: 24px;
+
+  /* Shadow */
+  --shadow-none:     none;
+  --shadow-sm:       0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md:       0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:       0 10px 24px rgba(0,0,0,0.12);
+  --shadow-xl:       0 20px 48px rgba(0,0,0,0.16);
+  --shadow-glass:    0 8px 32px rgba(0,0,0,0.12);
+  --shadow-floating: 0 12px 40px rgba(124,58,237,0.24);
+  --shadow-elev-5:   0 32px 80px rgba(0,0,0,0.20);
+
+  /* Animation — durate + curve */
+  --duration-fast:      120ms;
+  --duration-normal:    200ms;
+  --duration-slow:      320ms;
+  --duration-extraSlow: 500ms;
+
+  --curve-default: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --curve-easeOut: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --curve-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --curve-sharp:   cubic-bezier(0.4, 0.0, 0.6, 1);
+
+  /* Opacity semantica */
+  --opacity-disabled: 0.40;
+  --opacity-overlay:  0.50;
+  --opacity-hover:    0.08;
+  --opacity-pressed:  0.12;
+  --opacity-focus:    0.24;
+
+  /* Blur */
+  --blur-glass:      20px;
+  --blur-navigation: 24px;
+  --blur-dialog:     40px;
+  --blur-sheet:      24px;
+  --blur-overlay:    8px;
+
+  /* Breakpoints (per media query e viewport simulator) */
+  --bp-mobileSmall: 360px;
+  --bp-mobile:      390px;
+  --bp-mobileLarge: 430px;
+  --bp-tablet:      768px;
+  --bp-desktop:     1024px;
+  --bp-wide:        1440px;
+
+  /* Safe area */
+  --safe-top:        env(safe-area-inset-top);
+  --safe-bottom:     env(safe-area-inset-bottom);
+  --safe-left:       env(safe-area-inset-left, 0);
+  --safe-right:      env(safe-area-inset-right, 0);
+
+  /* Icone */
+  --icon-small:  16px;
+  --icon-medium: 20px;
+  --icon-large:  24px;
+  --icon-xl:     32px;
+
+  /* Touch target */
+  --touch-minimum:     44px;
+  --touch-recommended: 48px;
+  --touch-fab:         56px;
+  --touch-button:      44px;
+
+  /* Z-index */
+  --z-base:       0;
+  --z-dropdown:   100;
+  --z-sticky:     200;
+  --z-navigation: 300;
+  --z-sheet:      400;
+  --z-dialog:     500;
+  --z-toast:      600;
+  --z-tooltip:    700;
+  --z-overlay:    800;
+
+  /* Timing (visibility, delay) */
+  --timing-toast:     4000ms;
+  --timing-tooltip:   200ms;
+  --timing-dialog:    200ms;
+  --timing-snackbar:  5000ms;
+  --timing-animation: 200ms;
+
+  /* Gesture */
+  --gesture-swipeThreshold: 40px;
+  --gesture-longPress:      500ms;
+  --gesture-doubleTap:      300ms;
+  --gesture-dragThreshold:  8px;
+
+  /* Gradienti (tema-neutrali) */
+  --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+  --gradient-workout: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+  --gradient-success: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  --gradient-record:  linear-gradient(135deg, #F59E0B 0%, #DC2626 100%);
+}
+
+/* --------------------------------------------------------------------------
+   [data-theme="light"] — palette semantica variante chiara.
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+  --color-background:      #F5F5F7;
+  --color-surface:         #FFFFFF;
+  --color-surfaceElevated: #FFFFFF;
+  --color-surfaceActive:   #EDEDF0;
+
+  --color-primary:         #7C3AED;
+  --color-primaryHover:    #6D28D9;
+  --color-secondary:       #5B21B6;
+
+  --color-success:         #059669;
+  --color-warning:         #D97706;
+  --color-error:           #DC2626;
+  --color-info:            #2563EB;
+
+  --color-textPrimary:     #0A0A0B;
+  --color-textSecondary:   #5A5A62;
+  --color-textDisabled:    #B4B4BA;
+  --color-textOnPrimary:   #FFFFFF;
+
+  --color-border:          #E4E4E7;
+  --color-divider:         #EEEEEF;
+
+  --color-overlay:         rgba(0,0,0,0.50);
+  --color-glass:           rgba(255,255,255,0.72);
+}
+
+/* --------------------------------------------------------------------------
+   [data-theme="dark"] — palette semantica variante scura.
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --color-background:      #0A0A0B;
+  --color-surface:         #141416;
+  --color-surfaceElevated: #1C1C1F;
+  --color-surfaceActive:   #242428;
+
+  --color-primary:         #8B5CF6;
+  --color-primaryHover:    #7C3AED;
+  --color-secondary:       #A78BFA;
+
+  --color-success:         #10B981;
+  --color-warning:         #F59E0B;
+  --color-error:           #EF4444;
+  --color-info:            #3B82F6;
+
+  --color-textPrimary:     #F5F5F7;
+  --color-textSecondary:   #A1A1AA;
+  --color-textDisabled:    #52525B;
+  --color-textOnPrimary:   #FFFFFF;
+
+  --color-border:          #2A2A2E;
+  --color-divider:         #1F1F22;
+
+  --color-overlay:         rgba(0,0,0,0.70);
+  --color-glass:           rgba(20,20,22,0.72);
+}
+
+/* --------------------------------------------------------------------------
+   [data-theme="amoled"] — deriva da "dark", sovrascrive superfici e layer
+   traslucidi con valori pure-black. Definito interamente in DESIGN_TOKENS.json
+   → $themeExtensions.amoled. Nessuna deroga CSS-only.
+   -------------------------------------------------------------------------- */
+[data-theme="amoled"] {
+  /* Eredità dal tema dark (ripetuta per esplicitezza — no sorpresa da cascade) */
+  --color-primary:         #8B5CF6;
+  --color-primaryHover:    #7C3AED;
+  --color-secondary:       #A78BFA;
+
+  --color-success:         #10B981;
+  --color-warning:         #F59E0B;
+  --color-error:           #EF4444;
+  --color-info:            #3B82F6;
+
+  --color-textPrimary:     #F5F5F7;
+  --color-textSecondary:   #A1A1AA;
+  --color-textDisabled:    #52525B;
+  --color-textOnPrimary:   #FFFFFF;
+
+  /* Override AMOLED (da $themeExtensions.amoled.overrides.colors) */
+  --color-background:      #000000;
+  --color-surface:         #0A0A0A;
+  --color-surfaceElevated: #141414;
+  --color-surfaceActive:   #1F1F1F;
+  --color-border:          #1F1F22;
+  --color-divider:         #141416;
+  --color-overlay:         rgba(0,0,0,0.85);
+  --color-glass:           rgba(10,10,10,0.72);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion — vincolo Blueprint: durata azzerata, curva ininfluente.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast:      0ms;
+    --duration-normal:    0ms;
+    --duration-slow:      0ms;
+    --duration-extraSlow: 0ms;
+  }
+}

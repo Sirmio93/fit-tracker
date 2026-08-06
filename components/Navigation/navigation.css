@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Navigation/navigation.css
+   BottomNavigation · TabBar · Segmented · Header · Toolbar.
+   Solo Design Tokens; nessun valore grafico letterale.
+   ========================================================================== */
+
+/* ---- BottomNavigation ------------------------------------------------------ */
+.c-bottomNav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  background: var(--color-glass);
+  backdrop-filter: blur(var(--blur-navigation));
+  -webkit-backdrop-filter: blur(var(--blur-navigation));
+  border-top: 1px solid var(--color-border);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  padding: var(--space-4) var(--space-8) calc(var(--space-4) + var(--safe-bottom));
+  z-index: var(--z-navigation);
+  box-shadow: var(--shadow-glass);
+}
+.c-bottomNav__item {
+  position: relative;
+  flex: 1;
+  min-height: var(--touch-recommended);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  background: transparent;
+  border: none;
+  color: var(--color-textSecondary);
+  font-family: var(--font-primary);
+  font-size: var(--type-small-size);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition:
+    color     var(--duration-fast) var(--curve-default),
+    transform var(--duration-fast) var(--curve-default);
+}
+.c-bottomNav__item .c-icon { width: var(--icon-medium); height: var(--icon-medium); }
+.c-bottomNav__item.is-active { color: var(--color-primary); }
+.c-bottomNav__item:active    { transform: scale(0.96); }
+.c-bottomNav__item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent) inset;
+  border-radius: var(--radius-small);
+}
+.c-bottomNav__label { line-height: 1; }
+.c-bottomNav__badge {
+  position: absolute;
+  top: var(--space-4);
+  right: calc(50% - var(--space-16));
+  min-width: var(--space-16);
+  height: var(--space-16);
+  padding: 0 var(--space-4);
+  background: var(--color-error);
+  color: var(--color-textOnPrimary);
+  border-radius: var(--radius-pill);
+  font-size: var(--type-small-size);
+  font-weight: var(--weight-bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ---- TabBar ---------------------------------------------------------------- */
+.c-tabBar {
+  display: flex;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  padding: 0 var(--space-16);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.c-tabBar::-webkit-scrollbar { display: none; }
+.c-tabBar__tab {
+  flex: 0 0 auto;
+  min-height: var(--touch-minimum);
+  padding: var(--space-8) var(--space-16);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--color-textSecondary);
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition:
+    color        var(--duration-fast) var(--curve-default),
+    border-color var(--duration-fast) var(--curve-default);
+}
+.c-tabBar__tab:hover:not(.is-active) { color: var(--color-textPrimary); }
+.c-tabBar__tab.is-active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+.c-tabBar__tab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+  border-radius: var(--radius-small);
+}
+
+/* ---- Segmented ------------------------------------------------------------- */
+.c-segmented {
+  display: inline-flex;
+  padding: var(--space-4);
+  background: var(--color-surfaceActive);
+  border-radius: var(--radius-pill);
+  gap: var(--space-4);
+}
+.c-segmented__seg {
+  min-height: var(--touch-minimum);
+  padding: 0 var(--space-16);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  color: var(--color-textSecondary);
+  font-family: var(--font-primary);
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    color      var(--duration-fast) var(--curve-default);
+}
+.c-segmented__seg.is-active {
+  background: var(--color-surface);
+  color: var(--color-textPrimary);
+  box-shadow: var(--shadow-sm);
+}
+.c-segmented__seg:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+}
+
+/* ---- Header ---------------------------------------------------------------- */
+.c-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  padding-top: calc(var(--space-16) + var(--safe-top));
+  background: var(--color-glass);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  border-bottom: 1px solid var(--color-border);
+  z-index: var(--z-sticky);
+}
+.c-header__group { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.c-header__title {
+  font-size: var(--type-title-size);
+  line-height: var(--type-title-line);
+  font-weight: var(--type-title-weight);
+  color: var(--color-textPrimary);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.c-header__subtitle {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+  margin: 0;
+}
+.c-header__actions { display: flex; align-items: center; gap: var(--space-8); }
+
+/* ---- Toolbar --------------------------------------------------------------- */
+.c-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
