@@ -560,6 +560,29 @@ input::placeholder {
     box-shadow: 0 0 0 1px rgba(239, 68, 68, .25)
 }
 
+/* Narrow-viewport fix (Micro-Sprint post-Freeze) — scoped al circuit multi-
+   esercizio (.pickerWrap emesso da setRow con .c-picker Foundation dentro).
+   Root cause: .c-picker è inline-flex con display min-width 80px + button
+   44px → 208px min per picker × 2 non entra nemmeno a 276dp.
+   Base: il picker riempie la colonna della griglia; touch target 44px intatti.
+   Narrow: sotto 480dp la griglia diventa una colonna (Option C dello spec). */
+.pickerWrap .c-picker {
+    display: flex;
+    width: 100%;
+    padding: var(--space-8);
+    gap: var(--space-8);
+    box-sizing: border-box;
+}
+.pickerWrap .c-picker__display { min-width: 0; flex: 1 1 auto; }
+.pickerWrap.missing .c-picker {
+    border-color: var(--bad) !important;
+    background: rgba(239, 68, 68, .08);
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, .25);
+}
+@media (max-width: 480px) {
+    .pickerGrid { grid-template-columns: 1fr; gap: var(--space-8); }
+}
+
 .stepNote {
     display: block;
     text-align: center;
