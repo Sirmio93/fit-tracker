@@ -1,0 +1,611 @@
+/* ==========================================================================
+   Home/home.css — Sprint 9.3A (Home Premium Polish)
+   Layout motivazionale a 4 blocchi che riusa esclusivamente componenti
+   Foundation: ProfileHeader (hero), TodaySessionCard (workout today,
+   già delegato a Foundation Ring), StatisticCard (quick stats),
+   ExerciseIdentity mini (recent activity).
+
+   Rifiniture 9.3A:
+     - respiro verticale amplificato (gap 40, spacing generoso)
+     - hero con nome dominante e greeting più leggero
+     - bell con dot notifiche rosso
+     - workout hero card con glow + gradient rinforzato + ring luminoso
+     - stats più airy, bordo delicato, valori dominanti
+     - recent activity senza bordo, solo shadow morbida
+     - cascata sequenziale via --seq (0..3) invece che stagger interno
+     - motion tokens uniformati (durata + curva) — quasi impercettibili
+   ========================================================================== */
+
+/* ============================================================
+   Layout Home v10 — flusso verticale motivazionale.
+   ============================================================ */
+.home--v10 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40, 40px);
+  padding: var(--space-24) var(--space-16) calc(96px + var(--space-40, 40px));
+  padding-top: calc(var(--safe-top) + var(--space-20, 20px));
+  min-height: 100dvh;
+  background: var(--color-background);
+}
+
+/* Sezioni base */
+.home--v10 .home10-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.home10-sectionLabel {
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+  margin: 0 0 var(--space-4) 2px;
+  opacity: 0.75;
+}
+
+/* Il selettore .home-hero è mantenuto sulla card workout per far scattare
+   l'IntersectionObserver del FAB (vedi mountHomeFab in app.js). */
+.home--v10 .home-hero { padding-left: 0; padding-right: 0; }
+
+/* ============================================================
+   Hero — ProfileHeader riusato con saluto (meta) + bell (actions).
+   Sprint 9.3A: nome dominante, greeting sussurrato, avatar integrato.
+   ============================================================ */
+.home10-hero { display: block; padding-block: var(--space-8) var(--space-4); }
+.home10-hero .c-profileHeader {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  gap: var(--space-16);
+  align-items: center;
+}
+.home10-hero .c-avatar--xl {
+  /* Avatar più compatto e integrato: 52px con bordo primario sottilissimo. */
+  width: 52px;
+  height: 52px;
+  font-size: 18px;
+  font-weight: var(--weight-bold);
+  box-shadow:
+    0 0 0 2px var(--color-background),
+    0 0 0 3px color-mix(in srgb, var(--color-primary) 32%, transparent),
+    var(--shadow-sm);
+}
+.home10-hero .c-profileHeader__body { gap: 2px; }
+.home10-hero .c-profileHeader__meta {
+  order: -1;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.005em;
+  opacity: 0.72;
+}
+.home10-hero .c-profileHeader__name {
+  font-size: clamp(24px, 7vw, 30px);
+  line-height: 1.15;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--color-textPrimary);
+  overflow-wrap: anywhere;
+}
+.home10-hero .c-profileHeader__actions { align-self: center; }
+
+/* Bell notifiche — pill icon-only con dot rosso decorativo. */
+.home10-bell {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-textPrimary);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default);
+}
+.home10-bell::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-danger, #ef4444);
+  box-shadow:
+    0 0 0 2px var(--color-surface),
+    0 0 8px color-mix(in srgb, var(--color-danger, #ef4444) 60%, transparent);
+}
+.home10-bell:hover  { background: var(--color-surfaceActive); box-shadow: var(--shadow-md); }
+.home10-bell:active { transform: scale(0.96); }
+.home10-bell:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ============================================================
+   Workout Today — hero card protagonista.
+   Sprint 9.3A: gradient + glow rinforzati, ring focal luminoso.
+   ============================================================ */
+.home10-workoutToday { display: block; }
+.home10-workoutToday .c-todayCard {
+  position: relative;
+  padding: var(--space-28, 28px) var(--space-24) var(--space-24);
+  gap: var(--space-24);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(140% 100% at 100% 0%, color-mix(in oklab, var(--color-primary) 14%, transparent) 0%, transparent 58%),
+    linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 4%, transparent) 0%, transparent 40%),
+    var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, var(--color-border));
+  box-shadow:
+    var(--shadow-lg, var(--shadow-md)),
+    0 0 40px -8px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  overflow: hidden;
+}
+/* Glow decorativo dietro al ring */
+.home10-workoutToday .c-todayCard::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 60%;
+  height: 140%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-primary) 22%, transparent) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(6px);
+}
+.home10-workoutToday .c-todayCard > * { position: relative; z-index: 1; }
+
+.home10-workoutToday .c-todayCard__eyebrow {
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+}
+.home10-workoutToday .c-todayCard__title {
+  font-size: clamp(24px, 7vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.home10-workoutToday .c-todayCard__ring .c-ring {
+  --ring-size: 112px;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--color-primary) 28%, transparent));
+}
+.home10-workoutToday .c-todayCard__ringPct { font-size: 26px; }
+.home10-workoutToday .c-todayCard__ringPct small { font-size: 13px; }
+
+/* Stats interne (Durata / Esercizi / Volume): separatori più leggeri. */
+.home10-workoutToday .c-todayCard__stats {
+  border-color: color-mix(in srgb, var(--color-border) 60%, transparent);
+  padding: var(--space-12) 0;
+}
+.home10-workoutToday .c-todayCard__statSep {
+  background: color-mix(in srgb, var(--color-border) 55%, transparent);
+}
+
+/* CTA rinforzata — glow leggero, transizione più ricca. */
+.home10-workoutToday .c-todayCard__cta {
+  min-height: 58px;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-pill);
+  box-shadow:
+    var(--shadow-floating),
+    0 0 0 0 color-mix(in srgb, var(--color-primary) 25%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 20%, transparent);
+  transition:
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-normal) var(--curve-default);
+}
+.home10-workoutToday .c-todayCard__cta:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 48px rgba(124,58,237,0.32),
+    0 0 0 8px color-mix(in srgb, var(--color-primary) 12%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 24%, transparent);
+}
+
+/* ============================================================
+   Quick Stats — 3× StatisticCard Foundation in griglia responsive.
+   Sprint 9.3A: più aria, valori dominanti, label sussurrate.
+   ============================================================ */
+.home10-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+.home10-stats__cell { min-width: 0; display: block; }
+
+/* Ridimensiono la StatisticCard nel contesto Home. */
+.home10-stats .c-card--statistic {
+  padding: var(--space-20) var(--space-16);
+  border-radius: var(--radius-large);
+  gap: var(--space-8);
+  min-height: 140px;
+  height: 100%;
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-fast) var(--curve-default),
+              transform  var(--duration-fast) var(--curve-default);
+}
+.home10-stats .c-card--statistic:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.home10-stats .c-card__eyebrow {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+  opacity: 0.72;
+}
+.home10-stats .c-card__value {
+  font-size: clamp(26px, 7.6vw, 32px);
+  line-height: 1.02;
+  gap: 4px;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.015em;
+  color: var(--color-textPrimary);
+}
+.home10-stats .c-card__unit {
+  font-size: 11px;
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+  opacity: 0.72;
+}
+.home10-stats .c-card__delta {
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-textSecondary);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   Recent Activity — riga cliccabile senza bordo, solo shadow morbida.
+   ============================================================ */
+.home10-recent__row {
+  appearance: none;
+  cursor: pointer;
+  background: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-xl);
+  padding: var(--space-16) var(--space-20);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-16);
+  align-items: center;
+  color: var(--color-textPrimary);
+  text-align: left;
+  font-family: inherit;
+  box-shadow: var(--shadow-sm);
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-normal) var(--curve-default),
+    transform  var(--duration-fast) var(--curve-default);
+  width: 100%;
+}
+.home10-recent__row:hover  {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--color-surface) 92%, var(--color-surfaceActive));
+}
+.home10-recent__row:active { background: var(--color-surfaceActive); transform: scale(0.995); }
+.home10-recent__row:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus), var(--shadow-sm);
+}
+.home10-recent__thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-large);
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surfaceActive));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.home10-recent__thumb .c-exId { width: 100%; height: 100%; }
+.home10-recent__thumb .c-exId--mini,
+.home10-recent__thumb .c-exVisual { width: 100%; height: 100%; }
+.home10-recent__body { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.home10-recent__title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.005em;
+  color: var(--color-textPrimary);
+  overflow-wrap: anywhere;
+}
+.home10-recent__meta {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-textSecondary);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.78;
+}
+.home10-recent__arrow {
+  color: var(--color-textSecondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: transform var(--duration-fast) var(--curve-default),
+              opacity   var(--duration-fast) var(--curve-default);
+}
+.home10-recent__row:hover .home10-recent__arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+.home10-recent__arrow .c-icon { width: 18px; height: 18px; }
+
+/* ============================================================
+   Motion — cascata sequenziale via --seq (0..3) sui blocchi principali.
+   Distanze piccole, durate uniformi, curva default — quasi impercettibili.
+   Rispetta prefers-reduced-motion.
+   ============================================================ */
+@keyframes home10FadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+@keyframes home10RiseUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.995); }
+  to   { opacity: 1; transform: translateY(0) scale(1);         }
+}
+.home10-anim { will-change: opacity, transform; }
+.home10-anim--fadeUp {
+  animation: home10FadeUp var(--duration-slow, 320ms) var(--curve-default) both;
+  animation-delay: calc(var(--seq, 0) * 90ms);
+}
+.home10-anim--riseUp {
+  animation: home10RiseUp 420ms var(--curve-default) both;
+  animation-delay: calc(var(--seq, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home10-anim { animation: none !important; }
+  .home10-workoutToday .c-todayCard__cta,
+  .home10-recent__row,
+  .home10-recent__arrow,
+  .home10-stats .c-card--statistic,
+  .home10-bell {
+    transition: none !important;
+  }
+  .home10-workoutToday .c-todayCard__ring .c-ring__fill { transition: none !important; }
+}
+
+/* ============================================================
+   TodaySessionCard — regole base (invariate rispetto a Sprint 9,
+   condivise fra v9 e v10 finché la migrazione è in corso).
+   ============================================================ */
+.c-todayCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  box-shadow: var(--shadow-md);
+}
+.c-todayCard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+.c-todayCard__headText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.c-todayCard__eyebrow {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-line);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+.c-todayCard__title {
+  margin: 0;
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--type-h3-track);
+  color: var(--color-textPrimary);
+  overflow-wrap: anywhere;
+}
+.c-todayCard__ring {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+}
+.c-todayCard__ringInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  pointer-events: none;
+}
+.c-todayCard__ringPct {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+}
+.c-todayCard__ringPct small {
+  font-size: 12px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+.c-todayCard__ringLabel {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-medium);
+}
+.c-todayCard__stats {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-divider, var(--color-border));
+  border-bottom: 1px solid var(--color-divider, var(--color-border));
+}
+.c-todayCard__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  text-align: center;
+}
+.c-todayCard__statLabel {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-line);
+  color: var(--color-textSecondary);
+  text-transform: capitalize;
+}
+.c-todayCard__statValue {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-title-size);
+  line-height: var(--type-title-line);
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+}
+.c-todayCard__statSep {
+  width: 1px;
+  height: 32px;
+  background: var(--color-border);
+}
+.c-todayCard__cta {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  width: 100%;
+  min-height: 52px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-primary);
+  color: var(--color-textOnPrimary);
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-floating);
+  transition:
+    transform   var(--duration-fast) var(--curve-default),
+    box-shadow  var(--duration-fast) var(--curve-default);
+}
+.c-todayCard__cta:hover  { transform: translateY(-1px); box-shadow: 0 14px 44px rgba(124,58,237,0.28); }
+.c-todayCard__cta:active { transform: translateY(0); box-shadow: var(--shadow-md); }
+.c-todayCard__cta:focus-visible {
+  outline: none;
+  /* 32% invece del token --shadow-focus (24%): focus ring rinforzato per CTA
+     hero della Home. Lasciato letterale intenzionalmente. */
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 32%, transparent);
+}
+.c-todayCard__ctaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+.c-todayCard__ctaIcon .c-icon { width: 16px; height: 16px; }
+.c-todayCard--compact .c-todayCard__stats { display: none; }
+
+/* ============================================================
+   Responsive breakpoints — 320 / 375 / 390 / 414 / 768 / 1024 / 1440.
+   ============================================================ */
+
+/* 320-374 (iPhone SE small) */
+@media (max-width: 374px) {
+  .home--v10 {
+    padding: var(--space-16) var(--space-12) calc(96px + var(--space-24));
+    gap: var(--space-24);
+  }
+  .home10-hero .c-avatar--xl { width: 48px; height: 48px; font-size: 16px; }
+  .home10-hero .c-profileHeader__name { font-size: 22px; }
+  .home10-workoutToday .c-todayCard { padding: var(--space-20); gap: var(--space-16); }
+  .home10-workoutToday .c-todayCard__ring .c-ring { --ring-size: 96px; }
+  .home10-stats__grid { gap: var(--space-8); }
+  .home10-stats .c-card--statistic { padding: var(--space-16) var(--space-12); min-height: 120px; }
+  .home10-stats .c-card__value { font-size: 22px; }
+  .home10-recent__row { padding: var(--space-12) var(--space-16); }
+  .home10-recent__thumb { width: 48px; height: 48px; }
+}
+
+/* 375-413 (iPhone standard) — default già ottimizzato, nessun override. */
+
+/* 414-767 (iPhone Plus/Pro Max) — leggero respiro extra. */
+@media (min-width: 414px) and (max-width: 767px) {
+  .home--v10 { padding: var(--space-24) var(--space-20) calc(96px + var(--space-40, 40px)); }
+  .home10-workoutToday .c-todayCard { padding: var(--space-32) var(--space-28) var(--space-28); }
+}
+
+/* Tablet 768+ — griglia più ampia, ring più grande. */
+@media (min-width: 768px) {
+  .home--v10 {
+    padding: var(--space-32) var(--space-24) 96px;
+    gap: var(--space-40, 40px);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .home10-workoutToday .c-todayCard { padding: var(--space-32); gap: var(--space-24); }
+  .home10-workoutToday .c-todayCard__ring .c-ring { --ring-size: 128px; }
+  .home10-workoutToday .c-todayCard__title { font-size: 32px; }
+  .home10-stats__grid { gap: var(--space-16); }
+  .home10-stats .c-card--statistic { min-height: 152px; padding: var(--space-24); }
+  .home10-stats .c-card__value { font-size: 32px; }
+}
+
+/* Desktop 1024+ — layout centrato, non-full-width. */
+@media (min-width: 1024px) {
+  .home--v10 {
+    max-width: 880px;
+    padding: var(--space-40, 40px) var(--space-32) var(--space-48);
+  }
+  .home10-hero .c-avatar--xl { width: 60px; height: 60px; font-size: 20px; }
+  .home10-hero .c-profileHeader__name { font-size: 32px; }
+  .home10-workoutToday .c-todayCard { padding: var(--space-40, 40px); }
+  .home10-workoutToday .c-todayCard__ring .c-ring { --ring-size: 140px; }
+}
+
+/* Wide 1440+ — margini più generosi, nessuna deriva. */
+@media (min-width: 1440px) {
+  .home--v10 { max-width: 960px; }
+}

@@ -1,6 +1,6 @@
 /* ==========================================================================
    Feedback/Skeleton.js
-   Placeholder shimmer generico. Alternativa a `LoadingCard` quando serve
+   Placeholder shimmer generico da usare quando serve
    uno skeleton non-card (linee libere per lista/testo).
    ========================================================================== */
 

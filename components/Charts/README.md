@@ -1,3 +1,10 @@
+> **HISTORICAL — la Foundation `Charts/` è stata rimossa nello Sprint 9.13.**
+> I moduli descritti sotto (`LineChart`, `AreaChart`, `BarChart`, `Heatmap`, `WeeklyChart`, `MonthlyChart`, `ProgressChart`) NON esistono più nel repository.
+> I grafici della schermata **Progressi** sono ora renderizzati da helper SVG inline in [`app.js`](../../app.js) (`progressLineChartHtml`, `progressBarChartHtml`, `progressHeatmapHtml`, `frequencyHeatmapData`, `onProgressChartTap`). Questo README è conservato come referenza storica del contratto originale.
+> Per lo stato attuale, vedere [DOCS/FINAL_PROJECT_STATE.md](../../DOCS/FINAL_PROJECT_STATE.md).
+
+---
+
 # Charts
 
 Grafici SVG puri, senza dipendenze da librerie esterne. Ogni chart è una funzione pura `data → HTML`. Nessun listener, nessun render loop.

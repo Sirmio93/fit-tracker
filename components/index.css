@@ -8,6 +8,7 @@
 @import "./Foundation/tokens.css";
 @import "./Foundation/typography.css";
 @import "./Foundation/utilities.css";
+@import "./Foundation/ring.css";
 
 /* Shared — icone, badge, presenter host */
 @import "./Shared/shared.css";
@@ -15,8 +16,13 @@
 /* Componenti (categorie) */
 @import "./Buttons/buttons.css";
 @import "./Cards/cards.css";
+@import "./Anatomy/anatomy.css";
+@import "./Exercise/exercise.css";
 @import "./Navigation/navigation.css";
 @import "./Workout/workout.css";
-@import "./Charts/charts.css";
+@import "./Workout/workout-v2.css";
+@import "./Rest/rest.css";
+@import "./Rest/rest-v2.css";
 @import "./Feedback/feedback.css";
 @import "./Profile/profile.css";
+@import "./Home/home.css";

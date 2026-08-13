@@ -3,6 +3,7 @@
 .idea/
 *.swp
 *.swo
+*.zip
 
 # OS
 .DS_Store

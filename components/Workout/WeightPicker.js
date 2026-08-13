@@ -15,11 +15,21 @@ import { icon as renderIcon } from '../Shared/Icon.js';
  * @param {number} [opts.max=500]
  * @param {boolean} [opts.disabled]
  * @param {string} [opts.ariaLabel='Peso']
+ * @param {'horizontal'|'stacked'} [opts.layout='horizontal']
+ * @param {'md'|'lg'} [opts.size='md']
  */
 export function WeightPicker(opts = {}) {
-  const value = opts.value != null ? opts.value : 40;
-  const unit  = opts.unit  || 'kg';
-  const cls   = cx(['c-picker', 'c-picker--weight', opts.disabled ? 'is-disabled' : '']);
+  const value  = opts.value != null ? opts.value : 40;
+  const unit   = opts.unit  || 'kg';
+  const layout = opts.layout === 'stacked' ? 'stacked' : 'horizontal';
+  const size   = opts.size === 'lg' ? 'lg' : 'md';
+  const cls    = cx([
+    'c-picker',
+    'c-picker--weight',
+    `c-picker--${layout}`,
+    `c-picker--${size}`,
+    opts.disabled ? 'is-disabled' : '',
+  ]);
 
   return `<div ${attr({
     class: cls,

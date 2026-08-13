@@ -1,5 +1,5 @@
 const EMBEDDED_SCHEDA = { "nome_scheda": "scheda010226", "note_generali": { "riscaldamento": "non incluso nel JSON", "vincolo_postazioni": "non bloccare più di un macchinario/panca alla volta", "giorno_3": "opzionale, solo corpo libero e tappetino", "focus_core": "addominali completi con focus maggiore su obliqui/laterali, stabilità e postura" }, "settimana_a": { "lunedi": { "nome_giorno": "Petto + Dorso + Tricipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Cable fly alto-basso", "ripetizioni": "12-15", "target": "Pettorale basso" }, "esercizio2": { "nome_esercizio": "Straight-arm cable pulldown", "ripetizioni": "12-15", "target": "Dorsali" }, "esercizio3": { "nome_esercizio": "Pushdown corda", "ripetizioni": "12-15", "target": "Tricipiti" } } }, { "circuito2": { "nome_circuito": "Circuito 2 — Panca piana + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Distensioni manubri su panca piana con piedi rialzati", "ripetizioni": "12-15", "target": "Petto basso / petto medio" }, "esercizio2": { "nome_esercizio": "Rematore manubrio con appoggio su panca", "ripetizioni": "12-15 per lato", "target": "Dorso" }, "esercizio3": { "nome_esercizio": "French press manubri da sdraiato", "ripetizioni": "12-15", "target": "Tricipiti" } } }, { "circuito3": { "nome_circuito": "Circuito 3 — Lat machine + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 75 sec tra giri", "esercizio1": { "nome_esercizio": "Lat machine presa neutra/avanti pesante", "ripetizioni": "8-10", "target": "Dorso / gran dorsale" }, "esercizio2": { "nome_esercizio": "Floor press manubri presa neutra", "ripetizioni": "12-15", "target": "Petto / tricipiti" }, "esercizio3": { "nome_esercizio": "Kickback tricipiti con busto supportato", "ripetizioni": "12-15", "target": "Tricipiti" } } }], "core": [{ "core1": { "nome_circuito": "Core finale A — Lunedì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Cable crunch in ginocchio", "ripetizioni": "12-15", "target": "Retto addominale" }, "esercizio2": { "nome_esercizio": "Reverse crunch su panca piana", "ripetizioni": "12-15", "target": "Addome basso" }, "esercizio3": { "nome_esercizio": "Side plank hip dip", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio4": { "nome_esercizio": "Woodchopper al cavo alto-basso", "ripetizioni": "12+12", "target": "Obliqui / fianchi" } } }], "tabata": [], "hiit": [], "superserie": [] }, "mercoledi": { "nome_giorno": "Gambe + Spalle + Bicipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Leg press + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Leg press controllata", "ripetizioni": "12-15", "target": "Quadricipiti / glutei" }, "esercizio2": { "nome_esercizio": "Alzate laterali manubri", "ripetizioni": "12-15", "target": "Deltoide medio" }, "esercizio3": { "nome_esercizio": "Curl manubri seduto", "ripetizioni": "12-15", "target": "Bicipiti" } } }, { "circuito2": { "nome_circuito": "Circuito 2 — Romanian deadlift + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Romanian deadlift con manubri", "ripetizioni": "12-15", "target": "Bicipiti femorali / glutei" }, "esercizio2": { "nome_esercizio": "Hip thrust con manubrio su panca", "ripetizioni": "12-15", "target": "Glutei" }, "esercizio3": { "nome_esercizio": "Shoulder press manubri seduto", "ripetizioni": "12-15", "target": "Spalle anteriori / spalle medie" } } }, { "circuito3": { "nome_circuito": "Circuito 3 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Face pull", "ripetizioni": "12-15", "target": "Deltoide posteriore / upper back" }, "esercizio2": { "nome_esercizio": "Curl cavo basso con barra dritta/EZ", "ripetizioni": "12-15", "target": "Bicipiti in allungamento" }, "esercizio3": { "nome_esercizio": "Cable lateral raise", "ripetizioni": "12-15 per lato", "target": "Deltoide medio" } } }], "core": [{ "core1": { "nome_circuito": "Core finale A — Mercoledì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Crunch su panca inclinata", "ripetizioni": "12-15", "target": "Retto addominale alto" }, "esercizio2": { "nome_esercizio": "Knee raise su panca", "ripetizioni": "10-12", "target": "Addome basso" }, "esercizio3": { "nome_esercizio": "Side bend con manubrio singolo", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio4": { "nome_esercizio": "Plank laterale con rotazione controllata", "ripetizioni": "10+10", "target": "Obliqui / anti-rotazione" } } }], "tabata": [], "hiit": [], "superserie": [] }, "giorno_3_opzionale": { "nome_giorno": "Corpo libero + tappetino — Core, stabilità e postura", "circuito": [{ "circuito1": { "nome_circuito": "Circuito tappetino — Stabilità, postura e core", "tipo": "circuito_metabolico_corpo_libero", "recupero": "20-30 sec tra esercizi, 60 sec tra giri", "esercizio1": { "nome_esercizio": "Dead bug avanzato con gambe estese alternate", "ripetizioni": "10+10", "target": "Core profondo / controllo bacino" }, "esercizio2": { "nome_esercizio": "Bird dog con pausa isometrica lunga", "ripetizioni": "10+10 con 2-3 sec pausa", "target": "Stabilità controlaterale / postura" }, "esercizio3": { "nome_esercizio": "Glute bridge march", "ripetizioni": "12+12", "target": "Glutei / bacino stabile" }, "esercizio4": { "nome_esercizio": "Side plank hip dip", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio5": { "nome_esercizio": "Plank shoulder tap lento", "ripetizioni": "10+10", "target": "Anti-rotazione / stabilità spalle" }, "esercizio6": { "nome_esercizio": "Prone Y-T-W sul tappetino", "ripetizioni": "8+8+8", "target": "Postura scapolare / trapezio basso / deltoidi posteriori" }, "esercizio7": { "nome_esercizio": "Scapular push-up", "ripetizioni": "12-15", "target": "Controllo scapole / serrato anteriore" }, "esercizio8": { "nome_esercizio": "Reverse crunch controllato a terra", "ripetizioni": "12-15", "target": "Addome basso / retroversione bacino" }, "esercizio9": { "nome_esercizio": "Side lying leg raise controllato", "ripetizioni": "12+12", "target": "Gluteo medio / stabilità bacino" }, "esercizio10": { "nome_esercizio": "Hollow hold facilitato", "ripetizioni": "20-30 sec", "target": "Core completo / tenuta addominale" } } }], "core": [], "tabata": [], "hiit": [], "superserie": [] } }, "settimana_b": { "lunedi": { "nome_giorno": "Petto + Dorso + Tricipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Cable press in piedi unilaterale", "ripetizioni": "15-20", "target": "Petto" }, "esercizio2": { "nome_esercizio": "Pulldown braccia tese con corda", "ripetizioni": "15-20", "target": "Dorsali" }, "esercizio3": { "nome_esercizio": "Estensione tricipiti sopra la testa con corda", "ripetizioni": "15-20", "target": "Tricipiti capo lungo" }, "esercizio4": { "nome_esercizio": "Croci ai cavi dal basso verso il centro", "ripetizioni": "15-20", "target": "Petto alto / petto medio" } } }, { "circuito2": { "nome_circuito": "Circuito 2 — Panca inclinata + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Chest press manubri su panca inclinata", "ripetizioni": "15-20", "target": "Petto alto" }, "esercizio2": { "nome_esercizio": "Rematore chest-supported su panca inclinata", "ripetizioni": "15-20", "target": "Dorso / spessore dorso" }, "esercizio3": { "nome_esercizio": "Pullover manubrio leggero su panca", "ripetizioni": "15-20", "target": "Dorsali / dentato" }, "esercizio4": { "nome_esercizio": "Estensioni tricipiti manubrio singolo seduto", "ripetizioni": "15-20", "target": "Tricipiti" } } }, { "circuito3": { "nome_circuito": "Circuito 3 — Macchina dorsali/cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Lat machine presa larga avanti / presa neutra", "ripetizioni": "15-20", "target": "Gran dorsale / ampiezza dorso" }, "esercizio2": { "nome_esercizio": "Dip su panca", "ripetizioni": "12-15", "target": "Tricipiti / petto basso" }, "esercizio3": { "nome_esercizio": "Push-up presa stretta su panca", "ripetizioni": "12-15", "target": "Tricipiti / petto" }, "esercizio4": { "nome_esercizio": "Face pull al cavo alto con corda", "ripetizioni": "15-20", "target": "Deltoide posteriore / upper back" } } }], "core": [{ "core1": { "nome_circuito": "Core finale B — Lunedì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Cable crunch al cavo alto", "ripetizioni": "15-20", "target": "Retto addominale" }, "esercizio2": { "nome_esercizio": "Captain chair knee raise", "ripetizioni": "10-12", "target": "Addome basso" }, "esercizio3": { "nome_esercizio": "Pallof press pesante al cavo", "ripetizioni": "10+10", "target": "Obliqui / anti-rotazione" }, "esercizio4": { "nome_esercizio": "Side plank con abduzione gamba", "ripetizioni": "20-25 sec per lato", "target": "Obliqui / gluteo medio / laterali" } } }], "tabata": [], "hiit": [], "superserie": [] }, "mercoledi": { "nome_giorno": "Gambe + Spalle + Bicipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Hack squat/Leg press + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Hack squat guidato / leg press", "ripetizioni": "15-20", "target": "Quadricipiti" }, "esercizio2": { "nome_esercizio": "Curl martello manubri seduto", "ripetizioni": "15-20", "target": "Bicipiti / brachiale" }, "esercizio3": { "nome_esercizio": "Alzate frontali manubri alternate", "ripetizioni": "15-20", "target": "Deltoide anteriore" }, "esercizio4": { "nome_esercizio": "Calf raise con manubri", "ripetizioni": "15-20", "target": "Polpacci" } } }, { "circuito2": { "nome_circuito": "Leg curl singolo — Bicipiti femorali", "tipo": "esercizio_singolo", "recupero": "60 sec tra serie", "esercizio1": { "nome_esercizio": "Leg curl seduto", "ripetizioni": "3 serie x 12-15", "target": "Bicipiti femorali / femorali" } } }, { "circuito3": { "nome_circuito": "Circuito 2 — Manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Curl alternato manubri", "ripetizioni": "15-20", "target": "Bicipiti" }, "esercizio2": { "nome_esercizio": "Alzate posteriori manubri", "ripetizioni": "15-20", "target": "Deltoide posteriore / upper back" }, "esercizio3": { "nome_esercizio": "Romanian deadlift manubri", "ripetizioni": "12-15", "target": "Bicipiti femorali / glutei" } } }, { "circuito4": { "nome_circuito": "Circuito 3 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Curl cavo basso unilaterale dietro al corpo", "ripetizioni": "15-20", "target": "Bicipite in massimo allungamento" }, "esercizio2": { "nome_esercizio": "Tirate al viso con corda", "ripetizioni": "15-20", "target": "Deltoide posteriore / upper back" }, "esercizio3": { "nome_esercizio": "Alzata laterale al cavo dietro schiena", "ripetizioni": "15-20", "target": "Deltoide medio" }, "esercizio4": { "nome_esercizio": "Pull-through al cavo leggero", "ripetizioni": "15-20", "target": "Glutei / femorali" } } }], "core": [{ "core1": { "nome_circuito": "Core finale B — Mercoledì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Crunch inverso su panca con retroversione", "ripetizioni": "12-15", "target": "Addome basso" }, "esercizio2": { "nome_esercizio": "Cable woodchopper basso-alto", "ripetizioni": "12+12", "target": "Obliqui / fianchi" }, "esercizio3": { "nome_esercizio": "Side bend al cavo basso", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio4": { "nome_esercizio": "Plank zavorrato", "ripetizioni": "30-45 sec", "target": "Core completo" } } }], "tabata": [], "hiit": [], "superserie": [] }, "giorno_3_opzionale": { "nome_giorno": "Corpo libero + tappetino — Core, stabilità e postura", "circuito": [{ "circuito1": { "nome_circuito": "Circuito tappetino — Stabilità, postura e core", "tipo": "circuito_metabolico_corpo_libero", "recupero": "20-30 sec tra esercizi, 60 sec tra giri", "esercizio1": { "nome_esercizio": "Dead bug avanzato con gambe estese alternate", "ripetizioni": "10+10", "target": "Core profondo / controllo bacino" }, "esercizio2": { "nome_esercizio": "Bird dog con pausa isometrica lunga", "ripetizioni": "10+10 con 2-3 sec pausa", "target": "Stabilità controlaterale / postura" }, "esercizio3": { "nome_esercizio": "Glute bridge march", "ripetizioni": "12+12", "target": "Glutei / bacino stabile" }, "esercizio4": { "nome_esercizio": "Side plank hip dip", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio5": { "nome_esercizio": "Plank shoulder tap lento", "ripetizioni": "10+10", "target": "Anti-rotazione / stabilità spalle" }, "esercizio6": { "nome_esercizio": "Prone Y-T-W sul tappetino", "ripetizioni": "8+8+8", "target": "Postura scapolare / trapezio basso / deltoidi posteriori" }, "esercizio7": { "nome_esercizio": "Scapular push-up", "ripetizioni": "12-15", "target": "Controllo scapole / serrato anteriore" }, "esercizio8": { "nome_esercizio": "Reverse crunch controllato a terra", "ripetizioni": "12-15", "target": "Addome basso / retroversione bacino" }, "esercizio9": { "nome_esercizio": "Side lying leg raise controllato", "ripetizioni": "12+12", "target": "Gluteo medio / stabilità bacino" }, "esercizio10": { "nome_esercizio": "Hollow hold facilitato", "ripetizioni": "20-30 sec", "target": "Core completo / tenuta addominale" } } }], "core": [], "tabata": [], "hiit": [], "superserie": [] } } }; const DB = 'fit-circuit-tracker-v18-optional-day'; const SECTIONS = [['circuito', 'Circuit'], ['core', 'Core'], ['tabata', 'Tabata'], ['hiit', 'HIIT'], ['superserie', 'Superset']], DAY_ORDER = ['lunedi', 'mercoledi', 'giorno_3_opzionale', 'venerdi'];
-const S = { tab: 'schede', cards: [], exercises: [], sessions: [], flow: { cardId: null, weekKey: null }, active: null, timer: null, tick: null, sessionTick: null, theme: localStorage.theme || 'system', missing: {}, focus: { on: true, blockIdx: 0, round: 1 }, progress: { view: 'overview', period: 'week', selectedSessionId: null, openExercises: {}, scrollY: {} }, history: { open: false, query: '', period: null, selectedSessionId: null, scrollY: 0, parentScrollY: 0, lastSessionId: null, initialized: false, closing: false }, session: { sheet: null, confirm: null, restoreBannerDismissed: {}, pendingSwitch: null, restored: false }, prefs: (function(){var raw={};try{raw=JSON.parse(localStorage.getItem('prefs')||'{}')||{}}catch(_e){}return{reducedMotion:raw.reducedMotion===true,textSize:(raw.textSize==='sm'||raw.textSize==='lg')?raw.textSize:'md',weightUnit:raw.weightUnit==='lbs'?'lbs':'kg',focusDefault:raw.focusDefault!==false,restDefaultSec:(typeof raw.restDefaultSec==='number'&&raw.restDefaultSec>=15&&raw.restDefaultSec<=300)?raw.restDefaultSec:60,vibration:raw.vibration===true,sounds:raw.sounds===true}})(), user: { name: (function(){try{return String(localStorage.getItem('user.name')||'').trim().slice(0,30)}catch(_e){return ''}})() }, profile: { infoDialog: null, nameDialog: null }, sheet: null, sync: { config: null, lastSyncAt: null, status: 'idle', busy: false, pending: false, lastError: null } }; const $ = q => document.querySelector(q), byDom = id => document.getElementById(id), uid = () => crypto.randomUUID ? crypto.randomUUID() : 'id' + Date.now() + Math.random(), now = () => new Date().toISOString(), esc = (s = '') => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const S = { tab: 'schede', cards: [], exercises: [], sessions: [], flow: { cardId: null, weekKey: null }, active: null, timer: null, tick: null, sessionTick: null, theme: localStorage.theme || 'system', missing: {}, focus: { on: true, blockIdx: 0, round: 1 }, progress: { view: 'overview', period: 'week', selectedSessionId: null, openExercises: {}, scrollY: {} }, history: { open: false, query: '', period: null, selectedSessionId: null, scrollY: 0, parentScrollY: 0, lastSessionId: null, initialized: false, closing: false }, session: { sheet: null, confirm: null, restoreBannerDismissed: {}, pendingSwitch: null, restored: false }, prefs: (function(){var raw={};try{raw=JSON.parse(localStorage.getItem('prefs')||'{}')||{}}catch(_e){}return{reducedMotion:raw.reducedMotion===true,textSize:(raw.textSize==='sm'||raw.textSize==='lg')?raw.textSize:'md',weightUnit:raw.weightUnit==='lbs'?'lbs':'kg',focusDefault:raw.focusDefault!==false,restDefaultSec:(typeof raw.restDefaultSec==='number'&&raw.restDefaultSec>=15&&raw.restDefaultSec<=300)?raw.restDefaultSec:60,vibration:raw.vibration===true,sounds:raw.sounds===true}})(), user: { name: (function(){try{return String(localStorage.getItem('user.name')||'').trim().slice(0,30)}catch(_e){return ''}})() }, sheet: null, sync: { config: null, lastSyncAt: null, status: 'idle', busy: false, pending: false, lastError: null } }; const $ = q => document.querySelector(q), byDom = id => document.getElementById(id), uid = () => crypto.randomUUID ? crypto.randomUUID() : 'id' + Date.now() + Math.random(), now = () => new Date().toISOString(), esc = (s = '') => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 function applyTheme() {
     const t = S.theme;
     let effective;
@@ -208,23 +208,24 @@ function mountViewDelegation() {
             case 'go-workout': go('workout'); break;
             case 'go-progressi': go('progressi'); break;
             case 'go-profilo': go('profilo'); break;
-            case 'progress-view': progressGoView(btn.dataset.progressView); break;
-            case 'progress-period': progressGoPeriod(btn.dataset.progressPeriod); break;
+            // Sprint 9.5 P1.1 — 'progress-view' e 'progress-period' rimossi:
+            // i segmented Progress ora usano UI.Segmented + mountSegmented (callback diretto).
             case 'open-session-detail': progressOpenSession(btn.dataset.sessionId); break;
             case 'close-session-detail': progressCloseSession(); break;
             case 'toggle-session-exercise': progressToggleSessionExercise(btn.dataset.sessionId, btn.dataset.exId); break;
             case 'history-open': historyOpen(); break;
             case 'end-summary': S.lastSummary = null; go('home'); break;
-            case 'end-summary-progressi': S.lastSummary = null; go('progressi'); break;
             case 'open-select': openSelectSheet(); break;
             case 'repeat-last': startDay(btn.dataset.cardId, btn.dataset.weekKey, btn.dataset.dayKey); break;
             case 'begin-workout': beginWorkout(); break;
             case 'finish-workout': finishWorkout(); break;
             case 'toggle-focus': toggleFocusMode(); break;
             case 'stop-rest': stopRestTimer(); break;
+            case 'pause-rest': pauseRestTimer(); break;
+            case 'resume-rest': resumeRestTimer(); break;
+            case 'add-rest-15': addRestSeconds(15); break;
             case 'focus-prev': focusPrev(); break;
             case 'focus-next': focusNext(); break;
-            case 'focus-prev-block': focusPrevBlock(); break;
             case 'focus-next-block': focusNextBlock(); break;
             case 'toggle-round': toggleRound(btn.dataset.blockId, Number(btn.dataset.round), btn.dataset.checked === 'true'); break;
             case 'toggle-set': toggleExerciseSet(btn.dataset.blockId, btn.dataset.exerciseId, Number(btn.dataset.setNo), btn.dataset.checked === 'true'); break;
@@ -237,7 +238,6 @@ function mountViewDelegation() {
             case 'session-discard':       sessionActionDiscard(); break;
             case 'restore-continue':      sessionRestoreContinue(btn.dataset.id); break;
             case 'restore-discard':       sessionRestoreDiscard(btn.dataset.id); break;
-            case 'restore-dismiss':       dismissRestoreBanner(btn.dataset.id); break;
             case 'save-sync-config': saveSyncConfig(); break;
             case 'clear-sync-config': clearSyncConfig(); break;
             case 'sync-now': syncToRemote({ manual: true }); break;
@@ -248,8 +248,7 @@ function mountViewDelegation() {
             // Sprint 7 — Profile v2
             case 'profile-edit-name':    profileEditName(); break;
             case 'profile-cycle-theme':  profileCycleTheme(); break;
-            case 'profile-set-theme':    profileSetTheme(btn.dataset.theme); break;
-            case 'profile-toggle-pref':  profileTogglePref(btn.dataset.pref); break;
+            case 'profile-set-theme':    profileSetTheme(btn.dataset.value); break;
             case 'profile-set-pref':     profileSetPref(btn.dataset.pref, btn.dataset.value); break;
             case 'profile-reset-prefs':  profileResetPrefs(); break;
             case 'profile-open-info':    profileOpenInfo(btn.dataset.info); break;
@@ -287,10 +286,13 @@ function render() {
         bnRoot.style.display = S.tab === 'summary' ? 'none' : '';
     }
     const screens = { home, workout, progressi: stats, profilo: data, summary };
-    $('#view').innerHTML = (screens[S.tab] || home)() + timerDock();
+    $('#view').innerHTML = (screens[S.tab] || home)();
     mountHomeFab();
     mountRestOverlay();
     mountHistoryOverlay();
+    mountWorkoutStickyHeaderScroll();
+    mountProgressSegmented();
+    mountPrefsControls();
 }
 function go(t) {
     if (S.tab === t) { closeSelectSheet(); return; }
@@ -332,6 +334,43 @@ function weekSessionCount() {
         return t && t >= start;
     }).length;
 }
+// Sprint 9 — helpers Home v9 (mockup pixel-accurate).
+function weekVolumeTotal() {
+    var now = new Date();
+    var day = now.getDay() || 7;
+    var monday = new Date(now);
+    monday.setDate(now.getDate() - (day - 1));
+    monday.setHours(0, 0, 0, 0);
+    var start = monday.getTime();
+    return completedSessions().reduce(function (n, s) {
+        var t = Date.parse(s.endedAt);
+        if (!t || t < start) return n;
+        return n + sessionVolume(s);
+    }, 0);
+}
+function focusOfDayLabel(text) {
+    var s = String(text || '').toLowerCase();
+    if (/gambe|quadric|femoral|glutei|polpacci/.test(s)) return 'legs';
+    if (/petto|pettoral|chest/.test(s))                  return 'chest';
+    if (/dorso|dorsal|schiena|back/.test(s))             return 'back';
+    if (/spalle|deltoid|shoulder/.test(s))               return 'shoulders';
+    if (/braccia|bicipit|tricipit|arm/.test(s))          return 'arms';
+    if (/addom|core|oblique|plank/.test(s))              return 'core';
+    return 'full';
+}
+function shortDayName(name) {
+    var parts = String(name || '').split(/\s*\+\s*/).filter(Boolean);
+    if (!parts.length) return String(name || 'Sessione');
+    return parts.slice(0, 2).join(' + ');
+}
+function primaryGroupOf(name) {
+    var parts = String(name || '').split(/\s*\+\s*/).filter(Boolean);
+    return parts[0] || String(name || 'Sessione');
+}
+function capitalizeFirst(s) {
+    s = String(s || '');
+    return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+}
 function homeHistoryCard(s) {
     var UI = window.UI;
     var c = resolveSessionCard(s);
@@ -354,6 +393,21 @@ function homeHistoryCard(s) {
         badgeVariant: 'success',
     });
 }
+// Sprint 9.1 — WorkoutStickyHeader mounting hook. La logica di morphing è
+// interna al componente (scroll listener + rAF + `--collapse` CSS variable);
+// qui ci limitiamo a chiamare mountWorkoutStickyHeader dopo ogni render(),
+// così il teardown/rebind è idempotente sul WeakMap interno del componente.
+var __wshTeardown = null;
+function mountWorkoutStickyHeaderScroll() {
+    if (__wshTeardown) { __wshTeardown(); __wshTeardown = null; }
+    if (S.tab !== 'workout') return;
+    var header = document.querySelector('#view .c-wsh');
+    if (!header) return;
+    if (window.UI && window.UI.mountWorkoutStickyHeader) {
+        __wshTeardown = window.UI.mountWorkoutStickyHeader(header);
+    }
+}
+
 // FAB context-aware montato in #fabRoot, visibile solo in tab home.
 var __homeFabMounted = false;
 var __homeFabObserver = null;
@@ -409,106 +463,176 @@ function mountHomeFab() {
     }
 }
 function home() {
+    // Sprint 9.3 — Home Premium Dashboard. Layout motivazionale a 4 blocchi:
+    //   Hero (ProfileHeader + bell) > Workout Today (TodaySessionCard con Ring)
+    //   > Quick Stats (3× StatisticCard Foundation) > Recent Activity
+    //   (ExerciseIdentity mini + meta sessione). Ogni sezione ha classe di
+    //   motion (fade-up/slide-up/stagger) applicata via CSS al mount.
     const UI = window.UI;
-    if (!UI || !UI.HeroCard || !UI.StatisticCard || !UI.HistoryCard || !UI.GoalCard || !UI.Header) {
-        return '<div class="stack"><div class="card"><p class="muted">Caricamento…</p></div></div>';
+    if (!UI || !UI.ProfileHeader || !UI.TodaySessionCard || !UI.StatisticCard || !UI.ExerciseIdentity) {
+        return '<div class="home"><article class="c-card"><p class="c-card__body">Caricamento…</p></article></div>';
     }
+
     const x = ctx();
     const hasActive = !!(x && x.day);
-    const now = new Date();
+    let userName = (S.user && S.user.name) ? String(S.user.name).trim() : '';
+    if (!userName) {
+        try { userName = String(localStorage.getItem(USER_NAME_STORAGE_KEY) || '').trim().slice(0, 30); } catch (_e) {}
+        if (userName && S.user) S.user.name = userName;
+    }
 
-    const headerHtml = UI.Header({
-        title: homeGreeting(now),
-        subtitle: homeLongDate(now),
+    // Hero: ProfileHeader con saluto orario nel meta + bell notifiche nelle actions.
+    const displayName = userName || 'Fitness lover';
+    const greetingWord = homeGreeting(new Date());
+    const initials = (function () {
+        const parts = displayName.split(/\s+/).filter(Boolean).slice(0, 2);
+        return (parts.map(function (p) { return p.charAt(0).toUpperCase(); }).join('') || 'F');
+    })();
+    const bellHtml = `<button type="button" class="home10-bell" aria-label="Notifiche">${UI.icon('bell', 'medium')}</button>`;
+    const heroHtml = UI.ProfileHeader({
+        name: displayName,
+        initials: initials,
+        meta: greetingWord,
+        actions: bellHtml,
     });
 
-    let heroHtml, ringHtml = '';
+    // Workout Today — TodaySessionCard hero card (Ring Foundation + KPI + CTA)
+    let todaySection;
     if (hasActive) {
         const total = totalSetCount(x.blocks);
         const done  = doneSetCount();
         const pct   = Math.round(Math.min(100, done / Math.max(1, total) * 100));
-        // Sprint 4.5: rimossa CTA nel hero (ora è nella Session Card sotto).
-        heroHtml = UI.HeroCard({
-            eyebrow: 'In corso',
-            title: x.day.label,
-            body: `${x.week.label} · ${x.day.name} · ${done}/${total} serie · ${pct}%`,
+        const durMin = S.active && S.active.startedAt
+            ? Math.max(0, Math.floor((Date.now() - Date.parse(S.active.startedAt)) / 60000))
+            : 0;
+        const exCount = countExercisesInDay(x.day);
+        const activeVolume = (S.active && S.active.exerciseLogs || []).reduce(function (n, l) {
+            return n + (Number(l.kg) || 0) * repsNumber(l.reps);
+        }, 0);
+        const started = !!(S.active && S.active.startedAt);
+        todaySection = UI.TodaySessionCard({
+            eyebrow: started ? 'Allenamento in corso' : 'Oggi ti aspetta',
+            title: shortDayName(x.day.name || x.day.label),
+            progress: pct,
+            progressLabel: 'Completato',
+            stats: [
+                { label: 'Durata',   value: started && durMin > 0 ? durMin + ' min' : '—' },
+                { label: 'Esercizi', value: String(exCount) },
+                { label: 'Volume',   value: activeVolume > 0 ? fmtNum(activeVolume) + ' kg' : '—' },
+            ],
+            cta: {
+                text: started ? 'Continua allenamento' : 'Inizia allenamento',
+                icon: 'play',
+                action: started ? 'go-workout' : 'session-open',
+            },
         });
-        ringHtml = `<section class="home-section home-section--ring" aria-label="Progresso allenamento in corso">
-            <h2 class="home-section__title">Progresso sessione</h2>
-            <div class="home-ring">
-              ${UI.ProgressRing({ progress: pct, size: 120, stroke: 12, showLabel: true, ariaLabel: `${done} di ${total} serie` })}
-              <div class="home-ring__info">
-                <div class="home-ring__label">${esc(x.day.label)}</div>
-                <div class="home-ring__meta">${done}/${total} serie · ${x.week.label}</div>
-              </div>
-            </div>
-          </section>`;
     } else if (!S.cards.length) {
-        heroHtml = UI.EmptyCard({
-            icon: 'dumbbell',
-            title: 'Nessuna scheda',
-            body: 'Importa la tua scheda dal tab Profilo per iniziare.',
-            action: UI.Button({ label: 'Importa scheda', variant: 'primary', dataset: { action: 'go-profilo' } }),
+        todaySection = UI.TodaySessionCard({
+            eyebrow: 'Benvenuto',
+            title: 'Importa la tua scheda',
+            progress: 0,
+            progressLabel: 'Attesa',
+            compact: true,
+            cta: { text: 'Importa scheda', icon: 'settings', action: 'go-profilo' },
         });
     } else {
-        heroHtml = UI.HeroCard({
-            eyebrow: 'Pronto',
-            title: 'Pronto per allenarti?',
-            body: 'Tocca il pulsante per scegliere settimana e giorno.',
-            action: UI.Button({ label: 'Scegli allenamento', variant: 'primary', dataset: { action: 'open-select' } }),
+        todaySection = UI.TodaySessionCard({
+            eyebrow: 'Pronto ad allenarti?',
+            title: 'Scegli il tuo workout',
+            progress: 0,
+            progressLabel: 'Da iniziare',
+            compact: true,
+            cta: { text: 'Inizia allenamento', icon: 'play', action: 'open-select' },
         });
     }
 
-    const streak    = streakDays();
+    // Quick Stats — 3× StatisticCard Foundation. Streak · Sessioni · Volume.
     const weekCount = weekSessionCount();
-    const streakDelta = streak > 0
-        ? (streak === 1 ? 'primo giorno' : 'consecutivi')
-        : 'inizia oggi';
-    const weekTarget = 3;
-    const weekDelta  = weekCount >= weekTarget
-        ? 'obiettivo raggiunto'
-        : (weekTarget - weekCount) + (weekCount === weekTarget - 1 ? ' sessione alla meta' : ' sessioni alla meta');
+    const streak    = streakDays();
+    const weekVol   = weekVolumeTotal();
+    const statCards = [
+        UI.StatisticCard({
+            eyebrow: streak === 1 ? 'Giorno di streak' : 'Giorni di streak',
+            value: String(streak),
+            unit: streak === 1 ? 'giorno' : 'giorni',
+            delta: streak > 0 ? 'Continua così' : '',
+        }),
+        UI.StatisticCard({
+            eyebrow: 'Allenamenti settimana',
+            value: String(weekCount),
+            unit: weekCount === 1 ? 'sessione' : 'sessioni',
+            delta: weekCount > 0 ? 'Questa settimana' : '',
+        }),
+        UI.StatisticCard({
+            eyebrow: 'Volume settimana',
+            value: fmtNum(weekVol),
+            unit: 'kg',
+            delta: weekVol > 0 ? 'Peso totale sollevato' : '',
+        }),
+    ];
+    const statsHtml = `<div class="home10-stats__grid">
+        ${statCards.map(function (h, i) {
+            return `<div class="home10-stats__cell" style="--stagger:${i};">${h}</div>`;
+        }).join('')}
+      </div>`;
 
-    const statsHtml = `<section class="home-section home-section--stats" aria-label="Statistiche rapide">
-        <h2 class="home-section__title">Sintesi</h2>
-        <div class="home-stats-grid">
-          ${UI.StatisticCard({ eyebrow: 'Streak', value: String(streak), unit: streak === 1 ? 'giorno' : 'giorni', delta: streakDelta, negative: streak === 0 })}
-          ${UI.StatisticCard({ eyebrow: 'Questa settimana', value: String(weekCount), unit: weekCount === 1 ? 'sessione' : 'sessioni', delta: weekDelta, negative: false })}
-        </div>
-      </section>`;
+    // Recent Activity — ExerciseIdentity mini + testo sessione. Riga cliccabile.
+    const last = recentSessions(1)[0];
+    let recentHtml = '';
+    if (last) {
+        const card = resolveSessionCard(last);
+        const week = card && card.weeks.find(function (w) { return w.key === last.weekKey; });
+        const day  = week && week.days.find(function (d) { return d.key === last.dayKey; });
+        const dayName = day ? (day.name || day.label) : (last.dayKey || 'Sessione');
+        const vol = sessionVolume(last);
+        const endedIso = last.endedAt || last.startedAt;
+        const dateTxt = endedIso ? capitalizeFirst(homeLongDate(new Date(Date.parse(endedIso)))) : '';
+        const start = Date.parse(last.startedAt), end = Date.parse(last.endedAt);
+        const durSec = (isFinite(start) && isFinite(end)) ? Math.max(0, (end - start) / 1000) : 0;
+        const dur = durSec ? fmtDurShort(durSec) : '';
+        // Primo esercizio della prima block del giorno (per l'identità visiva).
+        let firstExName = '';
+        try {
+            const firstBlock = day && day.blocks && day.blocks[0];
+            const firstId = firstBlock && firstBlock.exerciseIds && firstBlock.exerciseIds[0];
+            if (firstId) firstExName = (byId(firstId).name || '').trim();
+        } catch (_e) { firstExName = ''; }
+        const identityHtml = firstExName
+            ? UI.ExerciseIdentity({ name: firstExName, size: 'mini', status: 'completed' })
+            : '';
+        const metaBits = [dateTxt, dur, vol > 0 ? (fmtNum(vol) + ' kg') : ''].filter(Boolean);
+        recentHtml = `<button type="button" class="home10-recent__row"
+            data-action="open-session-detail" data-session-id="${last.id}"
+            aria-label="${primaryGroupOf(dayName)} — apri dettaglio sessione">
+            ${identityHtml ? `<div class="home10-recent__thumb" aria-hidden="true">${identityHtml}</div>` : ''}
+            <div class="home10-recent__body">
+              <h3 class="home10-recent__title">${primaryGroupOf(dayName)}</h3>
+              ${metaBits.length ? `<p class="home10-recent__meta">${metaBits.join(' · ')}</p>` : ''}
+            </div>
+            <span class="home10-recent__arrow" aria-hidden="true">${UI.icon('arrow', 'medium')}</span>
+          </button>`;
+    }
 
-    const recent = recentSessions(5);
-    const historyBody = recent.length
-        ? `<div class="home-stack">${recent.map(homeHistoryCard).join('')}</div>`
-        : UI.StateEmpty({ title: 'Nessun allenamento', body: 'Il tuo storico apparirà qui dopo la prima sessione completata.' });
-    const historyHtml = `<section class="home-section home-section--history" aria-label="Storico recente">
-        <h2 class="home-section__title">Ultimi allenamenti</h2>
-        ${historyBody}
-      </section>`;
+    // Lifecycle banner + session card mostrati solo quando NON c'è sessione attiva
+    // (la TodaySessionCard rappresenta già lo stato attivo).
+    const restoreBanner = hasActive ? '' : homeRestoreBannerHtml();
+    const sessionCard   = hasActive ? '' : homeSessionCardHtml();
 
-    const goalPct = Math.min(100, Math.round((weekCount / weekTarget) * 100));
-    const goalHint = weekCount >= weekTarget
-        ? 'Obiettivo raggiunto — ottimo lavoro!'
-        : `${weekCount} di ${weekTarget} sessioni · rimangono ${weekTarget - weekCount}`;
-    const goalHtml = `<section class="home-section home-section--goal" aria-label="Obiettivo settimanale">
-        <h2 class="home-section__title">Obiettivo</h2>
-        ${UI.GoalCard({
-          eyebrow: 'Settimanale · derivato',
-          title: `${weekCount} / ${weekTarget} sessioni`,
-          progress: goalPct,
-          hint: goalHint,
-        })}
-      </section>`;
-
-    // Sprint 4.5: Restore banner (draft in DB non caricato) + Session Card (S.active loaded).
-    // Mutuamente esclusive per design: se S.active è null e c'è draft persistito → banner;
-    // se S.active esiste → Session Card. Priorità visiva sulla GoalCard.
-    const restoreBannerSection = homeRestoreBannerHtml();
-    const sessionCardSection   = homeSessionCardHtml();
-
-    return `<div class="home">
-        <div class="home-fold">${headerHtml}<div class="home-hero">${heroHtml}</div></div>
-        <div class="home-scroll">${restoreBannerSection}${sessionCardSection}${statsHtml}${ringHtml}${historyHtml}${goalHtml}</div>
+    return `<div class="home home--v10">
+        <header class="home10-hero home10-anim home10-anim--fadeUp" style="--seq:0;">${heroHtml}</header>
+        ${restoreBanner}
+        ${sessionCard}
+        <section class="home10-workoutToday home-hero home10-anim home10-anim--riseUp" style="--seq:1;" aria-label="Sessione di oggi">
+          ${todaySection}
+        </section>
+        <section class="home10-section home10-section--stats home10-anim home10-anim--fadeUp" style="--seq:2;" aria-label="Statistiche rapide">
+          <p class="home10-sectionLabel">Statistiche</p>
+          ${statsHtml}
+        </section>
+        ${recentHtml ? `<section class="home10-section home10-section--recent home10-anim home10-anim--fadeUp" style="--seq:3;" aria-label="Ultimo allenamento">
+          <p class="home10-sectionLabel">Ultimo allenamento</p>
+          ${recentHtml}
+        </section>` : ''}
       </div>`;
 }
 function countBlocksInCard(c) { return c.weeks.reduce((n, w) => n + w.days.reduce((x, d) => x + d.blocks.length, 0), 0) } function countExercisesInDay(d) { let ids = new Set(); d.blocks.forEach(b => b.exerciseIds.forEach(id => ids.add(id))); return ids.size }
@@ -679,8 +803,46 @@ function workout() {
     let pct = Math.min(100, done / Math.max(1, total) * 100);
     let focusOn = S.focus.on;
 
+    // Sprint 8.5 — round/total derivati dallo stato Focus per Header premium.
+    let roundInfo = null;
+    let isSingleFocus = false;
+    if (focusOn && x.blocks.length) {
+        let fb = x.blocks[Math.min(S.focus.blockIdx, x.blocks.length - 1)];
+        if (fb) {
+            let fbRounds = +fb.rounds || 3;
+            isSingleFocus = String(fb.type).toLowerCase() === 'single' || /singolo/i.test(fb.label || '');
+            roundInfo = {
+                round: Math.max(1, Math.min(S.focus.round, fbRounds)),
+                total: fbRounds,
+                label: isSingleFocus ? 'Serie' : 'Round',
+            };
+        }
+    }
+
+    // Phase 2 — Complete UI Reconstruction: Focus su blocco single-exercise.
+    // Emette la scena mockup (WorkoutStickyHeader mode:immersive + ExerciseStage
+    // + StepperField ×2 + CompleteSetButton + hint testuale). Sprint 9.1A #1:
+    // Header unificato — usiamo WorkoutStickyHeader come UNICO componente,
+    // in modalità 'immersive' (variante piatta senza sticky/blur/hairline).
+    if (started && focusOn && isSingleFocus && UI && UI.WorkoutStickyHeader && UI.ExerciseStage) {
+        const bIdx = Math.min(S.focus.blockIdx, x.blocks.length - 1);
+        const b = x.blocks[bIdx];
+        const rest = b.restSec || parseRestToSeconds(b.restText);
+        const blockDone = blockAllDone(b);
+        const topBar = UI.WorkoutStickyHeader({
+            mode: 'immersive',
+            round:      roundInfo.round,
+            roundTotal: roundInfo.total,
+            roundLabel: roundInfo.label,
+            backAction: 'go-home',
+            menuAction: S.active ? 'session-open' : '',
+        });
+        const stage = focusSinglePremium(x, b, bIdx, x.blocks.length, roundInfo.total, roundInfo.round, rest, blockDone, done, total, pct);
+        return `<div class="c-workoutSceneV2">${topBar}${stage}</div>`;
+    }
+
     let headerHtml;
-    if (UI && UI.WorkoutHeader && UI.Button) {
+    if (UI && UI.WorkoutStickyHeader && UI.Button) {
         const viewBtn = UI.Button({
             label: focusOn ? '☰ Vista completa' : '◉ Focus',
             variant: 'ghost',
@@ -690,20 +852,32 @@ function workout() {
         const startBtn = started
             ? ''
             : UI.Button({ label: 'INIZIO', variant: 'primary', size: 'sm', dataset: { action: 'begin-workout' } });
-        // Sprint 4.5: badge stato (Bozza/In corso) + menu ⋮ nel header.
         const badgeHtml = sessionStatusBadgeHtml(S.active, { size: 'sm' });
-        const menuHtml  = workoutMenuButtonHtml();
-        headerHtml = UI.WorkoutHeader({
-            eyebrow: `${x.week.label} · ${x.day.name}`,
+        const subHtml = started
+            ? `<span id="sessionTimerText" role="timer" aria-live="polite">${esc(sessionTime())}</span> · ${esc(x.week.label)} · ${esc(x.day.name)}`
+            : `${esc(x.week.label)} · ${esc(x.day.name)}`;
+        headerHtml = UI.WorkoutStickyHeader({
             title: x.day.label,
-            progress: `${done}/${total} serie · ${Math.round(pct)}%`,
-            actions: `${badgeHtml}${viewBtn}${startBtn}${menuHtml}`,
+            subtitleHtml: subHtml,
+            round:      roundInfo ? roundInfo.round : null,
+            roundTotal: roundInfo ? roundInfo.total : null,
+            roundLabel: roundInfo ? roundInfo.label : 'Round',
+            setsDone:   done,
+            setsTotal:  total,
+            backAction: 'go-home',
+            menuAction: S.active ? 'session-open' : '',
+            progress: pct,
+            actions: `${badgeHtml}${viewBtn}${startBtn}`,
+            compactCtaLabel: started ? 'Continua' : 'Inizio',
+            compactCtaAction: started ? 'toggle-focus' : 'begin-workout',
         });
     } else {
         headerHtml = `<div class="card"><h2>${esc(x.day.label)}</h2></div>`;
     }
 
-    let statusBar = `<div class="workoutStatusBar" role="group" aria-label="Stato sessione"><span class="workoutStatusBar__timer" id="sessionTimerText" role="timer" aria-live="polite">${sessionTime()}</span><div class="workoutStatusBar__bar" aria-hidden="true"><i style="width:${pct}%"></i></div><span class="workoutStatusBar__pct">${Math.round(pct)}%</span></div>`;
+    let progressHtml = (UI && UI.WorkoutProgress)
+        ? UI.WorkoutProgress({ done, total, label: `${done}/${total} serie` })
+        : `<div class="workoutStatusBar" role="group" aria-label="Stato sessione"><span class="workoutStatusBar__timer">${sessionTime()}</span><div class="workoutStatusBar__bar" aria-hidden="true"><i style="width:${pct}%"></i></div><span class="workoutStatusBar__pct">${Math.round(pct)}%</span></div>`;
 
     let body = focusOn ? focusView(x, done, total) : x.blocks.map((b, bi) => workoutBlock(b, bi)).join('');
 
@@ -715,7 +889,7 @@ function workout() {
             finalCta = `<div class="row" style="margin-top:12px"><button class="ok" data-action="finish-workout">Fine</button></div>`;
         }
     }
-    return `<div class="workoutV4${focusOn ? ' workoutV4--focus' : ''}">${headerHtml}${statusBar}${body}${finalCta}</div>`;
+    return `<div class="c-workoutScreen workoutV4${focusOn ? ' workoutV4--focus' : ''}">${headerHtml}${progressHtml}${body}${finalCta}</div>`;
 }
 function toggleFocusMode() {
     S.focus.on = !S.focus.on;
@@ -751,21 +925,20 @@ function focusView(x, done, total) {
     let blockDone = blockAllDone(b);
     let pct = Math.min(100, done / Math.max(1, total) * 100);
 
+    // Sprint 8.5 — Single block: composizione premium ExerciseHero + Pickers + CTA.
+    if (isSingle && UI && UI.ExerciseHero && UI.CompleteSetButton) {
+        return focusSinglePremium(x, b, bi, n, rounds, round, rest, blockDone, done, total, pct);
+    }
+
+    // Multi (circuit/superset) — layout classico ma con lo stesso chrome esterno.
     let ringHtml = (UI && UI.ProgressRing)
         ? UI.ProgressRing({ progress: Math.round(pct), size: 84, stroke: 8, showLabel: true, ariaLabel: `${done} di ${total} serie` })
         : `<div class="focusRingFallback">${Math.round(pct)}%</div>`;
-
-    let stepText = isSingle
-        ? `Blocco ${bi + 1}/${n}`
-        : `Blocco ${bi + 1}/${n} • Giro ${round}/${rounds}`;
-
+    let stepText = `Blocco ${bi + 1}/${n} • Giro ${round}/${rounds}`;
     let ringWrap = `<div class="focusRingWrap" role="group" aria-label="Progresso sessione">${ringHtml}<div class="focusRingInfo"><div class="focusStep">${esc(stepText)}</div><div class="focusSetsCount">${done}/${total} serie</div></div></div>`;
 
     let heroHtml = focusBlockHero(b, isSingle, rest);
-
-    let bodyMain = isSingle
-        ? focusSingleBody(b, bi, rounds)
-        : focusRoundBody(b, bi, round);
+    let bodyMain = focusRoundBody(b, bi, round);
 
     let nextExHtml = '';
     if (UI && UI.NextExercise) {
@@ -779,46 +952,136 @@ function focusView(x, done, total) {
         }
     }
 
-    let navPrev, navNext;
-    if (isSingle) {
-        navPrev = bi > 0
-            ? `<button class="focusNavBtn" data-action="focus-prev-block" aria-label="Blocco precedente">◀ Blocco prec.</button>`
-            : `<button class="focusNavBtn" disabled aria-label="Blocco precedente non disponibile">◀ Blocco prec.</button>`;
-        navNext = bi < n - 1
-            ? (UI && UI.Button
-                ? UI.Button({ label: 'Blocco succ. ▶', variant: 'primary', dataset: { action: 'focus-next-block' } })
-                : `<button class="primary" data-action="focus-next-block">Blocco succ. ▶</button>`)
-            : (blockDone
-                ? (UI && UI.CompleteButton
-                    ? `<span data-action="finish-workout">${UI.CompleteButton({ label: 'Fine sessione' })}</span>`
-                    : `<button class="ok" data-action="finish-workout">✓ Fine sessione</button>`)
-                : `<button class="focusNavBtn" disabled aria-label="Blocco successivo non disponibile">Blocco succ. ▶</button>`);
-    } else {
-        let prevAvailable = round > 1 || bi > 0;
-        let nextAvailable = round < rounds || bi < n - 1;
-        navPrev = prevAvailable
-            ? `<button class="focusNavBtn" data-action="focus-prev">◀ ${round > 1 ? 'Giro prec.' : 'Blocco prec.'}</button>`
-            : `<button class="focusNavBtn" disabled>◀ Prec.</button>`;
-        navNext = nextAvailable
-            ? (UI && UI.Button
-                ? UI.Button({ label: `${round < rounds ? 'Giro succ.' : 'Blocco succ.'} ▶`, variant: 'primary', dataset: { action: 'focus-next' } })
-                : `<button class="primary" data-action="focus-next">${round < rounds ? 'Giro succ.' : 'Blocco succ.'} ▶</button>`)
-            : (blockDone
-                ? (UI && UI.CompleteButton
-                    ? `<span data-action="finish-workout">${UI.CompleteButton({ label: 'Fine sessione' })}</span>`
-                    : `<button class="ok" data-action="finish-workout">✓ Fine sessione</button>`)
-                : `<button class="focusNavBtn" disabled>Succ. ▶</button>`);
-    }
+    let prevAvailable = round > 1 || bi > 0;
+    let nextAvailable = round < rounds || bi < n - 1;
+    let navPrev = prevAvailable
+        ? `<button class="focusNavBtn" data-action="focus-prev">◀ ${round > 1 ? 'Giro prec.' : 'Blocco prec.'}</button>`
+        : `<button class="focusNavBtn" disabled>◀ Prec.</button>`;
+    let navNext = nextAvailable
+        ? (UI && UI.Button
+            ? UI.Button({ label: `${round < rounds ? 'Giro succ.' : 'Blocco succ.'} ▶`, variant: 'primary', dataset: { action: 'focus-next' } })
+            : `<button class="primary" data-action="focus-next">${round < rounds ? 'Giro succ.' : 'Blocco succ.'} ▶</button>`)
+        : (blockDone
+            ? (UI && UI.CompleteButton
+                ? `<span data-action="finish-workout">${UI.CompleteButton({ label: 'Fine sessione' })}</span>`
+                : `<button class="ok" data-action="finish-workout">✓ Fine sessione</button>`)
+            : `<button class="focusNavBtn" disabled>Succ. ▶</button>`);
 
-    let closeRoundBtn = '';
-    if (!isSingle) {
-        let curDone = blockRoundDone(b, round);
-        closeRoundBtn = `<button class="focusCloseRound${curDone ? ' done' : ''}" data-action="toggle-round" data-block-id="${esc(b.id)}" data-round="${round}" data-checked="${!curDone}">${curDone ? '✓ Giro ' + round + ' completato' : 'Chiudi giro ' + round + ' · rest ' + rest + 's'}</button>`;
-    }
+    let curDone = blockRoundDone(b, round);
+    let closeRoundBtn = `<button class="focusCloseRound${curDone ? ' done' : ''}" data-action="toggle-round" data-block-id="${esc(b.id)}" data-round="${round}" data-checked="${!curDone}">${curDone ? '✓ Giro ' + round + ' completato' : 'Chiudi giro ' + round + ' · rest ' + rest + 's'}</button>`;
 
     let nav = `<div class="focusNav">${navPrev}${navNext}</div>`;
 
     return `<section class="focusCard" aria-label="Focus workout">${ringWrap}${heroHtml}${bodyMain}${closeRoundBtn}${nextExHtml}${nav}</section>`;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Phase 2 — Complete UI Reconstruction: single-exercise focus body.           */
+/* Emette ExerciseStage + StepperField ×2 + CompleteSetButton + hint testuale. */
+/* Nessuna nuova business logic: pickers usano bumpKg/bumpReps via delegator   */
+/* (attivo su .pickerWrap[data-picker-kind] + [data-picker-dir]), CTA emette   */
+/* toggle-set. Il wrap esterno + WorkoutStickyHeader(mode:'immersive') sono   */
+/* forniti dal chiamante.                                                     */
+/* -------------------------------------------------------------------------- */
+function focusSinglePremium(x, b, bi, n, rounds, round, rest, blockDone, done, total, pct) {
+    const UI = window.UI;
+    const id = b.exerciseIds[0];
+    if (!id) return `<div class="c-workoutSceneV2__ctas"><p class="muted">Nessun esercizio nel blocco.</p></div>`;
+
+    const e = byId(id);
+    const t = b.exerciseTargets[id] || {};
+    const activeSet = activeSetInSingle(b, id, rounds);
+    const l = logFor(b.id, id, activeSet, false) || {};
+    const prev = lastExerciseLog(id, activeSet);
+
+    // Valori mostrati (fallback su target/ultimo log per hint iniziale)
+    let curKg   = Number(l.kg) || 0;
+    let prevKg  = prev && Number(prev.kg) || 0;
+    let dispKg  = curKg > 0 ? curKg : prevKg;
+    const defaultReps = repsNumber(t.reps);
+    let curReps = l.reps ? repsNumber(l.reps) : 0;
+    let dispReps = curReps > 0 ? curReps : defaultReps;
+    const kgHint   = curKg === 0 && prevKg > 0;
+    const repsHint = curReps === 0 && defaultReps > 0;
+    const kgTxt    = dispKg > 0 ? dispKg : '—';
+    const repsTxt  = dispReps > 0 ? dispReps : '—';
+    const kgValId  = 'kgVal_' + bi + '_' + id + '_' + activeSet;
+    const repsValId= 'repsVal_' + bi + '_' + id + '_' + activeSet;
+
+    // Ultima prestazione: log valido sulla stessa serie dalla sessione più
+    // recente; fallback su altre serie storiche.
+    let lastAny = prev;
+    if (!lastAny || !(Number(lastAny.kg) > 0)) {
+        for (let s = 1; s <= rounds && !lastAny; s++) {
+            const cand = lastExerciseLog(id, s);
+            if (cand && Number(cand.kg) > 0) lastAny = cand;
+        }
+    }
+    const lastPerf = (lastAny && Number(lastAny.kg) > 0)
+        ? { kg: Number(lastAny.kg), reps: repsNumber(lastAny.reps) || '—' }
+        : null;
+
+    const stageHtml = UI.ExerciseStage({
+        name: e.name,
+        subtitle: e.subtitle,
+        lastPerformance: lastPerf,
+        musclesLabel: e.primary || '',
+        primaryMuscles:   Array.isArray(e.primaryMuscles)   ? e.primaryMuscles   : undefined,
+        secondaryMuscles: Array.isArray(e.secondaryMuscles) ? e.secondaryMuscles : undefined,
+        animKey: b.id + '|' + id + '|' + activeSet,
+    });
+
+    const kgField = UI.StepperField({
+        kind: 'weight',
+        label: 'Peso (kg)',
+        valueId: kgValId,
+        displayText: kgTxt,
+        hint: kgHint,
+        blockId: b.id, exerciseId: id, setNo: activeSet, bi: bi,
+        ariaLabel: 'Peso serie ' + activeSet,
+    });
+    const repsField = UI.StepperField({
+        kind: 'reps',
+        label: 'Ripetizioni',
+        valueId: repsValId,
+        displayText: repsTxt,
+        hint: repsHint,
+        target: t.reps ? `Obiettivo: ${t.reps} ripetizioni` : '',
+        blockId: b.id, exerciseId: id, setNo: activeSet, bi: bi,
+        ariaLabel: 'Ripetizioni serie ' + activeSet,
+    });
+    const pickers = `<div class="c-workoutSceneV2__pickers">${kgField}${repsField}</div>`;
+
+    const ctaPrimary = UI.CompleteSetButton({
+        label: 'COMPLETA SERIE',
+        doneLabel: `SERIE ${activeSet} COMPLETATA`,
+        done: !!l.done,
+        blockId: b.id,
+        exerciseId: id,
+        setNo: activeSet,
+    });
+
+    let extraNav = '';
+    if (blockDone) {
+        if (bi < n - 1) {
+            extraNav = `<button type="button" class="focusNavBtn" data-action="focus-next-block" aria-label="Blocco successivo">Blocco successivo ▶</button>`;
+        } else {
+            extraNav = `<button type="button" class="focusNavBtn" data-action="finish-workout" aria-label="Termina sessione">✓ Fine sessione</button>`;
+        }
+    }
+    const extraNavHtml = extraNav ? `<div class="c-workoutSceneV2__secondary">${extraNav}</div>` : '';
+
+    const hintHtml = `<p class="c-workoutSceneV2__hint" role="status">
+        Scorri a destra per completare<b>&raquo;&raquo;&raquo;</b>
+    </p>`;
+
+    return `${stageHtml}
+        ${pickers}
+        <div class="c-workoutSceneV2__ctas">
+            ${ctaPrimary}
+            ${extraNavHtml}
+            ${hintHtml}
+        </div>`;
 }
 function focusBlockHero(b, isSingle, rest) {
     if (isSingle) {
@@ -880,12 +1143,22 @@ function focusSingleBody(b, bi, rounds) {
     return `<div class="focusSetList">${rows}</div>`;
 }
 function focusRoundBody(b, bi, round) {
+    // Sprint 8.6 — evidenziazione esercizio attivo del giro corrente:
+    // primo esercizio non ancora marcato done nel round corrente.
+    var activeIdx = -1;
+    for (var k = 0; k < b.exerciseIds.length; k++) {
+        var lk = logFor(b.id, b.exerciseIds[k], round, false);
+        if (!lk || !lk.done) { activeIdx = k; break; }
+    }
     let rows = b.exerciseIds.map(function (id, i) {
         let e = byId(id), t = b.exerciseTargets[id] || {};
         let stepIdx = `<span class="focusExRow__idx">${i + 1}/${b.exerciseIds.length}</span>`;
         let target = t.reps ? `<span class="focusExRow__target">Target ${esc(t.reps)}</span>` : '';
         let head = `<div class="focusExRow__head">${stepIdx}<div class="focusExRow__info"><b>${esc(e.name)}</b><small>${esc(t.target || e.primary)}</small></div>${target}</div>`;
-        return `<div class="focusExRow">${head}${setRow(b, bi, id, round, t)}</div>`;
+        var isActive = (i === activeIdx);
+        var rowCls = 'focusExRow' + (isActive ? ' is-active' : '');
+        var activeAttr = isActive ? ' data-active="1"' : '';
+        return `<div class="${rowCls}"${activeAttr}>${head}${setRow(b, bi, id, round, t)}</div>`;
     }).join('');
     return `<div class="focusExList">${rows}</div>`;
 }
@@ -984,10 +1257,36 @@ function buildKgPlaceholder(prev, max) {
     return parts.length ? parts.join(' · ') + ' kg' : 'kg';
 }
 function logFor(blockId, exerciseId, setNo, create = false) { let l = S.active.exerciseLogs.find(x => x.blockId === blockId && x.exerciseId === exerciseId && x.setNo === setNo); if (!l && create) { l = { blockId, exerciseId, setNo, kg: 0, reps: '', done: false, updatedAt: now() }; S.active.exerciseLogs.push(l) } return l }
-function exerciseCard(b, bi, id, rounds) {
+function exerciseCard(b, bi, id, rounds, opts) {
     const UI = window.UI;
+    opts = opts || {};
     let e = byId(id), t = b.exerciseTargets[id] || {};
     const rows = Array.from({ length: rounds }, (_, i) => setRow(b, bi, id, i + 1, t)).join('');
+
+    // Sprint 8.6 — pips completamento per set (done/partial/pending).
+    const setsPips = Array.from({ length: rounds }, function (_, i) {
+        const l = logFor(b.id, id, i + 1, false) || {};
+        const kg = Number(l.kg) || 0;
+        const reps = repsNumber(l.reps);
+        return {
+            done: !!l.done,
+            partial: !l.done && (kg > 0 || reps > 0),
+        };
+    });
+    const isSingleType = String(b.type).toLowerCase() === 'single' || /singolo/i.test(b.label || '');
+    const circuitBadge = isSingleType ? '' : String(b.type || '');
+
+    if (UI && UI.ExerciseHeroCard) {
+        return UI.ExerciseHeroCard({
+            name: e.name,
+            ariaLabel: e.name,
+            targetReps: t.reps || '',
+            circuitBadge: circuitBadge,
+            sets: setsPips,
+            active: !!opts.active,
+            extra: `<div class="setRows">${rows}</div>`,
+        });
+    }
     if (UI && UI.Card) {
         const targetChip = t.reps ? `<div class="exerciseCardTargetRow" style="display:flex;justify-content:flex-end;margin-bottom:6px"><span class="targetRep">${esc(t.reps)}</span></div>` : '';
         return UI.Card({
@@ -1127,7 +1426,7 @@ function beginWorkout() {
     persistActive();
     render();
 }
-function startSessionTimer() { stopSessionTimer(); S.sessionTick = setInterval(updateSessionTimerOnly, 1000) } function stopSessionTimer() { if (S.sessionTick) clearInterval(S.sessionTick); S.sessionTick = null } function sessionTime() { if (!S.active?.startedAt) return '00:00'; let sec = Math.max(0, Math.floor((Date.now() - Date.parse(S.active.startedAt)) / 1000)); return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') } function updateSessionTimerOnly() { let el = document.getElementById('sessionTimerText'); if (el) el.textContent = sessionTime() }
+function startSessionTimer() { stopSessionTimer(); S.sessionTick = setInterval(updateSessionTimerOnly, 1000) } function stopSessionTimer() { if (S.sessionTick) clearInterval(S.sessionTick); S.sessionTick = null } function sessionTime() { if (!S.active?.startedAt) return '00:00'; let sec = Math.max(0, Math.floor((Date.now() - Date.parse(S.active.startedAt)) / 1000)); return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') } function updateSessionTimerOnly() { const t = sessionTime(); let el = document.getElementById('sessionTimerText'); if (el) el.textContent = t; const restRoot = document.getElementById('restOverlayRoot'); if (restRoot) { const restBadges = restRoot.querySelectorAll('[data-session-time]'); restBadges.forEach(function (n) { n.textContent = t; }); } }
 function saveSetLog(blockId, exerciseId, setNo, bi) {
     if (!S.active) return;
     let l = logFor(blockId, exerciseId, setNo, true);
@@ -1169,16 +1468,10 @@ function toggleRound(blockId, round, checked) {
     persistActive();
     render();
 }
-function startRestTimer(sec, label) { stopRestTimer(false); const totalMs = Math.max(1, +sec || 60) * 1000; S.timer = { startedAt: Date.now(), end: Date.now() + totalMs, label, totalSec: Math.round(totalMs / 1000) }; S.tick = setInterval(updateRestTimerOnly, 250); render() } function stopRestTimer(r = true) { if (S.tick) clearInterval(S.tick); S.tick = null; S.timer = null; if (r) render() } function updateRestTimerOnly() { if (!S.timer) return; let left = Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); if (left <= 0) { stopRestTimer(true); return } let el = document.getElementById('restTimerTime'); if (el) el.textContent = formatSec(left); updateRestOverlayRing(left); } function updateRestOverlayRing(leftSec) { if (!S.timer) return; const total = S.timer.totalSec || 60; const pct = Math.max(0, Math.min(100, Math.round(((total - leftSec) / total) * 100))); const root = document.getElementById('restOverlayRoot'); if (!root) return; const ring = root.querySelector('.c-progressRing'); if (!ring) return; if (window.UI && window.UI.setProgressRing) { window.UI.setProgressRing(ring, pct); return; } const fill = ring.querySelector('.c-progressRing__fill'); if (!fill) return; const size = parseFloat(ring.dataset.size) || 96; const stroke = parseFloat(ring.dataset.stroke) || 8; const r = (size - stroke) / 2; const c = 2 * Math.PI * r; fill.setAttribute('stroke-dashoffset', String(c * (1 - pct / 100))); } function formatSec(sec) { return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') }
-function timerDock() {
-    // Rest overlay fullscreen gestisce il timer di recupero in Sprint 4.
-    // Legacy dock resta come fallback se UI non è pronta.
-    if (!S.timer) return '';
-    if (window.UI && window.UI.RestScreen) return '';
-    const sec = Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000));
-    return `<div class="timerDock"><div class="between"><div><div class="muted">Recupero</div><div class="timerTime" id="restTimerTime">${formatSec(sec)}</div><small class="muted">${esc(S.timer.label)}</small></div><button class="bad" data-action="stop-rest">Stop</button></div></div>`;
-}
-// ==== Workout Sprint 4 — Rest Screen fullscreen overlay ====
+function startRestTimer(sec, label) { stopRestTimer(false); const totalMs = Math.max(1, +sec || 60) * 1000; S.timer = { startedAt: Date.now(), end: Date.now() + totalMs, label, totalSec: Math.round(totalMs / 1000), paused: false, remainingMs: 0 }; S.tick = setInterval(updateRestTimerOnly, 250); render() } function stopRestTimer(r = true) { if (S.tick) clearInterval(S.tick); S.tick = null; S.timer = null; if (r) render() } function updateRestTimerOnly() { if (!S.timer || S.timer.paused) return; let left = Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); if (left <= 0) { stopRestTimer(true); return } updateRestOverlayRing(left); } function pauseRestTimer() { if (!S.timer || S.timer.paused) return; S.timer.paused = true; S.timer.remainingMs = Math.max(0, S.timer.end - Date.now()); if (S.tick) { clearInterval(S.tick); S.tick = null; } const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestPaused) window.UI.setCircularRestPaused(timerEl, true); const heroEl = root ? root.querySelector('.c-restCountdownHero') : null; if (heroEl && window.UI && window.UI.setRestHeroPaused) window.UI.setRestHeroPaused(heroEl, true); } function resumeRestTimer() { if (!S.timer || !S.timer.paused) return; S.timer.end = Date.now() + Math.max(0, S.timer.remainingMs || 0); S.timer.paused = false; S.timer.remainingMs = 0; if (!S.tick) S.tick = setInterval(updateRestTimerOnly, 250); const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestPaused) window.UI.setCircularRestPaused(timerEl, false); const heroEl = root ? root.querySelector('.c-restCountdownHero') : null; if (heroEl && window.UI && window.UI.setRestHeroPaused) window.UI.setRestHeroPaused(heroEl, false); } function addRestSeconds(sec) { if (!S.timer) return; const add = Math.max(0, +sec || 0) * 1000; if (!add) return; if (S.timer.paused) { S.timer.remainingMs = Math.max(0, (S.timer.remainingMs || 0) + add); } else { S.timer.end += add; } S.timer.totalSec = (S.timer.totalSec || 60) + Math.round(add / 1000); const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestTotal) window.UI.setCircularRestTotal(timerEl, S.timer.totalSec); const left = S.timer.paused ? Math.ceil((S.timer.remainingMs || 0) / 1000) : Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); updateRestOverlayRing(left); } function updateRestOverlayRing(leftSec) { if (!S.timer) return; const root = document.getElementById('restOverlayRoot'); if (!root) return; const timerEl = root.querySelector('.c-circularRestTimer'); if (timerEl && window.UI && window.UI.setCircularRestProgress) { window.UI.setCircularRestProgress(timerEl, leftSec); if (window.UI.setRestHeroMessage) window.UI.setRestHeroMessage(root, leftSec); return; } const ring = root.querySelector('.c-progressRing'); if (!ring) return; const total = S.timer.totalSec || 60; const pct = Math.max(0, Math.min(100, Math.round(((total - leftSec) / total) * 100))); if (window.UI && window.UI.setProgressRing) { window.UI.setProgressRing(ring, pct); return; } const fill = ring.querySelector('.c-progressRing__fill'); if (!fill) return; const size = parseFloat(ring.dataset.size) || 96; const stroke = parseFloat(ring.dataset.stroke) || 8; const r = (size - stroke) / 2; const c = 2 * Math.PI * r; fill.setAttribute('stroke-dashoffset', String(c * (1 - pct / 100))); } function formatSec(sec) { return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') }
+// ==== Workout Sprint 8.4 — Premium Rest Screen ====
+// Restituisce { eyebrow, title, exerciseName, kg, reps } — exerciseName è il
+// nome CANONICO da passare al service asset per immagine/muscoli/attrezzatura.
 function nextRestExerciseInfo() {
     const x = ctx();
     if (!x || !x.blocks || !x.blocks.length) return null;
@@ -1195,79 +1488,155 @@ function nextRestExerciseInfo() {
         const e = byId(id), t = b.exerciseTargets[id] || {};
         const prev = lastExerciseLog(id, nextSet);
         const prevKg = prev && Number(prev.kg) || 0;
-        const targetReps = t.reps ? String(t.reps) : (prev && prev.reps ? String(prev.reps) : '—');
+        const prevReps = prev && prev.reps ? String(prev.reps) : '';
+        const targetReps = t.reps ? String(t.reps) : prevReps;
         return {
             eyebrow: 'Prossima serie',
             title: e.name + ' · Serie ' + nextSet + '/' + rounds,
+            exerciseName: e.name,
             kg: prevKg > 0 ? prevKg : null,
-            reps: targetReps,
-            primary: t.target || e.primary || '',
+            reps: prevReps || targetReps || null,
         };
     }
-    // Circuit / superset: prossimo giro
+    // Circuit / superset: prossimo giro — mostro il primo esercizio del giro successivo
     const rounds = +b.rounds || 3;
     if (round < rounds) {
+        const nid = b.exerciseIds[0];
+        const e = nid ? byId(nid) : null;
+        const prev = nid ? lastExerciseLog(nid, 1) : null;
+        const prevKg = prev && Number(prev.kg) || 0;
+        const prevReps = prev && prev.reps ? String(prev.reps) : '';
         return {
             eyebrow: 'Prossimo giro',
             title: b.label + ' · Giro ' + (round + 1) + '/' + rounds,
-            kg: null,
-            reps: null,
-            primary: b.type,
+            exerciseName: e ? e.name : '',
+            kg: prevKg > 0 ? prevKg : null,
+            reps: prevReps || null,
         };
     }
     if (bi < x.blocks.length - 1) {
         const nb = x.blocks[bi + 1];
         const nid = nb.exerciseIds[0];
         const e = nid ? byId(nid) : null;
+        const prev = nid ? lastExerciseLog(nid, 1) : null;
+        const prevKg = prev && Number(prev.kg) || 0;
+        const prevReps = prev && prev.reps ? String(prev.reps) : '';
         return {
             eyebrow: 'Prossimo blocco',
             title: nb.label + (e ? ' · ' + e.name : ''),
-            kg: null,
-            reps: null,
-            primary: nb.type,
+            exerciseName: e ? e.name : '',
+            kg: prevKg > 0 ? prevKg : null,
+            reps: prevReps || null,
         };
     }
     return null;
 }
+// Sprint 9.2 — Timeline di transizione durante il Rest.
+// Ritorna una lista pre-elaborata di items {label,state} da passare al
+// componente RestTimeline. Nessuna business logic — deriva tutto dallo
+// stato di focus corrente (che al momento del rest è GIÀ avanzato allo
+// step successivo dal toggleRound/toggleExerciseSet).
+function restTimelineInfo() {
+    const x = ctx();
+    if (!x || !x.blocks || !x.blocks.length) return [];
+    const bi = S.focus.blockIdx || 0;
+    const round = S.focus.round || 1;
+    const b = x.blocks[bi]; if (!b) return [];
+    const nextInfo = nextRestExerciseInfo();
+
+    const items = [];
+    // 1) "Appena chiuso" — deriva dalla label del timer (es. "Push A • G2")
+    const doneLabel = (S.timer && S.timer.label) ? String(S.timer.label) : '';
+    if (doneLabel) items.push({ label: doneLabel, state: 'done' });
+
+    // 2) "In arrivo" — è il next mostrato nella hero identity
+    if (nextInfo && nextInfo.title) {
+        items.push({ label: String(nextInfo.title), state: 'active' });
+    }
+
+    // 3) "Dopo" — se possibile, il blocco successivo (dopo l'attuale)
+    //    In caso di circuit/superset: mostro il secondo esercizio del giro attivo.
+    const isSingle = String(b.type).toLowerCase() === 'single' || /singolo/i.test(b.label || '');
+    if (!isSingle && Array.isArray(b.exerciseIds) && b.exerciseIds.length > 1) {
+        const secondId = b.exerciseIds[1];
+        const secondEx = secondId ? byId(secondId) : null;
+        if (secondEx && secondEx.name) items.push({ label: secondEx.name, state: 'upcoming' });
+    } else if (bi + 1 < x.blocks.length) {
+        const nb = x.blocks[bi + 1];
+        const nbEx = (nb && nb.exerciseIds && nb.exerciseIds[0]) ? byId(nb.exerciseIds[0]) : null;
+        const label = nbEx ? nbEx.name : (nb && nb.label ? nb.label : '');
+        if (label) items.push({ label, state: 'upcoming' });
+    }
+    return items.slice(0, 3);
+}
+
+// Sprint 9.2 — deriva il target reps per l'esercizio "next" dall'info corrente.
+// Puramente informativo (già disponibile dal catalogo/scheda).
+function restNextTargetReps() {
+    const x = ctx(); if (!x || !x.blocks || !x.blocks.length) return '';
+    const bi = S.focus.blockIdx || 0;
+    const b = x.blocks[bi]; if (!b || !b.exerciseTargets) return '';
+    const nid = (b.exerciseIds || [])[0]; if (!nid) return '';
+    const t = b.exerciseTargets[nid] || {};
+    return t.reps ? String(t.reps) : '';
+}
+
+// Sprint 9.2 — % di sessione completata (per la hairline dell'header).
+function restSessionProgressPct() {
+    const x = ctx(); if (!x || !x.blocks || !x.blocks.length || !S.active) return 0;
+    let totalSets = 0, doneSets = 0;
+    x.blocks.forEach(function (b) {
+        const rounds = +b.rounds || 3;
+        (b.exerciseIds || []).forEach(function (id) {
+            for (let s = 1; s <= rounds; s++) {
+                totalSets++;
+                const l = (S.active.exerciseLogs || []).find(function (log) {
+                    return log && log.blockId === b.id && log.exerciseId === id && +log.setNo === s;
+                });
+                if (l && l.done) doneSets++;
+            }
+        });
+    });
+    if (!totalSets) return 0;
+    return Math.max(0, Math.min(100, Math.round((doneSets / totalSets) * 100)));
+}
+
 function restOverlayHtml() {
     if (!S.timer) return '';
     const UI = window.UI;
-    if (!UI || !UI.RestScreen) return '';
-    const totalSec = Math.max(1, Math.round((S.timer.end - (S.timer.startedAt || (Date.now() - 1))) / 1000));
-    const leftSec = Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000));
-    const pct = Math.max(0, Math.min(100, Math.round(((totalSec - leftSec) / totalSec) * 100)));
+    if (!UI || !UI.RestScene) return '';
+    const totalSec = S.timer.totalSec || Math.max(1, Math.round((S.timer.end - (S.timer.startedAt || (Date.now() - 1))) / 1000));
+    const leftSec = S.timer.paused
+        ? Math.max(0, Math.ceil((S.timer.remainingMs || 0) / 1000))
+        : Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000));
     const info = nextRestExerciseInfo();
-    const infoHtml = info
-        ? `<div class="c-restOverlay__next">
-              <span class="c-restOverlay__next__eyebrow">${esc(info.eyebrow)}</span>
-              <div class="c-restOverlay__next__title">${esc(info.title)}</div>
-              ${info.primary ? `<div class="c-restOverlay__next__muscle">${esc(info.primary)}</div>` : ''}
-              ${(info.kg != null || info.reps) ? `<div class="c-restOverlay__next__stats">${info.kg != null ? `<span><b>${esc(info.kg)}</b> kg</span>` : ''}${info.reps ? `<span><b>${esc(info.reps)}</b> reps</span>` : ''}</div>` : ''}
-           </div>`
-        : '';
-    const ringHtml = UI.ProgressRing
-        ? `<div class="c-restOverlay__ring">${UI.ProgressRing({ progress: pct, size: 220, stroke: 14, showLabel: false, ariaLabel: 'Progresso recupero' })}</div>`
-        : '';
-    const timeStr = formatSec(leftSec);
-    const primary = UI.Button
-        ? UI.Button({ label: 'Riprendi ora', variant: 'primary', dataset: { action: 'stop-rest' } })
-        : `<button class="primary" data-action="stop-rest">Riprendi ora</button>`;
-    const secondary = UI.Button
-        ? UI.Button({ label: 'Salta recupero', variant: 'ghost', dataset: { action: 'stop-rest' } })
-        : `<button data-action="stop-rest">Salta recupero</button>`;
-    return `<div class="c-restOverlay" role="dialog" aria-modal="true" aria-label="Recupero in corso">
-      <div class="c-restOverlay__scrim" aria-hidden="true"></div>
-      <div class="c-restOverlay__panel">
-        <div class="c-restOverlay__label">${esc(S.timer.label || 'Recupero')}</div>
-        <div class="c-restOverlay__timerWrap">
-          ${ringHtml}
-          <div class="c-restOverlay__time" id="restTimerTime" aria-live="polite" aria-atomic="true">${esc(timeStr)}</div>
-        </div>
-        ${infoHtml}
-        <div class="c-restOverlay__actions">${primary}${secondary}</div>
-      </div>
-    </div>`;
+    const timeline = restTimelineInfo();
+    const targetReps = restNextTargetReps();
+
+    const sceneHtml = UI.RestScene({
+        leftSec,
+        totalSec,
+        paused: !!S.timer.paused,
+        restLabel: S.timer.label || '',
+        sessionTime: sessionTime(),
+        sessionProgress: restSessionProgressPct(),
+        next: info ? {
+            eyebrow: info.eyebrow,
+            name:    info.exerciseName,
+            title:   info.title,
+            lastPerformance: (info.kg != null && info.reps != null) ? { kg: info.kg, reps: info.reps } : null,
+            targetReps,
+        } : {
+            eyebrow: 'Prossimo esercizio',
+            name: '',
+            fallbackMessage: 'Ultimo blocco della sessione',
+        },
+        timeline,
+    });
+
+    return `<div class="c-restOverlay">${sceneHtml}</div>`;
 }
+
 function mountRestOverlay() {
     const root = document.getElementById('restOverlayRoot');
     if (!root) return;
@@ -1275,11 +1644,16 @@ function mountRestOverlay() {
         root.addEventListener('click', function (e) {
             const btn = e.target.closest('[data-action]');
             if (!btn || btn.disabled) return;
-            if (btn.dataset.action === 'stop-rest') { stopRestTimer(); }
+            switch (btn.dataset.action) {
+                case 'stop-rest':   stopRestTimer(); break;
+                case 'pause-rest':  pauseRestTimer(); break;
+                case 'resume-rest': resumeRestTimer(); break;
+                case 'add-rest-15': addRestSeconds(15); break;
+            }
         });
         root.__delegated = true;
     }
-    const shouldShow = !!S.timer && !!(window.UI && window.UI.RestScreen);
+    const shouldShow = !!S.timer && !!(window.UI && window.UI.RestScene);
     if (!shouldShow) {
         if (root.__html !== '') {
             root.innerHTML = '';
@@ -1819,24 +2193,45 @@ function stats() {
     return '<section class="progressV5" aria-label="Progressi">' + header + body + '</section>';
 }
 function progressHeaderHtml() {
-    var views = ['overview', 'storico', 'record'];
-    var vLabels = { overview: 'Overview', storico: 'Storico', record: 'Record' };
-    var vActive = views.indexOf(S.progress.view); if (vActive < 0) vActive = 0;
-    var segs = views.map(function (v, i) {
-        var on = i === vActive;
-        return '<button type="button" class="c-segmented__seg' + (on ? ' is-active' : '') + '" role="tab" data-action="progress-view" data-progress-view="' + v + '" aria-selected="' + (on ? 'true' : 'false') + '" tabindex="' + (on ? '0' : '-1') + '">' + vLabels[v] + '</button>';
-    }).join('');
-    var seg = '<div class="c-segmented progressSeg" role="tablist" aria-label="Sezione progressi">' + segs + '</div>';
+    // Sprint 9.5 P1.1 — segmented Progress delegato a UI.Segmented Foundation.
+    // Il markup Foundation usa data-seg-id per il callback via mountSegmented,
+    // chiamato in mountProgressSegmented() dopo ogni render. Le classi wrapper
+    // .progressSeg / .progressPeriod restano come scope CSS (typography/min-height
+    // già presenti in styles.css), non come duplicazione del componente.
+    var UI = window.UI;
+    var views = [
+        { id: 'overview', label: 'Overview' },
+        { id: 'storico',  label: 'Storico'  },
+        { id: 'record',   label: 'Record'   },
+    ];
+    var vActive = 0;
+    for (var i = 0; i < views.length; i++) if (views[i].id === S.progress.view) { vActive = i; break; }
+    var seg = '<div class="progressSeg" data-progress-segmented="view">'
+        + UI.Segmented({ items: views, active: vActive, ariaLabel: 'Sezione progressi' })
+        + '</div>';
     if (S.progress.view !== 'overview') return '<div class="progressHeader">' + seg + '</div>';
-    var periods = ['week', 'month', 'year'];
-    var pLabels = { week: 'Settimana', month: 'Mese', year: 'Anno' };
-    var pActive = periods.indexOf(S.progress.period); if (pActive < 0) pActive = 0;
-    var pSegs = periods.map(function (p, i) {
-        var on = i === pActive;
-        return '<button type="button" class="c-segmented__seg' + (on ? ' is-active' : '') + '" role="tab" data-action="progress-period" data-progress-period="' + p + '" aria-selected="' + (on ? 'true' : 'false') + '" tabindex="' + (on ? '0' : '-1') + '">' + pLabels[p] + '</button>';
-    }).join('');
-    var periodSeg = '<div class="c-segmented progressPeriod" role="tablist" aria-label="Filtro periodo">' + pSegs + '</div>';
+    var periods = [
+        { id: 'week',  label: 'Settimana' },
+        { id: 'month', label: 'Mese'      },
+        { id: 'year',  label: 'Anno'      },
+    ];
+    var pActive = 0;
+    for (var j = 0; j < periods.length; j++) if (periods[j].id === S.progress.period) { pActive = j; break; }
+    var periodSeg = '<div class="progressPeriod" data-progress-segmented="period">'
+        + UI.Segmented({ items: periods, active: pActive, ariaLabel: 'Filtro periodo' })
+        + '</div>';
     return '<div class="progressHeader">' + seg + periodSeg + '</div>';
+}
+function mountProgressSegmented() {
+    // Sprint 9.5 P1.1 — binding dei due segmented Progress via mountSegmented
+    // Foundation. Chiamato da render(); no-op se i segmented non sono presenti.
+    if (!window.UI || !window.UI.mountSegmented) return;
+    var host = document.getElementById('view');
+    if (!host) return;
+    var vHost = host.querySelector('[data-progress-segmented="view"] .c-segmented');
+    if (vHost) window.UI.mountSegmented(vHost, function (id) { progressGoView(id); });
+    var pHost = host.querySelector('[data-progress-segmented="period"] .c-segmented');
+    if (pHost) window.UI.mountSegmented(pHost, function (id) { progressGoPeriod(id); });
 }
 function progressOverviewView() {
     var UI = window.UI;
@@ -1855,9 +2250,9 @@ function progressOverviewView() {
     }
 
     var kpiHtml = '<div class="progressKpi">'
-        + UI.StatisticCard({ eyebrow: 'Volume ' + lbl, value: fmtNum(kpi.volume), unit: 'kg' })
-        + UI.StatisticCard({ eyebrow: 'Serie ' + lbl, value: kpi.sets, unit: '' })
-        + UI.StatisticCard({ eyebrow: 'Workout ' + lbl, value: kpi.workouts, unit: '' })
+        + UI.StatisticCard({ eyebrow: 'Volume ' + lbl, value: fmtNum(kpi.volume), unit: 'kg', delta: '' })
+        + UI.StatisticCard({ eyebrow: 'Serie ' + lbl,  value: kpi.sets,           unit: '',   delta: '' })
+        + UI.StatisticCard({ eyebrow: 'Workout ' + lbl,value: kpi.workouts,       unit: '',   delta: '' })
         + '</div>';
 
     var bars = weeklyVolumeBars(period);
@@ -1897,7 +2292,7 @@ function progressOverviewView() {
         .slice(0, 5);
     var listBody;
     if (recent.length) {
-        listBody = '<div class="progressList__stack">' + recent.map(progressSessionRowHtml).join('') + '</div>';
+        listBody = '<div class="progressList__stack">' + recent.map(sessionHistoryCardHtml).join('') + '</div>';
     } else {
         listBody = '<div class="progressList__empty">Nessun allenamento nel periodo. Cambia periodo per vedere altre sessioni.</div>';
     }
@@ -1908,20 +2303,29 @@ function progressOverviewView() {
 
     return insightHtml + kpiHtml + barsCard + heatCard + recentHtml;
 }
-function progressSessionRowHtml(s) {
+function sessionHistoryCardHtml(s) {
+    // Sprint 9.5 P1.5 — riga sessione delegata a UI.HistoryCard Foundation.
+    // Badge derivato da dati reali: 'N PR' se la sessione ha nuovi personal
+    // record (warning/dorato), altrimenti 'Completata' (success). Nessun
+    // dato inventato. progressSessionRowHtml eliminato.
+    var UI = window.UI;
     var title = sessionLabel(s);
     var when = fmtShortDate(s.endedAt);
     var durTxt = (Number(s.durationSec) || 0) > 0 ? fmtDurShort(s.durationSec) : '—';
     var vol = fmtNum(sessionVolume(s));
     var sets = sessionSetsDone(s);
-    return '<button type="button" class="progressSessionRow" data-action="open-session-detail" data-session-id="' + esc(s.id) + '" aria-label="Apri dettagli sessione ' + esc(title) + '">'
-        + '<span class="progressSessionRow__initials" aria-hidden="true">' + esc(initialsOf(title)) + '</span>'
-        + '<span class="progressSessionRow__body">'
-        + '<span class="progressSessionRow__title">' + esc(title) + '</span>'
-        + '<span class="progressSessionRow__meta">' + esc(when) + ' · ' + esc(durTxt) + ' · ' + sets + ' serie · ' + esc(vol) + ' kg</span>'
-        + '</span>'
-        + '<span class="progressSessionRow__chev" aria-hidden="true">›</span>'
-        + '</button>';
+    var prs = Array.isArray(s.newPRs) ? s.newPRs : newPRsInSession(s);
+    var hasPR = prs && prs.length > 0;
+    return UI.HistoryCard({
+        initials: initialsOf(title),
+        title: title,
+        meta: when + ' · ' + durTxt + ' · ' + sets + ' serie · ' + vol + ' kg',
+        badge: hasPR ? (prs.length + ' PR') : 'Completata',
+        badgeVariant: hasPR ? 'warning' : 'success',
+        interactive: true,
+        ariaLabel: 'Apri dettagli sessione ' + title,
+        dataset: { action: 'open-session-detail', 'session-id': s.id },
+    });
 }
 function progressStoricoView() {
     // Sprint 6: Storico nel tab Progressi diventa una preview compatta
@@ -1975,15 +2379,16 @@ function progressSessionDetailView(session) {
     var prBadge = prs.length
         ? '<span class="progressDetailHero__badge is-pr" aria-label="' + prs.length + ' nuovi personal record">' + prs.length + ' PR</span>'
         : '';
+    var heroMeta = prs.length ? '<div class="progressDetailHero__meta">' + prBadge + '</div>' : '';
     var hero = '<header class="progressDetailHero">'
         + '<div class="progressDetailHero__eyebrow">' + esc(weekday) + ' · ' + esc(when) + '</div>'
         + '<h1 class="progressDetailHero__title">' + esc(title) + '</h1>'
-        + '<div class="progressDetailHero__meta">Durata ' + esc(durTxt) + prBadge + '</div>'
+        + heroMeta
         + '</header>';
     var kpi = '<div class="progressKpi">'
-        + UI.StatisticCard({ eyebrow: 'Volume', value: fmtNum(totalVol), unit: 'kg' })
-        + UI.StatisticCard({ eyebrow: 'Serie', value: totalSets, unit: '' })
-        + UI.StatisticCard({ eyebrow: 'Durata', value: durTxt, unit: '' })
+        + UI.StatisticCard({ eyebrow: 'Volume', value: fmtNum(totalVol), unit: 'kg', delta: '' })
+        + UI.StatisticCard({ eyebrow: 'Serie',  value: totalSets,        unit: '',   delta: '' })
+        + UI.StatisticCard({ eyebrow: 'Durata', value: durTxt,           unit: '',   delta: '' })
         + '</div>';
     var openMap = S.progress.openExercises || {};
     var body;
@@ -2002,8 +2407,11 @@ function progressSessionDetailView(session) {
             var badge = g.pr
                 ? '<span class="progressExCard__pr" aria-label="Nuovo record ' + fmtNum(g.pr.kg) + ' kg">PR ' + (g.pr.prevMax > 0 ? '+' + fmtNum(g.pr.kg - g.pr.prevMax) + ' kg' : 'nuovo') + '</span>'
                 : '';
+            var idStatus = (g.totalSets > 0 && g.doneCount === g.totalSets) ? 'completed' : 'upcoming';
+            var idHtml = UI.ExerciseIdentity({ name: g.name, size: 'mini', status: idStatus });
             return '<article class="progressExCard' + (isOpen ? ' is-open' : '') + '">'
                 + '<button type="button" class="progressExCard__head" data-action="toggle-session-exercise" data-session-id="' + esc(session.id) + '" data-ex-id="' + esc(g.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">'
+                + '<span class="progressExCard__thumb" aria-hidden="true">' + idHtml + '</span>'
                 + '<span class="progressExCard__info">'
                 + '<span class="progressExCard__title">' + esc(g.name) + '</span>'
                 + '<span class="progressExCard__meta">' + esc(g.primary || '') + ' · ' + g.doneCount + '/' + g.totalSets + ' serie · ' + fmtNum(g.volume) + ' kg</span>'
@@ -2205,7 +2613,7 @@ function historyPreviewHtml() {
         return '<div class="progressEmpty"><h3>Nessun allenamento ancora</h3><p class="muted">Completa il tuo primo workout per iniziare a costruire il tuo diario.</p></div>';
     }
     var sessions = all.slice().sort(function (a, b) { return String(b.endedAt).localeCompare(String(a.endedAt)); }).slice(0, 3);
-    var rows = sessions.map(progressSessionRowHtml).join('');
+    var rows = sessions.map(sessionHistoryCardHtml).join('');
     var meta = total + ' allenament' + (total === 1 ? 'o' : 'i') + ' in totale';
     return '<section class="historyPreview" aria-label="Anteprima Storico">'
         + '<header class="historyPreview__head">'
@@ -2265,6 +2673,7 @@ function historyEmptyGlobalHtml() {
     return '<div class="historyEmpty" role="status">'
         + '<h3 class="historyEmpty__title">Il tuo diario è vuoto</h3>'
         + '<p class="historyEmpty__body">Completa il tuo primo allenamento per vedere qui la tua storia.</p>'
+        + '<button type="button" class="historyEmpty__cta" data-action="history-close">Chiudi lo Storico</button>'
         + '</div>';
 }
 function historyBodyInnerHtml() {
@@ -2364,6 +2773,18 @@ function mountHistoryOverlay() {
             if (e.target && e.target.id === 'historySearchInput' && e.key === 'Enter') {
                 e.preventDefault();
                 e.target.blur();
+                return;
+            }
+            var periodBtn = e.target && e.target.closest ? e.target.closest('.historyPeriod .c-segmented__seg') : null;
+            if (periodBtn && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+                e.preventDefault();
+                var periods = ['all', 'week', 'month', 'year'];
+                var cur = periods.indexOf(S.history.period);
+                if (cur < 0) cur = 0;
+                var next = (e.key === 'ArrowRight') ? (cur + 1) % periods.length : (cur - 1 + periods.length) % periods.length;
+                historySetPeriod(periods[next]);
+                var nextBtn = document.querySelector('.historyPeriod .c-segmented__seg[data-history-period="' + periods[next] + '"]');
+                if (nextBtn) try { nextBtn.focus(); } catch (err) { }
                 return;
             }
             if (e.key !== 'Enter' && e.key !== ' ') return;
@@ -2507,10 +2928,18 @@ function historyOpen() {
     if (S.history.open) return;
     if (S.history.period === null) S.history.period = S.progress.period || 'week';
     S.history.parentScrollY = window.scrollY || 0;
+    S.history.opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     S.history.selectedSessionId = null;
     S.history.open = true;
     S.history.initialized = 'fresh';
     mountHistoryOverlay();
+}
+function historyRestoreOpenerFocus() {
+    var opener = S.history.opener;
+    S.history.opener = null;
+    if (opener && document.contains(opener)) {
+        try { opener.focus({ preventScroll: true }); } catch (err) { try { opener.focus(); } catch (_) { } }
+    }
 }
 function historyClose() {
     if (!S.history.open) return;
@@ -2525,11 +2954,13 @@ function historyClose() {
             mountHistoryOverlay();
             var y = S.history.parentScrollY || 0;
             window.scrollTo(0, y);
+            historyRestoreOpenerFocus();
         }, 220);
     } else {
         S.history.open = false;
         S.history.selectedSessionId = null;
         mountHistoryOverlay();
+        historyRestoreOpenerFocus();
     }
 }
 function historySetQuery(q) {
@@ -3121,26 +3552,29 @@ function weightUnitLabel() { return (S.prefs && S.prefs.weightUnit === 'lbs') ? 
 
 // ---- RENDERERS ----------------------------------------------------------
 function profileHeroHtml() {
-    var UI = window.UI;
     var name = getUserName();
     var source = getUserNameSource();
     var initials = initialsOf(name) || 'AT';
     var days = daysOfUse();
     var workouts = completedSessions().length;
     var lastLabel = profileLastWorkoutLabel();
-    var editBtn = UI.Button
-        ? UI.Button({ label: 'Modifica nome', variant: 'ghost', dataset: { action: 'profile-edit-name' } })
-        : '<button type="button" class="c-btn c-btn--ghost" data-action="profile-edit-name">Modifica nome</button>';
-    var srcHint = source === 'github' ? '<span class="profileHero__hint">via GitHub</span>' : (source === 'default' ? '<span class="profileHero__hint">Tocca per personalizzare</span>' : '');
+    var metaBase = fmtNum(workouts) + ' workout · ' + fmtNum(days) + ' ' + (days === 1 ? 'giorno' : 'giorni') + ' con l\'app';
+    var hint = source === 'github'
+        ? '<span class="profileHero__hint">Precompilato da GitHub</span>'
+        : source === 'default'
+            ? '<span class="profileHero__hint">Tocca per personalizzare</span>'
+            : '';
     return '<section class="profileV2__hero" role="region" aria-label="Profilo utente">' +
         '<div class="profileHero__row">' +
-            '<div class="profileHero__avatar" aria-hidden="true" data-src="' + esc(source) + '">' + esc(initials) + '</div>' +
+            '<div class="profileHero__avatar" aria-hidden="true">' + esc(initials) + '</div>' +
             '<div class="profileHero__body">' +
                 '<h2 class="profileHero__name">' + esc(name) + '</h2>' +
-                '<p class="profileHero__meta">' + fmtNum(workouts) + ' workout · ' + fmtNum(days) + ' ' + (days === 1 ? 'giorno' : 'giorni') + ' con l\'app</p>' +
-                srcHint +
+                '<p class="profileHero__meta">' + esc(metaBase) + '</p>' +
+                hint +
             '</div>' +
-            '<div class="profileHero__cta">' + editBtn + '</div>' +
+            '<div class="profileHero__cta">' +
+                '<button type="button" class="c-btn c-btn--ghost" data-action="profile-edit-name">Modifica nome</button>' +
+            '</div>' +
         '</div>' +
         '<div class="profileHero__kpis">' +
             '<div class="profileHero__kpi"><span class="profileHero__kpiValue">' + fmtNum(workouts) + '</span><span class="profileHero__kpiLabel">Workout</span></div>' +
@@ -3162,7 +3596,7 @@ function profileQuickActionsHtml() {
     var buttons = items.map(function (it) {
         var cls = 'profileQuick__btn' + (it.primary ? ' is-primary' : '') + (it.danger ? ' is-danger' : '');
         return '<button type="button" class="' + cls + '" data-action="' + esc(it.action) + '" aria-label="' + esc(it.label) + '">' +
-            '<span class="profileQuick__icon" aria-hidden="true">' + esc(quickActionIcon(it.icon)) + '</span>' +
+            '<span class="profileQuick__icon" aria-hidden="true">' + quickActionIcon(it.icon) + '</span>' +
             '<span class="profileQuick__label">' + esc(it.label) + '</span>' +
         '</button>';
     }).join('');
@@ -3172,6 +3606,12 @@ function profileQuickActionsHtml() {
     '</section>';
 }
 function quickActionIcon(name) {
+    var UI = window.UI;
+    if (UI && typeof UI.icon === 'function') {
+        if (name === 'download') return UI.icon('arrowDown', 'medium');
+        if (name === 'upload')   return UI.icon('arrowUp',   'medium');
+        if (name === 'play')     return UI.icon('play',      'medium');
+    }
     var map = { palette: '◐', user: '✎', download: '↓', upload: '↑', play: '▶', trash: '🗑', settings: '⚙', info: 'i', bell: '◔' };
     return map[name] || '•';
 }
@@ -3213,28 +3653,30 @@ function profileStatsHtml() {
     '</section>';
 }
 function prefControlHtml(def) {
+    var UI = window.UI;
     var value = getPref(def.key);
     var badge = def.wired ? '' : '<span class="prefRow__badge">In arrivo</span>';
     var control = '';
     if (def.type === 'switch') {
         var on = !!value;
-        control = '<button type="button" class="c-switch prefRow__switch ' + (on ? 'is-on' : '') + '" role="switch" aria-checked="' + (on ? 'true' : 'false') + '" aria-label="' + esc(def.label) + '" data-action="profile-toggle-pref" data-pref="' + esc(def.key) + '"><span class="c-switch__thumb"></span></button>';
+        var swHtml = UI && UI.PreferenceSwitch
+            ? UI.PreferenceSwitch({ on: on, label: def.label })
+            : '<button type="button" class="c-switch ' + (on ? 'is-on' : '') + '" role="switch" aria-checked="' + (on ? 'true' : 'false') + '" aria-label="' + esc(def.label) + '"><span class="c-switch__thumb"></span></button>';
+        control = '<span data-pref-switch="' + esc(def.key) + '">' + swHtml + '</span>';
     } else if (def.type === 'segmented') {
-        control = '<div class="prefRow__segmented" role="group" aria-label="' + esc(def.label) + '">';
-        for (var i = 0; i < def.options.length; i++) {
-            var opt = def.options[i];
-            var active = String(value) === String(opt.value);
-            control += '<button type="button" class="prefRow__seg ' + (active ? 'is-active' : '') + '" data-action="profile-set-pref" data-pref="' + esc(def.key) + '" data-value="' + esc(opt.value) + '" aria-pressed="' + (active ? 'true' : 'false') + '">' + esc(opt.label) + '</button>';
-        }
-        control += '</div>';
+        control = '<div class="prefRow__segmented" role="group" aria-label="' + esc(def.label) + '">' +
+            def.options.map(function (o) {
+                var isActive = String(value) === String(o.value);
+                return '<button type="button" class="prefRow__seg' + (isActive ? ' is-active' : '') + '" data-action="profile-set-pref" data-pref="' + esc(def.key) + '" data-value="' + esc(String(o.value)) + '" aria-pressed="' + (isActive ? 'true' : 'false') + '">' + esc(o.label) + '</button>';
+            }).join('') +
+        '</div>';
     } else if (def.type === 'chips') {
-        control = '<div class="prefRow__chips" role="group" aria-label="' + esc(def.label) + '">';
-        for (var j = 0; j < def.options.length; j++) {
-            var v = def.options[j];
-            var isActive = Number(value) === Number(v);
-            control += '<button type="button" class="prefRow__chip ' + (isActive ? 'is-active' : '') + '" data-action="profile-set-pref" data-pref="' + esc(def.key) + '" data-value="' + esc(v) + '" aria-pressed="' + (isActive ? 'true' : 'false') + '">' + esc(v + 's') + '</button>';
-        }
-        control += '</div>';
+        control = '<div class="prefRow__chips" role="group" aria-label="' + esc(def.label) + '">' +
+            def.options.map(function (v) {
+                var isActive = Number(value) === Number(v);
+                return '<button type="button" class="prefRow__chip' + (isActive ? ' is-active' : '') + '" data-action="profile-set-pref" data-pref="' + esc(def.key) + '" data-value="' + esc(String(v)) + '" aria-pressed="' + (isActive ? 'true' : 'false') + '">' + esc(String(v)) + 's</button>';
+            }).join('') +
+        '</div>';
     }
     return '<div class="prefRow ' + (def.wired ? 'is-wired' : 'is-pending') + '">' +
         '<div class="prefRow__body">' +
@@ -3253,8 +3695,8 @@ function themeControlHtml() {
         { v: 'amoled', l: 'AMOLED'  }
     ];
     var buttons = opts.map(function (o) {
-        var active = current === o.v;
-        return '<button type="button" class="prefRow__seg ' + (active ? 'is-active' : '') + '" data-action="profile-set-theme" data-theme="' + esc(o.v) + '" aria-pressed="' + (active ? 'true' : 'false') + '">' + esc(o.l) + '</button>';
+        var isActive = o.v === current;
+        return '<button type="button" class="prefRow__seg' + (isActive ? ' is-active' : '') + '" data-action="profile-set-theme" data-value="' + esc(o.v) + '" aria-pressed="' + (isActive ? 'true' : 'false') + '">' + esc(o.l) + '</button>';
     }).join('');
     return '<div class="prefRow is-wired">' +
         '<div class="prefRow__body">' +
@@ -3263,6 +3705,21 @@ function themeControlHtml() {
         '</div>' +
         '<div class="prefRow__control"><div class="prefRow__segmented" role="group" aria-label="Tema">' + buttons + '</div></div>' +
     '</div>';
+}
+function mountPrefsControls() {
+    if (!window.UI) return;
+    if (!window.UI.mountPreferenceSwitch) return;
+    var host = document.getElementById('view');
+    if (!host) return;
+    var switches = host.querySelectorAll('[data-pref-switch] .c-switch');
+    for (var i = 0; i < switches.length; i++) {
+        (function (sw) {
+            var wrap = sw.closest('[data-pref-switch]');
+            if (!wrap) return;
+            var key = wrap.getAttribute('data-pref-switch');
+            window.UI.mountPreferenceSwitch(sw, function (on) { profileApplyPrefSwitch(key, on); });
+        })(switches[i]);
+    }
 }
 function profilePreferencesHtml() {
     var groups = { 'Aspetto': [], 'Workout': [], 'Accessibilita': [] };
@@ -3304,11 +3761,11 @@ function profileDataOpsHtml() {
         : '<span class="pill">non configurato</span>';
     var configForm = '<details class="profileDetails" ' + (syncConfigured ? '' : 'open') + '><summary>Configurazione GitHub</summary>' +
         '<div class="stack" style="margin-top:10px">' +
-        '<div><label class="meta">Owner (username GitHub)</label><input id="ghOwner" value="' + esc(cfg.owner || '') + '" placeholder="tuo-username" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
-        '<div><label class="meta">Repo privato</label><input id="ghRepo" value="' + esc(cfg.repo || '') + '" placeholder="fit-tracker-data" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
-        '<div><label class="meta">File</label><input id="ghPath" value="' + esc(cfg.path || 'backup.json') + '" placeholder="backup.json" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
-        '<div><label class="meta">Branch</label><input id="ghBranch" value="' + esc(cfg.branch || 'main') + '" placeholder="main" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
-        '<div><label class="meta">Personal Access Token</label><input id="ghToken" type="password" value="' + esc(cfg.token || '') + '" placeholder="github_pat_..." autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
+        '<div><label class="meta" for="ghOwner">Owner (username GitHub)</label><input id="ghOwner" value="' + esc(cfg.owner || '') + '" placeholder="tuo-username" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
+        '<div><label class="meta" for="ghRepo">Repo privato</label><input id="ghRepo" value="' + esc(cfg.repo || '') + '" placeholder="fit-tracker-data" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
+        '<div><label class="meta" for="ghPath">File</label><input id="ghPath" value="' + esc(cfg.path || 'backup.json') + '" placeholder="backup.json" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
+        '<div><label class="meta" for="ghBranch">Branch</label><input id="ghBranch" value="' + esc(cfg.branch || 'main') + '" placeholder="main" autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
+        '<div><label class="meta" for="ghToken">Personal Access Token</label><input id="ghToken" type="password" value="' + esc(cfg.token || '') + '" placeholder="github_pat_..." autocapitalize="off" autocorrect="off" spellcheck="false"></div>' +
         '</div>' +
         '<div class="row" style="margin-top:10px">' +
         UI.Button({ label: 'Salva',    variant: 'primary', dataset: { action: 'save-sync-config' } }) +
@@ -3349,19 +3806,16 @@ function profileDataOpsHtml() {
         syncCard + localOps + danger +
     '</section>';
 }
-function profileInfoRow(label, value, action) {
-    var right = action
-        ? '<button type="button" class="profileInfo__cta" data-action="profile-open-info" data-info="' + esc(action) + '">Apri</button>'
-        : '<span class="profileInfo__value">' + esc(value || '') + '</span>';
-    return '<div class="profileInfo__row"><span class="profileInfo__label">' + esc(label) + '</span>' + right + '</div>';
-}
 function profileInfoHtml() {
-    var rows = '';
-    rows += profileInfoRow('Versione', APP_META.version + ' · ' + APP_META.codename, null);
-    rows += profileInfoRow('Licenze', '', 'licenses');
-    rows += profileInfoRow('Privacy', '', 'privacy');
-    rows += profileInfoRow('Termini', '', 'terms');
-    rows += profileInfoRow('Contatti', '', 'contacts');
+    var UI = window.UI;
+    if (!UI || !UI.SettingsRow) return '';
+    var versionValue = APP_META.version + ' · ' + APP_META.codename;
+    var rows = ''
+        + UI.SettingsRow({ label: 'Versione', meta: versionValue, chevron: false })
+        + UI.SettingsRow({ label: 'Licenze',  interactive: true, dataset: { action: 'profile-open-info', info: 'licenses' } })
+        + UI.SettingsRow({ label: 'Privacy',  interactive: true, dataset: { action: 'profile-open-info', info: 'privacy'  } })
+        + UI.SettingsRow({ label: 'Termini',  interactive: true, dataset: { action: 'profile-open-info', info: 'terms'    } })
+        + UI.SettingsRow({ label: 'Contatti', interactive: true, dataset: { action: 'profile-open-info', info: 'contacts' } });
     return '<section class="profileV2__section profileV2__info" role="region" aria-label="Informazioni">' +
         '<div class="profileV2__sectionHead"><h3 class="profileV2__sectionTitle">Informazioni</h3></div>' +
         '<div class="profileInfo__list">' + rows + '</div>' +
@@ -3418,15 +3872,14 @@ function profileSetTheme(theme) {
     applyTheme();
     render();
 }
-function profileTogglePref(key) {
+function profileApplyPrefSwitch(key, on) {
     var def = findPrefDef(key);
     if (!def || def.type !== 'switch') return;
-    var next = !getPref(key);
-    setPref(key, next);
+    setPref(key, !!on);
     if (!def.wired) {
         appToast('Preferenza salvata · disponibile in un prossimo aggiornamento', 'info');
     } else {
-        appToast(def.label + ': ' + (next ? 'attiva' : 'disattiva'), 'success');
+        appToast(def.label + ': ' + (on ? 'attiva' : 'disattiva'), 'success');
     }
     render();
 }
@@ -3625,8 +4078,7 @@ async function checkIncompleteSessions() {
 }
 var __activeModal = null;
 function closeModal() {
-    if (__activeModal && typeof __activeModal.close === 'function') { __activeModal.close(); return; }
-    var h = document.getElementById('modalHost'); if (h) h.remove();
+    if (__activeModal && typeof __activeModal.close === 'function') { __activeModal.close(); }
 }
 function mountModalDelegation(handle) {
     if (!handle || !handle.root) return;
@@ -3780,9 +4232,9 @@ function openDurationModal(id) {
     if (!s || !UI || !UI.showDialog || !UI.Button) return;
     var body = '<p class="muted" style="margin:0 0 var(--space-12)">' + esc(sessionLabel(s)) + '</p>' +
         '<div class="row" style="gap:var(--space-8); align-items:center">' +
-            '<label>Ore</label>' +
+            '<label for="durH">Ore</label>' +
             '<input id="durH" inputmode="numeric" pattern="[0-9]*" type="number" min="0" max="6" value="1" style="max-width:80px">' +
-            '<label>Minuti</label>' +
+            '<label for="durM">Minuti</label>' +
             '<input id="durM" inputmode="numeric" pattern="[0-9]*" type="number" min="0" max="59" value="0" style="max-width:80px">' +
         '</div>' +
         '<p class="muted" style="margin:var(--space-12) 0 0">Formato HH:MM. La sessione verrà chiusa con questa durata.</p>';

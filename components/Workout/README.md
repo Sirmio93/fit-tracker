@@ -1,6 +1,6 @@
 # Workout
 
-Componenti della schermata di allenamento attivo: picker per peso/reps, ring di progresso, timer, header, CTA "termina", schermata di recupero.
+Componenti della schermata di allenamento attivo: picker per peso/reps, ring di progresso, timer, header, CTA "termina".
 
 ## Moduli
 
@@ -13,7 +13,6 @@ Componenti della schermata di allenamento attivo: picker per peso/reps, ring di 
 | `NextExercise.js`   | `NextExercise(opts)` | Preview con ring piccolo + eyebrow + titolo. |
 | `WorkoutHeader.js`  | `WorkoutHeader(opts)` | Header sessione (gradient viola→magenta). |
 | `CompleteButton.js` | `CompleteButton(opts)` | CTA finale full-width (gradient success). |
-| `RestScreen.js`     | `RestScreen(opts)`, `updateRestScreen(el, time)` | Overlay recupero. |
 
 ## Contratti chiave
 
@@ -31,8 +30,8 @@ const dispose = mountWeightPicker(root.querySelector('.c-picker--weight'), v => 
 ### ProgressRing
 Il valore inizia via prop. Per aggiornamenti fluidi (es. avanzamento esercizi), usa `setProgressRing(el, pct)` invece di rimontare — sfrutta la transizione CSS su `stroke-dashoffset`.
 
-### FloatingTimer / RestScreen
-Il conteggio è **responsabilità del chiamante** (setInterval, requestAnimationFrame o Web Worker). I componenti espongono `updateFloatingTimer(el, {time, state, label})` e `updateRestScreen(el, time)` per aggiornare il display senza ri-render. Passando `time` come numero, viene formattato come `mm:ss` via `formatSeconds()` (esportata anche a sé stante).
+### FloatingTimer
+Il conteggio è **responsabilità del chiamante** (setInterval, requestAnimationFrame o Web Worker). Il componente espone `updateFloatingTimer(el, {time, state, label})` per aggiornare il display senza ri-render. Passando `time` come numero, viene formattato come `mm:ss` via `formatSeconds()` (esportata anche a sé stante).
 
 ### WorkoutHeader
 `actions` è HTML string. Il chiamante può passare un `IconButton({icon:'pause'})` da Buttons/ senza che Workout/ lo importi.

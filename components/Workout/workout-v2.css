@@ -1,0 +1,466 @@
+/* ==========================================================================
+   Workout/workout-v2.css — Phase 2.1 (Immersion Pass) + Sprint 9.1A
+   Stylesheet della Workout Scene ricostruita da mockup:
+     · WorkoutSceneV2         (contenitore full-height "dashboard di allenamento")
+     · WorkoutStickyHeader --immersive  (round indicator + segments; stili in
+                                         workout.css sotto `.c-wsh--immersive`)
+     · ExerciseStage          (hero fuso: visual ▸ titolo ▸ muscoli ▸ ultima)
+     · StepperField           (controllo "hardware" ▸ nessun border, digit XL)
+     · Completa Serie CTA     (floating pill, ≥64px, gradient marcato, glow)
+
+   Sprint 9.1A #1 — WorkoutTopBar è stato unificato in WorkoutStickyHeader
+   ({mode:'immersive'}). Le regole `.c-workoutTopBar*` sono state rimosse
+   e sostituite dagli stili scoped su `.c-wsh--immersive` in workout.css.
+
+   Phase 2.2 — l'artwork non è più definito qui: lo gestisce ExerciseVisual
+   (size='lg') in Exercise/exercise.css.
+
+   Regola "One Screen": durante questa scena la BottomNav viene nascosta
+   via :has() per non interferire con la CTA e per rispettare il principio
+   "One Exercise · One Action · One Screen".
+   ========================================================================== */
+
+/* ---- One Screen: hide BottomNav while the immersive scene is mounted ------ */
+body:has(.c-workoutSceneV2) .c-bottomNav { display: none !important; }
+
+/* ---- Scene container ------------------------------------------------------ */
+.c-workoutSceneV2 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: max(var(--space-12), env(safe-area-inset-top)) var(--space-20)
+           calc(var(--space-24) + env(safe-area-inset-bottom));
+  color: var(--color-textPrimary);
+  gap: 0;
+  background: radial-gradient(120% 60% at 50% 0%,
+                              color-mix(in oklab, var(--color-primary) 6%, transparent) 0%,
+                              transparent 60%),
+              var(--color-backgroundBase);
+  overflow-x: hidden;
+}
+.c-workoutSceneV2 > .c-wsh--immersive { flex: 0 0 auto; }
+.c-workoutSceneV2 > .c-exStage        { flex: 1 1 auto; }
+.c-workoutSceneV2__pickers           { flex: 0 0 auto; }
+.c-workoutSceneV2__ctas              { flex: 0 0 auto; margin-top: var(--space-24); }
+
+.c-workoutSceneV2__pickers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-24);
+  margin-top: var(--space-16);
+  padding: var(--space-12) 0;
+}
+/* Sprint 9.4.1 — min-width:0 sulle celle grid.
+   Default `min-content`: il testo lungo del target ("Obiettivo: 12-15
+   ripetizioni") forzava il picker oltre la cella nominale (measured
+   overflow ≥12px su 375×667). Con `min-width:0` la grid rispetta 1fr 1fr
+   in modo strict e il picker può stringersi. Il target wrappa su 2 righe
+   quando serve grazie a `overflow-wrap:anywhere`. */
+.c-workoutSceneV2__pickers > * { min-width: 0; }
+
+.c-workoutSceneV2__hint {
+  text-align: center;
+  font-size: var(--type-small-size);
+  color: color-mix(in oklab, var(--color-textPrimary) 40%, transparent);
+  letter-spacing: 0.06em;
+  margin: var(--space-12) 0 0;
+}
+.c-workoutSceneV2__hint b {
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  margin-left: var(--space-4);
+  letter-spacing: 0.24em;
+}
+
+.c-workoutSceneV2__secondary {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-12);
+}
+.c-workoutSceneV2__secondary .focusNavBtn {
+  background: transparent;
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 14%, transparent);
+  color: var(--color-textPrimary);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-pill);
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .c-workoutSceneV2 {
+    max-width: 520px;
+    padding-left: var(--space-24);
+    padding-right: var(--space-24);
+  }
+}
+
+/* WorkoutTopBar rimosso: usare WorkoutStickyHeader({mode:'immersive'}).
+   Regole visive in workout.css sotto `.c-wsh--immersive`. */
+
+/* ---- ExerciseStage (hero fuso: artwork + titolo + muscoli + last) --------- */
+.c-exStage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+  padding: var(--space-4) 0;
+  min-height: 45svh;
+}
+.c-exStage__artwork {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-16) 0 0;
+}
+.c-exStage__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: clamp(32px, 9vw, 44px);
+  line-height: 1.05;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-textPrimary);
+}
+.c-exStage__subtitle {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-medium);
+  color: color-mix(in oklab, var(--color-textPrimary) 55%, transparent);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.c-exStage__muscles {
+  margin: var(--space-4) 0 0;
+  font-size: var(--type-small-size);
+  font-weight: var(--weight-medium);
+  color: color-mix(in oklab, var(--color-textPrimary) 55%, transparent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.c-exStage__muscles em {
+  font-style: normal;
+  color: var(--color-primary);
+  margin: 0 6px;
+  opacity: 0.5;
+}
+.c-exStage__last {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-16) 0 0;
+  letter-spacing: 0.02em;
+}
+.c-exStage__lastLabel {
+  font-size: var(--type-small-size);
+  color: color-mix(in oklab, var(--color-textPrimary) 45%, transparent);
+}
+.c-exStage__lastValue {
+  font-size: var(--type-body-size);
+  color: color-mix(in oklab, var(--color-textPrimary) 85%, transparent);
+}
+.c-exStage__last b {
+  font-weight: var(--weight-bold);
+  color: color-mix(in oklab, var(--color-textPrimary) 90%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+.c-exStage__last--empty {
+  color: color-mix(in oklab, var(--color-textPrimary) 25%, transparent);
+  font-style: italic;
+}
+
+/* Muscles: nel mockup NON è presente questa riga. Nascosta visualmente ma
+   preservata per screen reader (visually-hidden pattern classico). */
+.c-workoutSceneV2 .c-exStage__muscles {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Attenuazioni scoped ExerciseVisual (Foundation invariata) --------------
+   Ring pulse, orbit gradient e badge categoria/equipment NON compaiono
+   nel mockup Workout. Nascosti solo qui via opacity/visibility — layout
+   ExerciseVisual/ExerciseIdentity preservato per le altre scene. */
+.c-workoutSceneV2 .c-exVisual--current .c-exVisual__ring {
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+}
+.c-workoutSceneV2 .c-exVisual--lg .c-exVisual__frame::before,
+.c-workoutSceneV2 .c-exVisual--lg .c-exVisual__frame::after {
+  opacity: 0;
+}
+.c-workoutSceneV2 .c-exId__badges {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ---- StepperField (hardware feel) ----------------------------------------- */
+.c-stepperField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-12) 0;
+}
+.c-stepperField__label {
+  font-size: var(--type-small-size);
+  color: color-mix(in oklab, var(--color-textPrimary) 45%, transparent);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.c-stepperField__row {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 220px;
+}
+.c-stepperField__btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 18%, transparent);
+  background: transparent;
+  color: color-mix(in oklab, var(--color-textPrimary) 55%, transparent);
+  font-family: var(--font-primary);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color        var(--duration-fast) var(--curve-default),
+    border-color var(--duration-fast) var(--curve-default),
+    transform    var(--duration-fast) var(--curve-default);
+}
+.c-stepperField__btn:hover  {
+  color: var(--color-textPrimary);
+  border-color: color-mix(in oklab, var(--color-textPrimary) 30%, transparent);
+}
+.c-stepperField__btn:active { transform: scale(0.9); }
+.c-stepperField__btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus-sm);
+}
+.c-stepperField__value {
+  font-family: var(--font-primary);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(48px, 14vw, 72px);
+  line-height: 1;
+  font-weight: 800;
+  color: var(--color-textPrimary);
+  text-align: center;
+  letter-spacing: -0.03em;
+}
+.c-stepperField__value.hint { color: color-mix(in oklab, var(--color-textPrimary) 30%, transparent); }
+.c-stepperField__target {
+  font-size: var(--type-small-size);
+  color: color-mix(in oklab, var(--color-textPrimary) 40%, transparent);
+  letter-spacing: 0;
+  margin-top: 4px;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+.c-stepperField.pickerWrap.missing .c-stepperField__value { color: var(--color-warning); }
+
+/* ---- Completa Serie — CTA immersiva (override scoped) --------------------- */
+.c-workoutSceneV2 .c-completeSetBtn {
+  width: 100%;
+  min-height: 64px;
+  padding: var(--space-16) var(--space-24);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-cta);
+  color: #FFFFFF;
+  font-family: var(--font-primary);
+  /* 15px: fuori-scala tipografica (--type-caption-size=14, --type-body-size=16).
+     Lasciato letterale per zero regressione. TODO Sprint 9.3: rivalutare. */
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  box-shadow: var(--shadow-cta);
+  transition:
+    transform  var(--duration-normal) var(--curve-default),
+    box-shadow var(--duration-normal) var(--curve-default);
+}
+.c-workoutSceneV2 .c-completeSetBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+}
+.c-workoutSceneV2 .c-completeSetBtn:active { transform: translateY(0) scale(0.99); }
+.c-workoutSceneV2 .c-completeSetBtn.is-done {
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--color-success) 92%, black) 0%,
+    var(--color-success) 100%);
+  box-shadow: 0 12px 32px color-mix(in oklab, var(--color-success) 40%, transparent);
+}
+.c-workoutSceneV2 .c-completeSetBtn__icon .c-icon {
+  width: 22px; height: 22px;
+}
+
+/* ---- Scroll safety + responsive sweep ------------------------------------- */
+/* overscroll-behavior:contain evita che il bounce sotto la CTA scopra
+   l'ultimo pixel utile; overflow-x:hidden (dichiarato più in alto) taglia
+   ogni sbordamento accidentale (es. text-shadow dei picker). */
+.c-workoutSceneV2 { overscroll-behavior: contain; }
+
+@media (max-height: 700px) {
+  .c-workoutSceneV2 {
+    padding-top: max(var(--space-8), env(safe-area-inset-top));
+    padding-bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
+  }
+}
+@media (max-height: 640px) {
+  .c-workoutSceneV2__hint { display: none; }
+}
+
+/* Sprint 9.4.1 P0 — viewport ≤360px (iPhone SE / Android low-end).
+   Il default a 320px overflowava sul picker (font 48px in cella 1fr da
+   ~24px netti, dopo pad-x 20+20 e gap 24) e sulla CTA (letter-spacing 0.18em
+   + testo "COMPLETA SERIE" fuori pill). Riduzioni scoped alla scena:
+     - padding-x scena  20→12
+     - gap pickers      24→12
+     - stepper cell     48→40 laterali, gap 2
+     - stepper value    clamp min 48→36
+     - CTA              padding 24→16, tracking 0.18→0.12
+     - artwork          clamp max 320→260 via override ExerciseVisual
+   Nulla di visibile a ≥361px. Layout desktop invariato. */
+@media (max-width: 360px) {
+  .c-workoutSceneV2 {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
+  .c-workoutSceneV2__pickers {
+    gap: var(--space-12);
+    padding: var(--space-8) 0;
+    margin-top: var(--space-8);
+  }
+  .c-workoutSceneV2__ctas { margin-top: var(--space-16); }
+  .c-workoutSceneV2 .c-stepperField { padding: var(--space-8) 0; }
+  .c-workoutSceneV2 .c-stepperField__row {
+    grid-template-columns: 40px 1fr 40px;
+    gap: 2px;
+    max-width: 100%;
+  }
+  .c-workoutSceneV2 .c-stepperField__btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .c-workoutSceneV2 .c-stepperField__value {
+    font-size: clamp(36px, 12vw, 44px);
+  }
+  .c-workoutSceneV2 .c-exStage { min-height: 40svh; }
+  .c-workoutSceneV2 .c-exStage__title { font-size: clamp(26px, 8.5vw, 32px); }
+  .c-workoutSceneV2 .c-exStage__artwork { margin-top: var(--space-8); }
+  .c-workoutSceneV2 .c-exVisual--lg,
+  .c-workoutSceneV2 .c-exId--lg {
+    width: min(70vw, 260px);
+    height: min(70vw, 260px);
+  }
+  .c-workoutSceneV2 .c-completeSetBtn {
+    padding: var(--space-16) var(--space-16);
+    letter-spacing: 0.12em;
+    font-size: 14px;
+    gap: var(--space-8);
+  }
+}
+
+/* Sprint 9.4.1 P0/P1 — viewport corto (iPhone SE 568/640). Chiude gli
+   ultimi mm sotto la CTA e restringe l'artwork per lasciare spazio ai
+   pickers. Home Indicator + gesture-nav rispettati via safe-inset-bottom. */
+@media (max-height: 600px) {
+  .c-workoutSceneV2 {
+    padding-top: max(var(--space-4), env(safe-area-inset-top));
+    padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
+  }
+  .c-workoutSceneV2 > .c-exStage { min-height: 32svh; }
+  .c-workoutSceneV2 .c-exStage__artwork { margin-top: var(--space-8); }
+  .c-workoutSceneV2 .c-exVisual--lg,
+  .c-workoutSceneV2 .c-exId--lg {
+    width: min(50vw, 220px);
+    height: min(50vw, 220px);
+  }
+  .c-workoutSceneV2__pickers { margin-top: var(--space-8); padding: var(--space-4) 0; }
+  .c-workoutSceneV2__ctas    { margin-top: var(--space-12); }
+}
+
+/* Sprint 9.4.1 P2 — landscape corto (667×375, 844×390). Riduciamo artwork
+   e gap verticali; l'hint testuale è già nascosto sotto 640px. La CTA
+   resta ≥56px e non finisce mai sotto la safe-area-bottom. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .c-workoutSceneV2 {
+    padding-top: max(var(--space-4), env(safe-area-inset-top));
+    padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom));
+    padding-left:  max(var(--space-16), env(safe-area-inset-left));
+    padding-right: max(var(--space-16), env(safe-area-inset-right));
+  }
+  .c-workoutSceneV2__hint { display: none; }
+  .c-workoutSceneV2 > .c-exStage { min-height: 0; padding: 0; }
+  .c-workoutSceneV2 .c-exStage__artwork { margin-top: var(--space-4); }
+  .c-workoutSceneV2 .c-exVisual--lg,
+  .c-workoutSceneV2 .c-exId--lg {
+    width: min(38vh, 200px);
+    height: min(38vh, 200px);
+  }
+  .c-workoutSceneV2 .c-exStage__title { font-size: clamp(22px, 5vw, 30px); }
+  .c-workoutSceneV2 .c-exStage__last  { margin-top: var(--space-8); }
+  .c-workoutSceneV2__pickers { margin-top: var(--space-8); padding: var(--space-4) 0; }
+  .c-workoutSceneV2 .c-stepperField { padding: var(--space-4) 0; }
+  .c-workoutSceneV2 .c-stepperField__value { font-size: clamp(36px, 8vh, 56px); }
+  .c-workoutSceneV2__ctas    { margin-top: var(--space-12); }
+  .c-workoutSceneV2 .c-completeSetBtn { min-height: 56px; padding: var(--space-12) var(--space-24); }
+}
+
+@media (min-width: 1024px) {
+  .c-workoutSceneV2 {
+    max-width: 560px;
+    padding-left: var(--space-32);
+    padding-right: var(--space-32);
+  }
+}
+@media (min-width: 1440px) {
+  .c-workoutSceneV2 { max-width: 600px; }
+}
+
+/* ---- Reduced motion ------------------------------------------------------- */
+/* Sprint 9.4.1 P4 — estesa a tutti i micro-interaction locali della scena
+   (stepper + iconBtn header immersivo). Nessuna nuova animazione, solo
+   neutralizzazione delle transition dichiarate altrove. */
+@media (prefers-reduced-motion: reduce) {
+  .c-workoutSceneV2 .c-completeSetBtn,
+  .c-workoutSceneV2 .c-stepperField__btn,
+  .c-workoutSceneV2 .c-wsh__iconBtn {
+    animation: none !important;
+    transition: none !important;
+  }
+}

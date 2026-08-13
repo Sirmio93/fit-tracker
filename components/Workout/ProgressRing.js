@@ -1,10 +1,12 @@
 /* ==========================================================================
-   Workout/ProgressRing.js
-   Donut SVG con percentuale. Rendering puro; per aggiornamenti fluidi
-   usare `setProgressRing(el, pct)`.
+   Workout/ProgressRing.js — Sprint 9.2B (adapter → Foundation/Ring)
+   Wrapper compat. Il rendering SVG è delegato alla primitiva unica Ring
+   (Foundation/Ring.js). API pubblica invariata per non toccare i chiamanti
+   (app.js, NextExercise). `setProgressRing(el, pct)` delega a
+   `setRingProgress`.
    ========================================================================== */
 
-import { esc, clamp } from '../Shared/helpers.js';
+import { Ring, setRingProgress } from '../Foundation/Ring.js';
 
 /**
  * @param {Object} [opts]
@@ -15,46 +17,29 @@ import { esc, clamp } from '../Shared/helpers.js';
  * @param {string} [opts.ariaLabel]
  */
 export function ProgressRing(opts = {}) {
-  const pct = clamp(opts.progress != null ? opts.progress : 62, 0, 100);
-  const size = opts.size || 96;
-  const stroke = opts.stroke || 8;
-  const r = (size - stroke) / 2;
-  const c = 2 * Math.PI * r;
-  const off = c * (1 - pct / 100);
+  const progress = opts.progress != null ? opts.progress : 62;
+  const size     = opts.size != null ? opts.size : 96;
+  const stroke   = opts.stroke != null ? opts.stroke : 8;
   const showLabel = opts.showLabel !== false;
-  const label = opts.ariaLabel || `${pct}%`;
-
-  const labelEl = showLabel
-    ? `<text class="c-progressRing__label" x="${size / 2}" y="${size / 2 + 8}">${pct}%</text>`
-    : '';
-
-  return `<svg class="c-progressRing" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${esc(label)}" data-progress="${pct}" data-size="${size}" data-stroke="${stroke}">
-    <circle class="c-progressRing__track" cx="${size/2}" cy="${size/2}" r="${r}" stroke-width="${stroke}" fill="none"/>
-    <circle class="c-progressRing__fill"  cx="${size/2}" cy="${size/2}" r="${r}" stroke-width="${stroke}" fill="none" stroke-linecap="round"
-      transform="rotate(-90 ${size/2} ${size/2})"
-      stroke-dasharray="${c.toFixed(2)}" stroke-dashoffset="${off.toFixed(2)}"/>
-    ${labelEl}
-  </svg>`;
+  return Ring({
+    value: progress,
+    max: 100,
+    size,
+    stroke,
+    color: 'primary',
+    background: 'surface',
+    animated: true,
+    showLabel,
+    ariaLabel: opts.ariaLabel || `${Math.round(progress)}%`,
+    className: 'c-progressRing',
+  });
 }
 
 /**
  * Aggiorna un ProgressRing esistente senza rimontarlo.
- * Rispetta la transizione CSS su stroke-dashoffset.
- * @param {SVGSVGElement} el
+ * @param {HTMLElement} el
  * @param {number} progress
  */
 export function setProgressRing(el, progress) {
-  if (!el) return;
-  const pct = clamp(progress, 0, 100);
-  const size = parseFloat(el.dataset.size) || 96;
-  const stroke = parseFloat(el.dataset.stroke) || 8;
-  const r = (size - stroke) / 2;
-  const c = 2 * Math.PI * r;
-  const off = c * (1 - pct / 100);
-  const fill = el.querySelector('.c-progressRing__fill');
-  const label = el.querySelector('.c-progressRing__label');
-  if (fill) fill.setAttribute('stroke-dashoffset', off.toFixed(2));
-  if (label) label.textContent = `${pct}%`;
-  el.dataset.progress = String(pct);
-  el.setAttribute('aria-label', `${pct}%`);
+  setRingProgress(el, progress, 100);
 }

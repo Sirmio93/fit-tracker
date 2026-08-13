@@ -1,6 +1,6 @@
 /* ==========================================================================
    Shared/Presenter.js
-   Container generico per layer modali (Dialog, BottomSheet, Toast, Snackbar).
+   Container generico per layer modali (Dialog, BottomSheet, Toast).
    Fornisce:
      - Scrim (backdrop) con dismiss opzionale
      - Focus trap durante la vita del layer

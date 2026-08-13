@@ -14,10 +14,22 @@ import { icon as renderIcon } from '../Shared/Icon.js';
  * @param {number} [opts.max=100]
  * @param {boolean} [opts.disabled]
  * @param {string} [opts.ariaLabel='Ripetizioni']
+ * @param {string} [opts.unit='rip']
+ * @param {'horizontal'|'stacked'} [opts.layout='horizontal']
+ * @param {'md'|'lg'} [opts.size='md']
  */
 export function RepsPicker(opts = {}) {
-  const value = opts.value != null ? opts.value : 12;
-  const cls   = cx(['c-picker', 'c-picker--reps', opts.disabled ? 'is-disabled' : '']);
+  const value  = opts.value != null ? opts.value : 12;
+  const unit   = opts.unit || 'rip';
+  const layout = opts.layout === 'stacked' ? 'stacked' : 'horizontal';
+  const size   = opts.size === 'lg' ? 'lg' : 'md';
+  const cls    = cx([
+    'c-picker',
+    'c-picker--reps',
+    `c-picker--${layout}`,
+    `c-picker--${size}`,
+    opts.disabled ? 'is-disabled' : '',
+  ]);
 
   return `<div ${attr({
     class: cls,
@@ -32,7 +44,7 @@ export function RepsPicker(opts = {}) {
     <button type="button" class="c-picker__btn" data-picker-dir="dec" aria-label="Riduci ripetizioni" ${opts.disabled ? 'disabled' : ''}>${renderIcon('minus')}</button>
     <div class="c-picker__display">
       <span class="c-picker__value">${esc(value)}</span>
-      <span class="c-picker__unit">reps</span>
+      <span class="c-picker__unit">${esc(unit)}</span>
     </div>
     <button type="button" class="c-picker__btn" data-picker-dir="inc" aria-label="Aumenta ripetizioni" ${opts.disabled ? 'disabled' : ''}>${renderIcon('plus')}</button>
   </div>`;

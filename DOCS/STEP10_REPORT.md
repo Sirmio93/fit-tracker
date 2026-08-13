@@ -1,3 +1,8 @@
+> **HISTORICAL REPORT — non rappresenta il current state del repository.**
+> Documento storico della precedente roadmap Fase 10. Referenzia componenti (`FloatingTimer`, `timerDock`, `#modalHost`, `.modalBackdrop`, `RestScreen` legacy, `IconButton`, `Snackbar`, `Charts Foundation`) che sono stati rimossi negli Sprint 9.8–9.14. Per lo stato attuale, vedere [FINAL_PROJECT_STATE.md](./FINAL_PROJECT_STATE.md).
+
+---
+
 ## STEP10_REPORT — Audit legacy CSS + pattern residui
 
 **Versione:** 1.0

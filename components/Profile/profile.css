@@ -50,44 +50,6 @@
 }
 .c-profileHeader__actions { display: inline-flex; gap: var(--space-8); }
 
-/* ---- AchievementBadge ------------------------------------------------------ */
-.c-achievement {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-16);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-large);
-  min-width: var(--space-96);
-  text-align: center;
-}
-.c-achievement__icon {
-  width: var(--space-56);
-  height: var(--space-56);
-  border-radius: var(--radius-pill);
-  background: var(--gradient-record);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-textOnPrimary);
-}
-.c-achievement__title {
-  font-size: var(--type-caption-size);
-  font-weight: var(--weight-semibold);
-  color: var(--color-textPrimary);
-}
-.c-achievement__meta {
-  font-size: var(--type-small-size);
-  color: var(--color-textSecondary);
-}
-.c-achievement.is-locked { opacity: var(--opacity-disabled); }
-.c-achievement.is-locked .c-achievement__icon {
-  background: var(--color-surfaceActive);
-  color: var(--color-textDisabled);
-}
-
 /* ---- SettingsRow ----------------------------------------------------------- */
 .c-settingsRow {
   display: flex;
@@ -144,6 +106,6 @@
 .c-switch.is-on .c-switch__thumb { transform: translateX(var(--space-24)); }
 .c-switch:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+  box-shadow: var(--shadow-focus);
 }
 .c-switch.is-disabled, .c-switch:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }

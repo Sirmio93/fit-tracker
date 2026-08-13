@@ -1,0 +1,608 @@
+/* ==========================================================================
+   Rest/rest-v2.css — Sprint 9.2 (Premium Rest Experience)
+   Scena "Rest as Workout Scene": stessa architettura visiva del Workout v2
+   (workout-v2.css). Solo Design Tokens, nessuna dipendenza da altri CSS.
+
+   Struttura:
+     .c-restSceneV2
+       └── .c-wsh--rest             (WorkoutStickyHeader mode='rest')
+       └── .c-restSceneV2__body
+             ├── .c-restCountdownHero
+             ├── .c-restNextIdentity
+             └── .c-restTimeline
+       └── .c-restSceneV2__actions  (RestActionsV2)
+   ========================================================================== */
+
+/* ---- Overlay host (compat legacy: index.html usa #restOverlayRoot) -------- */
+.c-restOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  /* Scrim solido con gradient — copre tutto ciò che è sotto la scena.
+     Coerente con il background della scena interna: se la viewport è più
+     larga della scena, i lati non mostrano il DOM sottostante. */
+  background:
+    radial-gradient(120% 60% at 50% 0%,
+                    color-mix(in oklab, var(--color-primary) 8%, transparent) 0%,
+                    transparent 60%),
+    var(--color-backgroundBase);
+  animation: c-restSceneV2-fadeIn var(--duration-normal) var(--curve-default) both;
+}
+body.has-rest-overlay { overflow: hidden; touch-action: none; }
+@keyframes c-restSceneV2-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* One Screen: durante la scena il bottom-nav sparisce (identico al Workout) */
+body:has(.c-restSceneV2) .c-bottomNav { display: none !important; }
+
+/* ---- Scene container ----------------------------------------------------- */
+.c-restSceneV2 {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: max(var(--space-8), env(safe-area-inset-top)) var(--space-20)
+           calc(var(--space-12) + env(safe-area-inset-bottom));
+  color: var(--color-textPrimary);
+  gap: 0;
+  background:
+    radial-gradient(120% 60% at 50% 0%,
+                    color-mix(in oklab, var(--color-primary) 12%, transparent) 0%,
+                    transparent 60%),
+    radial-gradient(90% 50% at 50% 100%,
+                    color-mix(in oklab, var(--color-secondary, var(--color-primary)) 8%, transparent) 0%,
+                    transparent 60%),
+    transparent;
+  overflow: hidden;
+}
+.c-restSceneV2 > .c-wsh--rest { flex: 0 0 auto; }
+.c-restSceneV2__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-8) 0 var(--space-12);
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.c-restSceneV2__body::-webkit-scrollbar { display: none; }
+.c-restSceneV2__actions {
+  flex: 0 0 auto;
+  margin-top: var(--space-8);
+}
+
+/* ---- WorkoutStickyHeader --rest (variante estesa nello Sprint 9.2) ------- */
+.c-wsh--rest {
+  position: static;
+  top: auto;
+  z-index: auto;
+  gap: var(--space-8);
+  padding: var(--space-4) 0 var(--space-8);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  transition: none;
+}
+.c-wsh--rest .c-wsh__topbar {
+  display: grid;
+  grid-template-columns: 44px 1fr auto 44px;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: 48px;
+}
+.c-wsh--rest .c-wsh__iconBtn,
+.c-wsh--rest .c-wsh__iconSlot {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+}
+.c-wsh--rest .c-wsh__iconBtn:hover {
+  background: color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+}
+.c-wsh--rest .c-wsh__iconSlot { border: none; background: transparent; }
+.c-wsh--rest .c-wsh__center   { justify-self: center; min-width: 0; }
+.c-wsh__restTitle {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-textPrimary);
+  white-space: nowrap;
+}
+.c-wsh__restTimer {
+  font-family: var(--font-numeric, var(--font-primary));
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-caption-size);
+  letter-spacing: 0.08em;
+  padding: 4px var(--space-8);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  color: color-mix(in oklab, var(--color-textPrimary) 78%, transparent);
+  min-width: 52px;
+  text-align: center;
+  justify-self: end;
+}
+.c-wsh__restTimer--empty { visibility: hidden; }
+
+/* Hairline dedicata alla Rest (coerente al Workout, sempre visibile) */
+.c-wsh__hairline--rest {
+  position: relative;
+  height: 3px;
+  opacity: 1;
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  border-radius: var(--radius-pill);
+  margin-top: var(--space-8);
+}
+.c-wsh__hairline--rest > i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-workout);
+  transition: width var(--duration-hairline) var(--curve-easeOut);
+}
+
+/* ---- RestCountdownHero --------------------------------------------------- */
+.c-restCountdownHero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  width: 100%;
+  padding: var(--space-16) 0;
+  --rt-size: 240px;
+  animation: c-restHero-in var(--duration-slow) var(--curve-default) both;
+}
+@keyframes c-restHero-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+.c-restCountdownHero__halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side,
+    color-mix(in oklab, var(--color-primary) 18%, transparent) 0%,
+    transparent 70%);
+  filter: blur(4px);
+  pointer-events: none;
+  animation: c-restHero-halo var(--duration-halo) var(--curve-inOut) infinite;
+}
+.c-restCountdownHero__halo--outer {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(closest-side,
+    color-mix(in oklab, var(--color-primary) 8%, transparent) 0%,
+    transparent 70%);
+  animation-duration: var(--duration-halo-outer);
+  animation-direction: alternate;
+}
+@keyframes c-restHero-halo {
+  0%, 100% { opacity: 0.65; transform: translate(-50%, -50%) scale(0.94); }
+  50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+}
+.c-restCountdownHero[data-paused="1"] .c-restCountdownHero__halo {
+  animation-play-state: paused;
+  opacity: 0.35;
+}
+.c-restCountdownHero__label {
+  /* Rest v2 — l'etichetta block-name è ridondante con la RestTimeline (che
+     mostra già lo stesso testo). La nascondiamo su ogni viewport per lasciare
+     al Countdown Hero un ruolo puro (ring + countdown + messaggio). */
+  display: none;
+}
+.c-restCountdownHero__ring {
+  position: relative;
+  z-index: 1;
+}
+.c-restCountdownHero__message {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-medium);
+  color: color-mix(in oklab, var(--color-textPrimary) 78%, transparent);
+  letter-spacing: 0.02em;
+  animation: c-restHero-msg-fade var(--duration-message) var(--curve-default) both;
+}
+@keyframes c-restHero-msg-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+/* leggero pulse del display centrale (non del ring: quello ha già transition) */
+.c-restCountdownHero .c-circularRestTimer__time {
+  animation: c-restHero-pulse var(--duration-pulse) var(--curve-inOut) infinite;
+}
+@keyframes c-restHero-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+.c-restCountdownHero[data-paused="1"] .c-circularRestTimer__time {
+  animation-play-state: paused;
+}
+
+/* ---- RestNextIdentity ---------------------------------------------------- */
+.c-restNextIdentity {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  text-align: center;
+  padding: var(--space-12) var(--space-8);
+  animation: c-restNext-in var(--duration-slow) var(--curve-default) 80ms both;
+}
+@keyframes c-restNext-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.c-restNextIdentity--empty {
+  padding: var(--space-16);
+  color: var(--color-textSecondary);
+}
+.c-restNextIdentity__emptyText { margin: 0; }
+
+.c-restNextIdentity__eyebrow {
+  /* 11px: fuori-scala tipografica (--type-small-size=12, --type-micro-size=10).
+     Lasciato letterale per zero regressione. TODO Sprint 9.3: rivalutare. */
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: color-mix(in oklab, var(--color-textPrimary) 45%, transparent);
+}
+.c-restNextIdentity__identity {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: var(--space-4);
+}
+.c-restNextIdentity__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: clamp(22px, 6vw, 28px);
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.c-restNextIdentity__muscles {
+  margin: 0;
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-medium);
+  color: color-mix(in oklab, var(--color-textPrimary) 55%, transparent);
+  letter-spacing: 0.06em;
+}
+.c-restNextIdentity__muscles em {
+  font-style: normal;
+  color: var(--color-primary);
+  opacity: 0.6;
+}
+.c-restNextIdentity__stats {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-8);
+  flex-wrap: wrap;
+}
+.c-restNextIdentity__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+.c-restNextIdentity__metaLabel {
+  font-size: var(--type-micro-size);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--color-textPrimary) 40%, transparent);
+  font-weight: var(--weight-semibold);
+}
+.c-restNextIdentity__metaValue {
+  font-family: var(--font-numeric, var(--font-primary));
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+}
+.c-restNextIdentity__metaValue b { font-weight: var(--weight-bold); }
+.c-restNextIdentity__metaValue em {
+  font-style: normal;
+  color: color-mix(in oklab, var(--color-textPrimary) 35%, transparent);
+  margin: 0 2px;
+  font-weight: var(--weight-medium);
+}
+.c-restNextIdentity__perfEmpty {
+  font-style: italic;
+  font-weight: var(--weight-medium);
+  color: color-mix(in oklab, var(--color-textPrimary) 35%, transparent);
+}
+/* Crossfade dell'identity fra cambi di esercizio (basato su data-anim-key) */
+.c-restNextIdentity {
+  transition: opacity var(--duration-fade) var(--curve-default);
+}
+
+/* ---- RestTimeline -------------------------------------------------------- */
+.c-restTimeline {
+  width: 100%;
+  max-width: 320px;
+  padding: var(--space-4) 0;
+  animation: c-restTimeline-in var(--duration-slow) var(--curve-default) 160ms both;
+}
+@keyframes c-restTimeline-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.c-restTimeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+}
+.c-restTimeline__row {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-medium);
+  position: relative;
+}
+/* Guida verticale continua fra i marker */
+.c-restTimeline__row:not(.is-last)::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-8) + 10px);
+  top: 100%;
+  width: 2px;
+  height: 2px;
+  transform: translateX(-1px);
+  background: color-mix(in oklab, var(--color-textPrimary) 12%, transparent);
+}
+.c-restTimeline__mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: var(--weight-bold);
+}
+.c-restTimeline__mark--done {
+  background: color-mix(in oklab, var(--color-success) 20%, transparent);
+  color: var(--color-success);
+}
+.c-restTimeline__mark--active {
+  background: var(--color-primary);
+  /* 0 0 0 3px halo + var(--glow-primary) = 0 0 12px @45% */
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--color-primary) 24%, transparent),
+    var(--glow-primary);
+  animation: c-restTimeline-pulse var(--duration-pulse-slow) var(--curve-inOut) infinite;
+}
+@keyframes c-restTimeline-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 24%, transparent), var(--glow-primary); }
+  50%      { transform: scale(1.06); box-shadow: 0 0 0 5px color-mix(in oklab, var(--color-primary) 18%, transparent), 0 0 16px color-mix(in oklab, var(--color-primary) 60%, transparent); }
+}
+.c-restTimeline__mark--upcoming {
+  background: transparent;
+  border: 2px solid color-mix(in oklab, var(--color-textPrimary) 20%, transparent);
+}
+.c-restTimeline__label {
+  font-size: var(--type-body-size);
+  color: color-mix(in oklab, var(--color-textPrimary) 65%, transparent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.c-restTimeline__row.is-done   .c-restTimeline__label {
+  color: color-mix(in oklab, var(--color-textPrimary) 45%, transparent);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in oklab, var(--color-textPrimary) 20%, transparent);
+}
+.c-restTimeline__row.is-active .c-restTimeline__label {
+  color: var(--color-textPrimary);
+  font-weight: var(--weight-bold);
+}
+
+/* ---- RestActionsV2 ------------------------------------------------------- */
+.c-restActionsV2 {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(160px, 2fr);
+  gap: var(--space-12);
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  animation: c-restActions-in var(--duration-slow) var(--curve-default) 240ms both;
+}
+@keyframes c-restActions-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.c-restActionsV2__btn {
+  min-height: 56px;
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default),
+    background var(--duration-fast) var(--curve-default);
+}
+.c-restActionsV2__btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.c-restActionsV2__btn:active { transform: translateY(0) scale(0.985); }
+.c-restActionsV2__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.c-restActionsV2__btn--secondary {
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  color: color-mix(in oklab, var(--color-textPrimary) 90%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 12%, transparent);
+}
+.c-restActionsV2__btn--secondary:hover {
+  background: color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+}
+/* Chip inline "+15s" — usa il pattern .c-badge Foundation (variante primary
+   tinted). Non estende .c-badge come classe per non toccare API pubblica del
+   componente ma ne rispetta contratto visivo. */
+.c-restActionsV2__glyph {
+  font-family: var(--font-numeric, var(--font-primary));
+  font-size: var(--type-caption-size);
+  padding: 2px var(--space-8);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-primary) 18%, transparent);
+  color: var(--color-primary);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.c-restActionsV2__btn--primary {
+  background: var(--gradient-cta);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-cta);
+}
+.c-restActionsV2__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+}
+.c-restActionsV2__arrow {
+  font-size: 20px;
+  line-height: 1;
+  transform: translateX(0);
+  transition: transform var(--duration-fast) var(--curve-default);
+}
+.c-restActionsV2__btn--primary:hover .c-restActionsV2__arrow { transform: translateX(4px); }
+
+/* ---- Responsive ---------------------------------------------------------- */
+/* Mobile default (≤767px): compattiamo l'ExerciseIdentity lg all'interno della
+   Rest Scene per evitare overflow verticale. La size resta 'lg' logicamente
+   (badge/ring intatti) ma la primitiva ExerciseVisual viene scalata. */
+@media (max-width: 767px) {
+  .c-restNextIdentity .c-exVisual--lg {
+    width:  min(34vw, 140px);
+    height: min(34vw, 140px);
+  }
+  .c-restSceneV2__body { gap: var(--space-8); padding: var(--space-4) 0 var(--space-8); }
+  .c-restCountdownHero { padding: var(--space-4) 0 0; gap: var(--space-4); --rt-size: 190px; }
+  .c-restCountdownHero__halo { width: 240px; height: 240px; }
+  .c-restCountdownHero__halo--outer { width: 320px; height: 320px; }
+  .c-restCountdownHero .c-circularRestTimer__time { font-size: 68px; }
+  .c-restNextIdentity { padding: 0 var(--space-8); gap: var(--space-4); }
+  .c-restNextIdentity__eyebrow { font-size: 10px; letter-spacing: 0.22em; }
+  .c-restNextIdentity__title { font-size: 19px; }
+  .c-restNextIdentity__muscles { font-size: 12px; }
+  .c-restNextIdentity__stats { margin-top: var(--space-4); gap: var(--space-12); }
+  .c-restNextIdentity__metaLabel { font-size: 9px; }
+  .c-restNextIdentity__metaValue { font-size: 13px; }
+  .c-restTimeline { padding: 0; max-width: 300px; }
+  .c-restTimeline__list { gap: 0; }
+  .c-restTimeline__row { padding: 2px var(--space-8); }
+  .c-restTimeline__label { font-size: 12px; }
+  .c-restTimeline__mark { width: 18px; height: 18px; font-size: 11px; }
+  .c-restSceneV2__actions { margin-top: var(--space-4); }
+  .c-restActionsV2__btn { min-height: 52px; }
+}
+@media (max-width: 380px) {
+  .c-restSceneV2 { padding-left: var(--space-16); padding-right: var(--space-16); }
+  .c-restCountdownHero { --rt-size: 176px; }
+  .c-restCountdownHero__halo { width: 220px; height: 220px; }
+  .c-restCountdownHero__halo--outer { width: 300px; height: 300px; }
+  .c-restNextIdentity .c-exVisual--lg { width: 40vw; height: 40vw; }
+  .c-restActionsV2 { grid-template-columns: 1fr 1fr; }
+  .c-restActionsV2__btn { min-height: 48px; font-size: var(--type-caption-size); letter-spacing: 0.06em; }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .c-restSceneV2__body { gap: var(--space-12); }
+}
+@media (min-width: 768px) {
+  .c-restSceneV2 {
+    max-width: 640px;
+    padding: var(--space-8) var(--space-24) calc(var(--space-8) + env(safe-area-inset-bottom));
+  }
+  .c-restSceneV2__body {
+    gap: var(--space-8);
+    justify-content: flex-start;
+    padding: var(--space-4) 0 var(--space-4);
+  }
+  .c-restCountdownHero { --rt-size: 190px; padding: var(--space-4) 0; gap: var(--space-8); }
+  .c-restCountdownHero__halo { width: 260px; height: 260px; }
+  .c-restCountdownHero__halo--outer { width: 340px; height: 340px; }
+  .c-restNextIdentity { max-width: 520px; padding: var(--space-4) var(--space-8); gap: var(--space-4); }
+  .c-restNextIdentity .c-exVisual--lg { width: 140px; height: 140px; }
+  .c-restNextIdentity__stats { margin-top: var(--space-4); }
+  .c-restTimeline { padding: 0; }
+  .c-restTimeline__row { padding: 2px var(--space-8); }
+  .c-restSceneV2__actions { margin-top: 0; }
+}
+@media (min-width: 768px) and (min-height: 950px) {
+  .c-restCountdownHero { --rt-size: 220px; padding: var(--space-8) 0; }
+  .c-restCountdownHero__halo { width: 300px; height: 300px; }
+  .c-restCountdownHero__halo--outer { width: 400px; height: 400px; }
+  .c-restNextIdentity .c-exVisual--lg { width: 190px; height: 190px; }
+  .c-restNextIdentity { padding: var(--space-8); }
+  .c-restSceneV2__body { gap: var(--space-12); }
+}
+
+/* ---- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .c-restOverlay,
+  .c-restCountdownHero,
+  .c-restCountdownHero__halo,
+  .c-restCountdownHero__message,
+  .c-restCountdownHero .c-circularRestTimer__time,
+  .c-restNextIdentity,
+  .c-restTimeline,
+  .c-restTimeline__mark--active,
+  .c-restActionsV2,
+  .c-wsh__hairline--rest > i {
+    animation: none !important;
+    transition: none !important;
+  }
+}

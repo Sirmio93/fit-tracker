@@ -100,39 +100,6 @@
   to   { transform: translateY(0); }
 }
 
-/* ---- Snackbar -------------------------------------------------------------- */
-.c-snackbar {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-16);
-  padding: var(--space-12) var(--space-16);
-  background: var(--color-textPrimary);
-  color: var(--color-background);
-  border-radius: var(--radius-large);
-  box-shadow: var(--shadow-lg);
-  z-index: var(--z-toast);
-  animation: c-toast-in var(--duration-normal) var(--curve-default);
-}
-.c-snackbar__message { font-size: var(--type-body-size); }
-.c-snackbar__action {
-  background: transparent;
-  border: none;
-  color: var(--color-primary);
-  font-weight: var(--weight-semibold);
-  font-size: var(--type-caption-size);
-  cursor: pointer;
-  padding: var(--space-4) var(--space-8);
-  border-radius: var(--radius-small);
-  min-height: var(--touch-minimum);
-  letter-spacing: var(--track-wide);
-  text-transform: uppercase;
-}
-.c-snackbar__action:hover  { background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-hover) * 100%), transparent); }
-.c-snackbar__action:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
-}
-
 /* ---- Banner ---------------------------------------------------------------- */
 .c-banner {
   display: flex;

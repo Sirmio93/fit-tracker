@@ -1,3 +1,8 @@
+> **HISTORICAL REPORT — non rappresenta il current state del repository.**
+> Documento storico della precedente roadmap Fase 10. Referenzia pattern legacy (`focusView` con `primary|ok|bad`, `restDock`, `timerDock`, `#modalHost`) e branch fallback che sono stati eliminati o superati dalla ricostruzione UI Phase 2 (Sprint 9.x). Per lo stato attuale, vedere [FINAL_PROJECT_STATE.md](./FINAL_PROJECT_STATE.md).
+
+---
+
 ## STEP11_REPORT — Step 11.A · Migrazione `<button class="primary|ok|bad">` → `UI.Button`
 
 **Versione:** 1.0

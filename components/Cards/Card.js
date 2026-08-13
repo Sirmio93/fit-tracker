@@ -1,14 +1,15 @@
 /* ==========================================================================
    Cards/Card.js
-   Card base. Le varianti sono file distinti (HeroCard, WorkoutCard, ...) che
-   invocano `Card({variant})` con lo slot `extra` per il contenuto specifico.
+   Card base parametrica. Il variant è passato come opts.variant e viene
+   emesso come modifier .c-card--{variant}. Le CSS variant vivono in
+   cards.css. Lo slot `extra` accoglie il contenuto specifico.
    ========================================================================== */
 
 import { esc, cx, attr } from '../Shared/helpers.js';
 
 /**
  * @param {Object} [opts]
- * @param {string} [opts.variant] — 'hero'|'workout'|'statistic'|'history'|'record'|'goal'|'empty'|'loading'|'exercise'|undefined
+ * @param {string} [opts.variant] — 'statistic'|'history'|'empty'|'exercise'|'exerciseHero'|undefined
  * @param {string} [opts.eyebrow]
  * @param {string} [opts.title]
  * @param {string} [opts.body]

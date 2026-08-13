@@ -1,7 +1,7 @@
 /* ==========================================================================
    Workout/workout.css
    WeightPicker · RepsPicker · ProgressRing · FloatingTimer · NextExercise ·
-   WorkoutHeader · CompleteButton · RestScreen. Solo Design Tokens.
+   WorkoutHeader · CompleteButton. Solo Design Tokens.
    ========================================================================== */
 
 /* ---- Picker (Weight & Reps) ----------------------------------------------- */
@@ -35,7 +35,7 @@
 .c-picker__btn:active { background: color-mix(in srgb, var(--color-primary) calc(var(--opacity-pressed) * 100%), var(--color-surfaceActive)); transform: scale(0.94); }
 .c-picker__btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+  box-shadow: var(--shadow-focus-sm);
 }
 .c-picker__btn:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
 
@@ -58,52 +58,11 @@
   color: var(--color-textSecondary);
 }
 
-/* ---- ProgressRing ---------------------------------------------------------- */
-.c-progressRing { display: inline-block; }
-.c-progressRing__track { stroke: var(--color-surfaceActive); }
-.c-progressRing__fill  {
-  stroke: var(--color-primary);
-  transition: stroke-dashoffset var(--duration-slow) var(--curve-default);
-}
-.c-progressRing__label {
-  font-family: var(--font-numeric);
-  font-variant-numeric: tabular-nums;
-  fill: var(--color-textPrimary);
-  font-size: var(--type-h3-size);
-  font-weight: var(--weight-bold);
-  text-anchor: middle;
-}
-
-/* ---- FloatingTimer --------------------------------------------------------- */
-.c-floatingTimer {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-12);
-  padding: var(--space-12) var(--space-20);
-  background: var(--color-surfaceElevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-lg);
-  z-index: var(--z-sticky);
-}
-.c-floatingTimer__icon { color: var(--color-primary); display: inline-flex; }
-.c-floatingTimer__body { display: inline-flex; flex-direction: column; gap: 2px; }
-.c-floatingTimer__time {
-  font-family: var(--font-numeric);
-  font-variant-numeric: tabular-nums;
-  font-size: var(--type-h3-size);
-  font-weight: var(--weight-bold);
-  color: var(--color-primary);
-  line-height: 1;
-}
-.c-floatingTimer__label {
-  font-size: var(--type-caption-size);
-  color: var(--color-textSecondary);
-  line-height: 1;
-}
-.c-floatingTimer[data-timer-state="paused"] .c-floatingTimer__icon,
-.c-floatingTimer[data-timer-state="paused"] .c-floatingTimer__time { color: var(--color-textSecondary); }
+/* ---- ProgressRing --------------------------------------------------------- */
+/* Sprint 9.2B — le regole track/fill/label sono state promosse su .c-ring
+   (Foundation/ring.css). ProgressRing è ora un thin adapter che emette
+   .c-ring con la classe extra .c-progressRing per gli hook di layout
+   (es. .focusRingWrap .c-progressRing in styles.css). */
 
 /* ---- NextExercise ---------------------------------------------------------- */
 .c-nextExercise {
@@ -129,43 +88,991 @@
   color: var(--color-textPrimary);
 }
 
-/* ---- WorkoutHeader --------------------------------------------------------- */
+/* ---- WorkoutHeader — Collapsible sticky (Hotfix) -------------------------- */
 .c-workoutHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  padding: var(--space-24);
-  background: var(--gradient-workout);
-  color: var(--color-textOnPrimary);
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16) var(--space-16);
+  background: color-mix(in oklab, var(--color-surface) 92%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  color: var(--color-textPrimary);
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow-floating);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm, var(--shadow-md));
+  overflow: hidden;
+  transition:
+    gap        var(--duration-normal, 200ms) var(--curve-default),
+    padding    var(--duration-normal, 200ms) var(--curve-default),
+    border-radius var(--duration-normal, 200ms) var(--curve-default),
+    box-shadow var(--duration-normal, 200ms) var(--curve-default);
 }
-.c-workoutHeader__eyebrow {
-  font-size: var(--type-small-size);
+/* Elements shown only in the corresponding state. */
+.c-workoutHeader[data-collapsed="0"] .c-workoutHeader__slot--collapsed,
+.c-workoutHeader[data-collapsed="1"] .c-workoutHeader__slot--expanded {
+  display: none !important;
+}
+
+.c-workoutHeader__topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: var(--touch-minimum, 48px);
+}
+.c-workoutHeader__topbarCenter {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+.c-workoutHeader[data-collapsed="1"] .c-workoutHeader__topbarCenter {
+  justify-content: flex-start;
+}
+.c-workoutHeader__toolbarTitle {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  line-height: 1.15;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  color: var(--color-textPrimary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 100%;
+}
+.c-workoutHeader__toolbarActions {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.c-workoutHeader__toolbarActions > * { flex: 0 0 auto; }
+
+.c-workoutHeader__iconBtn,
+.c-workoutHeader__iconSlot {
+  width: var(--touch-minimum, 48px);
+  height: var(--touch-minimum, 48px);
+  min-width: var(--touch-minimum, 48px);
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    transform var(--duration-fast) var(--curve-default),
+    width var(--duration-normal, 200ms) var(--curve-default),
+    height var(--duration-normal, 200ms) var(--curve-default);
+}
+.c-workoutHeader[data-collapsed="1"] .c-workoutHeader__iconBtn,
+.c-workoutHeader[data-collapsed="1"] .c-workoutHeader__iconSlot {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+}
+.c-workoutHeader__iconBtn:hover  { background: var(--color-surfaceActive); }
+.c-workoutHeader__iconBtn:active { transform: scale(0.94); }
+.c-workoutHeader__iconBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.c-workoutHeader__iconBtn--back svg { transform: rotate(180deg); }
+.c-workoutHeader__iconSlot { border: none; background: transparent; }
+
+.c-workoutHeader__round {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: 6px var(--space-12);
+  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-body-size);
+}
+.c-workoutHeader__roundLabel {
   text-transform: uppercase;
   letter-spacing: var(--track-wide);
-  font-weight: var(--weight-semibold);
-  color: var(--color-textOnPrimary);
-  opacity: 0.85;
+  font-size: var(--type-small-size);
+  margin-right: 2px;
+}
+.c-workoutHeader__roundValue,
+.c-workoutHeader__roundTotal {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-bold);
+  font-size: var(--type-title-size);
+}
+.c-workoutHeader__roundSep {
+  color: color-mix(in oklab, var(--color-primary) 60%, var(--color-textSecondary));
+  font-size: var(--type-small-size);
+}
+.c-workoutHeader__round--text {
+  font-size: var(--type-caption-size);
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+}
+
+/* Body (expanded): titolo XL + subtitle + azioni. */
+.c-workoutHeader__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 0 var(--space-4);
 }
 .c-workoutHeader__title {
+  margin: 0;
   font-size: var(--type-h2-size);
   line-height: var(--type-h2-line);
   font-weight: var(--type-h2-weight);
-  margin: 0;
-  color: var(--color-textOnPrimary);
+  letter-spacing: -0.01em;
+  color: var(--color-textPrimary);
 }
-.c-workoutHeader__row {
+.c-workoutHeader__subtitle {
+  margin: 0;
+  font-size: var(--type-body-size);
+  color: var(--color-textSecondary);
+}
+.c-workoutHeader__actions,
+.c-workoutHeader__extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+/* Shrink chrome quando collassato. */
+.c-workoutHeader[data-collapsed="1"] {
+  gap: 0;
+  padding: var(--space-8) var(--space-12);
+  border-radius: 0;
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.08));
+}
+
+/* Sticky progress strip (bottom hairline). Sempre in DOM; visibile in collassato. */
+.c-workoutHeader__progressStrip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal, 200ms) var(--curve-default);
+  pointer-events: none;
+  overflow: hidden;
+}
+.c-workoutHeader__progressStrip > i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-workout, linear-gradient(90deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+  transition: width var(--duration-slow, 320ms) var(--curve-default);
+}
+.c-workoutHeader[data-collapsed="1"] .c-workoutHeader__progressStrip { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .c-workoutHeader,
+  .c-workoutHeader__iconBtn,
+  .c-workoutHeader__progressStrip,
+  .c-workoutHeader__progressStrip > i {
+    transition: none !important;
+  }
+}
+
+/* ---- WorkoutStickyHeader — Sprint 9.1A (Unified Session Header) ----------- */
+/* Contract: JS scrive `--collapse` (0..1) sul root; il CSS interpola in
+   continuo tutte le trasformazioni con calc(). Nessun display:none sugli
+   elementi principali — sono sempre in DOM per evitare reflow e mantenere
+   focus coerente. `data-collapsed` cambia solo pointer-events/aria-hidden.
+   `.c-wsh--immersive` (data-immersive="1") disattiva sticky/blur/hairline. */
+.c-wsh {
+  --collapse: 0;
+  --wsh-pad-x: var(--space-16);
+  --wsh-pad-y-max: var(--space-14, 14px);
+  --wsh-pad-y-min: 8px;
+  --wsh-body-max: 180px;
+  --wsh-safe-top: env(safe-area-inset-top, 0px);
+  --wsh-safe-left: env(safe-area-inset-left, 0px);
+  --wsh-safe-right: env(safe-area-inset-right, 0px);
+
+  position: sticky;
+  /* Sticky ancorata al top del viewport (top:0). Il background/blur si
+     estende SOTTO il notch iOS grazie al safe-inset-top aggiunto al
+     padding-top: così l'area del notch appare tinta come l'header, e il
+     contenuto interattivo resta sotto la safe-area. */
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: calc((1 - var(--collapse)) * var(--space-12));
+  /* Padding: verticale interpolato + safe-inset-top; orizzontale rispetta
+     la gesture-nav Android e il notch landscape iOS. */
+  padding:
+    calc(var(--wsh-safe-top) + var(--wsh-pad-y-max) - (var(--wsh-pad-y-max) - var(--wsh-pad-y-min)) * var(--collapse))
+    max(var(--wsh-pad-x), var(--wsh-safe-right))
+    calc(var(--wsh-pad-y-max) - (var(--wsh-pad-y-max) - var(--wsh-pad-y-min)) * var(--collapse))
+    max(var(--wsh-pad-x), var(--wsh-safe-left));
+  background: color-mix(in oklab, var(--color-surface) 92%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  color: var(--color-textPrimary);
+  border-radius: calc((1 - var(--collapse)) * var(--radius-large));
+  border: 1px solid color-mix(in oklab, var(--color-border) calc(100% - var(--collapse) * 100%), transparent);
+  box-shadow:
+    0 calc(var(--collapse) * 12px) calc(var(--collapse) * 24px)
+    color-mix(in oklab, black calc(var(--collapse) * 10%), transparent),
+    var(--shadow-sm, var(--shadow-md));
+  overflow: hidden;
+  transition:
+    gap        var(--duration-normal, 200ms) var(--curve-default),
+    padding    var(--duration-normal, 200ms) var(--curve-default),
+    border-radius var(--duration-normal, 200ms) var(--curve-default),
+    box-shadow var(--duration-normal, 200ms) var(--curve-default),
+    border-color var(--duration-normal, 200ms) var(--curve-default);
+}
+
+.c-wsh__topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-16);
+  gap: var(--space-8);
+  min-height: 48px;
 }
-.c-workoutHeader__progress {
-  color: var(--color-textOnPrimary);
+
+/* Center: layer expanded (segments) e compact (title+pct+CTA) sovrapposti
+   in un unico grid slot; nessuno viene rimosso dal DOM. */
+.c-wsh__center {
+  flex: 1 1 auto;
+  min-width: 0;
+  position: relative;
+  display: grid;
+  grid-template-areas: 'stack';
+  align-items: center;
+}
+.c-wsh__expandedSlot,
+.c-wsh__compactSlot {
+  grid-area: stack;
+  min-width: 0;
+  transition:
+    opacity   var(--duration-normal, 200ms) var(--curve-default),
+    transform var(--duration-normal, 200ms) var(--curve-default);
+  will-change: opacity, transform;
+}
+.c-wsh__expandedSlot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-8);
+  /* Opacity accelerata: sparisce entro --collapse≈0.55 */
+  opacity: calc(1 - var(--collapse) * 1.8);
+  transform: translateY(calc(var(--collapse) * -4px));
+}
+.c-wsh__compactSlot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-width: 0;
+  /* Compare dopo --collapse≈0.4 */
+  opacity: calc(var(--collapse) * 1.8 - 0.4);
+  transform: translateY(calc((1 - var(--collapse)) * 4px));
+}
+.c-wsh[data-collapsed="0"] .c-wsh__compactSlot,
+.c-wsh[data-collapsed="1"] .c-wsh__expandedSlot {
+  pointer-events: none;
+}
+
+/* Segments (ereditati dal linguaggio WorkoutTopBar, ma scoped su WSH) */
+.c-wsh__segments {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 6px;
+  width: 100%;
+  max-width: 320px;
+}
+.c-wsh__seg {
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+  transition: background var(--duration-normal) var(--curve-default);
+}
+.c-wsh__seg.is-done   { background: color-mix(in oklab, var(--color-primary) 65%, transparent); }
+.c-wsh__seg.is-active {
+  background: var(--color-primary);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--color-primary) 55%, transparent);
+}
+
+/* Compact center content */
+/* Compact info line — MAI il nome del giorno (Sprint 9.1A #3).
+   Contiene "Round X/Y" o "Set X/Y"; se assente collassa a spacer trasparente
+   in modo che la pill % resti allineata a sinistra. */
+.c-wsh__compactInfo {
+  font-family: var(--font-primary);
+  font-variant-numeric: tabular-nums;
   font-size: var(--type-body-size);
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1 1 auto;
 }
-.c-workoutHeader__actions { display: inline-flex; gap: var(--space-8); }
+.c-wsh__compactInfo--pct-only { visibility: hidden; }
+.c-wsh__compactPct {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  flex: 0 0 auto;
+  padding: 2px var(--space-8);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+}
+.c-wsh__compactCta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px var(--space-12);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-workout,
+    linear-gradient(135deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+  color: var(--color-textOnPrimary, #fff);
+  font-family: var(--font-primary);
+  font-weight: var(--weight-bold);
+  font-size: var(--type-caption-size);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px color-mix(in oklab, var(--color-primary) 30%, transparent);
+  transition:
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default);
+}
+.c-wsh__compactCta:hover  { transform: translateY(-1px); }
+.c-wsh__compactCta:active { transform: scale(0.96); }
+.c-wsh__compactCta:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.c-wsh__compactCtaIcon { font-size: 10px; line-height: 1; }
+.c-wsh__compactCtaLabel { white-space: nowrap; }
+
+/* Icon buttons — leggera contrazione in compact per aria pulita */
+.c-wsh__iconBtn,
+.c-wsh__iconSlot {
+  width: calc(48px - var(--collapse) * 8px);
+  height: calc(48px - var(--collapse) * 8px);
+  min-width: calc(48px - var(--collapse) * 8px);
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition:
+    background var(--duration-fast) var(--curve-default),
+    transform  var(--duration-fast) var(--curve-default);
+}
+.c-wsh__iconBtn:hover  { background: var(--color-surfaceActive); }
+.c-wsh__iconBtn:active { transform: scale(0.94); }
+.c-wsh__iconBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.c-wsh__iconBtn--back svg { transform: rotate(180deg); }
+.c-wsh__iconSlot { border: none; background: transparent; cursor: default; }
+
+/* Body espanso: titolo XL + subtitle + azioni. Si comprime in continuo. */
+.c-wsh__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 0 var(--space-4);
+  /* Interpolazione lineare della "presenza" del body — l'altezza collassa
+     tramite max-height, opacity accelera per sparire prima che il contenuto
+     entri in overlap con la toolbar compatta. */
+  max-height: calc((1 - var(--collapse)) * var(--wsh-body-max));
+  opacity: calc(1 - var(--collapse) * 1.6);
+  transform:
+    translateY(calc(var(--collapse) * -6px))
+    scale(calc(1 - var(--collapse) * 0.03));
+  transform-origin: top left;
+  overflow: hidden;
+  transition:
+    max-height var(--duration-normal, 200ms) var(--curve-default),
+    opacity    var(--duration-normal, 200ms) var(--curve-default),
+    transform  var(--duration-normal, 200ms) var(--curve-default);
+}
+.c-wsh[data-collapsed="1"] .c-wsh__body { pointer-events: none; }
+.c-wsh__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-line);
+  font-weight: var(--type-h2-weight);
+  letter-spacing: -0.01em;
+  color: var(--color-textPrimary);
+}
+.c-wsh__subtitle {
+  margin: 0;
+  font-size: var(--type-body-size);
+  color: var(--color-textSecondary);
+}
+.c-wsh__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+/* Hairline sticky di progresso — sempre in DOM, invisibile in expanded,
+   4px in compact. Interpolazione lineare via `opacity: --collapse`. */
+.c-wsh__hairline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  opacity: var(--collapse);
+  pointer-events: none;
+  overflow: hidden;
+}
+.c-wsh__hairline > i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-workout,
+    linear-gradient(90deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+  /* Sprint 9.1A #2: la progress-bar deve animarsi. Durata 240ms + ease-out
+     esplicito → mai un update istantaneo, mai un salto secco quando pct cambia. */
+  transition: width 240ms var(--curve-easeOut, cubic-bezier(0, 0, 0.2, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-wsh,
+  .c-wsh__body,
+  .c-wsh__expandedSlot,
+  .c-wsh__compactSlot,
+  .c-wsh__iconBtn,
+  .c-wsh__hairline > i { transition: none !important; }
+}
+
+@media (min-width: 768px) {
+  .c-wsh { --wsh-pad-x: var(--space-20); }
+}
+
+/* Landscape corto (mobile ruotato). La viewport si accorcia: comprimiamo il
+   body max-height e il padding-y così l'header non mangia più del 40% dello
+   schermo. La curva del morphing resta identica. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .c-wsh {
+    --wsh-body-max: 108px;
+    --wsh-pad-y-max: 8px;
+    --wsh-pad-y-min: 6px;
+  }
+  .c-wsh__title    { font-size: var(--type-title-size); line-height: 1.15; }
+  .c-wsh__subtitle { font-size: var(--type-caption-size); }
+  .c-wsh__actions  { margin-top: var(--space-4); }
+}
+
+/* ---- Immersive variant (Sprint 9.1A #1 — unificazione con WorkoutTopBar). */
+/* Usata nella scena focus-single (`.c-workoutSceneV2`): niente sticky, niente
+   background/blur/border/hairline. Solo topbar con "Serie X di Y" testuale
+   + segments sotto. Il body espanso, il compact overlap e la hairline sono
+   inibiti perché non hanno senso in una scena a schermo intero senza scroll. */
+.c-wsh--immersive {
+  position: static;
+  top: auto;
+  z-index: auto;
+  gap: var(--space-8);
+  padding: var(--space-4) 0 var(--space-8);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  transition: none;
+}
+.c-wsh--immersive .c-wsh__topbar {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: var(--space-12);
+  min-height: 44px;
+}
+.c-wsh--immersive .c-wsh__iconBtn,
+.c-wsh--immersive .c-wsh__iconSlot {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border: none;
+  background: transparent;
+  color: color-mix(in oklab, var(--color-textPrimary) 75%, transparent);
+}
+.c-wsh--immersive .c-wsh__iconBtn:hover {
+  color: var(--color-textPrimary);
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+}
+.c-wsh--immersive .c-wsh__iconSlot { border: none; background: transparent; }
+.c-wsh--immersive .c-wsh__center { justify-self: center; }
+.c-wsh__immersiveTitle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  font-family: var(--font-primary);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textPrimary);
+  letter-spacing: 0;
+}
+.c-wsh__immersiveLabel {
+  color: color-mix(in oklab, var(--color-textPrimary) 55%, transparent);
+  font-weight: var(--weight-medium);
+}
+.c-wsh__immersiveValue,
+.c-wsh__immersiveTotal {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+.c-wsh__immersiveSep {
+  color: color-mix(in oklab, var(--color-textPrimary) 40%, transparent);
+  font-weight: var(--weight-medium);
+}
+.c-wsh--immersive .c-wsh__segments {
+  max-width: 280px;
+  gap: 8px;
+  padding: 0 var(--space-8);
+  margin: 0 auto;
+}
+.c-wsh--immersive .c-wsh__seg { height: 5px; }
+
+/* ---- WorkoutProgress (Sprint 8.5) ----------------------------------------- */
+.c-workoutProgress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+.c-workoutProgress__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+.c-workoutProgress__label {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-weight: var(--weight-semibold);
+}
+.c-workoutProgress__pct {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  font-size: var(--type-title-size);
+}
+.c-workoutProgress__track {
+  position: relative;
+  height: 8px;
+  background: color-mix(in oklab, var(--color-textPrimary) 8%, transparent);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.c-workoutProgress__fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-workout, linear-gradient(90deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+  border-radius: inherit;
+  transition: width var(--duration-slow, 320ms) var(--curve-default);
+}
+
+/* ---- ExerciseHero (Sprint 8.5) -------------------------------------------- */
+.c-exerciseHeroFocus {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+  padding: var(--space-16);
+  background: color-mix(in oklab, var(--color-primary) 4%, var(--color-surfaceElevated));
+  border: 1px solid color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+  border-radius: var(--radius-large);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-primary) 20%, transparent),
+    0 12px 28px color-mix(in oklab, var(--color-primary) 14%, transparent);
+  animation: c-exerciseHero-slideIn 240ms var(--curve-default) both;
+  will-change: transform, opacity;
+}
+.c-exerciseHeroFocus[data-anim-key] {
+  animation: c-exerciseHero-slideIn 220ms var(--curve-default) both;
+}
+@keyframes c-exerciseHero-slideIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)     scale(1); }
+}
+/* Phase 2.3 — il media hospita ExerciseIdentity (size='lg'): niente più
+   gradient di sfondo o icona placeholder qui, perché il visual è
+   auto-consistente (mannequin + eventuale artwork + badge). */
+.c-exerciseHeroFocus__media {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) 0;
+}
+.c-exerciseHeroFocus__media > .c-exId { max-width: 100%; }
+.c-exerciseHeroFocus__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+}
+.c-exerciseHeroFocus__eyebrow {
+  font-size: var(--type-small-size);
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__title {
+  margin: 0;
+  font-size: var(--type-h3-size, var(--type-title-size));
+  line-height: 1.15;
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+  letter-spacing: -0.01em;
+}
+.c-exerciseHeroFocus__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+.c-exerciseHeroFocus__equipment {
+  font-size: var(--type-caption-size);
+  padding: 2px var(--space-8);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__target {
+  font-size: var(--type-caption-size);
+  padding: 2px var(--space-8);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__musclesRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.c-exerciseHeroFocus__musclesLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-size: var(--type-small-size);
+  color: var(--color-textDisabled);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__musclesList {
+  font-size: var(--type-body-size);
+  color: var(--color-textPrimary);
+  font-weight: var(--weight-semibold);
+  overflow-wrap: anywhere;
+}
+.c-exerciseHeroFocus__setInfo {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+}
+.c-exerciseHeroFocus__setChip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-medium);
+  background: color-mix(in oklab, var(--color-textPrimary) 5%, transparent);
+  border: 1px solid var(--color-divider);
+  min-width: 82px;
+}
+.c-exerciseHeroFocus__setChip--primary {
+  background: color-mix(in oklab, var(--color-primary) 14%, transparent);
+  border-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+.c-exerciseHeroFocus__setChipLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-size: var(--type-small-size);
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__setChipValue {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-h3-size);
+  line-height: 1;
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.c-exerciseHeroFocus__setChip--primary .c-exerciseHeroFocus__setChipValue {
+  color: var(--color-primary);
+}
+.c-exerciseHeroFocus__setChipValue i {
+  font-style: normal;
+  color: var(--color-textDisabled);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-semibold);
+  margin: 0 2px;
+}
+.c-exerciseHeroFocus__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px dashed var(--color-divider);
+}
+.c-exerciseHeroFocus__progressHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+.c-exerciseHeroFocus__progressLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-size: var(--type-small-size);
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__progressValue {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-caption-size);
+  color: var(--color-textPrimary);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__progressTrack {
+  position: relative;
+  height: 6px;
+  background: color-mix(in oklab, var(--color-textPrimary) 8%, transparent);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.c-exerciseHeroFocus__progressFill {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-workout, linear-gradient(90deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+  border-radius: inherit;
+  transition: width var(--duration-slow, 320ms) var(--curve-default);
+}
+.c-exerciseHeroFocus__perf {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px dashed var(--color-divider);
+}
+.c-exerciseHeroFocus__perfLabel {
+  font-size: var(--type-caption-size);
+  color: var(--color-textSecondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHeroFocus__perfValue {
+  font-size: var(--type-body-size);
+  color: var(--color-textPrimary);
+  font-variant-numeric: tabular-nums;
+}
+.c-exerciseHeroFocus__perfValue b {
+  font-weight: var(--weight-bold);
+  font-size: var(--type-title-size);
+  margin: 0 2px;
+}
+.c-exerciseHeroFocus__perf--empty .c-exerciseHeroFocus__perfValue {
+  color: var(--color-textDisabled);
+  font-style: italic;
+  font-size: var(--type-caption-size);
+}
+
+/* ---- Picker — stacked variant (Sprint 8.5) -------------------------------- */
+.c-picker--stacked {
+  flex-direction: column;
+  padding: var(--space-12);
+  gap: var(--space-12);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.c-picker--stacked .c-picker__display {
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  gap: 2px;
+}
+.c-picker--stacked .c-picker__value {
+  font-size: var(--type-display-size, 56px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.c-picker--stacked .c-picker__unit {
+  font-size: var(--type-caption-size);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-textSecondary);
+  font-weight: var(--weight-semibold);
+}
+.c-picker--stacked .c-picker__btn {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surfaceElevated);
+  border: 1px solid var(--color-border);
+}
+.c-picker--stacked.c-picker--lg .c-picker__value {
+  font-size: clamp(48px, 12vw, 72px);
+}
+.c-picker--stacked.c-picker--lg .c-picker__btn {
+  width: 64px;
+  height: 64px;
+}
+
+/* ---- CompleteSetButton (Sprint 8.5) --------------------------------------- */
+.c-completeSetBtn {
+  width: 100%;
+  min-height: 56px;
+  padding: var(--space-16) var(--space-24);
+  background: var(--gradient-workout, linear-gradient(135deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+  color: var(--color-textOnPrimary);
+  border: none;
+  border-radius: var(--radius-large);
+  font-family: var(--font-primary);
+  font-size: var(--type-title-size);
+  font-weight: var(--weight-bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  cursor: pointer;
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--color-primary) 28%, transparent);
+  transition:
+    transform  var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default),
+    background var(--duration-fast) var(--curve-default);
+}
+.c-completeSetBtn:hover  { box-shadow: 0 12px 32px color-mix(in oklab, var(--color-primary) 36%, transparent); }
+.c-completeSetBtn:active { transform: scale(0.98); }
+.c-completeSetBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.c-completeSetBtn:disabled,
+.c-completeSetBtn.is-disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.c-completeSetBtn.is-loading { color: transparent; pointer-events: none; position: relative; }
+.c-completeSetBtn.is-loading > * { visibility: hidden; }
+.c-completeSetBtn.is-loading::after {
+  content: '';
+  position: absolute;
+  width: var(--icon-medium);
+  height: var(--icon-medium);
+  border: 2px solid color-mix(in srgb, var(--color-textOnPrimary) 40%, transparent);
+  border-top-color: var(--color-textOnPrimary);
+  border-radius: var(--radius-pill);
+  animation: c-completeSet-spin var(--duration-slow) linear infinite;
+}
+@keyframes c-completeSet-spin { to { transform: rotate(360deg); } }
+.c-completeSetBtn.is-done {
+  background: var(--gradient-success, linear-gradient(135deg, var(--color-success), color-mix(in oklab, var(--color-success) 70%, var(--color-primary))));
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--color-success) 26%, transparent);
+}
+
+/* ---- Workout Screen wrappers (Sprint 8.5) --------------------------------- */
+.c-workoutScreen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--space-12);
+}
+.c-workoutScreen__pickers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+}
+.c-workoutScreen__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.c-workoutScreen__secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  opacity: 0.85;
+}
+.c-workoutScreen__hint {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .c-workoutScreen { max-width: 720px; padding: var(--space-24); gap: var(--space-24); }
+  .c-exerciseHeroFocus {
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+    padding: var(--space-20);
+  }
+  .c-exerciseHeroFocus__media { padding: var(--space-12) 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-exerciseHeroFocus,
+  .c-workoutProgress__fill { animation: none !important; transition: none !important; }
+}
 
 /* ---- CompleteButton -------------------------------------------------------- */
 .c-completeBtn {
@@ -193,7 +1100,7 @@
 .c-completeBtn:active { transform: scale(0.98); }
 .c-completeBtn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) calc(var(--opacity-focus) * 100%), transparent);
+  box-shadow: var(--shadow-focus-success);
 }
 .c-completeBtn:disabled, .c-completeBtn.is-disabled {
   opacity: var(--opacity-disabled);
@@ -213,34 +1120,3 @@
 }
 @keyframes c-complete-spin { to { transform: rotate(360deg); } }
 
-/* ---- RestScreen ------------------------------------------------------------ */
-.c-restScreen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-24);
-  padding: var(--space-48) var(--space-24);
-  background: var(--color-overlay);
-  color: var(--color-textOnPrimary);
-  border-radius: var(--radius-large);
-  min-height: var(--space-80);
-}
-.c-restScreen__time {
-  font-family: var(--font-numeric);
-  font-variant-numeric: tabular-nums;
-  font-size: var(--type-display-size);
-  line-height: var(--type-display-line);
-  font-weight: var(--type-display-weight);
-  letter-spacing: var(--type-display-track);
-  color: var(--color-textOnPrimary);
-}
-.c-restScreen__label {
-  font-size: var(--type-title-size);
-  color: var(--color-textOnPrimary);
-  opacity: 0.85;
-}
-.c-restScreen__actions {
-  display: inline-flex;
-  gap: var(--space-8);
-}

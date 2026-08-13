@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Foundation/ring.css — Sprint 9.2B (Unified Ring System)
+   CSS della primitiva Ring. Sostituisce gli stili di c-progressRing,
+   c-circularRestTimer__track/fill, c-todayCard__ringSvg/Track/Fill.
+   Solo Design Tokens: mai duration/curve/glow hardcoded.
+   ========================================================================== */
+
+.c-ring {
+  --ring-size: 96px;
+  --ring-color: var(--color-primary);
+  --ring-track: color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
+  --ring-transition: var(--duration-slow) var(--curve-easeOut);
+  --ring-glow: none;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  vertical-align: middle;
+}
+
+/* ---- Size presets --------------------------------------------------------- */
+.c-ring--xs { --ring-size:  32px; }
+.c-ring--sm { --ring-size:  48px; }
+.c-ring--md { --ring-size:  96px; }
+.c-ring--lg { --ring-size: 160px; }
+.c-ring--xl { --ring-size: 260px; }
+
+/* ---- Colors --------------------------------------------------------------- */
+.c-ring--color-primary { --ring-color: var(--color-primary); }
+.c-ring--color-success { --ring-color: var(--color-success); }
+.c-ring--color-warning { --ring-color: var(--color-warning, #F59E0B); }
+.c-ring--color-error   { --ring-color: var(--color-error); }
+.c-ring--color-neutral { --ring-color: var(--color-textPrimary); }
+
+/* ---- Track backgrounds ---------------------------------------------------- */
+.c-ring--bg-surface { --ring-track: var(--color-surfaceActive); }
+.c-ring--bg-subtle  { --ring-track: color-mix(in oklab, var(--color-textPrimary) 8%, transparent); }
+.c-ring--bg-transparent { --ring-track: transparent; }
+
+/* ---- Glow (via token) ----------------------------------------------------- */
+.c-ring--glow                       { --ring-glow: var(--glow-primary); }
+.c-ring--glow.c-ring--color-success { --ring-glow: var(--glow-success); }
+.c-ring--glow.c-ring--color-error   { --ring-glow: 0 0 12px color-mix(in oklab, var(--color-error) 45%, transparent); }
+
+/* ---- SVG / circles -------------------------------------------------------- */
+.c-ring__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(var(--ring-glow));
+}
+.c-ring__track {
+  stroke: var(--ring-track);
+}
+.c-ring__fill {
+  stroke: var(--ring-color);
+  transition:
+    stroke-dashoffset var(--ring-transition),
+    stroke var(--duration-slow) var(--curve-default);
+}
+.c-ring--static .c-ring__fill { transition: none; }
+
+/* ---- Center slot (label / countdown / custom) ----------------------------- */
+.c-ring__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.c-ring__label {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-bold);
+  color: var(--color-textPrimary);
+  font-size: var(--type-h3-size);
+  line-height: 1;
+}
+.c-ring--sm .c-ring__label { font-size: var(--type-caption-size); }
+.c-ring--xs .c-ring__label { font-size: var(--type-small-size); }
+
+/* ---- Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .c-ring__fill { transition: none !important; }
+}

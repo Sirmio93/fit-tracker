@@ -45,7 +45,7 @@
 .c-btn.is-pressed                            { transform: scale(0.97); }
 .c-btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+  box-shadow: var(--shadow-focus);
 }
 .c-btn:disabled, .c-btn.is-disabled {
   opacity: var(--opacity-disabled);
@@ -72,6 +72,27 @@
   --_bg:     var(--color-error);
   --_bg-h:   color-mix(in srgb, var(--color-error) 85%, black);
   --_fg:     var(--color-textOnPrimary);
+}
+
+/* Variante gradient "premium" — CTA hero della sessione (Sprint 9.2A).
+   Consuma --gradient-cta e --shadow-cta (definiti in tokens.css). Sostituisce
+   le implementazioni ad-hoc di workout-v2 (.c-completeSetBtn) e rest-v2
+   (.c-restActionsV2__btn--primary): stessi valori visivi, ora tokenizzati. */
+.c-btn--cta {
+  --_bg:     var(--gradient-cta);
+  --_bg-h:   var(--gradient-cta);
+  --_fg:     #FFFFFF;
+  --_border: transparent;
+  background: var(--gradient-cta);
+  box-shadow: var(--shadow-cta);
+}
+.c-btn--cta:hover:not(:disabled):not(.is-loading) {
+  background: var(--gradient-cta);
+  box-shadow: var(--shadow-cta-hover);
+  transform: translateY(-2px);
+}
+.c-btn--cta:active:not(:disabled):not(.is-loading) {
+  transform: translateY(0) scale(0.985);
 }
 
 /* Modificatori */
@@ -141,7 +162,7 @@
 .c-fab:active:not(:disabled) { transform: scale(0.94); }
 .c-fab:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent), var(--shadow-floating);
+  box-shadow: var(--shadow-focus), var(--shadow-floating);
 }
 .c-fab:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
 

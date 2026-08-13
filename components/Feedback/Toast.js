@@ -24,7 +24,10 @@ export function Toast(opts = {}) {
   const actionHtml = opts.action && opts.action.label
     ? `<button type="button" class="c-toast__action" data-toast-action="${esc(opts.action.actionId || 'primary')}">${esc(opts.action.label)}</button>`
     : '';
-  return `<div class="${cls}" role="status" aria-live="polite">
+  const isError = variant === 'error';
+  const role = isError ? 'alert' : 'status';
+  const live = isError ? 'assertive' : 'polite';
+  return `<div class="${cls}" role="${role}" aria-live="${live}">
     <span class="c-toast__icon" aria-hidden="true">${ic}</span>
     <span class="c-toast__message">${esc(opts.message || 'Sessione salvata')}</span>
     ${actionHtml}

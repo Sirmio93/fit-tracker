@@ -1,7 +1,7 @@
 /* ==========================================================================
    Cards/cards.css
-   Card base + varianti (hero, workout, statistic, history, record, goal,
-   empty, loading, exercise). Solo Design Tokens.
+   Card base + varianti (statistic, history, empty, exercise, exerciseHero).
+   Solo Design Tokens.
    ========================================================================== */
 
 /* ---- Base ------------------------------------------------------------------ */
@@ -25,7 +25,7 @@
 .c-card.is-interactive:active { background: var(--color-surfaceActive); }
 .c-card:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
+  box-shadow: var(--shadow-focus);
 }
 
 .c-card__eyebrow {
@@ -57,31 +57,6 @@
   gap: var(--space-16);
 }
 
-/* ---- Hero ------------------------------------------------------------------ */
-.c-card--hero {
-  background: var(--gradient-primary);
-  color: var(--color-textOnPrimary);
-  border: none;
-  padding: var(--space-24);
-  box-shadow: var(--shadow-floating);
-}
-.c-card--hero .c-card__title,
-.c-card--hero .c-card__body,
-.c-card--hero .c-card__eyebrow { color: var(--color-textOnPrimary); }
-.c-card--hero .c-card__eyebrow { opacity: 0.85; }
-
-/* ---- Workout attivo -------------------------------------------------------- */
-.c-card--workout {
-  background: var(--gradient-workout);
-  color: var(--color-textOnPrimary);
-  border: none;
-  padding: var(--space-24);
-  box-shadow: var(--shadow-floating);
-}
-.c-card--workout .c-card__title,
-.c-card--workout .c-card__body,
-.c-card--workout .c-card__eyebrow { color: var(--color-textOnPrimary); }
-
 /* ---- Statistic ------------------------------------------------------------- */
 .c-card--statistic .c-card__value {
   font-family: var(--font-numeric);
@@ -103,33 +78,6 @@
   font-size: var(--type-caption-size);
 }
 .c-card--statistic .c-card__delta.is-negative { color: var(--color-error); }
-
-/* ---- Record ---------------------------------------------------------------- */
-.c-card--record {
-  background: var(--gradient-record);
-  color: var(--color-textOnPrimary);
-  border: none;
-  padding: var(--space-24);
-  box-shadow: var(--shadow-lg);
-}
-.c-card--record .c-card__title,
-.c-card--record .c-card__body,
-.c-card--record .c-card__eyebrow { color: var(--color-textOnPrimary); }
-
-/* ---- Goal ------------------------------------------------------------------ */
-.c-card--goal .c-progressBar {
-  width: 100%;
-  height: var(--space-8);
-  background: var(--color-surfaceActive);
-  border-radius: var(--radius-pill);
-  overflow: hidden;
-}
-.c-card--goal .c-progressBar__fill {
-  height: 100%;
-  background: var(--gradient-success);
-  border-radius: var(--radius-pill);
-  transition: width var(--duration-slow) var(--curve-default);
-}
 
 /* ---- History (row compatta) ------------------------------------------------ */
 .c-card--history {
@@ -170,28 +118,6 @@
   color: var(--color-textPrimary);
 }
 
-/* ---- Loading (skeleton shimmer) ------------------------------------------- */
-.c-card--loading .c-skeleton {
-  height: var(--space-16);
-  background: var(--color-surfaceActive);
-  border-radius: var(--radius-small);
-  overflow: hidden;
-  position: relative;
-}
-.c-card--loading .c-skeleton::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    color-mix(in srgb, var(--color-textPrimary) 8%, transparent) 50%,
-    transparent 100%);
-  animation: c-card-shimmer var(--duration-extraSlow) var(--curve-default) infinite;
-}
-@keyframes c-card-shimmer {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(100%);  }
-}
-
 /* ---- Exercise (set list) --------------------------------------------------- */
 .c-card--exercise .c-card__set {
   display: grid;
@@ -214,4 +140,183 @@
   font-variant-numeric: tabular-nums;
   font-weight: var(--weight-semibold);
   color: var(--color-textPrimary);
+}
+
+/* ---- Exercise Hero Card (Sprint 8.6) --------------------------------------
+   Card visuale esercizio riprogettata: riga [thumbnail][info] + chips
+   (target reps, badge circuito) + indicatori completamento (pips).
+   Variante attiva: bordo accent + glow leggero + sfondo elevato.
+   Fallback grazioso: senza asset gradient+icona via ::before.
+   -------------------------------------------------------------------------- */
+.c-card--exerciseHero {
+  padding: var(--space-12);
+  gap: var(--space-12);
+  align-items: stretch;
+  position: relative;
+  animation: c-exerciseHeroCard-fadeIn var(--duration-normal) var(--curve-default) both;
+}
+@keyframes c-exerciseHeroCard-fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.c-exerciseHero__row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  min-width: 0;
+}
+/* Phase 2.2 — il media slot ospita ExerciseVisual (size='sm'). Il contenitore
+   fornisce solo la dimensione e il border-radius: la resa visiva (mannequin
+   + eventuale artwork sovrapposto) è responsabilità di ExerciseVisual. */
+.c-exerciseHero__media {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.c-exerciseHero__info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.c-exerciseHero__title {
+  font-size: var(--type-title-size);
+  line-height: var(--type-title-line);
+  font-weight: var(--type-title-weight);
+  color: var(--color-textPrimary);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.c-exerciseHero__muscles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--type-caption-size);
+  line-height: var(--type-caption-line);
+}
+.c-exerciseHero__musclesLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-size: var(--type-small-size);
+  color: var(--color-textDisabled);
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHero__musclesList {
+  color: var(--color-textSecondary);
+  overflow-wrap: anywhere;
+}
+.c-exerciseHero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: 2px;
+}
+.c-exerciseHero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 3px var(--space-8);
+  border-radius: var(--radius-pill);
+  font-size: var(--type-caption-size);
+  line-height: 1.2;
+  font-weight: var(--weight-semibold);
+}
+.c-exerciseHero__chip--target {
+  background: color-mix(in oklab, var(--color-textPrimary) 6%, transparent);
+  color: var(--color-textPrimary);
+}
+.c-exerciseHero__chip--target .c-exerciseHero__chipLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-size: var(--type-small-size);
+  color: var(--color-textSecondary);
+}
+.c-exerciseHero__chip--circuit {
+  background: color-mix(in oklab, var(--color-primary) 14%, transparent);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--track-wide);
+  font-size: var(--type-small-size);
+}
+.c-exerciseHero__pips {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-4) 0;
+  border-top: 1px dashed var(--color-divider);
+  margin-top: var(--space-4);
+}
+.c-exerciseHero__pip {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--color-textPrimary) 12%, transparent);
+  transition: background var(--duration-fast) var(--curve-default),
+              transform  var(--duration-fast) var(--curve-default);
+}
+.c-exerciseHero__pip.is-partial { background: color-mix(in oklab, var(--color-primary) 30%, transparent); }
+.c-exerciseHero__pip.is-done {
+  background: var(--color-success);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--color-success) 20%, transparent);
+}
+.c-exerciseHero__pipsCount {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--type-caption-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+
+/* ---- Variante attiva -------------------------------------------------------
+   Bordo accent, glow leggero, sfondo differente. Innesca anche una sottile
+   "pulse" del bordo per attirare l'occhio senza risultare invasiva. */
+.c-card--exerciseHero--active {
+  background: color-mix(in oklab, var(--color-primary) 6%, var(--color-surface));
+  border-color: color-mix(in oklab, var(--color-primary) 55%, var(--color-border));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-primary) 45%, transparent),
+    0 8px 24px color-mix(in oklab, var(--color-primary) 18%, transparent);
+}
+.c-card--exerciseHero--active::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: var(--space-12);
+  bottom: var(--space-12);
+  width: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-primary, linear-gradient(180deg, var(--color-primary), var(--color-secondary, var(--color-primary))));
+}
+.c-card--exerciseHero--complete {
+  border-color: color-mix(in oklab, var(--color-success) 45%, var(--color-border));
+}
+
+/* Desktop: thumbnail più grande, titolo up-sized, chips in linea */
+@media (min-width: 768px) {
+  .c-card--exerciseHero { padding: var(--space-16); gap: var(--space-16); }
+  .c-exerciseHero__row { gap: var(--space-16); }
+  .c-exerciseHero__media { width: 120px; height: 120px; border-radius: var(--radius-large); }
+  .c-exerciseHero__title {
+    font-size: var(--type-h3-size);
+    line-height: var(--type-h3-line);
+    font-weight: var(--type-h3-weight);
+    letter-spacing: var(--type-h3-track);
+  }
+}
+
+/* Schermi molto stretti: comprime thumbnail */
+@media (max-width: 360px) {
+  .c-exerciseHero__media { width: 72px; height: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-card--exerciseHero { animation: none !important; }
+  .c-exerciseHero__pip  { transition: none !important; }
 }

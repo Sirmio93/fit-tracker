@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Rest/rest.css — Sprint 8.4
+   Premium Rest primitives. Sprint 9.10 — le classi degli overlay legacy
+   (RestScreen, RestHeader, NextExerciseCard, RestActions) sono state
+   rimosse con la decommission del fallback. Resta CircularRestTimer, che
+   è composto internamente da RestCountdownHero (Rest V2).
+   Solo Design Tokens. Nessuna dipendenza da altri componenti.
+   ========================================================================== */
+
+/* ---- CircularRestTimer --------------------------------------------------- */
+/* Sprint 9.2B — il ring SVG è delegato a Foundation/Ring (primitiva unica).
+   Qui restano solo il wrapper posizionale, il display centrale (countdown +
+   unit) e il pulsante centrale pausa/riprendi. Colore + glow del ring sono
+   già forniti da .c-ring--color-*/.c-ring--glow. Il countdown per-secondo
+   richiede una transizione tick-friendly (curva lineare, > 200ms update):
+   override di --ring-transition sul Ring interno. */
+.c-circularRestTimer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rt-size, 260px);
+  height: var(--rt-size, 260px);
+}
+.c-circularRestTimer .c-ring {
+  --ring-size: var(--rt-size, 260px);
+  --ring-transition: var(--duration-tick) linear;
+}
+
+/* Countdown centrato */
+.c-circularRestTimer__display {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  pointer-events: none;
+}
+.c-circularRestTimer__time {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(64px, 22vw, 96px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-textPrimary);
+}
+.c-circularRestTimer__unit {
+  font-size: var(--type-caption-size);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+
+/* Pulsante centrale pausa/riprendi — piccolo, in fondo al centro */
+.c-circularRestTimer__center {
+  position: absolute;
+  bottom: calc(var(--rt-size, 260px) * 0.14);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in oklab, var(--color-textPrimary) 12%, transparent);
+  background: var(--color-surfaceElevated);
+  color: var(--color-textPrimary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--duration-fast) var(--curve-default),
+    background var(--duration-fast) var(--curve-default),
+    box-shadow var(--duration-fast) var(--curve-default);
+}
+.c-circularRestTimer__center:hover  { background: var(--color-surfaceActive); }
+.c-circularRestTimer__center:active { transform: translateX(-50%) scale(0.94); }
+.c-circularRestTimer__center:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Stato paused: pulsante enfatizzato (fondo primary tenue) + ring attenuato */
+.c-circularRestTimer[data-paused="true"] .c-circularRestTimer__center {
+  background: color-mix(in oklab, var(--color-primary) 18%, var(--color-surfaceElevated));
+  color: var(--color-primary);
+}
+.c-circularRestTimer[data-paused="true"] .c-ring__fill {
+  opacity: 0.55;
+}
+
+/* Progressione visiva: quando restano ≤5 s il time text vira verso success
+   (il ring cambia colore via JS: setRingColor(ring, 'success')). */
+.c-circularRestTimer[data-ending="true"] .c-circularRestTimer__time {
+  color: var(--color-success);
+  transition: color var(--duration-slow, 320ms) var(--curve-default);
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media (min-width: 768px) {
+  .c-circularRestTimer { --rt-size: 300px; }
+}
+
+/* ---- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .c-circularRestTimer .c-ring__fill,
+  .c-circularRestTimer__time { animation: none !important; transition: none !important; }
+}

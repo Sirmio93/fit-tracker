@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Anatomy/anatomy.css
+   Manichino anatomico (frontale + posteriore). Solo Design Tokens.
+   Nessuna animazione, gesture, tooltip: la resa è statica per specifica
+   di Sprint 8.3.
+   ========================================================================== */
+
+.c-anatomy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  justify-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.c-anatomy__pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  width: 100%;
+}
+
+.c-anatomy__caption {
+  font-size: var(--type-caption-size);
+  line-height: var(--type-caption-line);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+  color: var(--color-textSecondary);
+}
+
+.c-anatomy__svg {
+  display: block;
+  width: 100%;
+  max-width: 84px;
+  height: auto;
+}
+
+/* Silhouette: fondo neutro, contorno appena percettibile */
+.c-anatomy__silhouette {
+  fill: var(--color-surfaceActive);
+  stroke: var(--color-border);
+  stroke-width: 0.4;
+  stroke-linejoin: round;
+}
+
+/* Muscoli non coinvolti: quasi trasparenti (grigio neutro) */
+.c-anatomy__muscle {
+  fill: color-mix(in srgb, var(--color-textDisabled) 20%, transparent);
+}
+.c-anatomy__muscle.is-primary {
+  fill: var(--color-primary);
+}
+.c-anatomy__muscle.is-secondary {
+  fill: color-mix(in srgb, var(--color-primary) 45%, transparent);
+}
+
+/* Desktop: manichini più grandi, senza scroll orizzontale */
+@media (min-width: 768px) {
+  .c-anatomy { gap: var(--space-24); }
+  .c-anatomy__svg { max-width: 140px; }
+}
+
+/* Schermi molto stretti: comprime */
+@media (max-width: 360px) {
+  .c-anatomy { gap: var(--space-8); }
+  .c-anatomy__svg { max-width: 68px; }
+}
