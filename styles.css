@@ -483,7 +483,7 @@ input::placeholder {
 
 .pickerGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 10px
 }
 
@@ -560,12 +560,11 @@ input::placeholder {
     box-shadow: 0 0 0 1px rgba(239, 68, 68, .25)
 }
 
-/* Narrow-viewport fix (Micro-Sprint post-Freeze) — scoped al circuit multi-
-   esercizio (.pickerWrap emesso da setRow con .c-picker Foundation dentro).
-   Root cause: .c-picker è inline-flex con display min-width 80px + button
-   44px → 208px min per picker × 2 non entra nemmeno a 276dp.
-   Base: il picker riempie la colonna della griglia; touch target 44px intatti.
-   Narrow: sotto 480dp la griglia diventa una colonna (Option C dello spec). */
+/* Narrow-viewport fix — la griglia .pickerGrid usa auto-fit + minmax(210px,1fr):
+   quando lo spazio disponibile non basta per due picker affiancati, KG e REPS
+   passano automaticamente su due righe (nessun breakpoint fisso).
+   Il picker riempie la sua cella; min-width:0 sul display consente lo shrink.
+   Touch target 44px, business logic e markup invariati. */
 .pickerWrap .c-picker {
     display: flex;
     width: 100%;
@@ -578,9 +577,6 @@ input::placeholder {
     border-color: var(--bad) !important;
     background: rgba(239, 68, 68, .08);
     box-shadow: 0 0 0 1px rgba(239, 68, 68, .25);
-}
-@media (max-width: 480px) {
-    .pickerGrid { grid-template-columns: 1fr; gap: var(--space-8); }
 }
 
 .stepNote {
