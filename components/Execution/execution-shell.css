@@ -19,22 +19,20 @@
    ========================================================================== */
 
 /* ---- Root shell ---------------------------------------------------------- */
-/* La shell eredita i token dal [data-theme] globale impostato da applyTheme().
-   Non forziamo colori: light/dark/amoled si adattano automaticamente tramite
-   i token di components/Foundation/tokens.css. */
+/* Layout flex rigido a 3 zone: top pinned · body scrollabile · cta pinned.
+   Il SHELL non scrolla: solo .ex-body scrolla internamente.
+   Questo garantisce che .ex-cta-bar sia sempre visibile in fondo alla shell,
+   senza dipendere da `position:sticky` (che non funziona se il contenuto è
+   più corto dello spazio disponibile nel container che scrolla). */
 .ex-shell {
   display: flex;
   flex-direction: column;
-  /* --layout-nav-height è impostato da syncNavHeight() in app.js misurando la
-     .c-bottomNav reale (include safe-area-inset-bottom nel suo rendering).
-     Nessun valore hardcoded: si adatta a qualsiasi schermo, safe area o font. */
+  /* --layout-nav-height misurata da syncNavHeight() in app.js. */
   height: calc(100vh  - var(--layout-nav-height, 64px));
   height: calc(100dvh - var(--layout-nav-height, 64px));
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;   /* il clip è qui; lo scroll è in .ex-body */
   background: var(--color-background);
   color: var(--color-textPrimary);
-  position: relative;
 }
 
 /* Reset: annulla il global `button { background: rgba(255,255,255,.65) }` di
@@ -53,10 +51,10 @@
   cursor: pointer;
 }
 
-/* ---- Sticky top (topbar + progress) -------------------------------------- */
+/* ---- Top pinned (topbar + progress) -------------------------------------- */
+/* flex: 0 0 auto = non cresce/shrinka; resta sempre in cima alla shell. */
 .ex-shell__top {
-  position: sticky;
-  top: 0;
+  flex: 0 0 auto;
   z-index: 20;
   background: var(--color-background);
   padding-top: env(safe-area-inset-top, 0);
@@ -191,22 +189,25 @@
 }
 
 /* ---- Body slot ----------------------------------------------------------- */
+/* flex: 1 1 auto + min-height: 0 = occupa tutto lo spazio libero tra top e cta
+   e scrolla internamente. Il padding-bottom non deve compensare il CTA (è un
+   flex sibling, non sticky sotto): 24px è sufficiente per il respiro finale. */
 .ex-body {
   flex: 1 1 auto;
   min-height: 0;
-  /* padding-bottom ≈ altezza CTA bar (touch-recommended 48px + 12+18px padding).
-     Usa i token Foundation: nessun valore hardcoded arbitrario. */
-  padding: 12px 0 calc(var(--touch-recommended, 48px) + var(--space-12, 12px) + var(--space-20, 20px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 0 24px;
 }
 
-/* ---- Sticky CTA bar bottom ----------------------------------------------- */
+/* ---- CTA bar bottom (flex item pinned) ----------------------------------- */
+/* flex: 0 0 auto = non cresce/shrinka; resta sempre in fondo alla shell.
+   Non usa position:sticky: è un normale ultimo figlio del flex column. */
 .ex-cta-bar {
-  position: sticky;
-  bottom: 0;
-  z-index: 15;
+  flex: 0 0 auto;
   display: flex;
   gap: 10px;
-  padding: 12px 16px 18px; /* safe-area gestita dalla shell height */
+  padding: 12px 16px 18px;
   background: var(--color-background);
   border-top: 1px solid var(--color-border);
   align-items: stretch;

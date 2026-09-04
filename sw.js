@@ -1,4 +1,4 @@
-const CACHE = 'fit-tracker-v22';
+const CACHE = 'fit-tracker-v23';
 const ASSETS = [
     './',
     './index.html',
