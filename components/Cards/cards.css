@@ -245,6 +245,10 @@
   letter-spacing: var(--track-wide);
   font-size: var(--type-small-size);
 }
+[data-theme="light"] .c-exerciseHero__chip--circuit {
+  color: var(--color-accent);
+  background: color-mix(in oklab, var(--color-accent) 14%, transparent);
+}
 .c-exerciseHero__pips {
   display: flex;
   align-items: center;

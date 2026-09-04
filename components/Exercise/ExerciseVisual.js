@@ -37,14 +37,6 @@
 
 import { esc, cx, attr, clamp } from '../Shared/helpers.js';
 import { getExerciseAsset } from '../../services/exerciseAssetService.js';
-import { AnatomyModel } from '../Anatomy/AnatomyModel.js';
-import {
-  SILHOUETTE,
-  FRONT_MUSCLES,
-  BACK_MUSCLES,
-  BACK_ONLY_MUSCLES,
-  shapeToSvg,
-} from '../Anatomy/geometry.js';
 
 const SIZES = new Set(['mini', 'sm', 'md', 'lg', 'xl']);
 const STATUSES = new Set(['current', 'completed', 'skipped', 'locked', 'upcoming']);
@@ -91,29 +83,10 @@ function resolveStatus(opts) {
   return 'upcoming';
 }
 
-function paintGroup(name, shapes, state) {
-  const cls = state ? `c-exVisual__muscle is-${state}` : 'c-exVisual__muscle';
-  const prims = shapes.map(shapeToSvg).join('');
-  return `<g class="${cls}" data-muscle="${esc(name)}">${prims}</g>`;
-}
-
-function renderMannequin(view, primary, secondary) {
-  const map = view === 'back' ? BACK_MUSCLES : FRONT_MUSCLES;
-  const groups = Object.keys(map).map(m => paintGroup(
-    m, map[m],
-    primary.includes(m) ? 'primary' : (secondary.includes(m) ? 'secondary' : null),
-  )).join('');
-  return `<svg class="c-exVisual__svg c-exVisual__svg--${view}" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <g class="c-exVisual__silhouette">${SILHOUETTE}</g>
-    <g class="c-exVisual__muscles">${groups}</g>
-  </svg>`;
-}
-
-/* Auto-vista: se tutti i primari sono back-only, mostra retro; altrimenti
-   fronte. Nessun primario → fronte (default riconoscibile). */
-function pickView(primary) {
-  if (!primary || !primary.length) return 'front';
-  return primary.every(m => BACK_ONLY_MUSCLES.has(m)) ? 'back' : 'front';
+function renderInitials(name) {
+  const initials = (name || '').trim().split(/\s+/).slice(0, 2)
+    .map(w => (w[0] || '').toUpperCase()).join('') || '?';
+  return `<div class="c-exVisual__initialsWrap" aria-hidden="true"><span class="c-exVisual__initialsText">${esc(initials)}</span></div>`;
 }
 
 /* SVG inline checkmark (24x24). Compatto, senza dipendenze da icon set. */
@@ -154,10 +127,7 @@ export function ExerciseVisual(opts = {}) {
   const name = (opts.name || '').trim();
   const size = SIZES.has(opts.size) ? opts.size : 'md';
   const asset = getExerciseAsset(name);
-  const isFallback = !asset.slug;
 
-  const primary   = Array.isArray(opts.primaryMuscles)   ? opts.primaryMuscles   : (asset.primaryMuscles   || []);
-  const secondary = Array.isArray(opts.secondaryMuscles) ? opts.secondaryMuscles : (asset.secondaryMuscles || []);
   const category  = opts.category  != null ? opts.category  : asset.category;
   const equipment = opts.equipment != null ? opts.equipment : asset.equipment;
 
@@ -193,7 +163,7 @@ export function ExerciseVisual(opts = {}) {
     return attr(a);
   };
 
-  /* xl / view='both' → dual pane via AnatomyModel + badges strip. */
+  /* xl / view='both' → badges strip + iniziali. */
   if (size === 'xl' || opts.view === 'both') {
     const badges = [];
     const catB = categoryBadge(category);
@@ -205,7 +175,7 @@ export function ExerciseVisual(opts = {}) {
       : '';
     const diffHtml = (Number(opts.difficulty) > 0) ? renderDifficultyDots(opts.difficulty) : '';
     return `<div ${rootAttrs({ mannequinOnly: true })}>
-      <div class="c-exVisual__anatomy">${AnatomyModel({ primaryMuscles: primary, secondaryMuscles: secondary })}</div>
+      <div class="c-exVisual__anatomy c-exVisual__initialsWrap c-exVisual__initialsWrap--xl"><span class="c-exVisual__initialsText" aria-hidden="true">${esc((name || '').trim().split(/\s+/).slice(0, 2).map(w => (w[0] || '').toUpperCase()).join('') || '?')}</span></div>
       ${badgesHtml}
       ${diffHtml}
       ${ringHtml}
@@ -213,22 +183,7 @@ export function ExerciseVisual(opts = {}) {
     </div>`;
   }
 
-  const view = opts.view === 'front' || opts.view === 'back'
-    ? opts.view
-    : pickView(primary);
-  const mannequinHtml = renderMannequin(view, primary, secondary);
-
-  /* mini forza mannequin-only: il thumbnail dev'essere leggibile a colpo
-     d'occhio come "gruppo muscolare", non come miniatura di foto. */
-  const artworkAllowed = opts.showArtwork !== false && size !== 'mini';
-  const canArtwork = artworkAllowed && !isFallback && !!asset.image;
-
-  const imgHtml = canArtwork
-    ? `<img class="c-exVisual__img" src="${esc(asset.image)}" alt=""
-             loading="lazy" decoding="async"
-             onload="if(this.naturalWidth&lt;16||this.naturalHeight&lt;16){this.setAttribute('data-broken','1');}"
-             onerror="this.setAttribute('data-broken','1');">`
-    : '';
+  const mannequinHtml = renderInitials(name);
 
   const badgeHtml = badge
     ? `<span class="c-exVisual__badge c-exVisual__badge--${categoryBadge(category) ? 'category' : 'equipment'}">${esc(badge)}</span>`
@@ -250,10 +205,9 @@ export function ExerciseVisual(opts = {}) {
     ? renderDifficultyDots(opts.difficulty)
     : '';
 
-  return `<div ${rootAttrs({ mannequinOnly: !canArtwork })}>
+  return `<div ${rootAttrs({ mannequinOnly: true })}>
     <div class="c-exVisual__frame">
       <div class="c-exVisual__mannequin">${mannequinHtml}</div>
-      ${imgHtml}
       ${badgeHtml}
       ${ringHtml}
     </div>

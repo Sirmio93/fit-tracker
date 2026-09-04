@@ -464,3 +464,7 @@ body:has(.c-workoutSceneV2) .c-bottomNav { display: none !important; }
     transition: none !important;
   }
 }
+
+/* Light theme: primary (#FFFFFF) invisible on light scene backgrounds */
+[data-theme="light"] .c-workoutSceneV2__hint b { color: var(--color-accent); }
+[data-theme="light"] .c-exStage__muscles em     { color: var(--color-accent); }

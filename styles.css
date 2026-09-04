@@ -1,6 +1,12 @@
 :root {
-    --pri: #7C3AED;
-    --pri2: #A78BFA;
+    /* T0.1 (2026-08-14) — legacy tokens rimappati a Apple Fitness+ palette.
+       --pri = bianco (primary), --pri2 = giallo (accent). --soft è la tinta
+       morbida dell'accent (era rgba viola). Nessun consumer nuovo dovrebbe
+       usare --pri/--pri2: usare --color-primary / --color-accent da
+       components/Foundation/tokens.css. Vedi DIFF.md per hardcoded viola
+       residui nei componenti (da migrare in fasi successive). */
+    --pri: #FFFFFF;
+    --pri2: #EAB308;
     --ok: #22C55E;
     --warn: #F59E0B;
     --bad: #EF4444;
@@ -22,12 +28,12 @@
     --text: #111827;
     --muted: #6B7280;
     --line: rgba(17, 24, 39, .10);
-    --soft: rgba(124, 58, 237, .10);
+    --soft: rgba(234, 179, 8, .14);
     --shadow: 0 18px 45px rgba(0, 0, 0, .08);
     --r: 22px;
 
     --color-primary: var(--pri);
-    --color-primary-contrast: #fff;
+    --color-primary-contrast: #000;
     --color-background: var(--bg);
     --color-surface: var(--surface);
     --color-surface-2: var(--surface-2);
@@ -55,7 +61,7 @@
     --text: #F9FAFB;
     --muted: #9CA3AF;
     --line: rgba(255, 255, 255, .10);
-    --soft: rgba(124, 58, 237, .20);
+    --soft: rgba(234, 179, 8, .18);
     --shadow: 0 20px 50px rgba(0, 0, 0, .5)
 }
 
@@ -67,7 +73,7 @@
     --text: #F5F5F5;
     --muted: #A3A3A3;
     --line: rgba(255, 255, 255, .12);
-    --soft: rgba(124, 58, 237, .22);
+    --soft: rgba(234, 179, 8, .22);
     --shadow: 0 20px 50px rgba(0, 0, 0, .8)
 }
 
@@ -731,7 +737,7 @@ input::placeholder {
 
 .sheetChip.active {
     background: var(--pri);
-    color: #fff;
+    color: var(--color-textOnPrimary, #000);
     border-color: var(--pri)
 }
 
@@ -2878,7 +2884,7 @@ body.has-rest-overlay #bottomNavRoot { pointer-events: none; }
 }
 .sessionSheet__action--primary {
     background: var(--color-primary);
-    color: var(--color-on-primary, #fff);
+    color: var(--color-textOnPrimary, #000);
     border-color: transparent;
 }
 .sessionSheet__action--primary:hover {
@@ -3522,5 +3528,21 @@ body.has-rest-overlay #bottomNavRoot { pointer-events: none; }
     .prefRow,
     .prefRow__seg,
     .prefRow__chip { transition: none !important; }
+}
+
+/* ==========================================================================
+   HOTFIX — Light theme: var(--pri) = #FFFFFF (mai theme-aware in questo
+   file) diventa bianco su bianco su sfondi chiari. Override mirati.
+   ========================================================================== */
+[data-theme="light"] .pill          { color: var(--color-accent); }
+[data-theme="light"] .targetRep     { color: var(--color-accent); }
+[data-theme="light"] .sheetDayArrow { color: var(--color-accent); }
+[data-theme="light"] .stepBtn       { color: var(--color-textPrimary) !important; }
+[data-theme="light"] .setDoneBtn:not(.done) {
+    color: var(--color-textPrimary) !important;
+    border-color: color-mix(in srgb, var(--color-textPrimary) 30%, transparent) !important;
+}
+[data-theme="light"] .sessionSheet__action--primary {
+    color: var(--color-textPrimary);
 }
 

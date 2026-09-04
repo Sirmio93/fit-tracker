@@ -54,6 +54,67 @@ export { ExerciseIdentity } from './Exercise/ExerciseIdentity.js';
    ExerciseIdentity). Nessuna nuova card. */
 export { TodaySessionCard }    from './Home/TodaySessionCard.js';
 
+/* ---- CreateWorkout (T1 · Crea scheda) ------------------------------------
+   T1.1 = shell scaffold. T1.2 = HeroMeta (hero card della draft in editing).
+   T1.3 = WeekDayNav (segmented settimane + day-tabs con badge count blocchi).
+   T1.4 = BlockCard (rendering blocchi del giorno selezionato, read-only).
+   T1.5 = BlockConfigSheet (bottom sheet · griglia 9 tipi + campi condizionali).
+   T1.6 = ExercisePickerSheet (overlay full-height per multi-add esercizi
+          dal catalogo — search accent-fold + filtri categoria/equipment). */
+export { renderCreateWorkoutShell }        from './CreateWorkout/CreateWorkoutShell.js';
+export { renderHeroMeta, heroMetaStats }   from './CreateWorkout/HeroMeta.js';
+export { renderWeekDayNav, resolveNavSelection } from './CreateWorkout/WeekDayNav.js';
+export { renderBlocks, renderBlockCard }   from './CreateWorkout/BlockCard.js';
+export {
+  openBlockConfigSheet,
+  renderBlockConfigContent,
+  renderTypeGrid,
+  renderConditionalFields,
+  applyTypeDefaults,
+} from './CreateWorkout/BlockConfigSheet.js';
+export { getBlockTypeIcon, SUPPORTED_TYPE_ICONS } from './CreateWorkout/BlockTypeIcons.js';
+export {
+  renderExercisePickerSheet,
+  renderExercisePickerFilters,
+  renderExercisePickerListInner,
+  pickerFilteredEntries,
+  PICKER_CATEGORIES,
+  PICKER_EQUIPMENT,
+} from './CreateWorkout/ExercisePickerSheet.js';
+
+/* ---- Execution (T2 · Esecuzione) -----------------------------------------
+   T2.1 = shell scaffold (top bar + progress con tick + sticky CTA).
+   T2.2 = SingleExercise + BigStepper + PRBanner + SetPicker + NeighborPeek
+          (pattern-setter: T2.3/T2.5/T2.6/T2.7 riuseranno BigStepper e
+           SetPicker, sostituiranno SingleExercise con l'analogo per tipo). */
+export { renderExecutionShell } from './Execution/ExecutionShell.js';
+export { renderSingleExercise } from './Execution/SingleExercise.js';
+export { renderBigStepper }     from './Execution/BigStepper.js';
+export { renderPRBanner }       from './Execution/PRBanner.js';
+export { renderSetPicker }      from './Execution/SetPicker.js';
+export { renderNeighborPeek }   from './Execution/NeighborPeek.js';
+/* T2.5 · Tabata timer (CountdownRing riusabile in T2.6 EMOM/AMRAP).
+   Nota: setRingProgress esiste gia' come re-export da Foundation/Ring.js.
+   Il nostro helper viene esposto come setCountdownRingProgress per evitare
+   collisione di nomi (ESM vieta duplicate export). */
+export { renderTabataTimer, renderTabataCtrls } from './Execution/TabataTimer.js';
+export {
+  renderCountdownRing,
+  setRingProgress as setCountdownRingProgress,
+} from './Execution/CountdownRing.js';
+/* T2.6 · EMOM/AMRAP timers (family="timed"). EmomTimer riusa CountdownRing
+   (direction=down, centerContent = "N/target reps"). AmrapTimer usa timer
+   digitale grande (mm:ss che sale, NO ring) + round counter + lista esercizi. */
+export { renderEmomTimer, renderEmomCtrls } from './Execution/EmomTimer.js';
+export { renderAmrapTimer, renderAmrapCtrls } from './Execution/AmrapTimer.js';
+/* T2.3 = CircuitRound (family="round" → Circuit ≡ Superset, rest solo su toggleRound). */
+export { renderCircuitRound }   from './Execution/CircuitRound.js';
+/* T2.4 = RestOverlay v2 (countdown full-screen, ±15/±30, rest-stats, rest-nx
+   con ExerciseIdentity size='sm'). Sostituisce RestScene (rest-v2) come
+   renderer del rest overlay quando l'API è disponibile. `startRestTimer`
+   API stabile: cambia solo il rendering, non lo state contract. */
+export { renderRestOverlay }    from './Execution/RestOverlay.js';
+
 /* ---- Navigation ----------------------------------------------------------- */
 export {
   BottomNavigation,

@@ -61,7 +61,7 @@
   --shadow-lg:       0 10px 24px rgba(0,0,0,0.12);
   --shadow-xl:       0 20px 48px rgba(0,0,0,0.16);
   --shadow-glass:    0 8px 32px rgba(0,0,0,0.12);
-  --shadow-floating: 0 12px 40px rgba(124,58,237,0.24);
+  --shadow-floating: 0 12px 40px rgba(0,0,0,0.28);
   --shadow-elev-5:   0 32px 80px rgba(0,0,0,0.20);
 
   /* ==========================================================================
@@ -99,6 +99,9 @@
   --opacity-hover:    0.08;
   --opacity-pressed:  0.12;
   --opacity-focus:    0.24;
+
+  --color-icon:      #FFFFFF;   /* default dark */
+  --color-iconMuted: #A1A1AA;
 
   /* Blur */
   --blur-glass:      20px;
@@ -157,16 +160,17 @@
   --gesture-doubleTap:      300ms;
   --gesture-dragThreshold:  8px;
 
-  /* Gradienti (tema-neutrali) */
-  --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-  --gradient-workout: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+  /* Gradienti (tema-neutrali).
+     T0.1 (2026-08-14): palette Apple Fitness+ — bianco primary + giallo accent.
+     I gradient viola precedenti (--gradient-primary/workout/cta) sono stati
+     rimappati su bianco/giallo. Nessun consumer deve dipendere più da toni
+     viola. Se un componente aveva viola hardcoded, viene tracciato in DIFF.md. */
+  --gradient-primary: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
+  --gradient-workout: linear-gradient(135deg, #FFFFFF 0%, #EAB308 100%);
   --gradient-success: linear-gradient(135deg, #059669 0%, #10B981 100%);
   --gradient-record:  linear-gradient(135deg, #F59E0B 0%, #DC2626 100%);
-  /* Extension Sprint 9.2A — gradient CTA "premium" 3-stop (viola→magenta→rosa).
-     Estratto letterale da workout-v2.css .c-completeSetBtn e rest-v2.css
-     .c-restActionsV2__btn--primary. Colori intenzionalmente hardcoded per
-     preservare l'identità visiva della CTA cross-tema. */
-  --gradient-cta:     linear-gradient(135deg, #8B5CF6 0%, #A855F7 45%, #EC4899 100%);
+  --gradient-cta:     linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
+  --gradient-accent:  linear-gradient(135deg, #EAB308 0%, #FDE047 100%);
 
   /* ==========================================================================
      Focus / CTA / Glow Tokens (Sprint 9.2A)
@@ -178,14 +182,15 @@
   --shadow-focus-sm:      0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent);
   --shadow-focus-success: 0 0 0 3px color-mix(in srgb, var(--color-success) calc(var(--opacity-focus) * 100%), transparent);
 
-  /* CTA premium (viola→pink) — estratto letterale da workout-v2/rest-v2 */
+  /* CTA premium — Apple Fitness+ (bianco primary + glow accent giallo).
+     Sostituisce la vecchia composizione viola→magenta (T0.1 2026-08-14). */
   --shadow-cta:
-    0 12px 40px -8px color-mix(in oklab, #8B5CF6 55%, transparent),
-    0 24px 60px -20px color-mix(in oklab, #EC4899 45%, transparent),
+    0 12px 40px -8px color-mix(in oklab, #FFFFFF 40%, transparent),
+    0 24px 60px -20px color-mix(in oklab, #EAB308 35%, transparent),
     inset 0 1px 0 rgba(255,255,255,0.18);
   --shadow-cta-hover:
-    0 16px 52px -8px color-mix(in oklab, #8B5CF6 70%, transparent),
-    0 30px 70px -20px color-mix(in oklab, #EC4899 55%, transparent),
+    0 16px 52px -8px color-mix(in oklab, #FFFFFF 55%, transparent),
+    0 30px 70px -20px color-mix(in oklab, #EAB308 50%, transparent),
     inset 0 1px 0 rgba(255,255,255,0.24);
 
   /* Glow — box-shadow "aura" per elementi attivi (timeline mark, pulse) */
@@ -198,16 +203,24 @@
   --color-backgroundBase: #0A0A0B;
 }
 
-/* [data-theme="light"] */
+/* [data-theme="light"] — palette T0.1: bianco primary + giallo accent.
+   Su tema chiaro il primary "bianco" ha senso solo come colore di riempimento
+   pieno (es. FAB su hero scuro): i consumer che hanno bg chiaro devono usare
+   --color-accent o --color-textPrimary per il contrasto. */
 [data-theme="light"] {
   --color-background:      #F5F5F7;
   --color-surface:         #FFFFFF;
   --color-surfaceElevated: #FFFFFF;
   --color-surfaceActive:   #EDEDF0;
 
-  --color-primary:         #7C3AED;
-  --color-primaryHover:    #6D28D9;
-  --color-secondary:       #5B21B6;
+  --color-primary:         #FFFFFF;
+  --color-primaryHover:    #F5F5F7;
+  --color-secondary:       #EAB308;
+
+  --color-accent:          #EAB308;
+  --color-accent-2:        #FDE047;
+  --color-accent-soft:     rgba(234,179,8,0.14);
+  --color-accent-line:     rgba(234,179,8,0.45);
 
   --color-success:         #059669;
   --color-warning:         #D97706;
@@ -217,7 +230,10 @@
   --color-textPrimary:     #0A0A0B;
   --color-textSecondary:   #5A5A62;
   --color-textDisabled:    #B4B4BA;
-  --color-textOnPrimary:   #FFFFFF;
+  --color-textOnPrimary:   #000000;
+
+  --color-icon:      #0A0A0B;
+  --color-iconMuted: #5A5A62;
 
   --color-border:          #E4E4E7;
   --color-divider:         #EEEEEF;
@@ -233,12 +249,20 @@
    un valore condiviso in un solo posto aggiorna entrambi i temi.
    ========================================================================== */
 
-/* [data-theme="dark"] + [data-theme="amoled"] — valori condivisi */
+/* [data-theme="dark"] + [data-theme="amoled"] — valori condivisi.
+   T0.1 (2026-08-14): primary → bianco puro; accent giallo #EAB308.
+   Nessun tono viola/magenta è emesso da questi temi. Su testo che sta sopra
+   var(--color-primary) usare --color-textOnPrimary (= #000). */
 [data-theme="dark"],
 [data-theme="amoled"] {
-  --color-primary:         #8B5CF6;
-  --color-primaryHover:    #7C3AED;
-  --color-secondary:       #A78BFA;
+  --color-primary:         #FFFFFF;
+  --color-primaryHover:    #F5F5F7;
+  --color-secondary:       #EAB308;
+
+  --color-accent:          #EAB308;
+  --color-accent-2:        #FDE047;
+  --color-accent-soft:     rgba(234,179,8,0.14);
+  --color-accent-line:     rgba(234,179,8,0.45);
 
   --color-success:         #10B981;
   --color-warning:         #F59E0B;
@@ -248,7 +272,10 @@
   --color-textPrimary:     #F5F5F7;
   --color-textSecondary:   #A1A1AA;
   --color-textDisabled:    #52525B;
-  --color-textOnPrimary:   #FFFFFF;
+  --color-textOnPrimary:   #000000;
+
+  --color-icon:      #FFFFFF;
+  --color-iconMuted: #A1A1AA;
 }
 
 /* [data-theme="dark"] — base dark (surfaces con leggera sfumatura grigia) */

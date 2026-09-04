@@ -21,7 +21,7 @@
 .c-toast--success { border-color: var(--color-success); }
 .c-toast--error   { border-color: var(--color-error);   }
 .c-toast--info    { border-color: var(--color-info);    }
-.c-toast__icon    { color: var(--color-primary); flex: 0 0 auto; display: inline-flex; }
+.c-toast__icon    { color: var(--color-icon, var(--color-primary)); flex: 0 0 auto; display: inline-flex; }
 .c-toast--success .c-toast__icon { color: var(--color-success); }
 .c-toast--error   .c-toast__icon { color: var(--color-error);   }
 .c-toast--info    .c-toast__icon { color: var(--color-info);    }
@@ -114,7 +114,7 @@
 .c-banner--warning { border-color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 12%, var(--color-surface)); }
 .c-banner--error   { border-color: var(--color-error);   background: color-mix(in srgb, var(--color-error)   12%, var(--color-surface)); }
 .c-banner--success { border-color: var(--color-success); background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface)); }
-.c-banner__icon    { flex: 0 0 auto; color: var(--color-primary); display: inline-flex; }
+.c-banner__icon    { flex: 0 0 auto; color: var(--color-icon, var(--color-primary)); display: inline-flex; }
 .c-banner--info    .c-banner__icon { color: var(--color-info); }
 .c-banner--warning .c-banner__icon { color: var(--color-warning); }
 .c-banner--error   .c-banner__icon { color: var(--color-error); }

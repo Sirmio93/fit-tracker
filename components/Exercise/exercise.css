@@ -63,8 +63,8 @@
   display: block;
 }
 .c-exVisual__silhouette {
-  fill: color-mix(in oklab, var(--color-textPrimary) 10%, transparent);
-  stroke: color-mix(in oklab, var(--color-textPrimary) 22%, transparent);
+  fill:   color-mix(in oklab, var(--color-icon, #FFFFFF) 18%, transparent);
+  stroke: color-mix(in oklab, var(--color-icon, #FFFFFF) 35%, transparent);
   stroke-width: 0.6;
   stroke-linejoin: round;
 }
@@ -110,9 +110,9 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.18);
 }
 .c-exVisual__badge--category {
-  color: #FFFFFF;
-  background: color-mix(in oklab, var(--color-primary) 82%, var(--color-backgroundBase, #0A0A0B));
-  border-color: color-mix(in oklab, var(--color-primary) 45%, transparent);
+  color: var(--color-textOnPrimary, #000000);
+  background: color-mix(in oklab, var(--color-icon) 82%, var(--color-backgroundBase, #0A0A0B));
+  border-color: color-mix(in oklab, var(--color-icon) 45%, transparent);
 }
 .c-exVisual__badge--equipment {
   color: color-mix(in oklab, var(--color-textPrimary) 85%, transparent);
@@ -236,8 +236,8 @@
   background: color-mix(in oklab, var(--color-textPrimary) 14%, transparent);
 }
 .c-exVisual__diffDot.is-on {
-  background: var(--color-primary);
-  box-shadow: 0 0 6px color-mix(in oklab, var(--color-primary) 40%, transparent);
+  background: var(--color-accent);
+  box-shadow: 0 0 6px color-mix(in oklab, var(--color-accent) 40%, transparent);
 }
 
 /* ---- Size: mini (48px) --------------------------------------------------- */
@@ -247,7 +247,7 @@
   height: 48px;
   padding: 4px;
   border-radius: var(--radius-pill);
-  background: color-mix(in oklab, var(--color-primary) 8%, transparent);
+  background: color-mix(in oklab, var(--color-icon) 8%, transparent);
 }
 .c-exVisual--mini .c-exVisual__silhouette { stroke-width: 0.8; }
 .c-exVisual--mini .c-exVisual__muscle {
@@ -360,6 +360,29 @@
   padding: var(--space-12) 0;
 }
 .c-exVisual--xl .c-exVisual__anatomy { width: 100%; }
+
+/* ---- Iniziali (sostituzione manichino SVG) -------------------------------- */
+.c-exVisual__initialsWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-exVisual__initialsText {
+  font-family: var(--font-primary, system-ui, sans-serif);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-primary, #FFF);
+  opacity: 0.75;
+  line-height: 1;
+  user-select: none;
+}
+.c-exVisual--mini .c-exVisual__initialsText { font-size: 16px; }
+.c-exVisual--sm   .c-exVisual__initialsText { font-size: 22px; }
+.c-exVisual--md   .c-exVisual__initialsText { font-size: 52px; }
+.c-exVisual--lg   .c-exVisual__initialsText { font-size: 72px; }
+.c-exVisual__initialsWrap--xl .c-exVisual__initialsText { font-size: 56px; }
 
 /* ---- Reduced motion ------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {

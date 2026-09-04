@@ -1,5 +1,5 @@
 const EMBEDDED_SCHEDA = { "nome_scheda": "scheda010226", "note_generali": { "riscaldamento": "non incluso nel JSON", "vincolo_postazioni": "non bloccare più di un macchinario/panca alla volta", "giorno_3": "opzionale, solo corpo libero e tappetino", "focus_core": "addominali completi con focus maggiore su obliqui/laterali, stabilità e postura" }, "settimana_a": { "lunedi": { "nome_giorno": "Petto + Dorso + Tricipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Cable fly alto-basso", "ripetizioni": "12-15", "target": "Pettorale basso" }, "esercizio2": { "nome_esercizio": "Straight-arm cable pulldown", "ripetizioni": "12-15", "target": "Dorsali" }, "esercizio3": { "nome_esercizio": "Pushdown corda", "ripetizioni": "12-15", "target": "Tricipiti" } } }, { "circuito2": { "nome_circuito": "Circuito 2 — Panca piana + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Distensioni manubri su panca piana con piedi rialzati", "ripetizioni": "12-15", "target": "Petto basso / petto medio" }, "esercizio2": { "nome_esercizio": "Rematore manubrio con appoggio su panca", "ripetizioni": "12-15 per lato", "target": "Dorso" }, "esercizio3": { "nome_esercizio": "French press manubri da sdraiato", "ripetizioni": "12-15", "target": "Tricipiti" } } }, { "circuito3": { "nome_circuito": "Circuito 3 — Lat machine + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 75 sec tra giri", "esercizio1": { "nome_esercizio": "Lat machine presa neutra/avanti pesante", "ripetizioni": "8-10", "target": "Dorso / gran dorsale" }, "esercizio2": { "nome_esercizio": "Floor press manubri presa neutra", "ripetizioni": "12-15", "target": "Petto / tricipiti" }, "esercizio3": { "nome_esercizio": "Kickback tricipiti con busto supportato", "ripetizioni": "12-15", "target": "Tricipiti" } } }], "core": [{ "core1": { "nome_circuito": "Core finale A — Lunedì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Cable crunch in ginocchio", "ripetizioni": "12-15", "target": "Retto addominale" }, "esercizio2": { "nome_esercizio": "Reverse crunch su panca piana", "ripetizioni": "12-15", "target": "Addome basso" }, "esercizio3": { "nome_esercizio": "Side plank hip dip", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio4": { "nome_esercizio": "Woodchopper al cavo alto-basso", "ripetizioni": "12+12", "target": "Obliqui / fianchi" } } }], "tabata": [], "hiit": [], "superserie": [] }, "mercoledi": { "nome_giorno": "Gambe + Spalle + Bicipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Leg press + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Leg press controllata", "ripetizioni": "12-15", "target": "Quadricipiti / glutei" }, "esercizio2": { "nome_esercizio": "Alzate laterali manubri", "ripetizioni": "12-15", "target": "Deltoide medio" }, "esercizio3": { "nome_esercizio": "Curl manubri seduto", "ripetizioni": "12-15", "target": "Bicipiti" } } }, { "circuito2": { "nome_circuito": "Circuito 2 — Romanian deadlift + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Romanian deadlift con manubri", "ripetizioni": "12-15", "target": "Bicipiti femorali / glutei" }, "esercizio2": { "nome_esercizio": "Hip thrust con manubrio su panca", "ripetizioni": "12-15", "target": "Glutei" }, "esercizio3": { "nome_esercizio": "Shoulder press manubri seduto", "ripetizioni": "12-15", "target": "Spalle anteriori / spalle medie" } } }, { "circuito3": { "nome_circuito": "Circuito 3 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 60-75 sec tra giri", "esercizio1": { "nome_esercizio": "Face pull", "ripetizioni": "12-15", "target": "Deltoide posteriore / upper back" }, "esercizio2": { "nome_esercizio": "Curl cavo basso con barra dritta/EZ", "ripetizioni": "12-15", "target": "Bicipiti in allungamento" }, "esercizio3": { "nome_esercizio": "Cable lateral raise", "ripetizioni": "12-15 per lato", "target": "Deltoide medio" } } }], "core": [{ "core1": { "nome_circuito": "Core finale A — Mercoledì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Crunch su panca inclinata", "ripetizioni": "12-15", "target": "Retto addominale alto" }, "esercizio2": { "nome_esercizio": "Knee raise su panca", "ripetizioni": "10-12", "target": "Addome basso" }, "esercizio3": { "nome_esercizio": "Side bend con manubrio singolo", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio4": { "nome_esercizio": "Plank laterale con rotazione controllata", "ripetizioni": "10+10", "target": "Obliqui / anti-rotazione" } } }], "tabata": [], "hiit": [], "superserie": [] }, "giorno_3_opzionale": { "nome_giorno": "Corpo libero + tappetino — Core, stabilità e postura", "circuito": [{ "circuito1": { "nome_circuito": "Circuito tappetino — Stabilità, postura e core", "tipo": "circuito_metabolico_corpo_libero", "recupero": "20-30 sec tra esercizi, 60 sec tra giri", "esercizio1": { "nome_esercizio": "Dead bug avanzato con gambe estese alternate", "ripetizioni": "10+10", "target": "Core profondo / controllo bacino" }, "esercizio2": { "nome_esercizio": "Bird dog con pausa isometrica lunga", "ripetizioni": "10+10 con 2-3 sec pausa", "target": "Stabilità controlaterale / postura" }, "esercizio3": { "nome_esercizio": "Glute bridge march", "ripetizioni": "12+12", "target": "Glutei / bacino stabile" }, "esercizio4": { "nome_esercizio": "Side plank hip dip", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio5": { "nome_esercizio": "Plank shoulder tap lento", "ripetizioni": "10+10", "target": "Anti-rotazione / stabilità spalle" }, "esercizio6": { "nome_esercizio": "Prone Y-T-W sul tappetino", "ripetizioni": "8+8+8", "target": "Postura scapolare / trapezio basso / deltoidi posteriori" }, "esercizio7": { "nome_esercizio": "Scapular push-up", "ripetizioni": "12-15", "target": "Controllo scapole / serrato anteriore" }, "esercizio8": { "nome_esercizio": "Reverse crunch controllato a terra", "ripetizioni": "12-15", "target": "Addome basso / retroversione bacino" }, "esercizio9": { "nome_esercizio": "Side lying leg raise controllato", "ripetizioni": "12+12", "target": "Gluteo medio / stabilità bacino" }, "esercizio10": { "nome_esercizio": "Hollow hold facilitato", "ripetizioni": "20-30 sec", "target": "Core completo / tenuta addominale" } } }], "core": [], "tabata": [], "hiit": [], "superserie": [] } }, "settimana_b": { "lunedi": { "nome_giorno": "Petto + Dorso + Tricipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Cable press in piedi unilaterale", "ripetizioni": "15-20", "target": "Petto" }, "esercizio2": { "nome_esercizio": "Pulldown braccia tese con corda", "ripetizioni": "15-20", "target": "Dorsali" }, "esercizio3": { "nome_esercizio": "Estensione tricipiti sopra la testa con corda", "ripetizioni": "15-20", "target": "Tricipiti capo lungo" }, "esercizio4": { "nome_esercizio": "Croci ai cavi dal basso verso il centro", "ripetizioni": "15-20", "target": "Petto alto / petto medio" } } }, { "circuito2": { "nome_circuito": "Circuito 2 — Panca inclinata + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Chest press manubri su panca inclinata", "ripetizioni": "15-20", "target": "Petto alto" }, "esercizio2": { "nome_esercizio": "Rematore chest-supported su panca inclinata", "ripetizioni": "15-20", "target": "Dorso / spessore dorso" }, "esercizio3": { "nome_esercizio": "Pullover manubrio leggero su panca", "ripetizioni": "15-20", "target": "Dorsali / dentato" }, "esercizio4": { "nome_esercizio": "Estensioni tricipiti manubrio singolo seduto", "ripetizioni": "15-20", "target": "Tricipiti" } } }, { "circuito3": { "nome_circuito": "Circuito 3 — Macchina dorsali/cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Lat machine presa larga avanti / presa neutra", "ripetizioni": "15-20", "target": "Gran dorsale / ampiezza dorso" }, "esercizio2": { "nome_esercizio": "Dip su panca", "ripetizioni": "12-15", "target": "Tricipiti / petto basso" }, "esercizio3": { "nome_esercizio": "Push-up presa stretta su panca", "ripetizioni": "12-15", "target": "Tricipiti / petto" }, "esercizio4": { "nome_esercizio": "Face pull al cavo alto con corda", "ripetizioni": "15-20", "target": "Deltoide posteriore / upper back" } } }], "core": [{ "core1": { "nome_circuito": "Core finale B — Lunedì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Cable crunch al cavo alto", "ripetizioni": "15-20", "target": "Retto addominale" }, "esercizio2": { "nome_esercizio": "Captain chair knee raise", "ripetizioni": "10-12", "target": "Addome basso" }, "esercizio3": { "nome_esercizio": "Pallof press pesante al cavo", "ripetizioni": "10+10", "target": "Obliqui / anti-rotazione" }, "esercizio4": { "nome_esercizio": "Side plank con abduzione gamba", "ripetizioni": "20-25 sec per lato", "target": "Obliqui / gluteo medio / laterali" } } }], "tabata": [], "hiit": [], "superserie": [] }, "mercoledi": { "nome_giorno": "Gambe + Spalle + Bicipiti + Core", "circuito": [{ "circuito1": { "nome_circuito": "Circuito 1 — Hack squat/Leg press + manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Hack squat guidato / leg press", "ripetizioni": "15-20", "target": "Quadricipiti" }, "esercizio2": { "nome_esercizio": "Curl martello manubri seduto", "ripetizioni": "15-20", "target": "Bicipiti / brachiale" }, "esercizio3": { "nome_esercizio": "Alzate frontali manubri alternate", "ripetizioni": "15-20", "target": "Deltoide anteriore" }, "esercizio4": { "nome_esercizio": "Calf raise con manubri", "ripetizioni": "15-20", "target": "Polpacci" } } }, { "circuito2": { "nome_circuito": "Leg curl singolo — Bicipiti femorali", "tipo": "esercizio_singolo", "recupero": "60 sec tra serie", "esercizio1": { "nome_esercizio": "Leg curl seduto", "ripetizioni": "3 serie x 12-15", "target": "Bicipiti femorali / femorali" } } }, { "circuito3": { "nome_circuito": "Circuito 2 — Manubri", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Curl alternato manubri", "ripetizioni": "15-20", "target": "Bicipiti" }, "esercizio2": { "nome_esercizio": "Alzate posteriori manubri", "ripetizioni": "15-20", "target": "Deltoide posteriore / upper back" }, "esercizio3": { "nome_esercizio": "Romanian deadlift manubri", "ripetizioni": "12-15", "target": "Bicipiti femorali / glutei" } } }, { "circuito4": { "nome_circuito": "Circuito 3 — Cavi", "tipo": "circuito_forza_metabolico", "recupero": "0 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Curl cavo basso unilaterale dietro al corpo", "ripetizioni": "15-20", "target": "Bicipite in massimo allungamento" }, "esercizio2": { "nome_esercizio": "Tirate al viso con corda", "ripetizioni": "15-20", "target": "Deltoide posteriore / upper back" }, "esercizio3": { "nome_esercizio": "Alzata laterale al cavo dietro schiena", "ripetizioni": "15-20", "target": "Deltoide medio" }, "esercizio4": { "nome_esercizio": "Pull-through al cavo leggero", "ripetizioni": "15-20", "target": "Glutei / femorali" } } }], "core": [{ "core1": { "nome_circuito": "Core finale B — Mercoledì", "tipo": "circuito_core", "recupero": "30 sec tra esercizi, 45 sec tra giri", "esercizio1": { "nome_esercizio": "Crunch inverso su panca con retroversione", "ripetizioni": "12-15", "target": "Addome basso" }, "esercizio2": { "nome_esercizio": "Cable woodchopper basso-alto", "ripetizioni": "12+12", "target": "Obliqui / fianchi" }, "esercizio3": { "nome_esercizio": "Side bend al cavo basso", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio4": { "nome_esercizio": "Plank zavorrato", "ripetizioni": "30-45 sec", "target": "Core completo" } } }], "tabata": [], "hiit": [], "superserie": [] }, "giorno_3_opzionale": { "nome_giorno": "Corpo libero + tappetino — Core, stabilità e postura", "circuito": [{ "circuito1": { "nome_circuito": "Circuito tappetino — Stabilità, postura e core", "tipo": "circuito_metabolico_corpo_libero", "recupero": "20-30 sec tra esercizi, 60 sec tra giri", "esercizio1": { "nome_esercizio": "Dead bug avanzato con gambe estese alternate", "ripetizioni": "10+10", "target": "Core profondo / controllo bacino" }, "esercizio2": { "nome_esercizio": "Bird dog con pausa isometrica lunga", "ripetizioni": "10+10 con 2-3 sec pausa", "target": "Stabilità controlaterale / postura" }, "esercizio3": { "nome_esercizio": "Glute bridge march", "ripetizioni": "12+12", "target": "Glutei / bacino stabile" }, "esercizio4": { "nome_esercizio": "Side plank hip dip", "ripetizioni": "12+12", "target": "Obliqui / laterali" }, "esercizio5": { "nome_esercizio": "Plank shoulder tap lento", "ripetizioni": "10+10", "target": "Anti-rotazione / stabilità spalle" }, "esercizio6": { "nome_esercizio": "Prone Y-T-W sul tappetino", "ripetizioni": "8+8+8", "target": "Postura scapolare / trapezio basso / deltoidi posteriori" }, "esercizio7": { "nome_esercizio": "Scapular push-up", "ripetizioni": "12-15", "target": "Controllo scapole / serrato anteriore" }, "esercizio8": { "nome_esercizio": "Reverse crunch controllato a terra", "ripetizioni": "12-15", "target": "Addome basso / retroversione bacino" }, "esercizio9": { "nome_esercizio": "Side lying leg raise controllato", "ripetizioni": "12+12", "target": "Gluteo medio / stabilità bacino" }, "esercizio10": { "nome_esercizio": "Hollow hold facilitato", "ripetizioni": "20-30 sec", "target": "Core completo / tenuta addominale" } } }], "core": [], "tabata": [], "hiit": [], "superserie": [] } } }; const DB = 'fit-circuit-tracker-v18-optional-day'; const SECTIONS = [['circuito', 'Circuit'], ['core', 'Core'], ['tabata', 'Tabata'], ['hiit', 'HIIT'], ['superserie', 'Superset']], DAY_ORDER = ['lunedi', 'mercoledi', 'giorno_3_opzionale', 'venerdi'];
-const S = { tab: 'schede', cards: [], exercises: [], sessions: [], flow: { cardId: null, weekKey: null }, active: null, timer: null, tick: null, sessionTick: null, theme: localStorage.theme || 'system', missing: {}, focus: { on: true, blockIdx: 0, round: 1 }, progress: { view: 'overview', period: 'week', selectedSessionId: null, openExercises: {}, scrollY: {} }, history: { open: false, query: '', period: null, selectedSessionId: null, scrollY: 0, parentScrollY: 0, lastSessionId: null, initialized: false, closing: false }, session: { sheet: null, confirm: null, restoreBannerDismissed: {}, pendingSwitch: null, restored: false }, prefs: (function(){var raw={};try{raw=JSON.parse(localStorage.getItem('prefs')||'{}')||{}}catch(_e){}return{reducedMotion:raw.reducedMotion===true,textSize:(raw.textSize==='sm'||raw.textSize==='lg')?raw.textSize:'md',weightUnit:raw.weightUnit==='lbs'?'lbs':'kg',focusDefault:raw.focusDefault!==false,restDefaultSec:(typeof raw.restDefaultSec==='number'&&raw.restDefaultSec>=15&&raw.restDefaultSec<=300)?raw.restDefaultSec:60,vibration:raw.vibration===true,sounds:raw.sounds===true}})(), user: { name: (function(){try{return String(localStorage.getItem('user.name')||'').trim().slice(0,30)}catch(_e){return ''}})() }, sheet: null, sync: { config: null, lastSyncAt: null, status: 'idle', busy: false, pending: false, lastError: null } }; const $ = q => document.querySelector(q), byDom = id => document.getElementById(id), uid = () => crypto.randomUUID ? crypto.randomUUID() : 'id' + Date.now() + Math.random(), now = () => new Date().toISOString(), esc = (s = '') => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const S = { tab: 'schede', previousTab: null, editor: { draft: null, isDirty: false, blockMenuId: null }, cards: [], exercises: [], sessions: [], flow: { cardId: null, weekKey: null }, active: null, timer: null, tick: null, sessionTick: null, theme: localStorage.theme || 'system', missing: {}, focus: { on: true, blockIdx: 0, round: 1 }, progress: { view: 'overview', period: 'week', selectedSessionId: null, openExercises: {}, scrollY: {} }, history: { open: false, query: '', period: null, selectedSessionId: null, scrollY: 0, parentScrollY: 0, lastSessionId: null, initialized: false, closing: false }, session: { sheet: null, confirm: null, restoreBannerDismissed: {}, pendingSwitch: null, restored: false }, prefs: (function(){var raw={};try{raw=JSON.parse(localStorage.getItem('prefs')||'{}')||{}}catch(_e){}return{reducedMotion:raw.reducedMotion===true,textSize:(raw.textSize==='sm'||raw.textSize==='lg')?raw.textSize:'md',weightUnit:raw.weightUnit==='lbs'?'lbs':'kg',focusDefault:raw.focusDefault!==false,restDefaultSec:(typeof raw.restDefaultSec==='number'&&raw.restDefaultSec>=15&&raw.restDefaultSec<=300)?raw.restDefaultSec:60,vibration:raw.vibration===true,sounds:raw.sounds===true}})(), user: { name: (function(){try{return String(localStorage.getItem('user.name')||'').trim().slice(0,30)}catch(_e){return ''}})() }, sheet: null, sync: { config: null, lastSyncAt: null, status: 'idle', busy: false, pending: false, lastError: null } }; const $ = q => document.querySelector(q), byDom = id => document.getElementById(id), uid = () => crypto.randomUUID ? crypto.randomUUID() : 'id' + Date.now() + Math.random(), now = () => new Date().toISOString(), esc = (s = '') => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 function applyTheme() {
     const t = S.theme;
     let effective;
@@ -21,8 +21,11 @@ function applyPrefs() {
     root.dataset.textSize = (p.textSize === 'sm' || p.textSize === 'lg') ? p.textSize : 'md';
     root.dataset.weightUnit = p.weightUnit === 'lbs' ? 'lbs' : 'kg';
 } applyPrefs();
-const Store = { db: null, open() { return new Promise((res, rej) => { let r = indexedDB.open(DB, 2); r.onupgradeneeded = e => { let db = e.target.result;['cards', 'exercises', 'sessions', 'settings'].forEach(n => { if (!db.objectStoreNames.contains(n)) db.createObjectStore(n, { keyPath: 'id' }) }) }; r.onsuccess = e => { this.db = e.target.result; res() }; r.onerror = () => rej(r.error) }) }, all(n) { return new Promise(res => { let r = this.db.transaction(n).objectStore(n).getAll(); r.onsuccess = () => res(r.result || []) }) }, get(n, id) { return new Promise(res => { let r = this.db.transaction(n).objectStore(n).get(id); r.onsuccess = () => res(r.result) }) }, put(n, o) { return new Promise(res => { let r = this.db.transaction(n, 'readwrite').objectStore(n).put(o); r.onsuccess = () => res(o) }) }, del(n, id) { return new Promise(res => { let r = this.db.transaction(n, 'readwrite').objectStore(n).delete(id); r.onsuccess = () => res() }) }, clear(n) { return new Promise(res => { let r = this.db.transaction(n, 'readwrite').objectStore(n).clear(); r.onsuccess = () => res() }) } };
-async function refresh() { S.cards = await Store.all('cards'); S.exercises = await Store.all('exercises'); S.sessions = await Store.all('sessions'); render() }
+const Store = { db: null, open() { return new Promise((res, rej) => { let r = indexedDB.open(DB, 3); r.onupgradeneeded = e => { let db = e.target.result; let tx = e.target.transaction;['cards', 'exercises', 'sessions', 'settings'].forEach(n => { if (!db.objectStoreNames.contains(n)) db.createObjectStore(n, { keyPath: 'id' }) }); if (e.oldVersion < 3) { var settingsStore = tx.objectStore('settings'); var getReq = settingsStore.get('default'); getReq.onsuccess = function () { var existing = getReq.result; if (!existing) { settingsStore.put({ id: 'default', defaultCardId: null }); } else if (existing.defaultCardId === undefined) { existing.defaultCardId = null; settingsStore.put(existing); } }; } }; r.onsuccess = e => { this.db = e.target.result; res() }; r.onerror = () => rej(r.error) }) }, all(n) { return new Promise(res => { let r = this.db.transaction(n).objectStore(n).getAll(); r.onsuccess = () => res(r.result || []) }) }, get(n, id) { return new Promise(res => { let r = this.db.transaction(n).objectStore(n).get(id); r.onsuccess = () => res(r.result) }) }, put(n, o) { return new Promise(res => { let r = this.db.transaction(n, 'readwrite').objectStore(n).put(o); r.onsuccess = () => res(o) }) }, del(n, id) { return new Promise(res => { let r = this.db.transaction(n, 'readwrite').objectStore(n).delete(id); r.onsuccess = () => res() }) }, clear(n) { return new Promise(res => { let r = this.db.transaction(n, 'readwrite').objectStore(n).clear(); r.onsuccess = () => res() }) } };
+async function refresh() { S.cards = await Store.all('cards'); S.exercises = await Store.all('exercises'); S.sessions = await Store.all('sessions'); S.settings = await getSettings(); render() }
+function activeCard() { var id = S.settings && S.settings.defaultCardId; return (id && S.cards.find(function(c){return c.id===id;})) || S.cards[0] || null; }
+async function getSettings() { var rec = await Store.get('settings', 'default'); return rec || { id: 'default', defaultCardId: null }; }
+async function setSettings(patch) { var rec = (await Store.get('settings', 'default')) || { id: 'default' }; Object.assign(rec, patch || {}, { id: 'default' }); await Store.put('settings', rec); return rec; }
 function label(k) { return String(k).replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) }
 function mapType(raw, sectionHint) {
     var t = String(raw || '').toLowerCase();
@@ -32,6 +35,9 @@ function mapType(raw, sectionHint) {
     if (t.includes('core') || s === 'core') return 'Core';
     if (t.includes('tabata') || s === 'tabata') return 'Tabata';
     if (t.includes('hiit') || s === 'hiit') return 'HIIT';
+    if (t === 'pyramid' || t === 'piramide' || t === 'piramidale' || t.includes('piramid')) return 'Pyramid';
+    if (t === 'emom' || t.includes('emom')) return 'EMOM';
+    if (t === 'amrap' || t.includes('amrap')) return 'AMRAP';
     if (t.includes('corpo_libero') || t.includes('corpo libero')) return 'Circuit';
     return 'Circuit';
 }
@@ -61,7 +67,12 @@ async function parseBlocks(arr, section, type) {
         var tipoLow = String(b.tipo || '').toLowerCase();
         var nomeLow = String(b.nome_circuito || '').toLowerCase();
 
-        if (resolvedType !== 'Single' && exCount === 1 &&
+        if (resolvedType !== 'Single' &&
+            resolvedType !== 'Pyramid' &&
+            resolvedType !== 'EMOM' &&
+            resolvedType !== 'AMRAP' &&
+            resolvedType !== 'Tabata' &&
+            exCount === 1 &&
             tipoLow.indexOf('circuito') === -1 &&
             nomeLow.indexOf('circuito') === -1) {
             resolvedType = 'Single';
@@ -89,6 +100,19 @@ async function parseBlocks(arr, section, type) {
             exerciseIds: [],
             exerciseTargets: {}
         };
+
+        if (b.restSec != null && !isNaN(Number(b.restSec))) block.restSec = Number(b.restSec);
+        if (b.workSec != null && !isNaN(Number(b.workSec))) block.workSec = Number(b.workSec);
+        if (b.cycles != null && !isNaN(Number(b.cycles))) block.cycles = Number(b.cycles);
+        if (b.timeCapSec != null && !isNaN(Number(b.timeCapSec))) block.timeCapSec = Number(b.timeCapSec);
+        if (Array.isArray(b.repsScale)) {
+            block.repsScale = b.repsScale.map(function (step) {
+                var out = {};
+                if (step && step.reps != null) out.reps = step.reps;
+                if (step && step.kg != null) out.kg = step.kg;
+                return out;
+            });
+        }
 
         for (var i = 0; i < exerciseEntries.length; i++) {
             var exKey = exerciseEntries[i];
@@ -208,6 +232,42 @@ function mountViewDelegation() {
             case 'go-workout': go('workout'); break;
             case 'go-progressi': go('progressi'); break;
             case 'go-profilo': go('profilo'); break;
+            // T1.1 · Crea scheda shell — back button.
+            case 'create-save': saveCard(); break;
+            case 'create-back': go(S.previousTab || 'schede'); break;
+            // T1.2 · Hero meta — toggle "Imposta come attiva".
+            case 'create-hero-toggle-active': createHeroToggleActive(); break;
+            // T1.3 · Week/Day nav — selezione settimana/giorno + creazione lazy.
+            case 'create-nav-select-week': createNavSelectWeek(btn.dataset.weekKey); break;
+            case 'create-nav-select-day':  createNavSelectDay(btn.dataset.dayKey);  break;
+            case 'create-nav-add-day':     createNavAddDay(); break;
+            // T1.6 · Exercise picker sheet — apertura da BlockCard, selezione
+            // multipla dal catalogo, conferma appende su Block.exerciseIds/Targets.
+            case 'create-block-add-exercise': pickerOpen(btn.dataset.blockId); break;
+            case 'picker-close':              pickerClose(); break;
+            case 'picker-toggle-select':      pickerToggleSelect(btn.dataset.cid); break;
+            case 'picker-filter-cat':         pickerFilterCat(btn.dataset.cat); break;
+            case 'picker-filter-eq':          pickerFilterEq(btn.dataset.eq); break;
+            case 'picker-confirm':            pickerConfirm(); break;
+            // T1.5 · Apri BlockConfigSheet — con id → edit, senza id → nuovo blocco.
+            // L'alias `create-block-add` esplicita il caso "nuovo" (equivalente
+            // a `create-block-open-config` senza data-block-id).
+            // T1.8 · Block actions — menu contestuale + riordino.
+            case 'create-block-menu':       blockMenuToggle(btn.dataset.blockId); break;
+            case 'create-block-menu-close': blockMenuClose(); break;
+            case 'create-block-move-up':    blockMoveUp(btn.dataset.blockId); break;
+            case 'create-block-move-down':  blockMoveDown(btn.dataset.blockId); break;
+            case 'create-block-duplicate':  blockDuplicate(btn.dataset.blockId); break;
+            case 'create-block-delete':     blockDelete(btn.dataset.blockId); break;
+            case 'create-block-open-config':
+            case 'create-block-add': {
+                var __cbBlockId = btn.dataset.blockId || null;
+                var __cbMode = (__cbBlockId && btn.dataset.action !== 'create-block-add') ? 'edit' : 'new';
+                if (window.UI && typeof window.UI.openBlockConfigSheet === 'function') {
+                    window.UI.openBlockConfigSheet({ mode: __cbMode, blockId: __cbBlockId, state: S });
+                }
+                break;
+            }
             // Sprint 9.5 P1.1 — 'progress-view' e 'progress-period' rimossi:
             // i segmented Progress ora usano UI.Segmented + mountSegmented (callback diretto).
             case 'open-session-detail': progressOpenSession(btn.dataset.sessionId); break;
@@ -227,6 +287,42 @@ function mountViewDelegation() {
             case 'focus-prev': focusPrev(); break;
             case 'focus-next': focusNext(); break;
             case 'focus-next-block': focusNextBlock(); break;
+            case 'focus-prev-block': focusPrevBlock(); break;
+            // T2.2 · Single BigStepper (kg/reps) — data-target=kg|reps.
+            case 'stepper-inc':
+            case 'stepper-dec': {
+                const targetK = btn.dataset.target;
+                const sign = btn.dataset.action === 'stepper-inc' ? 1 : -1;
+                const stepAttr = Number(btn.dataset.step);
+                const defaultStep = targetK === 'reps' ? 1 : 2.5;
+                const step = Number.isFinite(stepAttr) && stepAttr > 0 ? stepAttr : defaultStep;
+                const bId = btn.dataset.blockId;
+                const eId = btn.dataset.exerciseId;
+                const sNo = Number(btn.dataset.setNo);
+                const bIx = Number(btn.dataset.bi) || 0;
+                if (targetK === 'kg')   bumpKg(bId, eId, sNo, sign * step, bIx);
+                else if (targetK === 'reps') bumpReps(bId, eId, sNo, sign * step, bIx);
+                render();
+                break;
+            }
+            // T2.2 · Single SetPicker — pill click → cambia set attivo.
+            case 'pick-set': focusPickSet(Number(btn.dataset.setIdx)); break;
+            // T2.5 · Tabata timer controls.
+            case 'tabata-skip':   tabataSkip(); break;
+            case 'tabata-pause':  tabataPause(); break;
+            case 'tabata-resume': tabataResume(); break;
+            // T2.6 · EMOM timer controls.
+            case 'emom-inc-reps': emomIncReps(+1); break;
+            case 'emom-dec-reps': emomIncReps(-1); break;
+            case 'emom-skip':     emomSkip(); break;
+            case 'emom-pause':    emomPause(); break;
+            case 'emom-resume':   emomResume(); break;
+            // T2.6 · AMRAP timer controls.
+            case 'amrap-close-round': amrapCloseRound(); break;
+            case 'amrap-pause':       amrapPause(); break;
+            case 'amrap-resume':      amrapResume(); break;
+            case 'amrap-skip':        amrapSkip(); break;
+            case 'amrap-toggle-ex':   amrapToggleEx(btn.dataset.exId, Number(btn.dataset.exIdx)); break;
             case 'toggle-round': toggleRound(btn.dataset.blockId, Number(btn.dataset.round), btn.dataset.checked === 'true'); break;
             case 'toggle-set': toggleExerciseSet(btn.dataset.blockId, btn.dataset.exerciseId, Number(btn.dataset.setNo), btn.dataset.checked === 'true'); break;
             case 'open-resume': openResumeModal(incompleteSessions()); break;
@@ -254,12 +350,40 @@ function mountViewDelegation() {
             case 'profile-open-info':    profileOpenInfo(btn.dataset.info); break;
         }
     });
+    // T1.2 · Hero meta — input delegation per input#createHeroName e
+    // textarea#createHeroNote. Aggiorna S.editor.draft senza re-render (il
+    // DOM resta stabile, il focus caret preservato durante la digitazione).
+    view.addEventListener('input', function (e) {
+        const el = e.target;
+        if (!el || !el.dataset) return;
+        const field = el.dataset.heroField;
+        if (field === 'name' || field === 'note') {
+            createHeroInput(field, el.value);
+            return;
+        }
+        // T1.6 · Exercise picker · search input (debounce implicito: aggiornamento
+        // imperativo della sola lista, no full render → caret preservato).
+        if (el.dataset.pickerInput === 'search') {
+            pickerSetQuery(el.value);
+            return;
+        }
+    });
     view.addEventListener('change', function (e) {
         const el = e.target;
         if (!el || !el.dataset) return;
         if (el.dataset.changeAction === 'toggle-round-check') {
             toggleRound(el.dataset.blockId, Number(el.dataset.round), el.checked);
+        } else if (el.dataset.input === 'set-note') {
+            // T2.2 · Salvataggio nota per set (Single) — no render (evita
+            // di rubare il focus mentre l'utente digita nella prossima cella).
+            setNoteFor(el.dataset.blockId, el.dataset.exerciseId, Number(el.dataset.setNo), el.value);
         }
+    });
+    // T2.2 · Nota per set: salva anche su ogni 'input' (typo istantaneo).
+    view.addEventListener('input', function (e) {
+        const el = e.target;
+        if (!el || !el.dataset || el.dataset.input !== 'set-note') return;
+        setNoteFor(el.dataset.blockId, el.dataset.exerciseId, Number(el.dataset.setNo), el.value);
     });
     view.addEventListener('toggle', function (e) {
         const d = e.target;
@@ -283,9 +407,14 @@ function render() {
         } else {
             window.UI.setActiveNavItem(bnRoot.firstElementChild, S.tab);
         }
-        bnRoot.style.display = S.tab === 'summary' ? 'none' : '';
+        bnRoot.style.display = (S.tab === 'summary' || S.tab === 'create') ? 'none' : '';
     }
-    const screens = { home, workout, progressi: stats, profilo: data, summary };
+    const createShellFn = function () {
+        return (window.UI && typeof window.UI.renderCreateWorkoutShell === 'function')
+            ? window.UI.renderCreateWorkoutShell(S)
+            : '';
+    };
+    const screens = { home, workout, progressi: stats, profilo: data, summary, create: createShellFn };
     $('#view').innerHTML = (screens[S.tab] || home)();
     mountHomeFab();
     mountRestOverlay();
@@ -293,6 +422,17 @@ function render() {
     mountWorkoutStickyHeaderScroll();
     mountProgressSegmented();
     mountPrefsControls();
+    // T2.5 · Tabata rAF loop (attaccato al DOM appena renderizzato). Se non
+    // c'e' `.ex-tabata` o S.tabata e' null, la mount e' no-op.
+    if (typeof mountTabataTimer === 'function') mountTabataTimer();
+    // T2.6 · EMOM rAF loop (attaccato dopo render). No-op se `.ex-emom` non
+    // presente o S.emom null.
+    if (typeof mountEmomTimer === 'function') mountEmomTimer();
+    // T2.6 · AMRAP rAF loop (attaccato dopo render). No-op se `.ex-amrap` non
+    // presente o S.amrap null.
+    if (typeof mountAmrapTimer === 'function') mountAmrapTimer();
+    // T1.8 · Drag handler esercizi nel Create Workout. No-op se #createWorkoutBody assente.
+    bindCreateDrag();
 }
 function go(t) {
     if (S.tab === t) { closeSelectSheet(); return; }
@@ -301,13 +441,534 @@ function go(t) {
         S.history.open = false;
         S.history.selectedSessionId = null;
     }
+    S.previousTab = S.tab;
     S.tab = t;
+    // T1.2 · Al primo ingresso su 'create' senza draft attiva, inizializza
+    // uno scaffold vuoto. È intenzionalmente permissivo (bootstrap dev-friendly):
+    // T1.7 introdurrà l'entry-point "Crea nuova" che pre-inizializzerà il draft
+    // prima di navigare. La firma dello shape è documentata in
+    // PROGETTO_MOCKUP/verifications/T1.2/DIFF.md.
+    if (t === 'create' && S.editor && !S.editor.draft) {
+        S.editor.draft = createEmptyDraft();
+        S.editor.isDirty = false;
+    }
+    if (t === 'create') ensureCreateUiState();
     document.body.classList.remove('tabAnim');
     void document.body.offsetWidth;
     document.body.classList.add('tabAnim');
     render();
     setTimeout(function () { document.body.classList.remove('tabAnim'); }, 260);
 }
+// T1.2 · Shape canonico del draft della scheda in editing.
+// SHAPE (consumato da T1.3/T1.4/T1.7/T1.8):
+//   { id, name, note, weeks:[{key,label,days:[{key,label,name,blocks:[]}]}], defaultActive }
+// Ogni block segue lo shape prodotto da parseBlocks() (app.js:91-114): id,
+// section, type, label, restText, restSec, rounds, exerciseIds,
+// exerciseTargets + campi opzionali workSec/cycles/repsScale/timeCapSec.
+function createEmptyDraft() {
+    return {
+        id: null,
+        name: '',
+        note: '',
+        weeks: [
+            { key: 'settimana_a', label: 'Settimana A', days: [] }
+        ],
+        defaultActive: false
+    };
+}
+function createHeroToggleActive() {
+    if (!S.editor || !S.editor.draft) return;
+    S.editor.draft.defaultActive = !S.editor.draft.defaultActive;
+    S.editor.isDirty = true;
+    var btn = document.querySelector('.cw-hero__toggle');
+    if (btn) {
+        var on = !!S.editor.draft.defaultActive;
+        btn.classList.toggle('is-on', on);
+        btn.setAttribute('aria-checked', on ? 'true' : 'false');
+    }
+}
+function createHeroInput(field, value) {
+    if (!S.editor || !S.editor.draft) return;
+    if (field !== 'name' && field !== 'note') return;
+    var next = String(value == null ? '' : value);
+    var max = field === 'name' ? 60 : 500;
+    if (next.length > max) next = next.slice(0, max);
+    if (S.editor.draft[field] === next) return;
+    S.editor.draft[field] = next;
+    S.editor.isDirty = true;
+}
+// T1.7 · Save card + set-as-default.
+async function saveCard() {
+    var draft = S.editor && S.editor.draft;
+    if (!draft) return;
+    var name = String(draft.name || '').trim();
+    if (!name) return;
+    var isNew = !draft.id;
+    var cardId = draft.id || uid();
+    var card = {
+        id: cardId,
+        name: name,
+        note: String(draft.note || ''),
+        weeks: (Array.isArray(draft.weeks) ? draft.weeks : []).map(function(w) {
+            return {
+                key: w.key,
+                label: w.label,
+                days: (Array.isArray(w.days) ? w.days : []).map(function(d) {
+                    return {
+                        key: d.key,
+                        label: d.label,
+                        name: d.name || d.label,
+                        blocks: Array.isArray(d.blocks) ? d.blocks : []
+                    };
+                })
+            };
+        }),
+        createdAt: isNew ? now() : (S.cards.find(function(c){return c.id===cardId;})||{}).createdAt || now(),
+        updatedAt: now()
+    };
+    await Store.put('cards', card);
+    if (draft.defaultActive) await setDefaultCard(cardId);
+    S.editor.draft = null;
+    S.editor.isDirty = false;
+    await refresh();
+    S.flow.cardId = cardId;
+    appToast('Scheda salvata', 'success');
+    go(S.previousTab || 'schede');
+}
+async function setDefaultCard(cardId) {
+    var id = String(cardId || '').trim();
+    if (!id) return;
+    await setSettings({ defaultCardId: id });
+    if (S.settings) S.settings.defaultCardId = id;
+}
+
+// T1.8 · Block actions — menu, riordino, duplica, elimina, drag esercizi.
+function getCurrentDayObj() {
+    if (!S.editor || !S.editor.draft) return null;
+    var draft = S.editor.draft;
+    var ui = S._ui;
+    var wIdx = (ui && ui.selectedWeek != null) ? Number(ui.selectedWeek) : 0;
+    var dIdx = (ui && ui.selectedDay  != null) ? Number(ui.selectedDay)  : 0;
+    var week = draft.weeks && draft.weeks[wIdx];
+    return (week && week.days && week.days[dIdx]) || null;
+}
+function blockMenuToggle(blockId) {
+    if (!S.editor || !blockId) return;
+    S.editor.blockMenuId = (S.editor.blockMenuId === blockId) ? null : blockId;
+    render();
+}
+function blockMenuClose() {
+    if (!S.editor) return;
+    S.editor.blockMenuId = null;
+    render();
+}
+function blockMoveUp(blockId) {
+    var day = getCurrentDayObj();
+    if (!day || !Array.isArray(day.blocks)) return;
+    var idx = day.blocks.findIndex(function (b) { return b.id === blockId; });
+    if (idx <= 0) return;
+    var tmp = day.blocks[idx - 1];
+    day.blocks[idx - 1] = day.blocks[idx];
+    day.blocks[idx] = tmp;
+    S.editor.isDirty = true;
+    S.editor.blockMenuId = null;
+    render();
+}
+function blockMoveDown(blockId) {
+    var day = getCurrentDayObj();
+    if (!day || !Array.isArray(day.blocks)) return;
+    var idx = day.blocks.findIndex(function (b) { return b.id === blockId; });
+    if (idx < 0 || idx >= day.blocks.length - 1) return;
+    var tmp = day.blocks[idx + 1];
+    day.blocks[idx + 1] = day.blocks[idx];
+    day.blocks[idx] = tmp;
+    S.editor.isDirty = true;
+    S.editor.blockMenuId = null;
+    render();
+}
+function blockDuplicate(blockId) {
+    var day = getCurrentDayObj();
+    if (!day || !Array.isArray(day.blocks)) return;
+    var idx = day.blocks.findIndex(function (b) { return b.id === blockId; });
+    if (idx < 0) return;
+    var orig  = day.blocks[idx];
+    var clone = JSON.parse(JSON.stringify(orig));
+    clone.id    = uid();
+    clone.label = String(orig.label || 'Blocco') + ' (copia)';
+    day.blocks.splice(idx + 1, 0, clone);
+    S.editor.isDirty = true;
+    S.editor.blockMenuId = null;
+    render();
+    appToast('Blocco duplicato', 'success');
+}
+function blockDelete(blockId) {
+    if (!S.editor) return;
+    S.editor.blockMenuId = null;
+    openConfirmDialog({
+        title: 'Eliminare il blocco?',
+        body: 'Il blocco e tutti i suoi esercizi verranno rimossi. Questa azione non può essere annullata.',
+        tone: 'danger',
+        confirmLabel: 'Elimina',
+        onConfirm: function () {
+            var day = getCurrentDayObj();
+            if (!day || !Array.isArray(day.blocks)) return;
+            var i = day.blocks.findIndex(function (b) { return b.id === blockId; });
+            if (i < 0) return;
+            day.blocks.splice(i, 1);
+            S.editor.isDirty = true;
+            render();
+            appToast('Blocco eliminato', 'info');
+        }
+    });
+}
+function moveExerciseInBlock(blockId, fromExId, toExId) {
+    var day = getCurrentDayObj();
+    if (!day || !Array.isArray(day.blocks)) return;
+    var block = day.blocks.find(function (b) { return b.id === blockId; });
+    if (!block || !Array.isArray(block.exerciseIds)) return;
+    var ids = block.exerciseIds;
+    var fromIdx = ids.indexOf(fromExId);
+    var toIdx   = ids.indexOf(toExId);
+    if (fromIdx < 0 || toIdx < 0 || fromIdx === toIdx) return;
+    ids.splice(fromIdx, 1);
+    ids.splice(toIdx, 0, fromExId);
+    S.editor.isDirty = true;
+    render();
+}
+function bindCreateDrag() {
+    var container = document.getElementById('createWorkoutBody');
+    if (!container) return;
+    var dragSrcBlockId = null;
+    var dragSrcExId    = null;
+    container.addEventListener('dragstart', function (e) {
+        var row = e.target.closest && e.target.closest('.cw-ex-row');
+        if (!row) return;
+        dragSrcBlockId = row.dataset.blockId;
+        dragSrcExId    = row.dataset.exerciseId;
+        e.dataTransfer.effectAllowed = 'move';
+        row.classList.add('is-dragging');
+    });
+    container.addEventListener('dragend', function (e) {
+        var row = e.target.closest && e.target.closest('.cw-ex-row');
+        if (row) row.classList.remove('is-dragging');
+        container.querySelectorAll('.cw-ex-row.is-drag-over').forEach(function (el) { el.classList.remove('is-drag-over'); });
+        dragSrcBlockId = null;
+        dragSrcExId    = null;
+    });
+    container.addEventListener('dragover', function (e) {
+        var row = e.target.closest && e.target.closest('.cw-ex-row');
+        if (!row) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        container.querySelectorAll('.cw-ex-row.is-drag-over').forEach(function (el) { el.classList.remove('is-drag-over'); });
+        row.classList.add('is-drag-over');
+    });
+    container.addEventListener('drop', function (e) {
+        var row = e.target.closest && e.target.closest('.cw-ex-row');
+        container.querySelectorAll('.cw-ex-row.is-drag-over').forEach(function (el) { el.classList.remove('is-drag-over'); });
+        if (!row) { dragSrcBlockId = null; dragSrcExId = null; return; }
+        e.preventDefault();
+        var tgtBlockId = row.dataset.blockId;
+        var tgtExId    = row.dataset.exerciseId;
+        var src        = dragSrcExId;
+        var srcBlock   = dragSrcBlockId;
+        dragSrcBlockId = null;
+        dragSrcExId    = null;
+        if (!src || !tgtExId || src === tgtExId || srcBlock !== tgtBlockId) return;
+        moveExerciseInBlock(tgtBlockId, src, tgtExId);
+    });
+}
+
+// T1.3 · Week/Day navigation — helpers UI-state + handlers delegator.
+// S._ui è session-only (mai persistito). Contiene la selezione corrente
+// della coppia settimana/giorno usata dal renderer WeekDayNav.
+function ensureCreateUiState() {
+    if (!S._ui) S._ui = { selectedWeek: null, selectedDay: null };
+    if (typeof S._ui.selectedWeek === 'undefined') S._ui.selectedWeek = null;
+    if (typeof S._ui.selectedDay  === 'undefined') S._ui.selectedDay  = null;
+}
+var CREATE_WEEK_LABELS = {
+    settimana_a: 'Settimana A',
+    settimana_b: 'Settimana B',
+    giorno_3_opzionale: 'Giorno 3 (opzionale)'
+};
+var CREATE_DAY_ORDER  = ['lunedi', 'martedi', 'mercoledi', 'giovedi', 'venerdi', 'sabato', 'domenica'];
+var CREATE_DAY_LABELS = {
+    lunedi: 'Lunedì', martedi: 'Martedì', mercoledi: 'Mercoledì', giovedi: 'Giovedì',
+    venerdi: 'Venerdì', sabato: 'Sabato', domenica: 'Domenica'
+};
+function createNavSelectWeek(weekKey) {
+    if (!S.editor || !S.editor.draft) return;
+    if (!weekKey || !CREATE_WEEK_LABELS.hasOwnProperty(weekKey)) return;
+    ensureCreateUiState();
+    var draft = S.editor.draft;
+    if (!Array.isArray(draft.weeks)) draft.weeks = [];
+    var week = null;
+    for (var i = 0; i < draft.weeks.length; i++) {
+        if (draft.weeks[i] && draft.weeks[i].key === weekKey) { week = draft.weeks[i]; break; }
+    }
+    if (!week) {
+        week = { key: weekKey, label: CREATE_WEEK_LABELS[weekKey], days: [] };
+        draft.weeks.push(week);
+        S.editor.isDirty = true;
+    }
+    S._ui.selectedWeek = weekKey;
+    S._ui.selectedDay  = null;
+    render();
+}
+function createNavSelectDay(dayKey) {
+    if (!S.editor || !S.editor.draft) return;
+    if (!dayKey) return;
+    ensureCreateUiState();
+    S._ui.selectedDay = dayKey;
+    render();
+}
+function createNavAddDay() {
+    if (!S.editor || !S.editor.draft) return;
+    ensureCreateUiState();
+    var draft = S.editor.draft;
+    if (!Array.isArray(draft.weeks) || draft.weeks.length === 0) {
+        draft.weeks = [{ key: 'settimana_a', label: 'Settimana A', days: [] }];
+    }
+    var weekKey = S._ui.selectedWeek || draft.weeks[0].key;
+    var week = null;
+    for (var i = 0; i < draft.weeks.length; i++) {
+        if (draft.weeks[i] && draft.weeks[i].key === weekKey) { week = draft.weeks[i]; break; }
+    }
+    if (!week) return;
+    if (!Array.isArray(week.days)) week.days = [];
+    var used = {};
+    for (var j = 0; j < week.days.length; j++) if (week.days[j]) used[week.days[j].key] = true;
+    var nextKey = null;
+    for (var k = 0; k < CREATE_DAY_ORDER.length; k++) {
+        if (!used[CREATE_DAY_ORDER[k]]) { nextKey = CREATE_DAY_ORDER[k]; break; }
+    }
+    if (!nextKey) return;
+    week.days.push({ key: nextKey, label: CREATE_DAY_LABELS[nextKey], name: '', blocks: [] });
+    S.editor.isDirty = true;
+    S._ui.selectedWeek = weekKey;
+    S._ui.selectedDay  = nextKey;
+    render();
+}
+// ==== T1.6 · Exercise Picker Sheet (PROGETTO_MOCKUP) =====================
+// Overlay full-height dentro `.cw-shell` (route "create"). Stato UI vive in
+// `S.editor.picker` (session-only, non persistito). Il catalogo esercizi
+// e' memoizzato in `S.editor.catalog` dopo il primo initCatalog(). La
+// selezione multipla appende su Block.exerciseIds + Block.exerciseTargets
+// (shape T1.2), aggiungendo l'esercizio a S.exercises se assente.
+var __PICKER_CATALOG_MOD = null;
+
+function ensurePickerState() {
+    if (!S.editor) return;
+    if (!S.editor.picker) {
+        S.editor.picker = {
+            open: false,
+            blockId: null,
+            blockContext: null,
+            query: '',
+            filterCat: null,
+            filterEq: [],
+            selectedIds: [],
+            loading: false
+        };
+    }
+    if (typeof S.editor.catalog === 'undefined') S.editor.catalog = null;
+}
+
+function pickerLoadCatalogModule() {
+    if (__PICKER_CATALOG_MOD) return Promise.resolve(__PICKER_CATALOG_MOD);
+    return import('./services/catalogService.js').then(function (m) {
+        __PICKER_CATALOG_MOD = m;
+        return m;
+    });
+}
+
+function pickerFindBlock(blockId) {
+    if (!blockId) return null;
+    var draft = S.editor && S.editor.draft;
+    if (!draft || !Array.isArray(draft.weeks)) return null;
+    for (var wi = 0; wi < draft.weeks.length; wi++) {
+        var week = draft.weeks[wi];
+        if (!week || !Array.isArray(week.days)) continue;
+        for (var di = 0; di < week.days.length; di++) {
+            var day = week.days[di];
+            if (!day || !Array.isArray(day.blocks)) continue;
+            for (var bi = 0; bi < day.blocks.length; bi++) {
+                if (day.blocks[bi] && day.blocks[bi].id === blockId) return day.blocks[bi];
+            }
+        }
+    }
+    return null;
+}
+
+function pickerOpen(blockId) {
+    if (!S.editor) return;
+    ensurePickerState();
+    var block = pickerFindBlock(blockId);
+    S.editor.picker.open = true;
+    S.editor.picker.blockId = blockId || null;
+    S.editor.picker.blockContext = block ? { id: block.id, label: block.label || '' } : null;
+    S.editor.picker.query = '';
+    S.editor.picker.filterCat = null;
+    S.editor.picker.filterEq = [];
+    S.editor.picker.selectedIds = [];
+    var haveCatalog = Array.isArray(S.editor.catalog) && S.editor.catalog.length > 0;
+    S.editor.picker.loading = !haveCatalog;
+    pickerLoadCatalogModule().then(function (mod) {
+        return mod.initCatalog();
+    }).then(function (all) {
+        S.editor.catalog = Array.isArray(all) ? all : [];
+        if (S.editor.picker) {
+            S.editor.picker.loading = false;
+            if (S.editor.picker.open) render();
+        }
+    }).catch(function (err) {
+        console.warn('picker catalog load failed:', err);
+        S.editor.catalog = [];
+        if (S.editor.picker) {
+            S.editor.picker.loading = false;
+            if (S.editor.picker.open) render();
+        }
+    });
+    render();
+}
+
+function pickerClose() {
+    if (!S.editor || !S.editor.picker) return;
+    S.editor.picker.open = false;
+    render();
+}
+
+function pickerSetQuery(value) {
+    if (!S.editor || !S.editor.picker) return;
+    S.editor.picker.query = String(value == null ? '' : value);
+    pickerRefreshList();
+}
+
+function pickerRefreshList() {
+    if (!window.UI || typeof window.UI.renderExercisePickerListInner !== 'function') return;
+    var listEl = document.querySelector('.cw-picker__list');
+    if (!listEl) return;
+    var cat = Array.isArray(S.editor.catalog) ? S.editor.catalog : [];
+    listEl.innerHTML = window.UI.renderExercisePickerListInner(S.editor.picker, cat);
+}
+
+function pickerRefreshFilters() {
+    if (!window.UI || typeof window.UI.renderExercisePickerFilters !== 'function') return;
+    var wrap = document.querySelector('.cw-picker__filters-wrap');
+    if (!wrap) return;
+    var cat = Array.isArray(S.editor.catalog) ? S.editor.catalog : [];
+    wrap.innerHTML = window.UI.renderExercisePickerFilters(S.editor.picker, cat);
+}
+
+function pickerRefreshCount() {
+    var n = (S.editor && S.editor.picker && Array.isArray(S.editor.picker.selectedIds))
+        ? S.editor.picker.selectedIds.length : 0;
+    var badge = document.querySelector('[data-picker-count]');
+    if (badge) {
+        badge.textContent = String(n);
+        if (n > 0) badge.removeAttribute('hidden');
+        else badge.setAttribute('hidden', '');
+    }
+    var cta = document.querySelector('.cw-picker__btn');
+    if (cta) {
+        cta.textContent = n > 0 ? ('Aggiungi (' + n + ')') : 'Seleziona esercizi';
+        cta.classList.toggle('cw-picker__btn--accent', n > 0);
+        if (n > 0) {
+            cta.removeAttribute('disabled');
+            cta.setAttribute('aria-disabled', 'false');
+        } else {
+            cta.setAttribute('disabled', '');
+            cta.setAttribute('aria-disabled', 'true');
+        }
+    }
+}
+
+function pickerToggleSelect(id) {
+    if (!id || !S.editor || !S.editor.picker) return;
+    var arr = S.editor.picker.selectedIds;
+    var idx = arr.indexOf(id);
+    if (idx >= 0) arr.splice(idx, 1);
+    else arr.push(id);
+    var safeSel = String(id).replace(/["\\]/g, '\\$&');
+    var row = document.querySelector('.cw-picker-row[data-cid="' + safeSel + '"]');
+    if (row) {
+        var on = arr.indexOf(id) !== -1;
+        row.classList.toggle('cw-picker-row--selected', on);
+        row.setAttribute('aria-pressed', on ? 'true' : 'false');
+        var nameEl = row.querySelector('.cw-p-name');
+        if (nameEl) {
+            row.setAttribute('aria-label', (on ? 'Rimuovi ' : 'Aggiungi ') + nameEl.textContent);
+        }
+        var addEl = row.querySelector('.cw-p-add');
+        if (addEl) addEl.textContent = on ? '✓' : '+';
+    }
+    pickerRefreshCount();
+}
+
+function pickerFilterCat(value) {
+    if (!S.editor || !S.editor.picker) return;
+    var v = (value === '' || value == null) ? null : String(value);
+    if (S.editor.picker.filterCat === v) return;
+    S.editor.picker.filterCat = v;
+    pickerRefreshFilters();
+    pickerRefreshList();
+}
+
+function pickerFilterEq(value) {
+    if (!value || !S.editor || !S.editor.picker) return;
+    var arr = S.editor.picker.filterEq;
+    var idx = arr.indexOf(value);
+    if (idx >= 0) arr.splice(idx, 1);
+    else arr.push(value);
+    pickerRefreshFilters();
+    pickerRefreshList();
+}
+
+function pickerConfirm() {
+    var p = S.editor && S.editor.picker;
+    if (!p || !p.open) return;
+    var ids = Array.isArray(p.selectedIds) ? p.selectedIds : [];
+    if (!ids.length) return;
+    var block = pickerFindBlock(p.blockId);
+    if (!block) { pickerClose(); return; }
+    if (!Array.isArray(block.exerciseIds)) block.exerciseIds = [];
+    if (!block.exerciseTargets || typeof block.exerciseTargets !== 'object') block.exerciseTargets = {};
+    var catalog = Array.isArray(S.editor.catalog) ? S.editor.catalog : [];
+    for (var i = 0; i < ids.length; i++) {
+        var cid = ids[i];
+        var entry = null;
+        for (var j = 0; j < catalog.length; j++) {
+            if (catalog[j] && catalog[j].id === cid) { entry = catalog[j]; break; }
+        }
+        if (!entry) continue;
+        if (block.exerciseIds.indexOf(entry.id) !== -1) continue;
+        var existsInS = false;
+        for (var k = 0; k < S.exercises.length; k++) {
+            if (S.exercises[k] && S.exercises[k].id === entry.id) { existsInS = true; break; }
+        }
+        if (!existsInS) {
+            S.exercises.push({
+                id: entry.id,
+                name: entry.name,
+                primary: (entry.muscles && entry.muscles[0]) ? entry.muscles[0] : '',
+                category: entry.category || '',
+                equipment: entry.equipment || ''
+            });
+        }
+        block.exerciseIds.push(entry.id);
+        if (!block.exerciseTargets[entry.id]) {
+            block.exerciseTargets[entry.id] = {
+                reps: '',
+                target: (entry.muscles && entry.muscles[0]) ? entry.muscles[0] : ''
+            };
+        }
+    }
+    S.editor.isDirty = true;
+    S.editor.picker.open = false;
+    render();
+}
+
 function byId(id) { return S.exercises.find(e => e.id === id) || { name: 'Esercizio rimosso', primary: '' } }
 
 // ==== Home Sprint 3 — helpers derivati (letture pure, nessuna business logic) ====
@@ -638,9 +1299,9 @@ function home() {
 function countBlocksInCard(c) { return c.weeks.reduce((n, w) => n + w.days.reduce((x, d) => x + d.blocks.length, 0), 0) } function countExercisesInDay(d) { let ids = new Set(); d.blocks.forEach(b => b.exerciseIds.forEach(id => ids.add(id))); return ids.size }
 let __sheetHandle = null;
 function openSelectSheet() {
-    if (!S.cards.length) return;
+    if (!S.cards.length) { go('create'); return; }
     if (!S.flow.cardId || !S.cards.find(function (c) { return c.id === S.flow.cardId; })) {
-        S.flow.cardId = S.cards[0].id;
+        var _ac = activeCard(); S.flow.cardId = _ac ? _ac.id : null;
     }
     let c = S.cards.find(function (x) { return x.id === S.flow.cardId; });
     if (c && (!S.flow.weekKey || !c.weeks.find(function (w) { return w.key === S.flow.weekKey; }))) {
@@ -675,6 +1336,7 @@ function mountSheetDelegation(rootEl) {
             case 'pick-week': sheetWeekSelect(btn.dataset.weekKey); break;
             case 'pick-day': sheetPickDay(btn.dataset.cardId, btn.dataset.weekKey, btn.dataset.dayKey); break;
             case 'close-select': closeSelectSheet(); break;
+            case 'go-create': closeSelectSheet(); go('create'); break;
         }
     });
 }
@@ -711,7 +1373,7 @@ function selectSheetBody() {
     if (!S.cards.length) return '<div class="muted" style="padding:16px 0">Nessuna scheda disponibile.</div>';
     // Sprint 4.5: link "Torna alla Home" per uscire dal sheet senza scegliere.
     let backLink = '<div class="sheetSection sheetSection--back"><button type="button" class="sheetBackLink" data-sheet-action="close-select" aria-label="Torna alla Home">&larr; Torna alla Home</button></div>';
-    let c = S.cards.find(function (x) { return x.id === S.flow.cardId; }) || S.cards[0];
+    let c = S.cards.find(function (x) { return x.id === S.flow.cardId; }) || activeCard();
     let w = c.weeks.find(function (x) { return x.key === S.flow.weekKey; }) || c.weeks[0];
     let cardChips = S.cards.length > 1
         ? `<div class="sheetSection"><div class="sheetLabel">Scheda</div><div class="sheetChips">${S.cards.map(function (cc) { return `<button type="button" class="sheetChip ${cc.id === c.id ? 'active' : ''}" data-sheet-action="pick-card" data-card-id="${esc(cc.id)}">${esc(cc.name)}</button>`; }).join('')}</div></div>`
@@ -723,7 +1385,8 @@ function selectSheetBody() {
         ? w.days.map(function (d) { return sheetDayTile(c, w, d); }).join('')
         : '<div class="muted">Seleziona una settimana.</div>';
     let daysSection = `<div class="sheetSection"><div class="sheetLabel">Giorno</div><div class="sheetDayList">${dayTiles}</div></div>`;
-    return `${backLink}${cardChips}${weekChips}${daysSection}`;
+    let newCardBtn = '<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--color-divider);"><button class="c-btn c-btn--ghost" style="width:100%;gap:8px;" data-sheet-action="go-create"><span style="font-size:18px;">＋</span> Crea nuova scheda</button></div>';
+    return `${backLink}${cardChips}${weekChips}${daysSection}${newCardBtn}`;
 }
 function sheetDayTile(c, w, d) {
     let disabled = !d.blocks.length;
@@ -748,7 +1411,7 @@ function resolveSessionCard(s) {
         });
     });
 
-    return byWeekAndDay || S.cards[0] || null;
+    return byWeekAndDay || activeCard() || null;
 }
 
 function ctx() {
@@ -819,65 +1482,53 @@ function workout() {
         }
     }
 
-    // Phase 2 — Complete UI Reconstruction: Focus su blocco single-exercise.
-    // Emette la scena mockup (WorkoutStickyHeader mode:immersive + ExerciseStage
-    // + StepperField ×2 + CompleteSetButton + hint testuale). Sprint 9.1A #1:
-    // Header unificato — usiamo WorkoutStickyHeader come UNICO componente,
-    // in modalità 'immersive' (variante piatta senza sticky/blur/hairline).
-    if (started && focusOn && isSingleFocus && UI && UI.WorkoutStickyHeader && UI.ExerciseStage) {
-        const bIdx = Math.min(S.focus.blockIdx, x.blocks.length - 1);
-        const b = x.blocks[bIdx];
-        const rest = b.restSec || parseRestToSeconds(b.restText);
-        const blockDone = blockAllDone(b);
-        const topBar = UI.WorkoutStickyHeader({
-            mode: 'immersive',
-            round:      roundInfo.round,
-            roundTotal: roundInfo.total,
-            roundLabel: roundInfo.label,
-            backAction: 'go-home',
-            menuAction: S.active ? 'session-open' : '',
-        });
-        const stage = focusSinglePremium(x, b, bIdx, x.blocks.length, roundInfo.total, roundInfo.round, rest, blockDone, done, total, pct);
-        return `<div class="c-workoutSceneV2">${topBar}${stage}</div>`;
-    }
+    // T2.2 · Single focus non ha più una early-return dedicata: cade nel
+    // ramo `focusView()` che compone renderExecutionShell + renderSingleExercise
+    // (Sprint 9.1A / focusSinglePremium sono stati rimossi).
 
-    let headerHtml;
-    if (UI && UI.WorkoutStickyHeader && UI.Button) {
-        const viewBtn = UI.Button({
-            label: focusOn ? '☰ Vista completa' : '◉ Focus',
-            variant: 'ghost',
-            size: 'sm',
-            dataset: { action: 'toggle-focus' },
-        });
-        const startBtn = started
-            ? ''
-            : UI.Button({ label: 'INIZIO', variant: 'primary', size: 'sm', dataset: { action: 'begin-workout' } });
-        const badgeHtml = sessionStatusBadgeHtml(S.active, { size: 'sm' });
-        const subHtml = started
-            ? `<span id="sessionTimerText" role="timer" aria-live="polite">${esc(sessionTime())}</span> · ${esc(x.week.label)} · ${esc(x.day.name)}`
-            : `${esc(x.week.label)} · ${esc(x.day.name)}`;
-        headerHtml = UI.WorkoutStickyHeader({
-            title: x.day.label,
-            subtitleHtml: subHtml,
-            round:      roundInfo ? roundInfo.round : null,
-            roundTotal: roundInfo ? roundInfo.total : null,
-            roundLabel: roundInfo ? roundInfo.label : 'Round',
-            setsDone:   done,
-            setsTotal:  total,
-            backAction: 'go-home',
-            menuAction: S.active ? 'session-open' : '',
-            progress: pct,
-            actions: `${badgeHtml}${viewBtn}${startBtn}`,
-            compactCtaLabel: started ? 'Continua' : 'Inizio',
-            compactCtaAction: started ? 'toggle-focus' : 'begin-workout',
-        });
-    } else {
-        headerHtml = `<div class="card"><h2>${esc(x.day.label)}</h2></div>`;
-    }
+    // T2.1 · Quando siamo in Focus Mode (multi/circuit path), lo chrome
+    // esterno (WorkoutStickyHeader + WorkoutProgress) viene sostituito dalla
+    // ExecutionShell emessa da focusView(). Evitiamo doppio chrome.
+    let headerHtml = '';
+    let progressHtml = '';
+    if (!focusOn) {
+        if (UI && UI.WorkoutStickyHeader && UI.Button) {
+            const viewBtn = UI.Button({
+                label: focusOn ? '☰ Vista completa' : '◉ Focus',
+                variant: 'ghost',
+                size: 'sm',
+                dataset: { action: 'toggle-focus' },
+            });
+            const startBtn = started
+                ? ''
+                : UI.Button({ label: 'INIZIO', variant: 'primary', size: 'sm', dataset: { action: 'begin-workout' } });
+            const badgeHtml = sessionStatusBadgeHtml(S.active, { size: 'sm' });
+            const subHtml = started
+                ? `<span id="sessionTimerText" role="timer" aria-live="polite">${esc(sessionTime())}</span> · ${esc(x.week.label)} · ${esc(x.day.name)}`
+                : `${esc(x.week.label)} · ${esc(x.day.name)}`;
+            headerHtml = UI.WorkoutStickyHeader({
+                title: x.day.label,
+                subtitleHtml: subHtml,
+                round:      roundInfo ? roundInfo.round : null,
+                roundTotal: roundInfo ? roundInfo.total : null,
+                roundLabel: roundInfo ? roundInfo.label : 'Round',
+                setsDone:   done,
+                setsTotal:  total,
+                backAction: 'go-home',
+                menuAction: S.active ? 'session-open' : '',
+                progress: pct,
+                actions: `${badgeHtml}${viewBtn}${startBtn}`,
+                compactCtaLabel: started ? 'Continua' : 'Inizio',
+                compactCtaAction: started ? 'toggle-focus' : 'begin-workout',
+            });
+        } else {
+            headerHtml = `<div class="card"><h2>${esc(x.day.label)}</h2></div>`;
+        }
 
-    let progressHtml = (UI && UI.WorkoutProgress)
-        ? UI.WorkoutProgress({ done, total, label: `${done}/${total} serie` })
-        : `<div class="workoutStatusBar" role="group" aria-label="Stato sessione"><span class="workoutStatusBar__timer">${sessionTime()}</span><div class="workoutStatusBar__bar" aria-hidden="true"><i style="width:${pct}%"></i></div><span class="workoutStatusBar__pct">${Math.round(pct)}%</span></div>`;
+        progressHtml = (UI && UI.WorkoutProgress)
+            ? UI.WorkoutProgress({ done, total, label: `${done}/${total} serie` })
+            : `<div class="workoutStatusBar" role="group" aria-label="Stato sessione"><span class="workoutStatusBar__timer">${sessionTime()}</span><div class="workoutStatusBar__bar" aria-hidden="true"><i style="width:${pct}%"></i></div><span class="workoutStatusBar__pct">${Math.round(pct)}%</span></div>`;
+    }
 
     let body = focusOn ? focusView(x, done, total) : x.blocks.map((b, bi) => workoutBlock(b, bi)).join('');
 
@@ -921,13 +1572,59 @@ function focusView(x, done, total) {
     if (S.focus.round < 1) S.focus.round = 1;
     let round = S.focus.round;
     let isSingle = String(b.type).toLowerCase() === 'single' || /singolo/i.test(b.label || '');
+    // T2.7 · Pyramid: routing verso lo stesso body Single ma con mode='pyramid'
+    // (SetPicker mostra reps scale, kg auto-fill dal set precedente).
+    let isPyramid = String(b.type) === 'Pyramid' || /piramid|pyramid/i.test(String(b.type)) || /piramid|pyramid/i.test(b.label || '');
     let rest = b.restSec || parseRestToSeconds(b.restText);
     let blockDone = blockAllDone(b);
     let pct = Math.min(100, done / Math.max(1, total) * 100);
 
-    // Sprint 8.5 — Single block: composizione premium ExerciseHero + Pickers + CTA.
-    if (isSingle && UI && UI.ExerciseHero && UI.CompleteSetButton) {
-        return focusSinglePremium(x, b, bi, n, rounds, round, rest, blockDone, done, total, pct);
+    // T2.2 · Single block: renderExecutionShell + renderSingleExercise (body)
+    // + CompleteSetButton (cta). PATTERN-SETTER per T2.3/T2.5/T2.6/T2.7.
+    if (isSingle && UI && UI.renderExecutionShell && UI.renderSingleExercise && UI.CompleteSetButton) {
+        return renderSingleFocusShell(x, b, bi, n, rounds, done, total, 'single');
+    }
+
+    // T2.7 · Pyramid: riusa renderSingleFocusShell con mode='pyramid'. Nessun
+    // componente nuovo — solo overrides per SetPicker labels + kg auto-fill.
+    if (isPyramid && UI && UI.renderExecutionShell && UI.renderSingleExercise && UI.CompleteSetButton) {
+        return renderSingleFocusShell(x, b, bi, n, rounds, done, total, 'pyramid');
+    }
+
+    // T2.5 · Tabata (familyExec="timed"): renderExecutionShell + renderTabataTimer
+    // (body) + renderTabataCtrls (cta). Stato timer in S.tabata, aggiornato da
+    // requestAnimationFrame per zero drift.
+    const isTabata = String(b.type) === 'Tabata';
+    if (isTabata && UI && UI.renderExecutionShell && UI.renderTabataTimer && UI.renderTabataCtrls) {
+        return renderTabataFocusShell(x, b, bi, n, done, total);
+    }
+
+    // T2.6 · EMOM (familyExec="timed"): ring count-down su workSec (default 60)
+    // + counter reps al centro. Ogni ciclo = 1 minuto; boundary auto-avanza al
+    // ciclo successivo, marcando fail se reps < target. rAF per zero drift.
+    const isEmom = String(b.type) === 'EMOM';
+    if (isEmom && UI && UI.renderExecutionShell && UI.renderEmomTimer && UI.renderEmomCtrls) {
+        return renderEmomFocusShell(x, b, bi, n, done, total);
+    }
+
+    // T2.6 · AMRAP (familyExec="timed"): timer digitale grande che SALE fino
+    // a timeCapSec. NO ring. Round counter incrementato manualmente via
+    // "Chiudi giro". Auto-close a timeCapSec.
+    const isAmrap = String(b.type) === 'AMRAP';
+    if (isAmrap && UI && UI.renderExecutionShell && UI.renderAmrapTimer && UI.renderAmrapCtrls) {
+        return renderAmrapFocusShell(x, b, bi, n, done, total);
+    }
+
+    // T2.3 · Circuit/Superset (family="round"): renderExecutionShell +
+    // renderCircuitRound (body) + CTA "Chiudi giro N → rest Xs". La regola
+    // Circuit ≡ Superset (project_focus_mode_design) impone lo STESSO
+    // rendering: cambia solo l'etichetta della pill nel block-crumb.
+    // Nota: escludo qui i tipi timed (Tabata/EMOM/AMRAP) e Pyramid, che
+    // saranno gestiti da T2.5/T2.6/T2.7 con componenti dedicati.
+    const _t = String(b.type || '').toLowerCase();
+    const isTimed = /tabata|emom|amrap|pyramid|piramide/.test(_t);
+    if (!isSingle && !isPyramid && !isTimed && UI && UI.renderExecutionShell && UI.renderCircuitRound) {
+        return renderCircuitRoundFocusShell(x, b, bi, n, rounds, round, done, total, rest);
     }
 
     // Multi (circuit/superset) — layout classico ma con lo stesso chrome esterno.
@@ -972,117 +1669,1237 @@ function focusView(x, done, total) {
 
     let nav = `<div class="focusNav">${navPrev}${navNext}</div>`;
 
-    return `<section class="focusCard" aria-label="Focus workout">${ringWrap}${heroHtml}${bodyMain}${closeRoundBtn}${nextExHtml}${nav}</section>`;
+    // T2.1 · Shell comune. Il body del focus (ring + hero + esercizi + close-round
+    // + next + nav) resta INVARIATO — SCAFFOLD ONLY. Il chrome esterno (top bar
+    // con cronometro sessione + Blocco N/M, progress bar con tick per blocco,
+    // sticky CTA bar bottom) viene delegato a renderExecutionShell.
+    // Nota: closeRoundBtn e nav restano nel body per non cambiare il
+    // comportamento visibile — la ctaHtml è vuota (bar collassata) e sarà
+    // popolata dai task T2.2..T2.7 quando riscriveranno il body per tipo blocco.
+    const focusBodyHtml = `<section class="focusCard" aria-label="Focus workout">${ringWrap}${heroHtml}${bodyMain}${closeRoundBtn}${nextExHtml}${nav}</section>`;
+
+    if (UI && UI.renderExecutionShell) {
+        return UI.renderExecutionShell({
+            title: x.day.label,
+            sessionElapsedSec: (typeof sessionElapsedSec === 'function' ? sessionElapsedSec(S.active) : 0),
+            blockIdx: bi + 1,
+            blockTotal: n,
+            progress: { done, total, ticks: n },
+            bodyHtml: focusBodyHtml,
+            ctaHtml: '',
+            onClose: 'go-home',
+            onMenu: S.active ? 'session-open' : '',
+            ariaLabel: 'Focus workout',
+        });
+    }
+    return focusBodyHtml;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Phase 2 — Complete UI Reconstruction: single-exercise focus body.           */
-/* Emette ExerciseStage + StepperField ×2 + CompleteSetButton + hint testuale. */
-/* Nessuna nuova business logic: pickers usano bumpKg/bumpReps via delegator   */
-/* (attivo su .pickerWrap[data-picker-kind] + [data-picker-dir]), CTA emette   */
-/* toggle-set. Il wrap esterno + WorkoutStickyHeader(mode:'immersive') sono   */
-/* forniti dal chiamante.                                                     */
+/* T2.2 · Single block — renderExecutionShell + renderSingleExercise + CTA.    */
+/* PATTERN-SETTER: T2.3 (Circuit), T2.5 (Tabata), T2.6 (EMOM/AMRAP), T2.7      */
+/* (Pyramid) seguiranno lo stesso pattern:                                     */
+/*   return UI.renderExecutionShell({                                          */
+/*     ..., bodyHtml: UI.render<Tipo>(...), ctaHtml: UI.<TipoCta>(...) });     */
 /* -------------------------------------------------------------------------- */
-function focusSinglePremium(x, b, bi, n, rounds, round, rest, blockDone, done, total, pct) {
+function renderSingleFocusShell(x, b, bi, n, rounds, done, total, mode) {
     const UI = window.UI;
     const id = b.exerciseIds[0];
-    if (!id) return `<div class="c-workoutSceneV2__ctas"><p class="muted">Nessun esercizio nel blocco.</p></div>`;
+    const _mode = mode === 'pyramid' ? 'pyramid' : 'single';
+    // Effective set: onora la scelta manuale (S.focus.round) MA auto-avanza
+    // se il set corrente è già done (comportamento coerente col vecchio
+    // activeSetInSingle). Nessuna modifica a toggleExerciseSet.
+    let setIdx = Math.max(1, Math.min(+S.focus.round || 1, rounds));
+    if (id) {
+        const curLog = logFor(b.id, id, setIdx, false);
+        if (curLog && curLog.done) {
+            const next = activeSetInSingle(b, id, rounds);
+            if (next && next !== setIdx) {
+                setIdx = next;
+                S.focus.round = setIdx;
+            }
+        }
+    }
 
-    const e = byId(id);
-    const t = b.exerciseTargets[id] || {};
-    const activeSet = activeSetInSingle(b, id, rounds);
-    const l = logFor(b.id, id, activeSet, false) || {};
-    const prev = lastExerciseLog(id, activeSet);
+    const body = renderSingleExerciseBody(x, b, bi, n, rounds, setIdx, _mode);
+    const cta = renderSingleCta(b, id, setIdx, bi, n, rounds);
 
-    // Valori mostrati (fallback su target/ultimo log per hint iniziale)
-    let curKg   = Number(l.kg) || 0;
-    let prevKg  = prev && Number(prev.kg) || 0;
-    let dispKg  = curKg > 0 ? curKg : prevKg;
-    const defaultReps = repsNumber(t.reps);
-    let curReps = l.reps ? repsNumber(l.reps) : 0;
-    let dispReps = curReps > 0 ? curReps : defaultReps;
-    const kgHint   = curKg === 0 && prevKg > 0;
-    const repsHint = curReps === 0 && defaultReps > 0;
-    const kgTxt    = dispKg > 0 ? dispKg : '—';
-    const repsTxt  = dispReps > 0 ? dispReps : '—';
-    const kgValId  = 'kgVal_' + bi + '_' + id + '_' + activeSet;
-    const repsValId= 'repsVal_' + bi + '_' + id + '_' + activeSet;
+    return UI.renderExecutionShell({
+        title: x.day.label,
+        sessionElapsedSec: sessionElapsedSec(S.active),
+        blockIdx: bi + 1,
+        blockTotal: n,
+        progress: { done, total, ticks: n },
+        bodyHtml: body,
+        ctaHtml: cta,
+        onClose: 'go-home',
+        onMenu: S.active ? 'session-open' : '',
+        ariaLabel: 'Focus workout · ' + (b.label || (_mode === 'pyramid' ? 'Piramide' : 'Single')),
+    });
+}
 
-    // Ultima prestazione: log valido sulla stessa serie dalla sessione più
-    // recente; fallback su altre serie storiche.
-    let lastAny = prev;
+// T2.7 · Pyramid helpers. Restano scoped al ramo Pyramid — non toccano Single.
+//
+// pyramidRepsAt(b, setNo1): reps target del set (1-based); fallback all'ultimo
+// step di repsScale se il set eccede la scala (specifica brief T2.7).
+function pyramidRepsAt(b, setNo1) {
+    const scale = Array.isArray(b && b.repsScale) ? b.repsScale : [];
+    if (!scale.length) return null;
+    const idx = Math.max(0, Math.min(scale.length - 1, (setNo1 | 0) - 1));
+    const step = scale[idx] || scale[scale.length - 1];
+    return step && step.reps != null ? String(step.reps) : null;
+}
+function pyramidPrefillKgAt(b, setNo1) {
+    const scale = Array.isArray(b && b.repsScale) ? b.repsScale : [];
+    if (!scale.length) return 0;
+    const idx = Math.max(0, Math.min(scale.length - 1, (setNo1 | 0) - 1));
+    const step = scale[idx] || scale[scale.length - 1];
+    return step && Number(step.kg) > 0 ? Number(step.kg) : 0;
+}
+// pyramidKgStepFor(id): incremento default (+kg) per il pre-fill del set
+// successivo. Regola brief T2.7: +1 se equipment='Manubri', +2.5 altrimenti
+// (bilanciere/macchinario/corpo libero/default).
+function pyramidKgStepFor(id) {
+    if (!id) return 2.5;
+    const e = (S.exercises || []).find(x => x.id === id);
+    const eq = e && (e.equipment || e.attrezzatura || '');
+    if (eq && /manubri/i.test(String(eq))) return 1;
+    return 2.5;
+}
+
+function renderSingleExerciseBody(x, b, bi, n, rounds, setIdx, mode) {
+    const UI = window.UI;
+    const id = b.exerciseIds[0];
+    if (!id) {
+        return '<div class="ex-single-exercise ex-single-exercise--empty"><p class="muted">Nessun esercizio nel blocco.</p></div>';
+    }
+    const exercise = byId(id);
+    const target   = b.exerciseTargets[id] || {};
+    const l        = logFor(b.id, id, setIdx, false) || {};
+
+    // Valori correnti — fallback su ultimo log valido / target per hint.
+    const curKg   = Number(l.kg) || 0;
+    const curReps = l.reps ? repsNumber(l.reps) : 0;
+    const lastSame = lastExerciseLog(id, setIdx);
+    let lastAny = lastSame;
     if (!lastAny || !(Number(lastAny.kg) > 0)) {
         for (let s = 1; s <= rounds && !lastAny; s++) {
             const cand = lastExerciseLog(id, s);
             if (cand && Number(cand.kg) > 0) lastAny = cand;
         }
     }
-    const lastPerf = (lastAny && Number(lastAny.kg) > 0)
-        ? { kg: Number(lastAny.kg), reps: repsNumber(lastAny.reps) || '—' }
-        : null;
+    const lastKg   = lastAny && Number(lastAny.kg)  || 0;
+    const lastReps = lastAny && lastAny.reps ? repsNumber(lastAny.reps) : 0;
 
-    const stageHtml = UI.ExerciseStage({
-        name: e.name,
-        subtitle: e.subtitle,
-        lastPerformance: lastPerf,
-        musclesLabel: e.primary || '',
-        primaryMuscles:   Array.isArray(e.primaryMuscles)   ? e.primaryMuscles   : undefined,
-        secondaryMuscles: Array.isArray(e.secondaryMuscles) ? e.secondaryMuscles : undefined,
-        animKey: b.id + '|' + id + '|' + activeSet,
-    });
+    const _mode = mode === 'pyramid' ? 'pyramid' : 'single';
 
-    const kgField = UI.StepperField({
-        kind: 'weight',
-        label: 'Peso (kg)',
-        valueId: kgValId,
-        displayText: kgTxt,
-        hint: kgHint,
-        blockId: b.id, exerciseId: id, setNo: activeSet, bi: bi,
-        ariaLabel: 'Peso serie ' + activeSet,
-    });
-    const repsField = UI.StepperField({
-        kind: 'reps',
-        label: 'Ripetizioni',
-        valueId: repsValId,
-        displayText: repsTxt,
-        hint: repsHint,
-        target: t.reps ? `Obiettivo: ${t.reps} ripetizioni` : '',
-        blockId: b.id, exerciseId: id, setNo: activeSet, bi: bi,
-        ariaLabel: 'Ripetizioni serie ' + activeSet,
-    });
-    const pickers = `<div class="c-workoutSceneV2__pickers">${kgField}${repsField}</div>`;
+    // Set states per il picker. In mode='pyramid' la label mostra le reps
+    // target del set (es. "12","10","8","6","4") invece dell'indice.
+    const setStates = [];
+    for (let s = 1; s <= rounds; s++) {
+        const ll = logFor(b.id, id, s, false);
+        let state = 'upcoming';
+        if (ll && ll.done) state = 'done';
+        else if (s === setIdx) state = 'on';
+        let pickerLabel = String(s);
+        if (_mode === 'pyramid') {
+            const rp = pyramidRepsAt(b, s);
+            if (rp) pickerLabel = rp;
+        }
+        setStates.push({ state: state, label: pickerLabel });
+    }
 
-    const ctaPrimary = UI.CompleteSetButton({
-        label: 'COMPLETA SERIE',
-        doneLabel: `SERIE ${activeSet} COMPLETATA`,
+    // T2.7 · Pyramid target/pre-fill overrides. Il set attivo eredita il
+    // target reps dalla scala e — se il set corrente non ha kg committato
+    // e c'è il log del set precedente — pre-fill kg = log[prev].kg + step
+    // (Manubri +1, default +2.5). Se nessun log precedente, fallback a
+    // repsScale[setIdx-1].kg (kg iniziale della scala).
+    let pyramidTargetReps = null;
+    let pyramidPreKg = 0;
+    let pyramidPreKgIsHint = false;
+    if (_mode === 'pyramid') {
+        pyramidTargetReps = pyramidRepsAt(b, setIdx);
+        if (!(curKg > 0)) {
+            const prevLog = setIdx > 1 ? logFor(b.id, id, setIdx - 1, false) : null;
+            if (prevLog && Number(prevLog.kg) > 0) {
+                pyramidPreKg = Number(prevLog.kg) + pyramidKgStepFor(id);
+            } else {
+                pyramidPreKg = pyramidPrefillKgAt(b, setIdx);
+            }
+            pyramidPreKgIsHint = pyramidPreKg > 0;
+        }
+    }
+
+    // PR live: usa currentKg (o hint fallback se non ancora committato).
+    const kgForPR = curKg > 0 ? curKg : 0;
+    const pr = prLiveForExercise(id, kgForPR);
+
+    // Neighbors: blocco prev / next (mai dati artificiali).
+    const neighbors = { prev: null, next: null };
+    if (bi > 0) {
+        const pb = x.blocks[bi - 1];
+        const pid = pb && pb.exerciseIds && pb.exerciseIds[0];
+        if (pid) {
+            const pe = byId(pid);
+            const pl = lastExerciseLog(pid, 1);
+            neighbors.prev = {
+                name: pe.name,
+                lastKg: pl && Number(pl.kg) || 0,
+                lastReps: pl && pl.reps ? repsNumber(pl.reps) : 0,
+                crumb: String.fromCharCode(65 + Math.max(0, bi - 1)), // A/B/C...
+            };
+        }
+    }
+    if (bi < n - 1) {
+        const nb = x.blocks[bi + 1];
+        const nid = nb && nb.exerciseIds && nb.exerciseIds[0];
+        if (nid) {
+            const ne = byId(nid);
+            const nl = lastExerciseLog(nid, 1);
+            neighbors.next = {
+                name: ne.name,
+                lastKg: nl && Number(nl.kg) || 0,
+                lastReps: nl && nl.reps ? repsNumber(nl.reps) : 0,
+                crumb: String.fromCharCode(65 + Math.min(25, bi + 1)),
+            };
+        }
+    }
+
+    // Overrides pyramid vs single. In pyramid: targetReps del set corrente
+    // viene dalla scala (repsScale[setIdx-1].reps con fallback ultimo step);
+    // kg hint priorita: log[setIdx-1].kg + step Manubri/Bilanciere,
+    // altrimenti repsScale[setIdx-1].kg iniziale.
+    const kgHintPy = _mode === 'pyramid' && !(curKg > 0) && pyramidPreKg > 0;
+    const finalTargetReps = _mode === 'pyramid' && pyramidTargetReps
+        ? String(pyramidTargetReps)
+        : (target.reps || '');
+    const finalLastKg = kgHintPy ? pyramidPreKg : lastKg;
+    const finalKgIsHint = kgHintPy || (!(curKg > 0) && lastKg > 0);
+    const finalRepsIsHint = !(curReps > 0) && (lastReps > 0 || !!finalTargetReps);
+
+    return UI.renderSingleExercise({
+        block: b,
+        blockIdx: bi,
+        blockTotal: n,
+        exercise: exercise,
+        target: target,
+        setIdx: setIdx,
+        totalSets: rounds,
+        setStates: setStates,
+        currentKg: curKg,
+        currentReps: curReps,
+        lastKg: finalLastKg,
+        lastReps: lastReps,
+        targetReps: finalTargetReps,
+        kgIsHint: finalKgIsHint,
+        repsIsHint: finalRepsIsHint,
+        pr: pr,
+        note: l.note || '',
+        neighbors: neighbors,
+        mode: _mode,
+    });
+}
+
+function renderSingleCta(b, id, setIdx, bi, n, rounds) {
+    const UI = window.UI;
+    if (!id) return '';
+    const l = logFor(b.id, id, setIdx, false) || {};
+    const blockDone = blockAllDone(b);
+    const nextLabel = (bi < n - 1)
+        ? 'Blocco successivo'
+        : 'Fine sessione';
+    const nextAction = (bi < n - 1) ? 'focus-next-block' : 'finish-workout';
+
+    if (blockDone) {
+        return '<button type="button" class="ex-cta ex-cta--accent" data-action="' + esc(nextAction) + '">'
+             +   esc(nextLabel + ' ▶')
+             + '</button>';
+    }
+
+    const ctaLabel = 'Completa serie ' + setIdx;
+    const doneLbl  = 'Serie ' + setIdx + ' completata';
+    return UI.CompleteSetButton({
+        label: ctaLabel,
+        doneLabel: doneLbl,
         done: !!l.done,
         blockId: b.id,
         exerciseId: id,
-        setNo: activeSet,
+        setNo: setIdx,
+    });
+}
+
+/* -------------------------------------------------------------------------- */
+/* T2.5 · Tabata block — renderExecutionShell + renderTabataTimer + Ctrls.    */
+/* Timer preciso: requestAnimationFrame con delta reale (Date.now()) — mai   */
+/* setInterval(1000) che drifta. Stato in S.tabata, persistito su reload     */
+/* tramite S.active.tabata (persistActive salva startedAt/elapsed).          */
+/* -------------------------------------------------------------------------- */
+
+function tabataBlockExerciseIds(b) {
+    return Array.isArray(b && b.exerciseIds) ? b.exerciseIds.slice() : [];
+}
+
+function tabataDefaultsFor(b) {
+    return {
+        workSec:     Math.max(1, +b.workSec  || 20),
+        restSec:     Math.max(1, +b.restSec  || 10),
+        cyclesTotal: Math.max(1, +b.cycles   || +b.rounds || 8),
+    };
+}
+
+function initTabataForBlock(b) {
+    const d = tabataDefaultsFor(b);
+    const ids = tabataBlockExerciseIds(b);
+    S.tabata = {
+        blockId: b.id,
+        exerciseIds: ids,
+        workSec: d.workSec,
+        restSec: d.restSec,
+        cyclesTotal: d.cyclesTotal,
+        currentExerciseIdx: 0,
+        cycleIdx: 1,
+        phase: 'work',
+        phaseStartAt: Date.now(),
+        paused: false,
+        pausedRemainingMs: 0,
+    };
+    if (S.active) { S.active.tabata = { ...S.tabata }; persistActive(); }
+}
+
+// Restore/init S.tabata for the current Tabata block. If S.active.tabata exists
+// for the same block, rehydrate (reload). Otherwise init fresh.
+function ensureTabataState(b) {
+    const active = S.active && S.active.tabata;
+    if (active && active.blockId === b.id) {
+        if (!S.tabata || S.tabata.blockId !== b.id) {
+            S.tabata = { ...active };
+        }
+        return;
+    }
+    if (!S.tabata || S.tabata.blockId !== b.id) {
+        initTabataForBlock(b);
+    }
+}
+
+function stopTabata(persist) {
+    if (S.__tabataRaf) { cancelAnimationFrame(S.__tabataRaf); S.__tabataRaf = null; }
+    S.tabata = null;
+    if (persist && S.active) { S.active.tabata = null; persistActive(); }
+}
+
+function tabataPhaseTotalSec() {
+    if (!S.tabata) return 0;
+    return S.tabata.phase === 'rest' ? S.tabata.restSec : S.tabata.workSec;
+}
+
+function tabataRemainingSec() {
+    if (!S.tabata) return 0;
+    const total = tabataPhaseTotalSec();
+    if (S.tabata.paused) {
+        return Math.max(0, Math.round(S.tabata.pausedRemainingMs / 1000));
+    }
+    const elapsed = (Date.now() - S.tabata.phaseStartAt) / 1000;
+    return Math.max(0, total - elapsed);
+}
+
+function tabataRemainingSecFloat() {
+    if (!S.tabata) return 0;
+    const total = tabataPhaseTotalSec();
+    if (S.tabata.paused) return Math.max(0, S.tabata.pausedRemainingMs / 1000);
+    const elapsed = (Date.now() - S.tabata.phaseStartAt) / 1000;
+    return Math.max(0, total - elapsed);
+}
+
+function tabataPlayBeep() {
+    if (!S.prefs || S.prefs.sounds !== true) return;
+    try {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        var ctx = S.__audioCtx || (S.__audioCtx = new AC());
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.value = 880;
+        o.connect(g); g.connect(ctx.destination);
+        var t0 = ctx.currentTime;
+        g.gain.setValueAtTime(0.001, t0);
+        g.gain.exponentialRampToValueAtTime(0.2, t0 + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.001, t0 + 0.18);
+        o.start(t0);
+        o.stop(t0 + 0.2);
+    } catch (_) { /* silenzioso: audio è opzionale */ }
+}
+
+// Ritorna { phaseChanged, exerciseChanged, blockDone } dopo un'eventuale
+// transizione di fase / ciclo / esercizio (chiamata dal tick quando
+// remaining <= 0 e non paused). Aggiorna S.tabata in-place.
+function tabataAdvancePhase() {
+    if (!S.tabata) return { phaseChanged: false, exerciseChanged: false, blockDone: false };
+    const t = S.tabata;
+    if (t.phase === 'work') {
+        // Work → Rest (stesso ciclo)
+        t.phase = 'rest';
+        t.phaseStartAt = Date.now();
+        tabataPlayBeep();
+        if (S.active) { S.active.tabata = { ...t }; persistActive(); }
+        return { phaseChanged: true, exerciseChanged: false, blockDone: false };
+    }
+    // Rest → next cycle (o next exercise)
+    if (t.cycleIdx < t.cyclesTotal) {
+        t.cycleIdx += 1;
+        t.phase = 'work';
+        t.phaseStartAt = Date.now();
+        tabataPlayBeep();
+        if (S.active) { S.active.tabata = { ...t }; persistActive(); }
+        return { phaseChanged: true, exerciseChanged: false, blockDone: false };
+    }
+    // Ultimo ciclo terminato: passa al prossimo esercizio Tabata (se esiste)
+    if (t.currentExerciseIdx + 1 < t.exerciseIds.length) {
+        t.currentExerciseIdx += 1;
+        t.cycleIdx = 1;
+        t.phase = 'work';
+        t.phaseStartAt = Date.now();
+        tabataPlayBeep();
+        if (S.active) { S.active.tabata = { ...t }; persistActive(); }
+        return { phaseChanged: true, exerciseChanged: true, blockDone: false };
+    }
+    // Blocco Tabata completato: marca tutti i logs done + stop timer
+    tabataMarkBlockDone();
+    stopTabata(true);
+    return { phaseChanged: true, exerciseChanged: true, blockDone: true };
+}
+
+function tabataMarkBlockDone() {
+    if (!S.active || !S.tabata) return;
+    const x = ctx(); if (!x) return;
+    const b = x.blocks.find(function (z) { return z.id === S.tabata.blockId; });
+    if (!b) return;
+    const rounds = +b.rounds || S.tabata.cyclesTotal || 8;
+    b.exerciseIds.forEach(function (id) {
+        for (var r = 1; r <= rounds; r++) {
+            var l = logFor(b.id, id, r, true);
+            l.done = true;
+            l.updatedAt = now();
+        }
+    });
+    persistActive();
+}
+
+function tabataPauseToggle() {
+    if (!S.tabata) return;
+    if (S.tabata.paused) tabataResume(); else tabataPause();
+}
+
+function tabataPause() {
+    if (!S.tabata || S.tabata.paused) return;
+    const total = tabataPhaseTotalSec();
+    const elapsed = (Date.now() - S.tabata.phaseStartAt) / 1000;
+    const remaining = Math.max(0, total - elapsed);
+    S.tabata.paused = true;
+    S.tabata.pausedRemainingMs = Math.round(remaining * 1000);
+    if (S.active) { S.active.tabata = { ...S.tabata }; persistActive(); }
+    render();
+}
+
+function tabataResume() {
+    if (!S.tabata || !S.tabata.paused) return;
+    const total = tabataPhaseTotalSec();
+    S.tabata.phaseStartAt = Date.now() - Math.max(0, (total * 1000) - (S.tabata.pausedRemainingMs || 0));
+    S.tabata.paused = false;
+    S.tabata.pausedRemainingMs = 0;
+    if (S.active) { S.active.tabata = { ...S.tabata }; persistActive(); }
+    render();
+}
+
+function tabataSkip() {
+    if (!S.tabata) return;
+    // Skip: chiude tutti i cicli dell'esercizio corrente e avanza al prossimo
+    // esercizio Tabata (o completa il blocco se era l'ultimo).
+    if (S.tabata.currentExerciseIdx + 1 < S.tabata.exerciseIds.length) {
+        S.tabata.currentExerciseIdx += 1;
+        S.tabata.cycleIdx = 1;
+        S.tabata.phase = 'work';
+        S.tabata.phaseStartAt = Date.now();
+        S.tabata.paused = false;
+        S.tabata.pausedRemainingMs = 0;
+        if (S.active) { S.active.tabata = { ...S.tabata }; persistActive(); }
+        render();
+        return;
+    }
+    // Ultimo esercizio: completa blocco
+    tabataMarkBlockDone();
+    stopTabata(true);
+    focusNextBlock();
+}
+
+function tabataTick() {
+    S.__tabataRaf = null;
+    if (!S.tabata) return;
+    const el = document.querySelector('.ex-tabata');
+    if (!el) { S.__tabataRaf = null; return; }
+
+    const remainingF = tabataRemainingSecFloat();
+    const total = tabataPhaseTotalSec();
+
+    // Boundary: transizione fase (solo se non paused).
+    if (!S.tabata.paused && remainingF <= 0.001) {
+        const res = tabataAdvancePhase();
+        if (res.blockDone) { render(); return; }
+        // Un cambio di ciclo/esercizio richiede re-render (cycles bar + cards).
+        render();
+        return;
+    }
+
+    // Aggiorna in-place ring + numero + phase label (nessun re-render).
+    const ring = el.querySelector('.ex-ring');
+    if (ring && window.UI && window.UI.setCountdownRingProgress) {
+        const num = Math.max(0, Math.round(remainingF));
+        window.UI.setCountdownRingProgress(ring, {
+            remaining: remainingF,
+            total: total,
+            phase: S.tabata.phase,
+            color: S.tabata.phase === 'rest' ? 'muted' : 'accent',
+            centerContent: '<span class="ex-ring__num" data-value="' + num + '">'
+                + String(num)
+                + '</span><small class="ex-ring__unit">sec</small>',
+        });
+    }
+    // Sincronizza data-remaining sul root per test debug.
+    el.dataset.remaining = String(Math.max(0, Math.round(remainingF)));
+
+    S.__tabataRaf = requestAnimationFrame(tabataTick);
+}
+
+function mountTabataTimer() {
+    const el = document.querySelector('.ex-tabata');
+    if (!el || !S.tabata) return;
+    if (S.__tabataRaf) return;
+    S.__tabataRaf = requestAnimationFrame(tabataTick);
+}
+
+function renderTabataFocusShell(x, b, bi, n, done, total) {
+    const UI = window.UI;
+    ensureTabataState(b);
+    const t = S.tabata;
+    const exercises = (t.exerciseIds || []).map(function (id) {
+        const e = byId(id) || {};
+        return { id: id, name: e.name || 'Esercizio', primary: e.primary || '', category: e.primary || '' };
     });
 
-    let extraNav = '';
-    if (blockDone) {
-        if (bi < n - 1) {
-            extraNav = `<button type="button" class="focusNavBtn" data-action="focus-next-block" aria-label="Blocco successivo">Blocco successivo ▶</button>`;
-        } else {
-            extraNav = `<button type="button" class="focusNavBtn" data-action="finish-workout" aria-label="Termina sessione">✓ Fine sessione</button>`;
+    const body = UI.renderTabataTimer({
+        block: b,
+        exercises: exercises,
+        currentExerciseIdx: t.currentExerciseIdx,
+        cycleIdx: t.cycleIdx,
+        cyclesTotal: t.cyclesTotal,
+        workSec: t.workSec,
+        restSec: t.restSec,
+        phase: t.phase,
+        remainingSec: tabataRemainingSec(),
+        paused: !!t.paused,
+    });
+
+    const cta = UI.renderTabataCtrls({ paused: !!t.paused });
+
+    return UI.renderExecutionShell({
+        title: x.day.label,
+        sessionElapsedSec: sessionElapsedSec(S.active),
+        blockIdx: bi + 1,
+        blockTotal: n,
+        progress: { done: done, total: total, ticks: n },
+        bodyHtml: body,
+        ctaHtml: cta,
+        onClose: 'go-home',
+        onMenu: S.active ? 'session-open' : '',
+        ariaLabel: 'Focus workout · Tabata',
+    });
+}
+
+/* -------------------------------------------------------------------------- */
+/* T2.6 · EMOM block — renderExecutionShell + renderEmomTimer + Ctrls.        */
+/* Ring conta workSec (default 60) → 0. Al boundary: se reps >= target il     */
+/* ciclo è "done", altrimenti "fail"; poi avanza al ciclo successivo. Ultimo  */
+/* ciclo completato → marca tutti i log come done e passa al blocco succ.    */
+/* Stato in S.emom, persistito su reload via S.active.emom.                   */
+/* -------------------------------------------------------------------------- */
+
+function emomBlockExerciseIds(b) {
+    return Array.isArray(b && b.exerciseIds) ? b.exerciseIds.slice() : [];
+}
+
+function emomDefaultsFor(b) {
+    return {
+        workSec:     Math.max(1, +b.workSec || 60),
+        cyclesTotal: Math.max(1, +b.cycles  || +b.rounds || 10),
+    };
+}
+
+function emomRepsTargetFor(b, exId) {
+    if (!b || !exId) return 0;
+    const t = b.exerciseTargets && b.exerciseTargets[exId];
+    if (!t) return 0;
+    return repsNumber(t.reps) || 0;
+}
+
+function initEmomForBlock(b) {
+    const d = emomDefaultsFor(b);
+    const ids = emomBlockExerciseIds(b);
+    S.emom = {
+        blockId: b.id,
+        exerciseIds: ids,
+        workSec: d.workSec,
+        cyclesTotal: d.cyclesTotal,
+        currentExerciseIdx: 0,
+        cycleIdx: 1,
+        repsDone: 0,
+        repsHistory: [],           // reps salvate per ciclo passato
+        phase: 'work',
+        phaseStartAt: Date.now(),
+        paused: false,
+        pausedRemainingMs: 0,
+    };
+    if (S.active) { S.active.emom = { ...S.emom, repsHistory: S.emom.repsHistory.slice() }; persistActive(); }
+}
+
+function ensureEmomState(b) {
+    const active = S.active && S.active.emom;
+    if (active && active.blockId === b.id) {
+        if (!S.emom || S.emom.blockId !== b.id) {
+            S.emom = { ...active, repsHistory: (active.repsHistory || []).slice() };
+        }
+        return;
+    }
+    if (!S.emom || S.emom.blockId !== b.id) {
+        initEmomForBlock(b);
+    }
+}
+
+function stopEmom(persist) {
+    if (S.__emomRaf) { cancelAnimationFrame(S.__emomRaf); S.__emomRaf = null; }
+    S.emom = null;
+    if (persist && S.active) { S.active.emom = null; persistActive(); }
+}
+
+function emomRemainingSecFloat() {
+    if (!S.emom) return 0;
+    const total = S.emom.workSec;
+    if (S.emom.paused) return Math.max(0, S.emom.pausedRemainingMs / 1000);
+    const elapsed = (Date.now() - S.emom.phaseStartAt) / 1000;
+    return Math.max(0, total - elapsed);
+}
+
+function emomRemainingSec() {
+    return Math.max(0, Math.round(emomRemainingSecFloat()));
+}
+
+function emomCurrentExerciseId() {
+    if (!S.emom || !S.emom.exerciseIds.length) return null;
+    // In EMOM multi-esercizio, roteiamo esercizio ad ogni ciclo (pattern comune):
+    // ciclo 1 → ex[0], ciclo 2 → ex[1], ecc. (wrap modulo).
+    const idx = (S.emom.currentExerciseIdx || 0) % S.emom.exerciseIds.length;
+    return S.emom.exerciseIds[idx];
+}
+
+function emomPlayBeep() {
+    if (!S.prefs || S.prefs.sounds !== true) return;
+    try {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        var ctx = S.__audioCtx || (S.__audioCtx = new AC());
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.value = 880;
+        o.connect(g); g.connect(ctx.destination);
+        var t0 = ctx.currentTime;
+        g.gain.setValueAtTime(0.001, t0);
+        g.gain.exponentialRampToValueAtTime(0.2, t0 + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.001, t0 + 0.18);
+        o.start(t0);
+        o.stop(t0 + 0.2);
+    } catch (_) { /* audio opzionale */ }
+}
+
+function emomAdvanceCycle() {
+    if (!S.emom) return { cycleChanged: false, blockDone: false };
+    const t = S.emom;
+    // Registra reps del ciclo appena finito nella history (index cycleIdx-1).
+    t.repsHistory[t.cycleIdx - 1] = t.repsDone || 0;
+
+    if (t.cycleIdx < t.cyclesTotal) {
+        t.cycleIdx += 1;
+        t.currentExerciseIdx += 1; // rotate (wrap in emomCurrentExerciseId)
+        t.repsDone = 0;
+        t.phase = 'work';
+        t.phaseStartAt = Date.now();
+        t.paused = false;
+        t.pausedRemainingMs = 0;
+        emomPlayBeep();
+        if (S.active) { S.active.emom = { ...t, repsHistory: t.repsHistory.slice() }; persistActive(); }
+        return { cycleChanged: true, blockDone: false };
+    }
+    // Ultimo ciclo terminato: marca blocco done + stop timer.
+    emomMarkBlockDone();
+    stopEmom(true);
+    return { cycleChanged: true, blockDone: true };
+}
+
+function emomMarkBlockDone() {
+    if (!S.active || !S.emom) return;
+    const x = ctx(); if (!x) return;
+    const b = x.blocks.find(function (z) { return z.id === S.emom.blockId; });
+    if (!b) return;
+    const rounds = +b.rounds || S.emom.cyclesTotal || 10;
+    b.exerciseIds.forEach(function (id) {
+        for (var r = 1; r <= rounds; r++) {
+            var l = logFor(b.id, id, r, true);
+            l.done = true;
+            l.updatedAt = now();
+        }
+    });
+    persistActive();
+}
+
+function emomIncReps(delta) {
+    if (!S.emom) return;
+    const step = Number(delta) || 0;
+    S.emom.repsDone = Math.max(0, (S.emom.repsDone || 0) + step);
+    if (S.active) { S.active.emom = { ...S.emom, repsHistory: (S.emom.repsHistory || []).slice() }; persistActive(); }
+    // Aggiorna solo la label reps in-place per non far scattare la SVG.
+    const el = document.querySelector('.ex-emom');
+    if (el) {
+        el.dataset.repsDone = String(S.emom.repsDone);
+        const inline = el.querySelector('[data-role="reps-inline"]');
+        if (inline) inline.textContent = String(S.emom.repsDone);
+        const ringNum = el.querySelector('.ex-ring__num[data-role="reps"]');
+        if (ringNum) {
+            ringNum.textContent = String(S.emom.repsDone);
+            ringNum.setAttribute('data-value', String(S.emom.repsDone));
+        }
+        // Toggle stato "met" per feedback visuale.
+        const target = +el.dataset.repsTarget || 0;
+        const met = target > 0 && S.emom.repsDone >= target;
+        el.classList.toggle('ex-emom--met', met);
+        el.dataset.targetMet = met ? 'true' : 'false';
+    }
+}
+
+function emomPause() {
+    if (!S.emom || S.emom.paused) return;
+    const total = S.emom.workSec;
+    const elapsed = (Date.now() - S.emom.phaseStartAt) / 1000;
+    S.emom.paused = true;
+    S.emom.pausedRemainingMs = Math.round(Math.max(0, total - elapsed) * 1000);
+    if (S.active) { S.active.emom = { ...S.emom, repsHistory: (S.emom.repsHistory || []).slice() }; persistActive(); }
+    render();
+}
+
+function emomResume() {
+    if (!S.emom || !S.emom.paused) return;
+    const total = S.emom.workSec;
+    S.emom.phaseStartAt = Date.now() - Math.max(0, (total * 1000) - (S.emom.pausedRemainingMs || 0));
+    S.emom.paused = false;
+    S.emom.pausedRemainingMs = 0;
+    if (S.active) { S.active.emom = { ...S.emom, repsHistory: (S.emom.repsHistory || []).slice() }; persistActive(); }
+    render();
+}
+
+function emomSkip() {
+    if (!S.emom) return;
+    // Skip = registra il ciclo corrente (reps attuali) e avanza al prossimo.
+    const res = emomAdvanceCycle();
+    if (res.blockDone) { render(); focusNextBlock(); return; }
+    render();
+}
+
+function emomTick() {
+    S.__emomRaf = null;
+    if (!S.emom) return;
+    const el = document.querySelector('.ex-emom');
+    if (!el) { S.__emomRaf = null; return; }
+
+    const remainingF = emomRemainingSecFloat();
+    const total = S.emom.workSec;
+
+    if (!S.emom.paused && remainingF <= 0.001) {
+        const res = emomAdvanceCycle();
+        if (res.blockDone) { render(); focusNextBlock(); return; }
+        render();
+        return;
+    }
+
+    const ring = el.querySelector('.ex-ring');
+    if (ring && window.UI && window.UI.setCountdownRingProgress) {
+        // Il centerContent mostra reps done / target (NON il countdown secondi).
+        // Il tempo viene comunicato solo via stroke-dashoffset del ring.
+        const done = S.emom.repsDone || 0;
+        const target = +el.dataset.repsTarget || 0;
+        const targetLine = target > 0
+            ? '<small class="ex-ring__unit">/ ' + target + ' reps</small>'
+            : '<small class="ex-ring__unit">reps</small>';
+        window.UI.setCountdownRingProgress(ring, {
+            remaining: remainingF,
+            total: total,
+            phase: 'work',
+            color: 'accent',
+            centerContent: '<span class="ex-ring__num" data-value="' + done + '" data-role="reps">'
+                + String(done) + '</span>' + targetLine,
+        });
+    }
+    el.dataset.remaining = String(Math.max(0, Math.round(remainingF)));
+
+    S.__emomRaf = requestAnimationFrame(emomTick);
+}
+
+function mountEmomTimer() {
+    const el = document.querySelector('.ex-emom');
+    if (!el || !S.emom) return;
+    if (S.__emomRaf) return;
+    S.__emomRaf = requestAnimationFrame(emomTick);
+}
+
+function renderEmomFocusShell(x, b, bi, n, done, total) {
+    const UI = window.UI;
+    ensureEmomState(b);
+    const t = S.emom;
+    const exercises = (t.exerciseIds || []).map(function (id) {
+        const e = byId(id) || {};
+        return { id: id, name: e.name || 'Esercizio', primary: e.primary || '', category: e.primary || '' };
+    });
+    const currentExId = emomCurrentExerciseId();
+    const repsTarget = emomRepsTargetFor(b, currentExId);
+
+    const body = UI.renderEmomTimer({
+        block: b,
+        exercises: exercises,
+        currentExerciseIdx: (t.currentExerciseIdx || 0) % Math.max(1, exercises.length),
+        cycleIdx: t.cycleIdx,
+        cyclesTotal: t.cyclesTotal,
+        workSec: t.workSec,
+        remainingSec: emomRemainingSec(),
+        repsDone: t.repsDone || 0,
+        repsTarget: repsTarget,
+        repsHistory: t.repsHistory || [],
+        paused: !!t.paused,
+    });
+
+    const cta = UI.renderEmomCtrls({ paused: !!t.paused });
+
+    return UI.renderExecutionShell({
+        title: x.day.label,
+        sessionElapsedSec: sessionElapsedSec(S.active),
+        blockIdx: bi + 1,
+        blockTotal: n,
+        progress: { done: done, total: total, ticks: n },
+        bodyHtml: body,
+        ctaHtml: cta,
+        onClose: 'go-home',
+        onMenu: S.active ? 'session-open' : '',
+        ariaLabel: 'Focus workout · EMOM',
+    });
+}
+
+/* -------------------------------------------------------------------------- */
+/* T2.6 · AMRAP block — renderExecutionShell + renderAmrapTimer + Ctrls.      */
+/* Timer digitale che SALE (elapsed) fino a timeCapSec. NO ring. Round counter*/
+/* +1 su "Chiudi giro". Auto-close a timeCapSec.                              */
+/* Stato in S.amrap, persistito su reload via S.active.amrap.                 */
+/* -------------------------------------------------------------------------- */
+
+function amrapBlockExerciseIds(b) {
+    return Array.isArray(b && b.exerciseIds) ? b.exerciseIds.slice() : [];
+}
+
+function amrapDefaultsFor(b) {
+    return {
+        timeCapSec: Math.max(1, +b.timeCapSec || 300),
+    };
+}
+
+function initAmrapForBlock(b) {
+    const d = amrapDefaultsFor(b);
+    const ids = amrapBlockExerciseIds(b);
+    S.amrap = {
+        blockId: b.id,
+        exerciseIds: ids,
+        timeCapSec: d.timeCapSec,
+        startedAt: Date.now(),
+        round: 0,
+        exerciseDone: {},         // {exId: true} — done in current round
+        pausedElapsedMs: 0,       // frozen elapsed when paused
+        paused: false,
+    };
+    if (S.active) { S.active.amrap = { ...S.amrap, exerciseDone: { ...S.amrap.exerciseDone } }; persistActive(); }
+}
+
+function ensureAmrapState(b) {
+    const active = S.active && S.active.amrap;
+    if (active && active.blockId === b.id) {
+        if (!S.amrap || S.amrap.blockId !== b.id) {
+            S.amrap = { ...active, exerciseDone: { ...(active.exerciseDone || {}) } };
+        }
+        return;
+    }
+    if (!S.amrap || S.amrap.blockId !== b.id) {
+        initAmrapForBlock(b);
+    }
+}
+
+function stopAmrap(persist) {
+    if (S.__amrapRaf) { cancelAnimationFrame(S.__amrapRaf); S.__amrapRaf = null; }
+    S.amrap = null;
+    if (persist && S.active) { S.active.amrap = null; persistActive(); }
+}
+
+function amrapElapsedSecFloat() {
+    if (!S.amrap) return 0;
+    if (S.amrap.paused) return Math.max(0, S.amrap.pausedElapsedMs / 1000);
+    const ms = Date.now() - (S.amrap.startedAt || Date.now());
+    return Math.max(0, ms / 1000);
+}
+
+function amrapElapsedSec() {
+    return Math.max(0, Math.round(amrapElapsedSecFloat()));
+}
+
+function amrapCapReached() {
+    if (!S.amrap) return false;
+    return amrapElapsedSecFloat() >= S.amrap.timeCapSec;
+}
+
+function amrapMarkBlockDone() {
+    if (!S.active || !S.amrap) return;
+    const x = ctx(); if (!x) return;
+    const b = x.blocks.find(function (z) { return z.id === S.amrap.blockId; });
+    if (!b) return;
+    const rounds = Math.max(1, +b.rounds || 1);
+    b.exerciseIds.forEach(function (id) {
+        for (var r = 1; r <= rounds; r++) {
+            var l = logFor(b.id, id, r, true);
+            l.done = true;
+            l.updatedAt = now();
+        }
+    });
+    persistActive();
+}
+
+function amrapCloseRound() {
+    if (!S.amrap) return;
+    if (amrapCapReached()) return;
+    S.amrap.round = (S.amrap.round || 0) + 1;
+    S.amrap.exerciseDone = {};
+    if (S.active) { S.active.amrap = { ...S.amrap, exerciseDone: {} }; persistActive(); }
+    render();
+}
+
+function amrapToggleEx(exId, exIdx) {
+    if (!S.amrap || !exId) return;
+    if (amrapCapReached()) return;
+    const done = !S.amrap.exerciseDone[exId];
+    S.amrap.exerciseDone[exId] = done;
+    if (S.active) { S.active.amrap = { ...S.amrap, exerciseDone: { ...S.amrap.exerciseDone } }; persistActive(); }
+    render();
+}
+
+function amrapPause() {
+    if (!S.amrap || S.amrap.paused) return;
+    if (amrapCapReached()) return;
+    const ms = Date.now() - (S.amrap.startedAt || Date.now());
+    S.amrap.paused = true;
+    S.amrap.pausedElapsedMs = Math.max(0, ms);
+    if (S.active) { S.active.amrap = { ...S.amrap, exerciseDone: { ...S.amrap.exerciseDone } }; persistActive(); }
+    render();
+}
+
+function amrapResume() {
+    if (!S.amrap || !S.amrap.paused) return;
+    // Re-basisiamo startedAt: continueremo il conteggio dal pausedElapsedMs.
+    S.amrap.startedAt = Date.now() - (S.amrap.pausedElapsedMs || 0);
+    S.amrap.paused = false;
+    S.amrap.pausedElapsedMs = 0;
+    if (S.active) { S.active.amrap = { ...S.amrap, exerciseDone: { ...S.amrap.exerciseDone } }; persistActive(); }
+    render();
+}
+
+function amrapSkip() {
+    if (!S.amrap) return;
+    // Skip = termina blocco AMRAP e passa al successivo.
+    amrapMarkBlockDone();
+    stopAmrap(true);
+    focusNextBlock();
+}
+
+function formatMMSSApp(totalSec) {
+    const s = Math.max(0, Math.round(+totalSec || 0));
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r;
+}
+
+function amrapTick() {
+    S.__amrapRaf = null;
+    if (!S.amrap) return;
+    const el = document.querySelector('.ex-amrap');
+    if (!el) { S.__amrapRaf = null; return; }
+
+    const elapsedF = amrapElapsedSecFloat();
+    const cap = S.amrap.timeCapSec;
+
+    // Cap raggiunto: marca done + auto-close.
+    if (elapsedF >= cap) {
+        amrapMarkBlockDone();
+        stopAmrap(true);
+        focusNextBlock(); // chiama render() internamente con blockIdx già avanzato
+        return;
+    }
+
+    // Aggiorna in-place time display + progress bar.
+    const timeEl = el.querySelector('[data-role="elapsed"]');
+    if (timeEl) timeEl.textContent = formatMMSSApp(elapsedF);
+    const remEl = el.querySelector('[data-role="remaining"]');
+    if (remEl) remEl.textContent = formatMMSSApp(Math.max(0, cap - elapsedF)) + ' left';
+    const pfill = el.querySelector('[data-role="progress"]');
+    if (pfill) {
+        const pct = Math.max(0, Math.min(100, (elapsedF / cap) * 100));
+        pfill.style.width = pct.toFixed(2) + '%';
+    }
+    el.dataset.elapsedSec = String(Math.round(elapsedF));
+
+    S.__amrapRaf = requestAnimationFrame(amrapTick);
+}
+
+function mountAmrapTimer() {
+    const el = document.querySelector('.ex-amrap');
+    if (!el || !S.amrap) return;
+    if (S.__amrapRaf) return;
+    S.__amrapRaf = requestAnimationFrame(amrapTick);
+}
+
+function renderAmrapFocusShell(x, b, bi, n, done, total) {
+    const UI = window.UI;
+    ensureAmrapState(b);
+    const t = S.amrap;
+    const exercises = (t.exerciseIds || []).map(function (id) {
+        const e = byId(id) || {};
+        return { id: id, name: e.name || 'Esercizio', primary: e.primary || '', category: e.primary || '' };
+    });
+    const targets = b.exerciseTargets || {};
+    const capReached = amrapCapReached();
+
+    const body = UI.renderAmrapTimer({
+        block: b,
+        exercises: exercises,
+        targets: targets,
+        timeCapSec: t.timeCapSec,
+        elapsedSec: amrapElapsedSec(),
+        round: t.round || 0,
+        exerciseDone: t.exerciseDone || {},
+        paused: !!t.paused,
+        capReached: capReached,
+    });
+
+    const cta = UI.renderAmrapCtrls({
+        round: t.round || 0,
+        paused: !!t.paused,
+        capReached: capReached,
+    });
+
+    return UI.renderExecutionShell({
+        title: x.day.label,
+        sessionElapsedSec: sessionElapsedSec(S.active),
+        blockIdx: bi + 1,
+        blockTotal: n,
+        progress: { done: done, total: total, ticks: n },
+        bodyHtml: body,
+        ctaHtml: cta,
+        onClose: 'go-home',
+        onMenu: S.active ? 'session-open' : '',
+        ariaLabel: 'Focus workout · AMRAP',
+    });
+}
+
+// -----------------------------------------------------------------------------
+// T2.2 · PR live helper.
+// Ritorna { isPR, prevMax, prevReps, prevWhenLabel } per l'esercizio dato,
+// dove `isPR = (currentKg > prevMax && currentKg > 0)`. Riusa la logica di
+// `newPRsInSession` — solo kg (non volume) per coerenza con Summary/PR
+// storici. Ignora la sessione attiva (S.active) e le sessioni scartate.
+// -----------------------------------------------------------------------------
+function prLiveForExercise(exerciseId, currentKg) {
+    let prevMax = 0;
+    let prevReps = '';
+    let prevWhen = '';
+    const sessions = S.sessions || [];
+    for (let i = 0; i < sessions.length; i++) {
+        const s = sessions[i];
+        if (!s || s.discarded) continue;
+        if (S.active && s.id === S.active.id) continue;
+        const logs = s.exerciseLogs || [];
+        for (let j = 0; j < logs.length; j++) {
+            const l = logs[j];
+            if (!l || l.exerciseId !== exerciseId) continue;
+            const k = Number(l.kg) || 0;
+            if (k > prevMax) {
+                prevMax = k;
+                prevReps = l.reps || '';
+                prevWhen = s.endedAt || s.startedAt || '';
+            }
         }
     }
-    const extraNavHtml = extraNav ? `<div class="c-workoutSceneV2__secondary">${extraNav}</div>` : '';
-
-    const hintHtml = `<p class="c-workoutSceneV2__hint" role="status">
-        Scorri a destra per completare<b>&raquo;&raquo;&raquo;</b>
-    </p>`;
-
-    return `${stageHtml}
-        ${pickers}
-        <div class="c-workoutSceneV2__ctas">
-            ${ctaPrimary}
-            ${extraNavHtml}
-            ${hintHtml}
-        </div>`;
+    const cur = Number(currentKg) || 0;
+    const isPR = cur > 0 && cur > prevMax;
+    return {
+        isPR: isPR,
+        prevMax: prevMax,
+        prevReps: prevReps || '',
+        prevWhenLabel: prevWhen ? fmtShortDate(prevWhen) : '',
+    };
 }
+
+// T2.2 · Aggiornamento nota per set (delegator change su data-input="set-note").
+function setNoteFor(blockId, exerciseId, setNo, text) {
+    if (!S.active) return;
+    const l = logFor(blockId, exerciseId, setNo, true);
+    l.note = String(text == null ? '' : text).slice(0, 200);
+    l.updatedAt = now();
+    persistActive();
+}
+
+// T2.2 · Cambio set attivo per Single (pill picker).
+function focusPickSet(setIdx) {
+    if (!S.focus) return;
+    const idx = Math.max(1, +setIdx || 1);
+    if (S.focus.round === idx) return;
+    S.focus.round = idx;
+    render();
+}
+
+/* -------------------------------------------------------------------------- */
+/* T2.3 · Circuit / Superset block (family="round") — renderExecutionShell +   */
+/*        renderCircuitRound (body) + CTA "Chiudi giro N → rest Xs".           */
+/*                                                                             */
+/* Regola invariante (project_focus_mode_design):                              */
+/*   · Circuit ≡ Superset: stesso rendering, cambia solo la pill.              */
+/*   · Rest timer parte SOLO su `toggleRound` (chiusura giro), MAI su          */
+/*     `toggleExerciseSet` del singolo esercizio → business logic intatta      */
+/*     (nessuna modifica a toggle-set/toggle-round handler o funzioni).        */
+/* -------------------------------------------------------------------------- */
+function renderCircuitRoundFocusShell(x, b, bi, n, rounds, round, done, total, rest) {
+    const UI = window.UI;
+    const body = renderCircuitRoundBody(x, b, bi, n, rounds, round, rest);
+    const cta  = renderCircuitRoundCta(x, b, bi, n, rounds, round, rest);
+
+    return UI.renderExecutionShell({
+        title: x.day.label,
+        sessionElapsedSec: sessionElapsedSec(S.active),
+        blockIdx: bi + 1,
+        blockTotal: n,
+        progress: { done, total, ticks: n },
+        bodyHtml: body,
+        ctaHtml: cta,
+        onClose: 'go-home',
+        onMenu: S.active ? 'session-open' : '',
+        ariaLabel: 'Focus workout · ' + (b.label || 'Circuit'),
+    });
+}
+
+function renderCircuitRoundBody(x, b, bi, n, rounds, round, rest) {
+    const UI = window.UI;
+    const ids = Array.isArray(b.exerciseIds) ? b.exerciseIds : [];
+
+    // Primo esercizio non-done nel giro corrente = "on". Tutti quelli
+    // dopo di lui = "upcoming". Quelli prima (o marcati done) = "done".
+    let activeIdx = -1;
+    for (let k = 0; k < ids.length; k++) {
+        const lk = logFor(b.id, ids[k], round, false);
+        if (!lk || !lk.done) { activeIdx = k; break; }
+    }
+
+    const entries = ids.map(function (id, i) {
+        const e = byId(id) || { id: id, name: '', primary: '' };
+        const t = (b.exerciseTargets && b.exerciseTargets[id]) || {};
+        const l = logFor(b.id, id, round, false);
+        let state = 'upcoming';
+        if (l && l.done) state = 'done';
+        else if (i === activeIdx) state = 'on';
+        return {
+            exercise: { id: e.id, name: e.name, primary: e.primary || '' },
+            target:   { reps: t.reps || '', target: t.target || '' },
+            state:    state,
+        };
+    });
+
+    // Neighbor "prossimo blocco" — mostrato SOLO se esiste ed è un altro
+    // blocco. Nessun dato artificiale.
+    let neighbor = null;
+    if (bi < n - 1) {
+        const nb = x.blocks[bi + 1];
+        const nid = nb && nb.exerciseIds && nb.exerciseIds[0];
+        if (nid) {
+            const ne = byId(nid) || {};
+            const nl = lastExerciseLog(nid, 1);
+            neighbor = {
+                name: (nb.label ? nb.label + ' · ' : '') + (ne.name || ''),
+                lastKg: nl && Number(nl.kg) || 0,
+                lastReps: nl && nl.reps ? repsNumber(nl.reps) : 0,
+                crumb: String(nb.type || '').toUpperCase(),
+            };
+        }
+    }
+
+    return UI.renderCircuitRound({
+        block:       b,
+        blockIdx:    bi,
+        blockTotal:  n,
+        round:       round,
+        totalRounds: rounds,
+        restSec:     rest,
+        blockDone:   blockAllDone(b),
+        entries:     entries,
+        neighbor:    neighbor,
+    });
+}
+
+function renderCircuitRoundCta(x, b, bi, n, rounds, round, rest) {
+    const curDone = blockRoundDone(b, round);
+    const isLastRound = round >= rounds;
+    const nextChecked = curDone ? 'false' : 'true';
+    const restSec = Math.max(0, +rest || 0);
+
+    const label = curDone
+        ? '✓ Giro ' + round + ' completato'
+        : 'Chiudi giro ' + round;
+    const subLabel = curDone
+        ? 'Tocca per annullare'
+        : (isLastRound
+            ? '→ ' + restSec + '″ rest · fine blocco'
+            : '→ ' + restSec + '″ rest · poi giro ' + (round + 1));
+
+    const mainCls = 'ex-cta ' + (curDone ? 'ex-cta--done' : 'ex-cta--accent');
+    const mainBtn = '<button type="button"'
+        + ' class="' + mainCls + '"'
+        + ' data-action="toggle-round"'
+        + ' data-block-id="' + esc(b.id) + '"'
+        + ' data-round="' + esc(round) + '"'
+        + ' data-checked="' + nextChecked + '"'
+        + ' aria-label="' + esc(label) + '">'
+        +   '<span class="ex-cta__label">' + esc(label) + '</span>'
+        +   '<span class="ex-cta__sub">' + esc(subLabel) + '</span>'
+        + '</button>';
+
+    // Secondaria (ghost): torna al giro precedente (o blocco prec.). Nasconde
+    // se siamo al primo giro del primo blocco.
+    const hasPrev = round > 1 || bi > 0;
+    const ghostBtn = hasPrev
+        ? '<button type="button"'
+            + ' class="ex-cta ex-cta--ghost"'
+            + ' data-action="focus-prev"'
+            + ' aria-label="' + esc(round > 1 ? 'Giro precedente' : 'Blocco precedente') + '">↺</button>'
+        : '';
+
+    return ghostBtn + mainBtn;
+}
+
 function focusBlockHero(b, isSingle, rest) {
     if (isSingle) {
         const id = b.exerciseIds[0];
@@ -1468,7 +3285,27 @@ function toggleRound(blockId, round, checked) {
     persistActive();
     render();
 }
-function startRestTimer(sec, label) { stopRestTimer(false); const totalMs = Math.max(1, +sec || 60) * 1000; S.timer = { startedAt: Date.now(), end: Date.now() + totalMs, label, totalSec: Math.round(totalMs / 1000), paused: false, remainingMs: 0 }; S.tick = setInterval(updateRestTimerOnly, 250); render() } function stopRestTimer(r = true) { if (S.tick) clearInterval(S.tick); S.tick = null; S.timer = null; if (r) render() } function updateRestTimerOnly() { if (!S.timer || S.timer.paused) return; let left = Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); if (left <= 0) { stopRestTimer(true); return } updateRestOverlayRing(left); } function pauseRestTimer() { if (!S.timer || S.timer.paused) return; S.timer.paused = true; S.timer.remainingMs = Math.max(0, S.timer.end - Date.now()); if (S.tick) { clearInterval(S.tick); S.tick = null; } const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestPaused) window.UI.setCircularRestPaused(timerEl, true); const heroEl = root ? root.querySelector('.c-restCountdownHero') : null; if (heroEl && window.UI && window.UI.setRestHeroPaused) window.UI.setRestHeroPaused(heroEl, true); } function resumeRestTimer() { if (!S.timer || !S.timer.paused) return; S.timer.end = Date.now() + Math.max(0, S.timer.remainingMs || 0); S.timer.paused = false; S.timer.remainingMs = 0; if (!S.tick) S.tick = setInterval(updateRestTimerOnly, 250); const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestPaused) window.UI.setCircularRestPaused(timerEl, false); const heroEl = root ? root.querySelector('.c-restCountdownHero') : null; if (heroEl && window.UI && window.UI.setRestHeroPaused) window.UI.setRestHeroPaused(heroEl, false); } function addRestSeconds(sec) { if (!S.timer) return; const add = Math.max(0, +sec || 0) * 1000; if (!add) return; if (S.timer.paused) { S.timer.remainingMs = Math.max(0, (S.timer.remainingMs || 0) + add); } else { S.timer.end += add; } S.timer.totalSec = (S.timer.totalSec || 60) + Math.round(add / 1000); const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestTotal) window.UI.setCircularRestTotal(timerEl, S.timer.totalSec); const left = S.timer.paused ? Math.ceil((S.timer.remainingMs || 0) / 1000) : Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); updateRestOverlayRing(left); } function updateRestOverlayRing(leftSec) { if (!S.timer) return; const root = document.getElementById('restOverlayRoot'); if (!root) return; const timerEl = root.querySelector('.c-circularRestTimer'); if (timerEl && window.UI && window.UI.setCircularRestProgress) { window.UI.setCircularRestProgress(timerEl, leftSec); if (window.UI.setRestHeroMessage) window.UI.setRestHeroMessage(root, leftSec); return; } const ring = root.querySelector('.c-progressRing'); if (!ring) return; const total = S.timer.totalSec || 60; const pct = Math.max(0, Math.min(100, Math.round(((total - leftSec) / total) * 100))); if (window.UI && window.UI.setProgressRing) { window.UI.setProgressRing(ring, pct); return; } const fill = ring.querySelector('.c-progressRing__fill'); if (!fill) return; const size = parseFloat(ring.dataset.size) || 96; const stroke = parseFloat(ring.dataset.stroke) || 8; const r = (size - stroke) / 2; const c = 2 * Math.PI * r; fill.setAttribute('stroke-dashoffset', String(c * (1 - pct / 100))); } function formatSec(sec) { return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') }
+function startRestTimer(sec, label) { stopRestTimer(false); const totalMs = Math.max(1, +sec || 60) * 1000; S.timer = { startedAt: Date.now(), end: Date.now() + totalMs, label, totalSec: Math.round(totalMs / 1000), paused: false, remainingMs: 0 }; S.tick = setInterval(updateRestTimerOnly, 250); render() } function stopRestTimer(r = true) { if (S.tick) clearInterval(S.tick); S.tick = null; S.timer = null; if (r) render() } function updateRestTimerOnly() { if (!S.timer || S.timer.paused) return; let left = Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); if (left <= 0) { try { if (S.prefs && S.prefs.sounds && typeof tabataPlayBeep === 'function') tabataPlayBeep(); } catch(_){} stopRestTimer(true); return } updateRestOverlayRing(left); if (window.UI && typeof window.UI.renderRestOverlay === 'function' && typeof mountRestOverlay === 'function') mountRestOverlay(); } function pauseRestTimer() { if (!S.timer || S.timer.paused) return; S.timer.paused = true; S.timer.remainingMs = Math.max(0, S.timer.end - Date.now()); if (S.tick) { clearInterval(S.tick); S.tick = null; } const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestPaused) window.UI.setCircularRestPaused(timerEl, true); const heroEl = root ? root.querySelector('.c-restCountdownHero') : null; if (heroEl && window.UI && window.UI.setRestHeroPaused) window.UI.setRestHeroPaused(heroEl, true); } function resumeRestTimer() { if (!S.timer || !S.timer.paused) return; S.timer.end = Date.now() + Math.max(0, S.timer.remainingMs || 0); S.timer.paused = false; S.timer.remainingMs = 0; if (!S.tick) S.tick = setInterval(updateRestTimerOnly, 250); const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestPaused) window.UI.setCircularRestPaused(timerEl, false); const heroEl = root ? root.querySelector('.c-restCountdownHero') : null; if (heroEl && window.UI && window.UI.setRestHeroPaused) window.UI.setRestHeroPaused(heroEl, false); } function addRestSeconds(sec) { if (!S.timer) return; const add = Math.max(0, +sec || 0) * 1000; if (!add) return; if (S.timer.paused) { S.timer.remainingMs = Math.max(0, (S.timer.remainingMs || 0) + add); } else { S.timer.end += add; } S.timer.totalSec = (S.timer.totalSec || 60) + Math.round(add / 1000); const root = document.getElementById('restOverlayRoot'); const timerEl = root ? root.querySelector('.c-circularRestTimer') : null; if (timerEl && window.UI && window.UI.setCircularRestTotal) window.UI.setCircularRestTotal(timerEl, S.timer.totalSec); const left = S.timer.paused ? Math.ceil((S.timer.remainingMs || 0) / 1000) : Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000)); updateRestOverlayRing(left); } function updateRestOverlayRing(leftSec) { if (!S.timer) return; const root = document.getElementById('restOverlayRoot'); if (!root) return; const timerEl = root.querySelector('.c-circularRestTimer'); if (timerEl && window.UI && window.UI.setCircularRestProgress) { window.UI.setCircularRestProgress(timerEl, leftSec); if (window.UI.setRestHeroMessage) window.UI.setRestHeroMessage(root, leftSec); return; } const ring = root.querySelector('.c-progressRing'); if (!ring) return; const total = S.timer.totalSec || 60; const pct = Math.max(0, Math.min(100, Math.round(((total - leftSec) / total) * 100))); if (window.UI && window.UI.setProgressRing) { window.UI.setProgressRing(ring, pct); return; } const fill = ring.querySelector('.c-progressRing__fill'); if (!fill) return; const size = parseFloat(ring.dataset.size) || 96; const stroke = parseFloat(ring.dataset.stroke) || 8; const r = (size - stroke) / 2; const c = 2 * Math.PI * r; fill.setAttribute('stroke-dashoffset', String(c * (1 - pct / 100))); } function formatSec(sec) { return String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') }
+// T2.4 · Sottrai secondi al rest attivo. Clamp inferiore = 1s: se l'utente
+// scende sotto lo zero il timer si chiude naturalmente al prossimo tick.
+function subRestSeconds(sec) {
+    if (!S.timer) return;
+    var sub = Math.max(0, +sec || 0) * 1000;
+    if (!sub) return;
+    if (S.timer.paused) {
+        S.timer.remainingMs = Math.max(0, (S.timer.remainingMs || 0) - sub);
+        if (S.timer.remainingMs <= 0) { stopRestTimer(true); return; }
+    } else {
+        var newEnd = S.timer.end - sub;
+        if (newEnd <= Date.now()) { stopRestTimer(true); return; }
+        S.timer.end = newEnd;
+    }
+    S.timer.totalSec = Math.max(1, (S.timer.totalSec || 60) - Math.round(sub / 1000));
+    var left = S.timer.paused
+        ? Math.ceil((S.timer.remainingMs || 0) / 1000)
+        : Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000));
+    updateRestOverlayRing(left);
+}
 // ==== Workout Sprint 8.4 — Premium Rest Screen ====
 // Restituisce { eyebrow, title, exerciseName, kg, reps } — exerciseName è il
 // nome CANONICO da passare al service asset per immagine/muscoli/attrezzatura.
@@ -1601,18 +3438,97 @@ function restSessionProgressPct() {
     return Math.max(0, Math.min(100, Math.round((doneSets / totalSets) * 100)));
 }
 
+// T2.4 · Stats per RestOverlay v2 — computate on-the-fly senza modificare
+// lo shape di S.timer (state contract stabile). Ritorna:
+//   { prCount, lastSetKg, lastSetReps, progressValue, progressTotal, progressLabel }
+function restCurrentStatsInfo() {
+    const out = {
+        prCount: 0,
+        lastSetKg: null,
+        lastSetReps: null,
+        progressValue: null,
+        progressTotal: null,
+        progressLabel: 'Avanzamento',
+    };
+    if (!S.active) return out;
+    // PR count nella sessione attiva (reali, mai fittizi).
+    try {
+        var prs = newPRsInSession(S.active) || [];
+        out.prCount = prs.length;
+    } catch (_) { /* silente */ }
+    // Ultimo set completato (max updatedAt fra i log done).
+    var logs = S.active.exerciseLogs || [];
+    var last = null;
+    for (var i = 0; i < logs.length; i++) {
+        var l = logs[i];
+        if (!l || !l.done) continue;
+        if (!last || String(l.updatedAt || '') > String(last.updatedAt || '')) last = l;
+    }
+    if (last) {
+        var k = Number(last.kg);
+        if (!isNaN(k) && k > 0) out.lastSetKg = k;
+        if (last.reps != null && String(last.reps).length) out.lastSetReps = String(last.reps);
+    }
+    // Avanzamento blocco corrente (dal focus attuale — che al momento del rest
+    // è GIÀ avanzato al prossimo giro/set dal toggleRound/toggleExerciseSet).
+    var x = ctx(); if (!x || !x.blocks || !x.blocks.length) return out;
+    var bi = (S.focus && S.focus.blockIdx) || 0;
+    var b = x.blocks[bi]; if (!b) return out;
+    var rounds = +b.rounds || 3;
+    var isSingle = String(b.type || '').toLowerCase() === 'single' || /singolo/i.test(b.label || '');
+    var round = (S.focus && S.focus.round) || 1;
+    if (isSingle) {
+        // Set corrente dopo il completamento = activeSetInSingle
+        var id = (b.exerciseIds || [])[0];
+        var nextSet = id ? activeSetInSingle(b, id, rounds) : round;
+        out.progressLabel = 'Set';
+        out.progressValue = Math.min(nextSet, rounds);
+        out.progressTotal = rounds;
+    } else {
+        out.progressLabel = 'Giro';
+        out.progressValue = Math.min(round, rounds);
+        out.progressTotal = rounds;
+    }
+    return out;
+}
+
 function restOverlayHtml() {
     if (!S.timer) return '';
     const UI = window.UI;
-    if (!UI || !UI.RestScene) return '';
+    if (!UI) return '';
     const totalSec = S.timer.totalSec || Math.max(1, Math.round((S.timer.end - (S.timer.startedAt || (Date.now() - 1))) / 1000));
     const leftSec = S.timer.paused
         ? Math.max(0, Math.ceil((S.timer.remainingMs || 0) / 1000))
         : Math.max(0, Math.ceil((S.timer.end - Date.now()) / 1000));
     const info = nextRestExerciseInfo();
-    const timeline = restTimelineInfo();
     const targetReps = restNextTargetReps();
 
+    // T2.4 · Nuovo overlay v2 (mockup device D). Fallback su RestScene legacy
+    // se `renderRestOverlay` non è ancora esposto (backward-compat).
+    if (typeof UI.renderRestOverlay === 'function') {
+        const stats = restCurrentStatsInfo();
+        const overlayHtml = UI.renderRestOverlay({
+            leftSec: leftSec,
+            totalSec: totalSec,
+            paused: !!S.timer.paused,
+            headerLabel: 'Recupero',
+            next: info ? {
+                eyebrow: info.eyebrow,
+                name: info.exerciseName,
+                title: info.title,
+                targetReps: targetReps,
+                targetKg: info.kg,
+                note: '',
+            } : {
+                fallbackMessage: 'Ultimo blocco della sessione',
+            },
+            stats: stats,
+        });
+        return overlayHtml;
+    }
+    if (!UI.RestScene) return '';
+
+    const timeline = restTimelineInfo();
     const sceneHtml = UI.RestScene({
         leftSec,
         totalSec,
@@ -1648,12 +3564,16 @@ function mountRestOverlay() {
                 case 'stop-rest':   stopRestTimer(); break;
                 case 'pause-rest':  pauseRestTimer(); break;
                 case 'resume-rest': resumeRestTimer(); break;
-                case 'add-rest-15': addRestSeconds(15); break;
+                case 'add-rest-15': addRestSeconds(15); render(); break;
+                case 'add-rest-30': addRestSeconds(30); render(); break;
+                case 'sub-rest-15': subRestSeconds(15); render(); break;
+                case 'sub-rest-30': subRestSeconds(30); render(); break;
             }
         });
         root.__delegated = true;
     }
-    const shouldShow = !!S.timer && !!(window.UI && window.UI.RestScene);
+    const shouldShow = !!S.timer && !!window.UI &&
+                       (typeof window.UI.renderRestOverlay === 'function' || !!window.UI.RestScene);
     if (!shouldShow) {
         if (root.__html !== '') {
             root.innerHTML = '';
@@ -3838,13 +5758,13 @@ function profilePendingBannerHtml() {
 }
 function profileActiveCardInfoHtml() {
     var UI = window.UI;
-    var activeCard = S.cards[0] || null;
-    if (!activeCard) return '';
-    var meta = activeCard.weeks.length + ' settimane • ' + countBlocksInCard(activeCard) + ' blocchi totali';
+    var ac = activeCard() || null;
+    if (!ac) return '';
+    var meta = ac.weeks.length + ' settimane • ' + countBlocksInCard(ac) + ' blocchi totali';
     var openBtn = UI.Button({ label: 'Apri →', variant: 'ghost', dataset: { action: 'open-select' } });
     var body = UI.SettingsRow
-        ? UI.SettingsRow({ label: activeCard.name, meta: meta, control: openBtn })
-        : '<div class="between"><div><h3 style="margin:0">' + esc(activeCard.name) + '</h3><p class="meta">' + esc(meta) + '</p></div>' + openBtn + '</div>';
+        ? UI.SettingsRow({ label: ac.name, meta: meta, control: openBtn })
+        : '<div class="between"><div><h3 style="margin:0">' + esc(ac.name) + '</h3><p class="meta">' + esc(meta) + '</p></div>' + openBtn + '</div>';
     return '<section class="profileV2__section profileV2__card" role="region" aria-label="Scheda attiva">' +
         '<div class="profileV2__sectionHead"><h3 class="profileV2__sectionTitle">Scheda attiva</h3></div>' +
         '<div class="profileActiveCard">' + body + '</div>' +
@@ -4520,6 +6440,12 @@ window.addEventListener('online', function () { renderSyncStatus(); syncToRemote
 window.addEventListener('offline', function () { renderSyncStatus(); });
 
 (async () => {
+    // T0.4 · Catalogo esercizi su DB separato (fit-catalog-v1). Fire-and-forget:
+    // il picker esercizi (T1.6) leggera in memoria via catalogService; l'app boota
+    // anche senza catalogo (picker mostrera stato vuoto in caso di errore).
+    import('./services/catalogService.js')
+        .then(function (m) { return m.initCatalog(); })
+        .catch(function (err) { console.warn('catalog init failed:', err); });
     await Store.open();
     await loadSyncConfig();
     // Sprint 7: primo avvio → segna installedAt e (se GitHub è configurato) precompila nome utente.

@@ -606,3 +606,7 @@ body:has(.c-restSceneV2) .c-bottomNav { display: none !important; }
     transition: none !important;
   }
 }
+
+/* Light theme: primary (#FFFFFF) invisible on light overlay backgrounds */
+[data-theme="light"] .c-restNextIdentity__muscles em { color: var(--color-accent); }
+[data-theme="light"] .c-restActionsV2__glyph          { color: var(--color-accent); }

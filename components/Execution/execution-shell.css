@@ -1,0 +1,1956 @@
+/* ==========================================================================
+   Execution/execution-shell.css — T2.1 (PROGETTO_MOCKUP)
+   Stili scoped della shell comune di esecuzione. Palette: bianco primary,
+   giallo accent. Zero viola/magenta (feedback_no_purple.md).
+
+   Convenzioni:
+     · Tutte le classi hanno prefisso .ex- per evitare collisioni.
+     · I token vengono da components/Foundation/tokens.css:
+         --color-primary       (bianco)
+         --color-accent        (#EAB308)
+         --color-accent-2      (#FDE047)
+         --color-bg / --color-surface / --color-surfaceElevated
+         --color-border / --color-textOnPrimary
+         --spacing-* / --radius-* / --shadow-*
+       In assenza di token, si usano fallback rgba/hex con neutri (mai viola).
+     · Sticky top e sticky bottom (position: sticky), no fixed absolute che
+       si stacchi dal flow — così la shell si comporta correttamente sia in
+       viewport corte sia dentro un contenitore scrollato dal genitore.
+   ========================================================================== */
+
+/* ---- Root shell ---------------------------------------------------------- */
+.ex-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--color-bg, #000);
+  color: var(--color-primary, #FFF);
+  position: relative;
+}
+
+/* ---- Sticky top (topbar + progress) -------------------------------------- */
+.ex-shell__top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-bg, #000);
+  padding-top: env(safe-area-inset-top, 0);
+  border-bottom: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+}
+
+/* ---- Topbar (X · titolo + cronometro + Blocco N/M · ☰) ------------------- */
+.ex-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 18px 10px;
+  min-height: 54px;
+}
+
+.ex-topbar__x,
+.ex-topbar__end {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.06));
+  color: var(--color-primary, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  flex: 0 0 auto;
+  border: 0;
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.ex-topbar__x:hover,
+.ex-topbar__end:hover {
+  background: var(--color-surface, rgba(255, 255, 255, 0.1));
+}
+
+.ex-topbar__x:active,
+.ex-topbar__end:active {
+  transform: scale(0.96);
+}
+
+.ex-topbar__x:focus-visible,
+.ex-topbar__end:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+.ex-topbar__mid {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.ex-topbar__title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ex-topbar__meta {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  color: var(--color-primary, #FFF);
+}
+
+.ex-topbar__time {
+  color: var(--color-accent, #EAB308);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5ch;
+  text-align: right;
+}
+
+.ex-topbar__dot {
+  width: 4px;
+  height: 4px;
+  background: var(--color-textMuted, rgba(255, 255, 255, 0.35));
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.ex-topbar__pos {
+  color: var(--color-primary, #FFF);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Progress bar globale con tick per blocco ---------------------------- */
+.ex-progress {
+  padding: 0 18px 14px;
+}
+
+.ex-progress__bar {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.08));
+  overflow: hidden;
+}
+
+.ex-progress__fill {
+  height: 100%;
+  background: var(--color-accent, #EAB308);
+  border-radius: 3px;
+  transition: width 200ms ease-out;
+}
+
+.ex-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-1px);
+  background: var(--color-primary, #FFF);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* ---- Body slot ----------------------------------------------------------- */
+.ex-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 12px 0 calc(100px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ---- Sticky CTA bar bottom ----------------------------------------------- */
+.ex-cta-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 15;
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px calc(env(safe-area-inset-bottom, 0) + 18px);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  align-items: stretch;
+}
+
+.ex-cta-bar--empty {
+  display: none;
+  padding: 0;
+  height: 0;
+  margin: 0;
+  background: none;
+}
+
+.ex-cta-bar > button,
+.ex-cta-bar > a,
+.ex-cta-bar > .ex-cta,
+.ex-cta-bar > [data-cta] {
+  flex: 1 1 auto;
+}
+
+.ex-cta-bar :focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* ---- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .ex-topbar__x,
+  .ex-topbar__end,
+  .ex-progress__fill {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   T2.2 — SingleExercise + BigStepper + PRBanner + SetPicker + NeighborPeek
+   ==========================================================================
+   Tutte le classi hanno prefisso .ex-single-*, .ex-stepper-*, .ex-pr-*,
+   .ex-picker-*, .ex-peek-* per evitare collisioni con Workout legacy.
+   Palette bianco + giallo (ZERO viola/magenta).
+   ========================================================================== */
+
+.ex-single-exercise {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 24px;
+  color: var(--color-primary, #FFF);
+}
+
+/* ---- Block crumb --------------------------------------------------------- */
+.ex-single-crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+}
+.ex-single-crumb__pill {
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: var(--color-primary, #FFF);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.ex-single-crumb__sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* ---- Exercise hero ------------------------------------------------------- */
+.ex-single-hero {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 20px;
+  padding: 16px;
+}
+.ex-single-hero__thumb {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    var(--color-surfaceElevated, rgba(255, 255, 255, 0.08)),
+    var(--color-surface, rgba(255, 255, 255, 0.04))
+  );
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.ex-single-hero__initials {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #FFF);
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+.ex-single-hero__info {
+  flex: 1;
+  min-width: 0;
+}
+.ex-single-hero__eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.5));
+  margin: 0 0 4px;
+}
+.ex-single-hero__name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.1;
+  color: var(--color-primary, #FFF);
+}
+.ex-single-hero__meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.6));
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ex-single-hero__meta b { color: var(--color-primary, #FFF); font-weight: 700; }
+.ex-single-hero__sep { color: rgba(255, 255, 255, 0.25); }
+.ex-single-hero__badge {
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.7));
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* ---- Set picker ---------------------------------------------------------- */
+.ex-picker {
+  display: flex;
+  gap: 6px;
+  margin: 2px 0 4px;
+}
+.ex-picker__i {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  padding: 10px 0;
+  text-align: center;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.5));
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+  position: relative;
+  font: inherit;
+}
+.ex-picker__i-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: inherit;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ex-picker__i-num {
+  display: block;
+  font-size: 15px;
+  color: var(--color-primary, #FFF);
+  font-weight: 700;
+  margin-top: 2px;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.ex-picker__i:hover {
+  border-color: var(--color-border, rgba(255, 255, 255, 0.18));
+}
+.ex-picker__i:active { transform: scale(0.98); }
+.ex-picker__i:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* State: done — muted + check giallo top-right */
+.ex-picker__i--done {
+  background: transparent;
+  border-color: var(--color-border, rgba(255, 255, 255, 0.14));
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.35));
+}
+.ex-picker__i--done .ex-picker__i-num {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+}
+.ex-picker__i--done::after {
+  content: '✓';
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  color: var(--color-accent, #EAB308);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* State: on — bordo giallo + fondo tinto */
+.ex-picker__i--on {
+  background: rgba(234, 179, 8, 0.14);
+  border-color: var(--color-accent, #EAB308);
+  color: var(--color-primary, #FFF);
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.08);
+}
+.ex-picker__i--on .ex-picker__i-num {
+  color: var(--color-primary, #FFF);
+}
+
+/* State: upcoming — opacity 0.55 (rispecchia mockup) */
+.ex-picker__i--up {
+  opacity: 0.55;
+}
+
+/* ---- PR banner ----------------------------------------------------------- */
+.ex-pr-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(234, 179, 8, 0.14);
+  border: 1px solid rgba(234, 179, 8, 0.45);
+  border-radius: 14px;
+}
+.ex-pr-banner__dot {
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent, #EAB308);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
+  flex: 0 0 auto;
+}
+.ex-pr-banner__body {
+  flex: 1;
+  min-width: 0;
+}
+.ex-pr-banner__t {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FDE047;
+  letter-spacing: 0.02em;
+}
+.ex-pr-banner__t b {
+  color: var(--color-primary, #FFF);
+  font-weight: 800;
+}
+.ex-pr-banner__s {
+  font-size: 11px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.6));
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ---- BigStepper (kg / reps) --------------------------------------------- */
+.ex-single-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.ex-stepper {
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 18px;
+  padding: 16px 14px 14px;
+  text-align: center;
+  position: relative;
+}
+.ex-stepper__hint {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.5));
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+.ex-stepper__hint b {
+  color: var(--color-accent, #EAB308);
+  font-weight: 800;
+}
+.ex-stepper__lbl {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  margin-bottom: 8px;
+}
+.ex-stepper__val {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary, #FFF);
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  min-height: 44px;
+}
+.ex-stepper--hint .ex-stepper__val {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.5));
+}
+.ex-stepper__val:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.ex-stepper__u {
+  font-size: 14px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.ex-stepper__row {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+.ex-stepper__btn {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.08));
+  color: var(--color-primary, #FFF);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  border-radius: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+}
+.ex-stepper__btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+.ex-stepper__btn:active {
+  transform: scale(0.96);
+}
+.ex-stepper__btn:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* ---- Note field ---------------------------------------------------------- */
+.ex-single-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.7));
+  font-size: 12px;
+  cursor: text;
+}
+.ex-single-note__icon {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.5));
+  font-size: 13px;
+  flex: 0 0 auto;
+}
+.ex-single-note__input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--color-primary, #FFF);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 12.5px;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+.ex-single-note__input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.ex-single-note:focus-within {
+  border-color: var(--color-accent, #EAB308);
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.14);
+}
+
+/* ---- Neighbor peek ------------------------------------------------------- */
+.ex-peek-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+.ex-peek {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  color: var(--color-primary, #FFF);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 120ms ease, border-color 120ms ease, transform 120ms ease;
+  opacity: 0.55;
+}
+.ex-peek:hover  { opacity: 0.9; border-color: var(--color-border, rgba(255, 255, 255, 0.18)); }
+.ex-peek:active { transform: scale(0.98); }
+.ex-peek:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+  opacity: 1;
+}
+.ex-peek__lbl {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+}
+.ex-peek__dir { color: inherit; }
+.ex-peek__crumb {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.45));
+  font-variant-numeric: tabular-nums;
+}
+.ex-peek__t {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-primary, #FFF);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ex-peek__last {
+  font-size: 11px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  font-variant-numeric: tabular-nums;
+}
+.ex-peek--empty {
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Reduced motion — disabilita transizioni degli input Single. */
+@media (prefers-reduced-motion: reduce) {
+  .ex-picker__i,
+  .ex-stepper__btn,
+  .ex-peek {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   T2.5 — TabataTimer + CountdownRing
+   ==========================================================================
+   Palette: giallo (Work) / grigio muted (Rest). ZERO viola/magenta.
+   ========================================================================== */
+
+/* ---- Root Tabata content ------------------------------------------------- */
+.ex-tabata {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 24px;
+  color: var(--color-primary, #FFF);
+}
+
+/* Block crumb */
+.ex-tabata-crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+}
+.ex-tabata-crumb__pill {
+  background: var(--color-accent, #EAB308);
+  border: 1px solid transparent;
+  color: #000;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.ex-tabata-crumb__sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Hero column (phase + ring + cycles + cards) */
+.ex-tabata-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+/* Phase pill: "Lavoro" (yellow + pulse dot) / "Riposo" (muted grey, no pulse) */
+.ex-tabata-phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.ex-tabata-phase__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.ex-tabata-phase--work {
+  color: var(--color-accent, #EAB308);
+}
+.ex-tabata-phase--work .ex-tabata-phase__dot {
+  background: var(--color-accent, #EAB308);
+  box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.22);
+  animation: exTabataPulse 1s infinite ease-in-out;
+}
+.ex-tabata-phase--rest {
+  color: rgba(255, 255, 255, 0.42);
+}
+.ex-tabata-phase--rest .ex-tabata-phase__dot {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: none;
+  animation: none;
+}
+
+@keyframes exTabataPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-tabata-phase--work .ex-tabata-phase__dot {
+    animation: none;
+  }
+}
+
+/* ---- Cycles bar (8 dots) ------------------------------------------------- */
+.ex-tabata-cycles {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.ex-tabata-cyc {
+  width: 22px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.10));
+  transition: background 200ms ease, box-shadow 200ms ease;
+}
+.ex-tabata-cyc--done {
+  background: var(--color-primary, #FFF);
+}
+.ex-tabata-cyc--on {
+  background: var(--color-accent, #EAB308);
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-tabata-cyc { transition: none; }
+}
+
+/* ---- Exercise card (current / next) ------------------------------------- */
+.ex-tab-ex {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 16px;
+}
+.ex-tab-ex--next {
+  opacity: 0.55;
+}
+.ex-tab-ex__thumb {
+  width: 46px;
+  height: 46px;
+  border-radius: 11px;
+  background: linear-gradient(
+    180deg,
+    var(--color-surfaceElevated, rgba(255, 255, 255, 0.08)),
+    var(--color-surface, rgba(255, 255, 255, 0.04))
+  );
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  position: relative;
+}
+.ex-tab-ex__cat {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background: var(--color-accent, #EAB308);
+  color: #000;
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+.ex-tab-ex--next .ex-tab-ex__cat {
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--color-primary, #FFF);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.ex-tab-ex__initials {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #FFF);
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.ex-tab-ex__info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.ex-tab-ex__lbl {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  margin-bottom: 2px;
+}
+.ex-tab-ex__name {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--color-primary, #FFF);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- CTA Tabata controls (Skip + Pausa) --------------------------------- */
+.ex-tab-ctrls {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.ex-tab-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.08));
+  color: var(--color-primary, #FFF);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  border-radius: 999px;
+  padding: 15px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.ex-tab-btn--pause {
+  background: var(--color-primary, #FFF);
+  color: #000;
+  border-color: transparent;
+  flex: 2 1 0;
+}
+.ex-tab-btn:hover  { background: rgba(255, 255, 255, 0.14); }
+.ex-tab-btn--pause:hover { background: rgba(255, 255, 255, 0.9); }
+.ex-tab-btn:active { transform: scale(0.98); }
+.ex-tab-btn:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+.ex-tab-btn__ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-tab-btn { transition: none; }
+}
+
+/* ==========================================================================
+   T2.5 — CountdownRing (usato anche da T2.6 EMOM/AMRAP)
+   ========================================================================== */
+
+.ex-ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.ex-ring__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ex-ring__bg {
+  stroke: var(--color-surface, rgba(255, 255, 255, 0.10));
+  fill: none;
+}
+.ex-ring__fill {
+  transition: stroke-dashoffset 200ms linear, stroke 200ms ease;
+  filter: drop-shadow(0 0 12px rgba(234, 179, 8, 0.5));
+}
+.ex-ring--phase-rest .ex-ring__fill {
+  filter: none;
+}
+.ex-ring__center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-primary, #FFF);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.ex-ring__num {
+  font-size: 88px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary, #FFF);
+}
+.ex-ring__unit {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-ring__fill { transition: none; }
+}
+
+/* ==========================================================================
+   T2.3 — CircuitRound (family="round" · Circuit ≡ Superset)
+   ==========================================================================
+   Classi scoped .ex-circuit-round, .ex-round-*, .ex-cx-*.
+   Palette bianco + giallo, ZERO viola/magenta.
+   ========================================================================== */
+
+.ex-circuit-round {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 24px;
+  color: var(--color-primary, #FFF);
+}
+
+/* ---- Round header (Giro N/M + contatore) --------------------------------- */
+.ex-round-hd {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 2px 0 4px;
+}
+.ex-round-hd__t {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #FFF);
+  font-variant-numeric: tabular-nums;
+}
+.ex-round-hd__t b {
+  color: var(--color-primary, #FFF);
+  font-weight: 800;
+}
+.ex-round-hd__t small {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 4px;
+  letter-spacing: 0;
+}
+.ex-round-hd__c {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Round dots (segmento per giro) -------------------------------------- */
+.ex-round-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 0 0 8px;
+}
+.ex-round-dot {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.08));
+  transition: background 160ms ease, box-shadow 160ms ease;
+}
+.ex-round-dot--done {
+  background: var(--color-success, #34D399);
+}
+.ex-round-dot--on {
+  background: var(--color-accent, #EAB308);
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.18);
+}
+.ex-round-dot--up {
+  background: var(--color-surface, rgba(255, 255, 255, 0.08));
+}
+
+/* ---- Exercise list (giro corrente) --------------------------------------- */
+.ex-cx-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ex-cx-wrap {
+  position: relative;
+  padding-left: 6px; /* spazio per il badge .ex-cx__idx sporgente a sinistra */
+  padding-top: 4px;
+}
+
+/* ---- Exercise row (button = tap per marcare done/undo) ------------------- */
+.ex-cx {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 68px;
+  padding: 10px 12px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  border-radius: 16px;
+  color: var(--color-primary, #FFF);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 140ms ease, border-color 140ms ease,
+              transform 120ms ease, box-shadow 160ms ease;
+}
+.ex-cx:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.ex-cx:active {
+  transform: scale(0.995);
+}
+.ex-cx:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* Stato: done (verde muted, opacity ridotta ma leggibile) */
+.ex-cx--done {
+  opacity: 0.72;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+}
+.ex-cx--done .ex-cx__name {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.7));
+}
+
+/* Stato: on (esercizio attivo del giro — giallo soft + border accent) */
+.ex-cx--on {
+  background: rgba(234, 179, 8, 0.14);
+  border-color: var(--color-accent, #EAB308);
+  box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.06);
+}
+
+/* Stato: upcoming (neutro, disabled) */
+.ex-cx--upcoming {
+  opacity: 0.75;
+  cursor: default;
+}
+.ex-cx--upcoming:hover {
+  border-color: var(--color-border, rgba(255, 255, 255, 0.08));
+}
+.ex-cx[disabled] {
+  pointer-events: none;
+}
+
+/* ---- Idx badge (A/B/C in top-left sporgente) ----------------------------- */
+.ex-cx__idx {
+  position: absolute;
+  top: -8px;
+  left: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  background: var(--color-bg, #000);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.18));
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.7));
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+.ex-cx--on .ex-cx__idx {
+  background: var(--color-accent, #EAB308);
+  border-color: transparent;
+  color: #000;
+}
+
+/* ---- Thumb (ExerciseIdentity size=mini) ---------------------------------- */
+.ex-cx__thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  background: linear-gradient(
+    180deg,
+    var(--color-surfaceElevated, rgba(255, 255, 255, 0.08)),
+    var(--color-surface, rgba(255, 255, 255, 0.04))
+  );
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.ex-cx__thumb .ex-cx__ident,
+.ex-cx__thumb .c-exId {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ex-cx__thumb svg { max-width: 100%; height: auto; }
+
+/* ---- Info (nome + target meta) ------------------------------------------- */
+.ex-cx__info {
+  flex: 1;
+  min-width: 0;
+}
+.ex-cx__name {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+  color: var(--color-primary, #FFF);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ex-cx__target {
+  font-size: 11.5px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.65));
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-variant-numeric: tabular-nums;
+}
+.ex-cx__target b {
+  color: var(--color-primary, #FFF);
+  font-weight: 700;
+}
+.ex-cx__sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+.ex-cx__badge {
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.7));
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* ---- Mark (right-side · glyph di stato) ---------------------------------- */
+.ex-cx__mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  color: var(--color-primary, #FFF);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.ex-cx--done .ex-cx__mark {
+  background: var(--color-success, #34D399);
+  border-color: transparent;
+  color: #000;
+}
+.ex-cx--on .ex-cx__mark {
+  background: var(--color-primary, #FFF);
+  border-color: transparent;
+  color: #000;
+}
+
+/* ---- Round hint (label sotto la lista) ----------------------------------- */
+.ex-round-tick {
+  font-size: 11px;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.6));
+  text-align: center;
+  margin: 8px 0 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.ex-round-tick b {
+  color: var(--color-accent, #EAB308);
+  font-weight: 800;
+}
+.ex-round-tick--done {
+  color: var(--color-success, #34D399);
+}
+
+/* ---- Peek row single (usata quando neighbor è solo "next block") --------- */
+.ex-peek-row--single {
+  margin-top: 4px;
+}
+.ex-peek-row--single .ex-peek {
+  opacity: 0.85;
+}
+
+/* ---- CTA (bar bottom · usate anche dai wrapper del focusView) ------------ */
+.ex-cta-bar .ex-cta {
+  background: var(--color-primary, #FFF);
+  color: #000;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px;
+  font: 800 15px/1 inherit;
+  letter-spacing: -0.01em;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 120ms ease, filter 160ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-direction: column;
+}
+.ex-cta:hover  { filter: brightness(1.02); }
+.ex-cta:active { transform: scale(0.98); }
+.ex-cta__sub {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  opacity: 0.65;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.ex-cta--accent {
+  background: var(--color-accent, #EAB308);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(234, 179, 8, 0.35);
+}
+.ex-cta--ghost {
+  flex: 0 0 auto;
+  background: transparent;
+  color: var(--color-primary, #FFF);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.24));
+  box-shadow: none;
+  padding: 16px 18px;
+  min-width: 54px;
+}
+.ex-cta--done {
+  background: var(--color-success, #34D399);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(52, 211, 153, 0.35);
+}
+.ex-cta:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* Reduced motion: disabilita transizioni della lista giro e dei dots. */
+@media (prefers-reduced-motion: reduce) {
+  .ex-cx,
+  .ex-round-dot,
+  .ex-cta {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   T2.6 — EMOM (riusa CountdownRing di T2.5, centerContent = reps counter)
+   ==========================================================================
+   Palette bianco + giallo. Ring giallo (accent) durante il minuto attivo.
+   Cycles bar dot: --done bianco (target met), --fail muted grigio (fail),
+   --on accent giallo con glow (current), upcoming grigio scuro.
+   ========================================================================== */
+
+.ex-emom-hero {
+  gap: 12px;
+}
+
+/* Reps stepper (centrale, sotto il ring) --------------------------------- */
+.ex-emom-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 4px;
+  border-radius: 999px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.10));
+}
+.ex-emom-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surfaceElevated, rgba(255, 255, 255, 0.10));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  color: var(--color-primary, #FFF);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 120ms ease, transform 120ms ease;
+  padding: 0;
+}
+.ex-emom-btn:hover  { background: rgba(255, 255, 255, 0.18); }
+.ex-emom-btn:active { transform: scale(0.94); }
+.ex-emom-btn--inc {
+  background: var(--color-accent, #EAB308);
+  border-color: transparent;
+  color: #000;
+}
+.ex-emom-btn--inc:hover { background: var(--color-accent-2, #FDE047); }
+.ex-emom-btn:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+.ex-emom-count-box {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 76px;
+  justify-content: center;
+  color: var(--color-primary, #FFF);
+  font-variant-numeric: tabular-nums;
+}
+.ex-emom-count {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.ex-emom-count-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ex-emom-hint {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.55));
+  letter-spacing: 0.02em;
+  margin-top: -2px;
+  text-align: center;
+}
+.ex-emom-target b {
+  color: var(--color-accent, #EAB308);
+  font-weight: 800;
+}
+.ex-emom--met .ex-emom-count { color: var(--color-accent, #EAB308); }
+
+/* Cycles bar (1..N minutes) ---------------------------------------------- */
+.ex-emom-cycles {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.ex-emom-cyc {
+  width: 22px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.10));
+  transition: background 200ms ease, box-shadow 200ms ease;
+}
+.ex-emom-cyc--done {
+  background: var(--color-primary, #FFF);
+}
+.ex-emom-cyc--fail {
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+}
+.ex-emom-cyc--on {
+  background: var(--color-accent, #EAB308);
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-emom-cyc,
+  .ex-emom-btn { transition: none; }
+}
+
+/* ==========================================================================
+   T2.6 — AMRAP (timer digitale grande + round counter + ex list)
+   ==========================================================================
+   NO ring: display digitale mm:ss (tabular-nums) che sale fino a timeCapSec.
+   Round counter è la metrica primaria (numero grande centrale).
+   ========================================================================== */
+
+.ex-amrap-hero {
+  gap: 10px;
+}
+.ex-amrap-cap {
+  margin-left: auto;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.65));
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Round counter (big central) */
+.ex-amrap-count-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-primary, #FFF);
+}
+.ex-amrap-count {
+  font-size: 128px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.55) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ex-amrap-count-lbl {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.65));
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-top: -6px;
+}
+
+/* Digital timer + progress bar */
+.ex-amrap-timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: stretch;
+  padding-top: 4px;
+}
+.ex-amrap-progress {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.10));
+  overflow: hidden;
+  position: relative;
+}
+.ex-amrap-progress__fill {
+  height: 100%;
+  background: var(--color-accent, #EAB308);
+  border-radius: 3px;
+  transition: width 200ms linear;
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
+}
+.ex-amrap-time-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary, #FFF);
+  position: relative;
+}
+.ex-amrap-time {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.ex-amrap-time--cap {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.5));
+  font-weight: 700;
+}
+.ex-amrap-time-sep {
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.35));
+  font-size: 18px;
+  font-weight: 700;
+}
+.ex-amrap-time-rem {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-textMuted, rgba(255, 255, 255, 0.45));
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.ex-amrap--done .ex-amrap-progress__fill {
+  background: var(--color-success, #34D399);
+  box-shadow: none;
+}
+.ex-amrap--done .ex-amrap-time {
+  color: var(--color-success, #34D399);
+}
+
+/* Exercise list (giro corrente, tap-to-log) */
+.ex-amrap-ex-list {
+  margin: 12px 18px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ex-amrap-ex-list .ex-cx__initials {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--color-primary, #FFF);
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+.ex-amrap-ex-list .ex-cx__cat {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--color-primary, #FFF);
+  line-height: 1.1;
+}
+
+/* CTA bar: 3 pulsanti (skip · pausa · chiudi giro) — layout stretto */
+.ex-amrap-ctrls {
+  gap: 8px;
+}
+.ex-amrap-ctrls .ex-tab-btn--skip {
+  flex: 0 1 auto;
+  min-width: 68px;
+}
+.ex-amrap-ctrls .ex-tab-btn--pause {
+  flex: 1 1 0;
+}
+.ex-amrap-ctrls .ex-amrap-close-round {
+  background: var(--color-accent, #EAB308);
+  color: #000;
+  border-color: transparent;
+  flex: 2 1 0;
+  box-shadow: 0 10px 30px rgba(234, 179, 8, 0.35);
+}
+.ex-amrap-ctrls .ex-amrap-close-round:hover { background: var(--color-accent-2, #FDE047); }
+.ex-amrap-ctrls .ex-tab-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-amrap-progress__fill { transition: none; }
+}
+
+/* =========================================================================
+   T2.4 · Rest overlay v2 — countdown gigante, ±15/±30, rest-stats, rest-nx
+   Palette bianco + accent giallo. Gradient di urgenza giallo → arancione
+   (--color-accent-2 → --color-warning). Nessun hue viola in nessun stop.
+   ========================================================================= */
+.ex-rest-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: radial-gradient(
+      900px 700px at 50% -10%,
+      rgba(234, 179, 8, 0.05),
+      transparent 55%
+    ),
+    var(--color-background, #000);
+  color: var(--color-primary, #FFF);
+  padding: 0 0 calc(env(safe-area-inset-bottom, 0px) + 4px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  animation: exRestOverlayIn 200ms ease-out;
+}
+.ex-rest-overlay::-webkit-scrollbar { display: none; }
+@keyframes exRestOverlayIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ex-rest-hd {
+  padding: calc(env(safe-area-inset-top, 0px) + 18px) 20px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ex-rest-lbl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent, #EAB308);
+}
+.ex-rest-lbl__dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent, #EAB308);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.20);
+  flex: 0 0 auto;
+}
+.ex-rest-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--color-surface, #151518);
+  color: var(--color-textSecondary, #8E8E93);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.06));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.ex-rest-close:hover { color: var(--color-primary, #FFF); }
+.ex-rest-close:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* Countdown gigante 128px, gradient bianco → grigio. Urgente = giallo → arancio. */
+.ex-rest-num {
+  text-align: center;
+  padding: 6px 18px 8px;
+  position: relative;
+}
+.ex-rest-num__v {
+  font-size: 128px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #FFF 0%, #A1A1A6 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: transform 220ms ease, filter 220ms ease;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35));
+}
+.ex-rest-num[data-urgent="1"] .ex-rest-num__v {
+  background: linear-gradient(180deg,
+    var(--color-accent-2, #FDE047) 0%,
+    var(--color-accent, #EAB308) 50%,
+    var(--color-warning, #D97706) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(234, 179, 8, 0.45));
+  animation: exRestUrgentPulse 900ms ease-in-out infinite;
+}
+@keyframes exRestUrgentPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}
+.ex-rest-num[data-paused="1"] .ex-rest-num__v { opacity: 0.55; }
+.ex-rest-num__u {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-textSecondary, #8E8E93);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-top: -2px;
+}
+
+.ex-rest-track {
+  margin: 6px 20px 14px;
+  height: 6px;
+  background: var(--color-surfaceActive, #1F1F23);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ex-rest-track__f {
+  height: 100%;
+  background: var(--color-accent, #EAB308);
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.45);
+  transition: width 220ms linear;
+}
+
+/* Shortcut ±15/±30 */
+.ex-rest-adj {
+  display: flex;
+  gap: 8px;
+  padding: 0 18px 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ex-rest-adj__b {
+  background: var(--color-surface, #151518);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  color: var(--color-primary, #FFF);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font: 700 13px 'Inter', system-ui, sans-serif;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background-color 120ms ease, transform 120ms ease, border-color 120ms ease;
+  min-width: 62px;
+  text-align: center;
+}
+.ex-rest-adj__b:hover { background: var(--color-surfaceElevated, #1F1F23); }
+.ex-rest-adj__b:active { transform: translateY(1px); }
+.ex-rest-adj__b--minus { color: var(--color-textSecondary, #8E8E93); }
+.ex-rest-adj__b:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 2px;
+}
+
+/* Rest stats */
+.ex-rest-stats {
+  margin: 0 18px 12px;
+  padding: 14px;
+  background: var(--color-surface, #0C0C0E);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.06));
+  border-radius: 18px;
+  display: flex;
+  gap: 0;
+}
+.ex-rest-stat {
+  flex: 1;
+  text-align: left;
+  padding-right: 12px;
+  min-width: 0;
+}
+.ex-rest-stat + .ex-rest-stat {
+  border-left: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  padding-left: 14px;
+}
+.ex-rest-stat__v {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ex-rest-stat__v--pr { color: var(--color-accent, #EAB308); }
+.ex-rest-stat__u {
+  font-size: 12px;
+  color: var(--color-textSecondary, #8E8E93);
+  font-weight: 600;
+  margin-left: 4px;
+}
+.ex-rest-stat__l {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--color-textSecondary, #8E8E93);
+  margin-top: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Rest next-up card (ExerciseIdentity size='sm') */
+.ex-rest-nx {
+  margin: 0 18px 12px;
+  padding: 14px;
+  background: var(--color-surface, #0C0C0E);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.06));
+  border-radius: 18px;
+}
+.ex-rest-nx__lbl {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-textSecondary, #8E8E93);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ex-rest-nx__lbl::before {
+  content: "→";
+  color: var(--color-accent, #EAB308);
+  font-weight: 800;
+}
+.ex-rest-nx__row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.ex-rest-nx__identity {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ex-rest-nx__identity > * { max-width: 100%; }
+.ex-rest-nx__info { flex: 1; min-width: 0; }
+.ex-rest-nx__name {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.015em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-primary, #FFF);
+}
+.ex-rest-nx__meta {
+  font-size: 12px;
+  color: var(--color-textSecondary, #8E8E93);
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ex-rest-nx__meta b {
+  color: var(--color-primary, #FFF);
+  font-weight: 700;
+}
+.ex-rest-nx__sep { color: var(--color-textSecondary, #5B5B60); }
+.ex-rest-nx--end .ex-rest-nx__name {
+  font-size: 14px;
+  color: var(--color-textSecondary, #8E8E93);
+  font-weight: 600;
+}
+
+/* Skip CTA */
+.ex-rest-cta {
+  margin-top: auto;
+  padding: 8px 18px calc(env(safe-area-inset-bottom, 0px) + 18px);
+}
+.ex-rest-cta__b {
+  width: 100%;
+  background: var(--color-primary, #FFF);
+  color: #000;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px;
+  font: 800 15px 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+.ex-rest-cta__b:hover { background: var(--color-primaryHover, #F5F5F7); }
+.ex-rest-cta__b:active { transform: translateY(1px); }
+.ex-rest-cta__b:focus-visible {
+  outline: 2px solid var(--color-accent, #EAB308);
+  outline-offset: 3px;
+}
+
+/* Reduced motion: elimina pulse countdown urgente e transizioni overlay. */
+@media (prefers-reduced-motion: reduce) {
+  .ex-rest-overlay { animation: none; }
+  .ex-rest-num[data-urgent="1"] .ex-rest-num__v { animation: none; transform: none; }
+  .ex-rest-num__v,
+  .ex-rest-track__f,
+  .ex-rest-close,
+  .ex-rest-adj__b,
+  .ex-rest-cta__b { transition: none; }
+}

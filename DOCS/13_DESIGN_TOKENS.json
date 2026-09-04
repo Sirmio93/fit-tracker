@@ -1,15 +1,18 @@
 {
   "$meta": {
     "name": "Fit Tracker PWA — Design Tokens",
-    "version": "1.1.0",
-    "phase": "Fase 7 (v1.0.0) + estensione AMOLED per Fase 8 (v1.1.0)",
+    "version": "1.2.0",
+    "phase": "Fase 7 (v1.0.0) + AMOLED (v1.1.0) + palette Apple Fitness+ (v1.2.0, T0.1 · 2026-08-14)",
     "sources": [
       "DOCS/10_NEW_DESIGN.md (Blueprint v2)",
       "DOCS/11_HI_FI_MOCKUPS.md",
-      "DOCS/12_COMPONENT_TREE.md"
+      "DOCS/12_COMPONENT_TREE.md",
+      "PROGETTO_MOCKUP/tasks/T0_foundation.md (T0.1)",
+      "Desktop/fit-tracker-create-workout-mockup.html (:root reference)"
     ],
     "description": "Unica fonte della verità per tutti i valori grafici del progetto. Ogni componente deve consumare esclusivamente questi token: nessun valore hardcoded è ammesso.",
-    "themeStrategy": "I token colore espongono coppie {light, dark}. Il tema attivo seleziona la variante corretta in fase di applicazione (CSS custom properties o mapping JS)."
+    "themeStrategy": "I token colore espongono coppie {light, dark}. Il tema attivo seleziona la variante corretta in fase di applicazione (CSS custom properties o mapping JS).",
+    "paletteNote": "T0.1 (2026-08-14): rimozione del viola come primary. Primary = bianco puro (#FFFFFF), accent unico = giallo caldo #EAB308. Zero toni H=260-290° nel rendering. Verificato tramite sandbox/snap-palette-audit.mjs."
   },
 
   "colors": {
@@ -18,9 +21,14 @@
     "surfaceElevated":  { "light": "#FFFFFF",  "dark": "#1C1C1F" },
     "surfaceActive":    { "light": "#EDEDF0",  "dark": "#242428" },
 
-    "primary":          { "light": "#7C3AED",  "dark": "#8B5CF6" },
-    "primaryHover":     { "light": "#6D28D9",  "dark": "#7C3AED" },
-    "secondary":        { "light": "#5B21B6",  "dark": "#A78BFA" },
+    "primary":          { "light": "#FFFFFF",  "dark": "#FFFFFF" },
+    "primaryHover":     { "light": "#F5F5F7",  "dark": "#F5F5F7" },
+    "secondary":        { "light": "#EAB308",  "dark": "#EAB308" },
+
+    "accent":           { "light": "#EAB308",  "dark": "#EAB308" },
+    "accent2":          { "light": "#FDE047",  "dark": "#FDE047" },
+    "accentSoft":       { "light": "rgba(234,179,8,0.14)", "dark": "rgba(234,179,8,0.14)" },
+    "accentLine":       { "light": "rgba(234,179,8,0.45)", "dark": "rgba(234,179,8,0.45)" },
 
     "success":          { "light": "#059669",  "dark": "#10B981" },
     "warning":          { "light": "#D97706",  "dark": "#F59E0B" },
@@ -30,6 +38,7 @@
     "textPrimary":      { "light": "#0A0A0B",  "dark": "#F5F5F7" },
     "textSecondary":    { "light": "#5A5A62",  "dark": "#A1A1AA" },
     "textDisabled":     { "light": "#B4B4BA",  "dark": "#52525B" },
+    "textOnPrimary":    { "light": "#000000",  "dark": "#000000" },
 
     "border":           { "light": "#E4E4E7",  "dark": "#2A2A2E" },
     "divider":          { "light": "#EEEEEF",  "dark": "#1F1F22" },
@@ -38,11 +47,11 @@
     "glass":            { "light": "rgba(255,255,255,0.72)", "dark": "rgba(20,20,22,0.72)" },
 
     "gradientPrimary": {
-      "value": "linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)",
-      "description": "Hero e CTA dominanti. Uso limitato: max un elemento visibile per schermata."
+      "value": "linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%)",
+      "description": "Hero e CTA dominanti (pill bianca su surface scura, look Apple Fitness+). Uso limitato: max un elemento visibile per schermata."
     },
     "gradientWorkout": {
-      "value": "linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)",
+      "value": "linear-gradient(135deg, #FFFFFF 0%, #EAB308 100%)",
       "description": "Sessione attiva / allenamento in corso. Solo su banner WorkoutExecScreen e OpenSessionsBanner."
     },
     "gradientSuccess": {
@@ -52,6 +61,14 @@
     "gradientRecord": {
       "value": "linear-gradient(135deg, #F59E0B 0%, #DC2626 100%)",
       "description": "Personal Record raggiunto. Uso eccezionale (max 1 istanza)."
+    },
+    "gradientCta": {
+      "value": "linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%)",
+      "description": "CTA primary (Salva, Conferma, Chiudi giro). Pill bianca su nero, testo #000."
+    },
+    "gradientAccent": {
+      "value": "linear-gradient(135deg, #EAB308 0%, #FDE047 100%)",
+      "description": "CTA accent per elementi a tempo (Tabata start/stop, timer aggiuntivi). Usato con parsimonia."
     }
   },
 
@@ -127,7 +144,7 @@
     "lg":       "0 10px 24px rgba(0,0,0,0.12)",
     "xl":       "0 20px 48px rgba(0,0,0,0.16)",
     "glass":    "0 8px 32px rgba(0,0,0,0.12)",
-    "floating": "0 12px 40px rgba(124,58,237,0.24)"
+    "floating": "0 12px 40px rgba(0,0,0,0.28)"
   },
 
   "elevation": {
@@ -243,5 +260,15 @@
     }
   },
 
-  "$deprecated": {}
+  "$deprecated": {
+    "colors.primary_legacy_purple": {
+      "removedIn": "1.2.0 (T0.1, 2026-08-14)",
+      "previousValues": {
+        "primary":       { "light": "#7C3AED", "dark": "#8B5CF6" },
+        "primaryHover":  { "light": "#6D28D9", "dark": "#7C3AED" },
+        "secondary":     { "light": "#5B21B6", "dark": "#A78BFA" }
+      },
+      "reason": "Direzione Apple Fitness+ (bianco + giallo). Nessun tono viola/magenta ammesso nel rendering. Fonte: memory/feedback_no_purple.md, PROGETTO_MOCKUP/tasks/T0_foundation.md#T0.1."
+    }
+  }
 }

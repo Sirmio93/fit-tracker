@@ -609,3 +609,8 @@
 @media (min-width: 1440px) {
   .home--v10 { max-width: 960px; }
 }
+
+/* Light theme: eyebrow label uses accent (yellow) — primary (#FFFFFF) invisible on light card bg */
+[data-theme="light"] .home10-workoutToday .c-todayCard__eyebrow {
+  color: var(--color-accent);
+}

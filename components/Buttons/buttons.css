@@ -138,6 +138,19 @@
 }
 @keyframes c-btn-spin { to { transform: rotate(360deg); } }
 
+/* Light theme: ghost button text uses icon color; CTA uses dark text on white gradient */
+[data-theme="light"] .c-btn--ghost {
+  --_fg: var(--color-icon);
+}
+[data-theme="light"] .c-btn--ghost.is-loading::after {
+  border-color: color-mix(in srgb, var(--color-icon) 30%, transparent);
+  border-top-color: var(--color-icon);
+}
+[data-theme="light"] .c-btn--cta {
+  --_fg: var(--color-textPrimary);
+  color: var(--color-textPrimary);
+}
+
 /* ---- Fab ------------------------------------------------------------------- */
 .c-fab {
   width: var(--touch-fab);
