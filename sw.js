@@ -1,4 +1,4 @@
-const CACHE = 'fit-tracker-v14-sprint920';
+const CACHE = 'fit-tracker-v19';
 const ASSETS = [
     './',
     './index.html',
@@ -89,6 +89,33 @@ const ASSETS = [
     './components/Profile/SettingsRow.js',
     './components/Profile/PreferenceSwitch.js',
 
+    './components/Execution/execution-shell.css',
+    './components/Execution/ExecutionShell.js',
+    './components/Execution/SingleExercise.js',
+    './components/Execution/CircuitRound.js',
+    './components/Execution/SetPicker.js',
+    './components/Execution/BigStepper.js',
+    './components/Execution/CountdownRing.js',
+    './components/Execution/AmrapTimer.js',
+    './components/Execution/EmomTimer.js',
+    './components/Execution/TabataTimer.js',
+    './components/Execution/RestOverlay.js',
+    './components/Execution/NeighborPeek.js',
+    './components/Execution/PRBanner.js',
+
+    './components/CreateWorkout/create-workout.css',
+    './components/CreateWorkout/CreateWorkoutShell.js',
+    './components/CreateWorkout/BlockCard.js',
+    './components/CreateWorkout/BlockActions.js',
+    './components/CreateWorkout/BlockConfigSheet.js',
+    './components/CreateWorkout/BlockTypeIcons.js',
+    './components/CreateWorkout/ExercisePickerSheet.js',
+    './components/CreateWorkout/HeroMeta.js',
+    './components/CreateWorkout/WeekDayNav.js',
+
+    './data/blockTypes.js',
+    './data/exercisesCatalog.json',
+    './services/catalogService.js',
     './services/exerciseAssetService.js',
     './utils/exerciseSlug.js',
     './data/exerciseAssets.js'

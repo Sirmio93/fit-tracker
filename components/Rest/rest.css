@@ -87,7 +87,7 @@
 /* Stato paused: pulsante enfatizzato (fondo primary tenue) + ring attenuato */
 .c-circularRestTimer[data-paused="true"] .c-circularRestTimer__center {
   background: color-mix(in oklab, var(--color-primary) 18%, var(--color-surfaceElevated));
-  color: var(--color-primary);
+  color: var(--color-icon);
 }
 .c-circularRestTimer[data-paused="true"] .c-ring__fill {
   opacity: 0.55;

@@ -867,6 +867,14 @@
   border-color: var(--color-primary);
 }
 
+[data-theme="light"] .cw-nav-day--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+[data-theme="light"] .cw-nav-day--active:hover {
+  border-color: var(--color-accent);
+}
+
 .cw-nav-day--add {
   opacity: 0.55;
   background: transparent;
@@ -1643,6 +1651,11 @@
 
 .cw-fchip--on:hover {
   color: var(--color-textOnPrimary);
+}
+
+[data-theme="light"] .cw-fchip--on {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .cw-fchip__cnt {

@@ -150,6 +150,12 @@
   --_fg: var(--color-textPrimary);
   color: var(--color-textPrimary);
 }
+[data-theme="light"] .c-fab {
+  background: var(--color-accent);
+}
+[data-theme="light"] .c-fab:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--color-accent) 90%, black);
+}
 
 /* ---- Fab ------------------------------------------------------------------- */
 .c-fab {

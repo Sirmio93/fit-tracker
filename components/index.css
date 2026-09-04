@@ -26,3 +26,5 @@
 @import "./Feedback/feedback.css";
 @import "./Profile/profile.css";
 @import "./Home/home.css";
+@import "./Execution/execution-shell.css";
+@import "./CreateWorkout/create-workout.css";

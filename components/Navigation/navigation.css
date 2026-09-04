@@ -103,7 +103,8 @@
   box-shadow: var(--shadow-focus-sm);
 }
 
-/* Light theme: active tab uses accent (yellow) — primary (#FFFFFF) is invisible on light glass bg */
+/* Light theme: active tab uses textPrimary — primary (#FFFFFF) is invisible on light glass;
+   accent (#EAB308) fails WCAG AA at 12px (contrast ~1.9:1 on white). */
 [data-theme="light"] .c-bottomNav__item.is-active {
-  color: var(--color-accent);
+  color: var(--color-textPrimary);
 }

@@ -201,6 +201,12 @@
   /* Background base della scena focus-single (workout-v2, rest-v2).
      Precedentemente hardcoded come fallback letterale `#0A0A0B`. */
   --color-backgroundBase: #0A0A0B;
+
+  /* Altezza della bottom nav: fallback CSS usato solo nel primo frame, prima che
+     syncNavHeight() in app.js misuri il valore reale con getBoundingClientRect().
+     64px è un stima conservativa (56px strutturali + margine per safe-area minima).
+     Non usare questo valore direttamente — dipende da syncNavHeight(). */
+  --layout-nav-height: 64px;
 }
 
 /* [data-theme="light"] — palette T0.1: bianco primary + giallo accent.
@@ -229,6 +235,7 @@
 
   --color-textPrimary:     #0A0A0B;
   --color-textSecondary:   #5A5A62;
+  --color-textMuted:       #7A7A82;
   --color-textDisabled:    #B4B4BA;
   --color-textOnPrimary:   #000000;
 
@@ -240,6 +247,8 @@
 
   --color-overlay:         rgba(0,0,0,0.50);
   --color-glass:           rgba(255,255,255,0.72);
+
+  --color-danger:          #DC2626;
 }
 
 /* ==========================================================================
@@ -271,11 +280,14 @@
 
   --color-textPrimary:     #F5F5F7;
   --color-textSecondary:   #A1A1AA;
+  --color-textMuted:       #8E8E93;
   --color-textDisabled:    #52525B;
   --color-textOnPrimary:   #000000;
 
   --color-icon:      #FFFFFF;
   --color-iconMuted: #A1A1AA;
+
+  --color-danger:          #EF4444;
 }
 
 /* [data-theme="dark"] — base dark (surfaces con leggera sfumatura grigia) */

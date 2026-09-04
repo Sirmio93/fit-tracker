@@ -195,6 +195,30 @@ async function migrateDedupExercises() {
 const TAB_MIGRATION = { schede: 'home', stats: 'progressi', data: 'profilo' };
 let __bottomNavMounted = false;
 let __viewDelegated = false;
+
+/* Misura l'altezza reale della bottom nav (include safe-area-inset-bottom
+   perché .c-bottomNav ha padding-bottom: calc(4px + env(safe-area-inset-bottom)))
+   e la propaga come --layout-nav-height su :root.
+   La shell di esecuzione usa questa variabile per calcolare la propria altezza
+   senza valori hardcoded. ResizeObserver aggiorna automaticamente al cambio
+   di orientazione o dimensione del viewport. */
+let __navResizeObs = null;
+function syncNavHeight() {
+    const nav = document.getElementById('bottomNavRoot');
+    if (!nav || nav.style.display === 'none') return;
+    const h = nav.getBoundingClientRect().height;
+    if (h > 0) {
+        document.documentElement.style.setProperty('--layout-nav-height', h + 'px');
+    }
+}
+function initNavHeightSync() {
+    syncNavHeight();
+    if (!__navResizeObs && typeof ResizeObserver !== 'undefined') {
+        __navResizeObs = new ResizeObserver(syncNavHeight);
+        const nav = document.getElementById('bottomNavRoot');
+        if (nav) __navResizeObs.observe(nav);
+    }
+}
 function mountViewDelegation() {
     if (__viewDelegated) return;
     const view = document.getElementById('view');
@@ -404,10 +428,12 @@ function render() {
             bnRoot.innerHTML = window.UI.BottomNavigation({ active: S.tab });
             window.UI.mountBottomNavigation(bnRoot.firstElementChild, function (id) { go(id); });
             __bottomNavMounted = true;
+            initNavHeightSync();
         } else {
             window.UI.setActiveNavItem(bnRoot.firstElementChild, S.tab);
         }
         bnRoot.style.display = (S.tab === 'summary' || S.tab === 'create') ? 'none' : '';
+        syncNavHeight();
     }
     const createShellFn = function () {
         return (window.UI && typeof window.UI.renderCreateWorkoutShell === 'function')

@@ -1120,3 +1120,44 @@
 }
 @keyframes c-complete-spin { to { transform: rotate(360deg); } }
 
+
+/* ==========================================================================
+   Light theme fixes — primary (#FFFFFF) is invisible on theme-aware surfaces.
+   Immersive mode is always rendered over a dark scene background (--color-backgroundBase),
+   so overrides are scoped to :not(.c-wsh--immersive) where applicable.
+   ========================================================================== */
+
+/* WorkoutHeader round badge */
+[data-theme="light"] .c-workoutHeader__round {
+  background: color-mix(in oklab, var(--color-accent) 14%, transparent);
+  color: var(--color-accent);
+}
+
+/* WorkoutStickyHeader segment indicators (non-immersive only) */
+[data-theme="light"] .c-wsh:not(.c-wsh--immersive) .c-wsh__seg.is-done {
+  background: color-mix(in oklab, var(--color-accent) 50%, transparent);
+}
+[data-theme="light"] .c-wsh:not(.c-wsh--immersive) .c-wsh__seg.is-active {
+  background: var(--color-accent);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--color-accent) 55%, transparent);
+}
+
+/* WorkoutStickyHeader compact percentage */
+[data-theme="light"] .c-wsh:not(.c-wsh--immersive) .c-wsh__compactPct {
+  color: var(--color-accent);
+  background: color-mix(in oklab, var(--color-accent) 12%, transparent);
+}
+
+/* ExerciseHeroFocus equipment badge + set chip primary value */
+[data-theme="light"] .c-exerciseHeroFocus__equipment {
+  background: color-mix(in oklab, var(--color-accent) 14%, transparent);
+  color: var(--color-accent);
+}
+[data-theme="light"] .c-exerciseHeroFocus__setChip--primary .c-exerciseHeroFocus__setChipValue {
+  color: var(--color-accent);
+}
+
+/* WorkoutProgress percentage (standalone progress card) */
+[data-theme="light"] .c-workoutProgress__pct {
+  color: var(--color-accent);
+}

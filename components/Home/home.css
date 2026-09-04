@@ -70,7 +70,7 @@
   font-weight: var(--weight-bold);
   box-shadow:
     0 0 0 2px var(--color-background),
-    0 0 0 3px color-mix(in srgb, var(--color-primary) 32%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--color-accent) 55%, transparent),
     var(--shadow-sm);
 }
 .home10-hero .c-profileHeader__body { gap: 2px; }
@@ -121,10 +121,10 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-danger, #ef4444);
+  background: var(--color-danger);
   box-shadow:
     0 0 0 2px var(--color-surface),
-    0 0 8px color-mix(in srgb, var(--color-danger, #ef4444) 60%, transparent);
+    0 0 8px color-mix(in srgb, var(--color-danger) 60%, transparent);
 }
 .home10-bell:hover  { background: var(--color-surfaceActive); box-shadow: var(--shadow-md); }
 .home10-bell:active { transform: scale(0.96); }
@@ -169,7 +169,7 @@
 .home10-workoutToday .c-todayCard > * { position: relative; z-index: 1; }
 
 .home10-workoutToday .c-todayCard__eyebrow {
-  color: var(--color-primary);
+  color: var(--color-accent);
   letter-spacing: 0.1em;
   font-size: 11px;
   font-weight: var(--weight-bold);
@@ -212,7 +212,7 @@
 .home10-workoutToday .c-todayCard__cta:hover {
   transform: translateY(-1px);
   box-shadow:
-    0 16px 48px rgba(124,58,237,0.32),
+    0 16px 48px color-mix(in oklab, var(--color-accent) 35%, transparent),
     0 0 0 8px color-mix(in srgb, var(--color-primary) 12%, transparent),
     inset 0 1px 0 color-mix(in srgb, #fff 24%, transparent);
 }
@@ -530,13 +530,11 @@
     transform   var(--duration-fast) var(--curve-default),
     box-shadow  var(--duration-fast) var(--curve-default);
 }
-.c-todayCard__cta:hover  { transform: translateY(-1px); box-shadow: 0 14px 44px rgba(124,58,237,0.28); }
+.c-todayCard__cta:hover  { transform: translateY(-1px); box-shadow: 0 14px 44px color-mix(in oklab, var(--color-accent) 35%, transparent); }
 .c-todayCard__cta:active { transform: translateY(0); box-shadow: var(--shadow-md); }
 .c-todayCard__cta:focus-visible {
   outline: none;
-  /* 32% invece del token --shadow-focus (24%): focus ring rinforzato per CTA
-     hero della Home. Lasciato letterale intenzionalmente. */
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 32%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 55%, transparent);
 }
 .c-todayCard__ctaIcon {
   display: inline-flex;

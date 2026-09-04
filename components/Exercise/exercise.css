@@ -373,7 +373,7 @@
   font-family: var(--font-primary, system-ui, sans-serif);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--color-primary, #FFF);
+  color: var(--color-icon);
   opacity: 0.75;
   line-height: 1;
   user-select: none;
