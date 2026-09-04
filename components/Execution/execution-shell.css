@@ -38,11 +38,11 @@
 }
 
 /* Reset: annulla il global `button { background: rgba(255,255,255,.65) }` di
-   styles.css dentro la shell di esecuzione. Usiamo `:where(button)` per
-   specificità 0-1-0 (solo il contesto .ex-shell contribuisce), così i
-   selettori componente .ex-cx, .ex-cta-bar .ex-cta ecc. (anche 0-1-0 o più)
-   vincolano il loro background senza essere oscurati dal reset. */
-.ex-shell :where(button) {
+   styles.css dentro la shell. Il `:not([class])` limita il reset ai bottoni
+   senza classe propria (icon-button non stilizzati) escludendo .c-completeSetBtn,
+   .ex-cta, .ex-topbar__x ecc. che gestiscono il proprio background.
+   `:where()` mantiene specificità 0 sul selettore pseudo-class. */
+.ex-shell :where(button:not([class])) {
   background: transparent;
   border: none;
   color: inherit;

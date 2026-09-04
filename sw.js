@@ -1,4 +1,4 @@
-const CACHE = 'fit-tracker-v19';
+const CACHE = 'fit-tracker-v22';
 const ASSETS = [
     './',
     './index.html',
@@ -151,7 +151,7 @@ self.addEventListener('fetch', e => {
                     caches.open(CACHE).then(c => c.put(req, copy));
                 }
                 return res;
-            }).catch(() => cached)
+            }).catch(() => cached ?? new Response('', { status: 503, statusText: 'Offline' }))
         )
     );
 });

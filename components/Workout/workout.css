@@ -1020,6 +1020,18 @@
   animation: c-completeSet-spin var(--duration-slow) linear infinite;
 }
 @keyframes c-completeSet-spin { to { transform: rotate(360deg); } }
+
+/* In light mode il gradient bianco→giallo si mimetizza su background chiaro.
+   Usiamo accent pieno con testo scuro: massimo contrasto e chiarezza. */
+[data-theme="light"] .c-completeSetBtn {
+  background: var(--color-accent);
+  color: var(--color-textOnPrimary);
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
+[data-theme="light"] .c-completeSetBtn:hover {
+  box-shadow: 0 12px 32px color-mix(in oklab, var(--color-accent) 45%, transparent);
+}
+
 .c-completeSetBtn.is-done {
   background: var(--gradient-success, linear-gradient(135deg, var(--color-success), color-mix(in oklab, var(--color-success) 70%, var(--color-primary))));
   box-shadow: 0 8px 24px color-mix(in oklab, var(--color-success) 26%, transparent);

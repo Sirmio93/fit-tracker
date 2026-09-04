@@ -14,38 +14,45 @@
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  background: var(--color-glass);
-  backdrop-filter: blur(var(--blur-navigation));
-  -webkit-backdrop-filter: blur(var(--blur-navigation));
+  /* Sfondo solido — niente backdrop-filter: su Android Chrome il blur su
+     position:fixed causa repaint ad ogni frame di scroll (scroll jank grave).
+     will-change:transform promuove la nav al suo layer compositor isolato,
+     così lo scroll del contenuto non la coinvolge visivamente. */
+  background: var(--color-surface);
   border-top: 1px solid var(--color-border);
-  border-radius: var(--radius-large) var(--radius-large) 0 0;
-  padding: var(--space-4) var(--space-8) calc(var(--space-4) + var(--safe-bottom));
+  /* Border-radius rimosso: bordi pieni riducono l'area di paint e tolgono
+     spessore visivo percepito. */
+  padding: 0 var(--space-8) var(--safe-bottom);
   z-index: var(--z-navigation);
-  box-shadow: var(--shadow-glass);
+  will-change: transform;
 }
 .c-bottomNav__item {
   position: relative;
   flex: 1;
-  min-height: var(--touch-recommended);
+  /* Ridotto da touch-recommended (48px) a 44px: ancora accessibile su S25
+     ma visivamente più compatto. */
+  min-height: 44px;
+  padding: var(--space-4) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
+  gap: 2px;
   background: transparent;
   border: none;
   color: var(--color-textSecondary);
   font-family: var(--font-primary);
-  font-size: var(--type-small-size);
+  font-size: 10px;
   font-weight: var(--weight-medium);
   cursor: pointer;
   transition:
     color     var(--duration-fast) var(--curve-default),
     transform var(--duration-fast) var(--curve-default);
 }
-.c-bottomNav__item .c-icon { width: var(--icon-medium); height: var(--icon-medium); }
-.c-bottomNav__item.is-active { color: var(--color-primary); }
-.c-bottomNav__item:active    { transform: scale(0.96); }
+/* Icone leggermente più piccole per bilanciare il layout compatto */
+.c-bottomNav__item .c-icon { width: 20px; height: 20px; }
+.c-bottomNav__item.is-active { color: var(--color-accent); }
+.c-bottomNav__item:active    { transform: scale(0.94); }
 .c-bottomNav__item:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) calc(var(--opacity-focus) * 100%), transparent) inset;
@@ -103,8 +110,12 @@
   box-shadow: var(--shadow-focus-sm);
 }
 
-/* Light theme: active tab uses textPrimary — primary (#FFFFFF) is invisible on light glass;
-   accent (#EAB308) fails WCAG AA at 12px (contrast ~1.9:1 on white). */
+/* Light theme: l'accent giallo (#EAB308) a 10px su bianco ha contrasto ~1.9:1
+   (WCAG AA richiede 4.5:1 per testo piccolo). Usiamo textPrimary (#0A0A0B). */
 [data-theme="light"] .c-bottomNav__item.is-active {
   color: var(--color-textPrimary);
+}
+[data-theme="light"] .c-bottomNav {
+  background: var(--color-surface);
+  box-shadow: 0 -1px 0 var(--color-border);
 }

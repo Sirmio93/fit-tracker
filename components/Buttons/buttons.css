@@ -138,7 +138,14 @@
 }
 @keyframes c-btn-spin { to { transform: rotate(360deg); } }
 
-/* Light theme: ghost button text uses icon color; CTA uses dark text on white gradient */
+/* Light theme overrides.
+   In dark mode --color-primary=#FFF (visible on dark bg).
+   In light mode bg is white too → primary buttons must use accent (#EAB308). */
+[data-theme="light"] .c-btn--primary {
+  --_bg:   var(--color-accent);
+  --_bg-h: color-mix(in oklab, var(--color-accent) 90%, black);
+  --_fg:   var(--color-textOnPrimary);
+}
 [data-theme="light"] .c-btn--ghost {
   --_fg: var(--color-icon);
 }
