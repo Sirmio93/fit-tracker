@@ -1001,10 +1001,12 @@ body.tabAnim #view>* {
     padding: 0 var(--space-16);
     animation: workoutV4-fadeSlide var(--duration-normal) var(--curve-default) both;
 }
-.workoutV4--focus { gap: var(--space-20); }
+/* animation:none rimuove il transform persist che invaliderebbe il containing-block
+   di position:fixed su .ex-shell (transform≠none su antenato → shell invisible). */
+.workoutV4--focus { gap: var(--space-20); animation: none; }
 @keyframes workoutV4-fadeSlide {
     from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: none; }
 }
 
 .workoutStatusBar {
