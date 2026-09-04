@@ -206,7 +206,7 @@ function renderBlockCard(block, exercises, ui, blockIndex, totalBlocks) {
     return renderExerciseRow(block, ex, target);
   }).join('');
 
-  const showAddEx = type !== 'Single';
+  const showAddEx = type !== 'Single' || exerciseIds.length === 0;
   const addExHtml = showAddEx
     ? '<button type="button" class="cw-add-ex" data-action="create-block-add-exercise" data-block-id="' + esc(block.id) + '">+ Aggiungi esercizio</button>'
     : '';
