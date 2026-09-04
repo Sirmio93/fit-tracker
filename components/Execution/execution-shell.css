@@ -19,20 +19,26 @@
    ========================================================================== */
 
 /* ---- Root shell ---------------------------------------------------------- */
-/* Layout flex rigido a 3 zone: top pinned · body scrollabile · cta pinned.
-   Il SHELL non scrolla: solo .ex-body scrolla internamente.
-   Questo garantisce che .ex-cta-bar sia sempre visibile in fondo alla shell,
-   senza dipendere da `position:sticky` (che non funziona se il contenuto è
-   più corto dello spazio disponibile nel container che scrolla). */
+/* position:fixed rimuove la shell dal document flow di .app (che ha
+   padding-top:10px e padding-bottom:160px).
+   top:0/left:0/right:0 = viewport completo.
+   bottom: var(--layout-nav-height) = esattamente dove inizia la navbar.
+   Non dipende da dvh/vh né dall'URL bar di Chrome: position:fixed è sempre
+   relativo al visual viewport, indipendente da padding del parent. */
 .ex-shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--layout-nav-height, 64px);
+  max-width: 820px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* --layout-nav-height misurata da syncNavHeight() in app.js. */
-  height: calc(100vh  - var(--layout-nav-height, 64px));
-  height: calc(100dvh - var(--layout-nav-height, 64px));
-  overflow: hidden;   /* il clip è qui; lo scroll è in .ex-body */
+  overflow: hidden;
   background: var(--color-background);
   color: var(--color-textPrimary);
+  z-index: 10; /* sopra al contenuto pagina, sotto alla nav (z:300) e overlay (z:400+) */
 }
 
 /* Reset: annulla il global `button { background: rgba(255,255,255,.65) }` di
