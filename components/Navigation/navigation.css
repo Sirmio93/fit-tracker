@@ -14,17 +14,12 @@
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  /* Sfondo solido — niente backdrop-filter: su Android Chrome il blur su
-     position:fixed causa repaint ad ogni frame di scroll (scroll jank grave).
-     will-change:transform promuove la nav al suo layer compositor isolato,
-     così lo scroll del contenuto non la coinvolge visivamente. */
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
-  /* Border-radius rimosso: bordi pieni riducono l'area di paint e tolgono
-     spessore visivo percepito. */
-  padding: 0 var(--space-8) var(--safe-bottom);
+  /* safe-bottom cappata: senza viewport-fit=cover il browser gestisce già la
+     gesture bar; il min() evita che env() gonfi la navbar su Android. */
+  padding: 0 var(--space-8) min(var(--safe-bottom), 16px);
   z-index: var(--z-navigation);
-  will-change: transform;
 }
 .c-bottomNav__item {
   position: relative;
